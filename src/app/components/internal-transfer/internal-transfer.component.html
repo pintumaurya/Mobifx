@@ -1,0 +1,334 @@
+<main>
+  <!-- live chat -->
+  <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+    data-auto-event-label="livechat">
+    <span class="live-chat-button__label">Live chat support</span>
+  </button>
+  <!-- login box -->
+  <section class="login internal-trasfer pb-3">
+    <div class="container">
+      <div class="row align-items-center main-box justify-content-center w-100 mx-0">
+        <!-- <div class="col-xl-6 col-md-6 col-lg-6">
+                            <div class="left-side">
+                            	<img data-src="images/login.webp" class="img-fluid lazyload" />
+                            </div>
+                        </div> -->
+        <div class="col-xl-12 col-md-12 col-lg-12 px-0">
+          <div class="internal-trasfer-wrapper">
+            <h1 class="heading">Requesting internal transfer</h1>
+            <div class="infotext">
+              You can transfer your funds to your Wallet, from it, or between
+              all your active real trading accounts—instantly. If the currencies
+              of the accounts mismatch, or only one of the accounts applies
+              fixed rate, the transfer amount will be converted to match the
+              destination account. Up-to-date conversion rate is applied to all
+              operations.
+            </div>
+          </div>
+          <form class="internal-request-form">
+            <div class="error-container-">
+              <div class="form-wrapper-inner">
+                <fieldset class="fl-grid">
+                  <div class="fl-grid-flex row">
+                    <div class="internal-transfer-row fl-grid-element">
+                      <div class="form-element-item">
+                        <label for="email" class="form-element-title">
+                          From
+                        </label>
+                        <div class="form-element-item plus-button" slot="account-selector" ishasbutton="true">
+                          <div class="form-element-multiselect">
+                            <input name="billingAddress" type="hidden" value="46357357" />
+                            <div tabindex="0" class="multiselect multiselect--above dropdown">
+                              <div class="multiselect__select"></div>
+                              <div class="multiselect-tags" id="dropdownMenuButton1" data-toggle="dropdown"
+                                aria-expanded="false" data-text="Please select">
+                                <div class="multiselect__tags-wrap" style="display: none"></div>
+                                <div class="multiselect__spinner" style="display: none"></div>
+                                <!-- <span class="multiselect__single">
+                                  <div class="account-selector-list-item">
+                                    <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                      ") + 1).slice(0,
+                                      2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                        ") + 1).slice(2)}}</span></div>
+                                    <span class="account-selector__number">{{item?.account_id}}</span>
+                                  </div>
+                                </span> -->
+                              </div>
+                              <div class="multiselect-content-wrapper dropdown-menu"
+                                aria-labelledby="dropdownMenuButton1" data-text="Please select">
+                                <!-- <div class="multiselect__content dropdown-menu" style="display: inline-block;"> -->
+                                <a *ngFor="let item of userAccount" class="multiselect__element dropdown-item">
+                                  <span class="multiselect__single" (click)="accountByFrom(item?.id)">
+                                    <div class="account-selector-list-item">
+                                      <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                        ") + 1).slice(0,
+                                        2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                          ") + 1).slice(2)}}</span></div>
+                                      <span class="account-selector__number">{{item?.account_id}}</span>
+                                    </div>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="form-element-multiselect">
+                          <select
+                            name="addressFrom"
+                            id="from_account"
+                            class="account-selector__select-tag form-element-unit from-account-select select2-hidden-accessible"
+                            tabindex="-1"
+                            aria-hidden="true"
+                          >
+                            <option value="46357357" disabled="">
+                              46357357
+                            </option>
+                            <option value="wallet:USD" disabled="">
+                              Wallet
+                            </option>
+                          </select>
+                          <span
+                            class="select2 select2-container select2-container--default"
+                            dir="ltr"
+                            data-select2-id="1"
+                            style="width: 318px"
+                            ><span class="selection"
+                              ><span
+                                class="select2-selection select2-selection--single"
+                                role="combobox"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                tabindex="0"
+                                aria-labelledby="select2-from_account-container"
+                                ><span
+                                  class="select2-selection__rendered"
+                                  id="select2-from_account-container"
+                                  role="textbox"
+                                  aria-readonly="true"
+                                  ><span
+                                    class="select2-selection__placeholder"
+                                  ></span></span
+                                ><span
+                                  class="select2-selection__arrow"
+                                  role="presentation"
+                                  ><b
+                                    role="presentation"
+                                  ></b></span></span></span
+                            ><span
+                              class="dropdown-wrapper"
+                              aria-hidden="true"
+                            ></span
+                          ></span>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="internal-transfer-row fl-grid-element">
+                      <div class="form-element-item">
+                        <label for="email" class="form-element-title">
+                          To
+                        </label>
+                        <div class="form-element-item plus-button" slot="account-selector" ishasbutton="true">
+                          <div class="form-element-multiselect">
+                            <input name="billingAddress" type="hidden" value="46357357" />
+                            <div tabindex="0" class="multiselect multiselect--above dropdown">
+                              <div class="multiselect__select"></div>
+                              <div class="multiselect-tags" id="dropdownMenuButton2" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <div class="multiselect__tags-wrap" style="display: none"></div>
+                                <div class="multiselect__spinner" style="display: none"></div>
+                                <!-- <span class="multiselect__single">
+                                  <div class="account-selector-list-item">
+                                    <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                      ") + 1).slice(0,
+                                      2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                        ") + 1).slice(2)}}</span></div>
+                                    <span class="account-selector__number">{{item?.account_id}}</span>
+                                  </div>
+                                </span> -->
+                              </div>
+                              <div class="multiselect-content-wrapper dropdown-menu"
+                                aria-labelledby="dropdownMenuButton2">
+                                <!-- <div class="multiselect__content dropdown-menu" style="display: inline-block;"> -->
+                                <a *ngFor="let item of userAccount" class="multiselect__element dropdown-item">
+                                  <span class="multiselect__single" (click)="accountByTo(item?.id)">
+                                    <div class="account-selector-list-item">
+                                      <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                        ") + 1).slice(0,
+                                        2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                          ") + 1).slice(2)}}</span></div>
+                                      <span class="account-selector__number">{{item?.account_id}}</span>
+                                    </div>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="form-element-multiselect">
+                          <select
+                            name="toTransferAccount"
+                            id="account"
+                            class="form-element-unit"
+                            data-select2-id="account"
+                            tabindex="-1"
+                            aria-hidden="true"
+                          >
+                            <option
+                              data-label="Please select"
+                              data-select2-id="3"
+                            ></option>
+                            <option
+                              value="wallet:USD"
+                              data-currency="USD"
+                              data-currency-label="$"
+                              data-label="Wallet"
+                              data-platform=""
+                              data-balance="$0.00"
+                            >
+                              Wallet
+                            </option>
+                            <option
+                              value="46357357"
+                              data-currency="USD"
+                              data-currency-label="$"
+                              data-label="46357357"
+                              data-platform="mt5"
+                              data-balance="$0.00"
+                            >
+                              46357357
+                            </option>
+                          </select>
+                          <span
+                            class="select2 select2-container select2-container--default"
+                            dir="ltr"
+                            data-select2-id="2"
+                            style="width: 318px"
+                            ><span class="selection"
+                              ><span
+                                class="select2-selection select2-selection--single"
+                                role="combobox"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                tabindex="0"
+                                aria-labelledby="select2-account-container"
+                                ><span
+                                  class="select2-selection__rendered"
+                                  id="select2-account-container"
+                                  role="textbox"
+                                  aria-readonly="true"
+                                  ><span class="select2-selection__placeholder"
+                                    >Please select</span
+                                  ></span
+                                ><span
+                                  class="select2-selection__arrow"
+                                  role="presentation"
+                                  ><b
+                                    role="presentation"
+                                  ></b></span></span></span
+                            ><span
+                              class="dropdown-wrapper"
+                              aria-hidden="true"
+                            ></span
+                          ></span>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="form-wrapper-inner footer">
+                <fieldset class="fl-grid">
+                  <legend class="fl-grid-flex row">
+                    <div class="fl-grid-element">
+                      <h2 class="heading">Amount to transfer</h2>
+                    </div>
+                  </legend>
+                  <div class="fl-grid-flex row">
+                    <div class="internal-transfer-row fl-grid-element">
+                      <div class="form-element-item error-container-amount">
+                        <label for="amount" class="form-element-title">
+                          Enter the amount to be deducted
+                        </label>
+
+                        <div class="form-element-input-block">
+                          <div class="form-element-prefix" id="from-account-currency"></div>
+                          <input type="number" name="amount" id="amount" [(ngModel)]="ammountOfTran"
+                            class="form-element-unit amount-field padding-left" autocomplete="off" />
+                        </div>
+                        <div class="form-element-post-title fixed-text-from" style="display: none">
+                          Fixed rate applied
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="internal-transfer-row fl-grid-element outgoing" id="amount-to-container"
+                      style="display: none">
+                      <div class="form-element-item">
+                        <label for="email" class="form-element-title">
+                          You will get after the conversion
+                        </label>
+
+                        <div class="form-element-input-block">
+                          <div class="form-element-prefix" id="to-account-currency"></div>
+                          <input readonly="" type="text" name="amount-to" id="amount-to" value=""
+                            class="form-element-unit _prefix to-amount-field padding-left" autocomplete="off" />
+                        </div>
+                        <div class="form-element-post-title fixed-text-to" style="display: none">
+                          Fixed rate applied
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset class="fl-grid">
+                  <div class="fl-grid-flex row">
+                    <div class="internal-transfer-row fl-grid-element">
+                      <div class="pin-code">
+                        <div class="pin-code-input">
+                          <div class="form-element-item">
+                            <label for="email" class="form-element-title">
+                              <div class="tooltip-hover">
+                                <div class="tooltip-hover-content right-center dark">
+                                  MobiFX PIN contains four digits. You can find
+                                  your MobiFX PIN in a welcome letter from
+                                  MobiFX
+                                </div>
+                                <span class="tooltip-hover-text">Enter your PIN</span>
+                                <img src="../../../assets/images/icon/information.png" class="tooltip-ico" />
+                              </div>
+                            </label>
+
+                            <div class="form-element-input-block pin-code-block">
+                              <input type="text" name="pinCode" id="pincode" maxlength="4" [(ngModel)]="code"
+                                placeholder="____" class="form-element-unit pincode-field placeholder"
+                                autocomplete="off" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pin-code-link-container">
+                          <a href="#" target="_blank" class="pin-code-link">
+                            Forgot your MobiFX PIN?
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="request-btn internal-transfer-row fl-grid-element fl-grid-flex">
+                      <button type="submit" name="request" id="request" class="btn btn-blue internal-transfer-btn"
+                        (click)="internalTransferSumbit()">
+                        Submit request
+                      </button>
+                      <input type="hidden" name="addressTo" class="address-to-input" />
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

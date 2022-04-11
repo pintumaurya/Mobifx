@@ -1,0 +1,136 @@
+<div class="page-overlay-wrapper" *ngIf=showSpinner>
+    <div class="spinner-div">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+<main>
+    <!-- live chat -->
+    <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+        data-auto-event-label="livechat">
+        <span class="live-chat-button__label">Live chat support</span>
+    </button>
+    <!-- login box -->
+    <section class="login pb-3">
+        <div class="container">
+            <div class="row align-items-center main-box justify-content-center">
+                <!-- <div class="col-xl-6 col-md-6 col-lg-6">
+                            <div class="left-side">
+                            	<img data-src="images/login.webp" class="img-fluid lazyload" />
+                            </div>
+                        </div> -->
+                <div class="col-xl-10 col-md-12 col-lg-10">
+                    <div class="right-side signup-page">
+                        <h2>Open new account</h2>
+                        <p>Join more than 6,600,000 traders!</p>
+                        <div class="signup-form">
+                            <form [formGroup]="regForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <!-- <label for="Emailid" class="orange-txt">Email</label> -->
+                                            <input type="text" class="form-control input-field" id="fname"
+                                                formControlName="fname" />
+                                            <label for="fname" class="orange-txt">First Name</label>
+                                            <div *ngIf="(isValidForm || regForm.controls['fname'].touched) && regForm.controls['fname'].errors"
+                                                class="error-msg">First Name is mandatory field</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-field" id="lname"
+                                                formControlName="lname" />
+                                            <label for="lname" class="orange-txt">Last Name</label>
+                                            <div *ngIf="(isValidForm || regForm.controls['lname'].touched) && regForm.controls['lname'].errors"
+                                                class="error-msg">Last Name is mandatory field</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="emailid" class="form-control input-field"
+                                        formControlName="email">
+                                    <label for="emailid" class="orange-txt">Email</label>
+                                    <div *ngIf="(isValidForm || regForm.controls['email'].touched) && regForm.controls['email'].errors"
+                                        class="error-msg">Email is mandatory field</div>
+                                </div>
+                                <div class="form-group">
+                                    <input [type]="showPassword ? 'text' : 'password'" id="psw"
+                                        class="form-control input-field" formControlName="password">
+                                    <label for="psw" class="orange-txt">Password</label>
+                                    <div class="input-icon" mat-icon-button matSuffix
+                                        (click)="showPassword = !showPassword" [attr.aria-label]="'Hide password'"
+                                        [attr.aria-pressed]="showPassword">
+                                        <div class="eye-icon"></div>
+                                    </div>
+                                    <div *ngIf="(isValidForm || regForm.controls['password'].touched) && regForm.controls['password'].errors"
+                                        class="error-msg">Password is mandatory field</div>
+                                </div>
+                                <div class="form-group input-login">
+                                    <button type="submit" (click)="openAccount()" class="btn btn-cust btn-login">OPEN
+                                        ACCOUNT</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="or-line">
+                            <span>Or sign up with</span>
+                        </div>
+                        <div class="via-login d-flex align-items-center justify-content-around">
+                            <div class="google-login">
+                                <a class="btn btn-cust btn-facebook" href="#">
+                                    <span>
+                                        <svg width="11" height="20" xmlns="http://www.w3.org/2000/svg" class="">
+                                            <path
+                                                d="M10.586.004L7.947 0c-2.964 0-4.88 1.932-4.88 4.922v2.27H.416A.411.411 0 000 7.598v3.289c0 .225.186.407.415.407h2.653v8.297a.41.41 0 00.415.408h3.46c.23 0 .416-.183.416-.408v-8.297h3.101a.41.41 0 00.415-.407l.001-3.289a.405.405 0 00-.121-.288.419.419 0 00-.294-.12H7.36V5.268c0-.925.224-1.394 1.449-1.394l1.777-.001A.411.411 0 0011 3.465V.412a.411.411 0 00-.414-.408z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="fb-login">
+                                <a class="btn btn-cust btn-google" href="#">
+                                    <span>
+                                        <svg width="18" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="">
+                                            <path
+                                                d="M6.252.824c-2.142.753-3.994 2.374-5.036 4.4C.869 5.918.579 6.67.463 7.48c-.405 1.91-.115 3.994.753 5.73a8.54 8.54 0 002.431 2.953 8.156 8.156 0 003.242 1.62 9.181 9.181 0 004.515.059 7.677 7.677 0 003.647-1.91c1.1-.985 1.852-2.258 2.257-3.705.463-1.505.521-3.126.232-4.689H9.204v3.473h4.805a4.041 4.041 0 01-1.795 2.72c-.579.406-1.273.638-1.968.753a6.646 6.646 0 01-2.142 0c-.694-.115-1.389-.463-1.968-.868a5.316 5.316 0 01-2.026-2.72c-.405-1.1-.405-2.316 0-3.474.29-.752.695-1.505 1.274-2.084a4.665 4.665 0 012.662-1.447c.869-.173 1.737-.173 2.605.116a5.69 5.69 0 011.91 1.1l1.621-1.621.869-.868A9.077 9.077 0 0012.214.824a9.544 9.544 0 00-5.962 0z"
+                                                fill="#fff"></path>
+                                            <path
+                                                d="M6.252.824c1.91-.637 4.052-.637 5.962.058 1.042.405 2.026.984 2.836 1.794l-.868.869-1.62 1.62a4.25 4.25 0 00-1.91-1.1 5.639 5.639 0 00-2.606-.115c-.984.231-1.91.752-2.662 1.447A5.21 5.21 0 004.11 7.481c-.984-.753-1.91-1.505-2.894-2.258C2.258 3.197 4.11 1.577 6.252.824z"
+                                                fill="#EA4335"></path>
+                                            <path
+                                                d="M.463 7.481c.174-.752.406-1.505.753-2.257.984.752 1.91 1.505 2.894 2.257-.405 1.1-.405 2.316 0 3.473-.984.753-1.91 1.505-2.894 2.258-.868-1.795-1.158-3.82-.753-5.73z"
+                                                fill="#FBBC05"></path>
+                                            <path
+                                                d="M9.146 7.54h8.336c.29 1.562.232 3.183-.232 4.688a8.25 8.25 0 01-2.257 3.704c-.926-.752-1.852-1.447-2.837-2.2a4.397 4.397 0 001.795-2.72H9.146V7.54z"
+                                                fill="#4285F4"></path>
+                                            <path
+                                                d="M1.216 13.212c.984-.753 1.91-1.505 2.894-2.258a5.316 5.316 0 002.026 2.72c.579.406 1.274.695 1.968.869.695.116 1.39.116 2.142 0 .695-.116 1.39-.405 1.968-.752.926.752 1.852 1.447 2.836 2.2a8.509 8.509 0 01-3.646 1.91c-1.505.347-3.068.347-4.515-.058-1.158-.29-2.258-.869-3.242-1.621-.984-.869-1.852-1.91-2.431-3.01z"
+                                                fill="#34A853"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="apple-login">
+                                <a class="btn btn-cust btn-apple" href="#">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" class="">
+                                            <path
+                                                d="M14.172 19.2c-1.094 1.054-2.3.89-3.45.394-1.226-.508-2.343-.54-3.636 0-1.61.687-2.461.484-3.43-.395-5.472-5.578-4.664-14.078 1.555-14.398 1.508.078 2.562.824 3.45.886 1.32-.265 2.585-1.027 4-.925 1.694.133 2.968.797 3.816 1.992-3.497 2.082-2.668 6.64.543 7.922-.645 1.668-1.47 3.316-2.848 4.539zM8.539 4.737C8.375 2.262 10.406.218 12.74.02c.323 2.859-2.626 5-4.2 4.718zm0 0">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="align-center"><a routerLink='/login'>Log in</a></div>
+                            <div class="bottom-text">
+                                <p>By pressing open account, you confirm</p>
+                                <p>that you have read and agree with our Customer Agreement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
