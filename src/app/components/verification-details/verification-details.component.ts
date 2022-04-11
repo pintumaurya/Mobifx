@@ -34,6 +34,9 @@ export class VerificationDetailsComponent implements OnInit {
   day = 0;
   month = 0;
   year = 0;
+  days = [];
+  months = [];
+  years = [];
   selectedDay = "0";
   selectedMonth = "0";
   selectedYear = "0";
@@ -70,6 +73,82 @@ export class VerificationDetailsComponent implements OnInit {
     });
     this.sharedService.isVefiHeader = false;
     this.isValidTrade = false;
+
+    this.months = [
+      {
+        name: "January", value: "1"
+      },
+      {
+        name: "February", value: "2"
+      },
+      {
+        name: "March", value: "3"
+      },
+      {
+        name: "April", value: "4"
+      },
+      {
+        name: "May", value: "5"
+      },
+      {
+        name: "June", value: "6"
+      },
+      {
+        name: "July", value: "7"
+      },
+      {
+        name: "August", value: "8"
+      },
+      {
+        name: "September", value: "9"
+      },
+      {
+        name: "Octomber", value: "10"
+      },
+      {
+        name: "November", value: "11"
+      },
+      {
+        name: "December", value: "12"
+      }]
+
+    this.years = [
+      {
+        name: "1987", value: "1"
+      },
+      {
+        name: "1988", value: "2"
+      },
+      {
+        name: "1989", value: "3"
+      },
+      {
+        name: "1990", value: "4"
+      },
+      {
+        name: "1991", value: "5"
+      },
+      {
+        name: "1992", value: "6"
+      },
+      {
+        name: "1993", value: "7"
+      },
+      {
+        name: "1994", value: "8"
+      },
+      {
+        name: "1995", value: "9"
+      },
+      {
+        name: "1996", value: "10"
+      },
+      {
+        name: "1997", value: "11"
+      },
+      {
+        name: "1998", value: "12"
+      }]
   }
 
   ngOnInit() {
@@ -119,6 +198,20 @@ export class VerificationDetailsComponent implements OnInit {
     });
   }
 
+  onSelectDay(event: any) {
+    this.day = event.value;
+    console.log('day', this.day);
+
+  }
+  onSelectMonth(event: any) {
+    this.month = event.value;
+    console.log('month', this.month);
+  }
+  onSelectYear(event: any) {
+    this.year = event.value;
+    console.log('year', this.year);
+  }
+
   userInformation() {
     // this.haveYouTrade(event);   
     if (this.trade == "1" || this.trade == "2") {
@@ -137,8 +230,7 @@ export class VerificationDetailsComponent implements OnInit {
         country_id: "1",
         country_code: this.callingCode,
         phone: this.accountInformation.get('phone_number').value['number'].replace(/\s/g, ""),
-        // bod: this.year + "-" + this.month + "-" + this.day,
-        bod: "1995-10-10",
+        bod: this.year + "-" + this.month + "-" + this.day,
         city: this.accountInformation.get('city').value,
         street_address: this.accountInformation.get('street_address').value
       };
