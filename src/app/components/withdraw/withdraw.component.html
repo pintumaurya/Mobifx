@@ -1,3 +1,8 @@
+<!-- <div class="page-overlay-wrapper" *ngIf=showSpinner>
+	<div class="spinner-div">
+		<mat-spinner></mat-spinner>
+	</div>
+</div> -->
 <main>
 	<!-- live chat -->
 	<button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
@@ -16,67 +21,81 @@
 				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
 					<div class="notification">
 						<div class="notification-item">
-							<span><b>Please note:</b> you need to verify your account to withdraw funds.</span> 
+							<span><b>Please note:</b> you need to verify your account to withdraw funds.</span>
 							<span aria-label="warning" class="svg-icon notification-ico">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-									<path d="M115 1992a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm0-3a1 1 0 0 0 2 0v-3a1 1 0 0 0-2 0zm9 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-14 0a6 6 0 1 1 12 0 6 6 0 0 1-12 0z" transform="translate(-108 -1981)"></path>
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+									width="16" height="16" viewBox="0 0 16 16">
+									<path
+										d="M115 1992a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm0-3a1 1 0 0 0 2 0v-3a1 1 0 0 0-2 0zm9 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-14 0a6 6 0 1 1 12 0 6 6 0 0 1-12 0z"
+										transform="translate(-108 -1981)"></path>
 								</svg>
 							</span>
 						</div>
 					</div>
 					<form class="form-wrapper-inner">
-						<h2 class="heading">Payment methods</h2>  
+						<h2 class="heading">Payment methods</h2>
 						<div class="radio-box-container">
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="incs4"> 
-								<img src="../../../assets/images/payment-option/incs.svg" class="radio-box-img-ico">  
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="incs4">
+								<img src="../../../assets/images/payment-option/incs.svg" class="radio-box-img-ico">
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="ind"> 
-								<img src="../../../assets/images/payment-option/local-bank.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">India Local Banks</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="ind">
+								<img src="../../../assets/images/payment-option/local-bank.svg"
+									class="radio-box-img-ico">
+								<div class="radio-box-img-text">India Local Banks</div>
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="btc"> 
-								<img src="../../../assets/images/payment-option/btc.svg" class="radio-box-img-ico">  
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="btc">
+								<img src="../../../assets/images/payment-option/btc.svg" class="radio-box-img-ico">
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="doge"> 
-								<img src="../../../assets/images/payment-option/doge.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">Dogecoin</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="doge">
+								<img src="../../../assets/images/payment-option/doge.svg" class="radio-box-img-ico">
+								<div class="radio-box-img-text">Dogecoin</div>
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="binpay"> 
-								<img src="../../../assets/images/payment-option/binpay.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">Ethereum</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="binpay">
+								<img src="../../../assets/images/payment-option/binpay.svg" class="radio-box-img-ico">
+								<div class="radio-box-img-text">Ethereum</div>
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="ltc"> 
-								<img src="../../../assets/images/payment-option/ltc.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">Litecoin</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="ltc">
+								<img src="../../../assets/images/payment-option/ltc.svg" class="radio-box-img-ico">
+								<div class="radio-box-img-text">Litecoin</div>
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="nt"> 
-								<img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico">  
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="nt">
+								<img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico">
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="mb"> 
-								<img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico">  
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="mb">
+								<img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico">
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="usdte"> 
-								<img src="../../../assets/images/payment-option/usdte.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">Tether (ERC20)</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="usdte">
+								<img src="../../../assets/images/payment-option/usdte.svg" class="radio-box-img-ico">
+								<div class="radio-box-img-text">Tether (ERC20)</div>
 							</label>
-							<label disabled="disabled" class="radio-box-img"> 
-								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input" value="usdtt"> 
-								<img src="../../../assets/images/payment-option/usdtt.svg" class="radio-box-img-ico"> 
-								<div class="radio-box-img-text">Tether (TRC20)</div> 
+							<label disabled="disabled" class="radio-box-img">
+								<input disabled="disabled" name="labelSelector" type="radio" class="radio-box-img-input"
+									value="usdtt">
+								<img src="../../../assets/images/payment-option/usdtt.svg" class="radio-box-img-ico">
+								<div class="radio-box-img-text">Tether (TRC20)</div>
 							</label>
-						</div> 
+						</div>
 						<div class="more-info">
 							<a href="#" target="_blank" class="more-info-link">
-								<span>More information</span> 
+								<span>More information</span>
 								<img src="../../../assets/images/expand-arrows.png" class="img-fluid more-info-icon">
 							</a>
 						</div>
