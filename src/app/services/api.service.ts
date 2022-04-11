@@ -18,11 +18,11 @@ export class ApiService {
         // public endpoint: Endpoints,
     ) { }
 
-    signup(user: any): Observable<any> {
-        return this.http.post(Endpoints.ApiEndpoint.Auth.signup, user);
+    signup(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.Auth.signup, payload);
     }
-    login(user: any): Observable<any> {
-        return this.http.post(Endpoints.ApiEndpoint.Auth.login, user);
+    login(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.Auth.login, payload);
     }
     verifyEmail(token: any): Observable<any> {
         return this.http.get(Endpoints.ApiEndpoint.Auth.verifyEmail + token);
@@ -65,5 +65,11 @@ export class ApiService {
     }
     transferHistory(payload: any): Observable<any> {
         return this.http.post(Endpoints.ApiEndpoint.dashboard.transferHistory, payload);
+    }
+    resetPassword(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.userProfile.resetPassword, payload);
+    }
+    resetAccountPassword(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.userProfile.resetAccountPassword, payload);
     }
 }

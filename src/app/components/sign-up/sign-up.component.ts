@@ -16,12 +16,14 @@ export class SignUpComponent implements OnInit {
   showSpinner: boolean = false;
   isValidForm: boolean = false;
   showPassword = false;
-  private toastr: CommonToasterService
+
+
   constructor(
     public _formBuilder: FormBuilder,
     public sharedService: SharedService,
     public _authService: ApiService,
     private router: Router,
+    private toastr: CommonToasterService
     // private _snackBar: MatSnackBar
   ) {
     this.regForm = this._formBuilder.group({

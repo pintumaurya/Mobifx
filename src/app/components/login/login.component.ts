@@ -60,16 +60,20 @@ export class LoginComponent implements OnInit {
       this.isValidForm = true;
       return;
     } else {
-      const user = {
+      const payload = {
         email: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
-        // email:'hardik@grr.la',
-        // password:"123456"
       };
 
       this.showSpinner = true;
-      this._authService.login(JSON.stringify(user)).subscribe(res => {
-        if (res.status == true) {
+      this._authService.login(JSON.stringify(payload)).subscribe((res) => {
+        if (res?.status == false) {
+          this.showSpinner = false;
+          console.log('callijng', res);
+
+          this.toaster.showError(res?.message)
+        }
+        else {
           this.loginForm = null;
           this.isValidForm = false;
           this.showSpinner = false;
@@ -78,28 +82,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('firstname', res.data?.user_info?.firstname);
           localStorage.setItem('lastname', res.data?.user_info?.lastname);
           localStorage.setItem('email', res.data?.user_info?.email);
-          // this.toastr.showSuccess(res.message);
-          this.toaster.showSuccess(res.message)
-          // this._snackBar.open(res.message, 'Undo', {
-          //   duration: 3000
-          // });
+          this.toaster.showSuccess(res?.message)
           this.router.navigate(['/dashboard']);
         }
-        else {
-          this.showSpinner = false;
-          this.toaster.showError(res.message)
-          // this._snackBar.open(res.message, 'Undo', {
-          //   duration: 3000
-          // });
-          // this.toastr.showError(res.errors.error);
-        }
       },
-        (_error: any) => {
+        (error: any) => {
           this.showSpinner = false;
-          this.toaster.showError(_error?.message);
-          // this._snackBar.open(_error?.message, 'Undo', {
-          //   duration: 3000
-          // });
+          this.toaster.showError("Please check your email and password.")
         });
     }
   }

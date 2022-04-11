@@ -70,6 +70,14 @@ export const Endpoints = {
             get transferHistory() {
                 return `${apiurl}/deposite/history`;
             }
+        },
+        userProfile: {
+            get resetPassword() {
+                return `${apiurl}/reset_password`;
+            },
+            get resetAccountPassword() {
+                return `${apiurl}/account-password-update`;
+            }
         }
     }
 }

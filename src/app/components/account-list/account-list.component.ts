@@ -36,7 +36,6 @@ export class AccountListComponent implements OnInit {
             this.countAccount++;
           }
         });
-
       }
       this.showSpinner = false;
     });

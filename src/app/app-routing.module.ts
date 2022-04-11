@@ -21,6 +21,7 @@ import { EmailVerifyComponent } from './components/email-verify/email-verify.com
 import { VerificationDetailsComponent } from './components/verification-details/verification-details.component'
 import { AuthGuard } from './services/auth-guard.services';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
+import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -41,9 +42,10 @@ const routes: Routes = [
   { path: 'monitoring', component: MonitoringComponent, canActivate: [AuthGuard] },
   { path: 'open-real-account', component: OpenRealAccountComponent, canActivate: [AuthGuard] },
   { path: 'open-demo-account', component: OpenDemoAccountComponent, canActivate: [AuthGuard] },
-  { path: 'email-verification', component: EmailVerifyComponent },
+  { path: 'email-verification', component: EmailVerifyComponent, canActivate: [AuthGuard] },
   { path: 'verification-details/:token', component: VerificationDetailsComponent },
   { path: 'verification-details', component: VerificationDetailsComponent },
+  { path: 'settings/reset-password', component: ResetPasswordComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

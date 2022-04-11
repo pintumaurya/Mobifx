@@ -27,6 +27,8 @@ import { TransferHistoryComponent } from './components/transfer-history/transfer
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VerificationDetailsComponent } from './components/verification-details/verification-details.component';
 import { EmailVerifyComponent } from './components/email-verify/email-verify.component';
+import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
+import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,7 +43,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
-import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { ApiService } from './services/api.service';
 import { AuthGuard } from '../app/services/auth-guard.services';
 import { ToastrModule } from 'ngx-toastr';
@@ -69,6 +70,7 @@ import { ToastrModule } from 'ngx-toastr';
     TransferHistoryComponent,
     EmailVerifyComponent,
     VerificationDetailsComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
