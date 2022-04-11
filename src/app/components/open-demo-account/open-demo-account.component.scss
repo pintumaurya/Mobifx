@@ -1,0 +1,108 @@
+.dashboard {
+    .account-box {
+        margin-top: 40px;
+
+        .account-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+
+            @media (min-width: 769px) {
+                display: flex;
+                align-items: center;
+            }
+
+            .account-box-title {
+                align-items: center;
+                @media (min-width: 769px) {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 13px;
+                }
+
+                .account-box-title-name {
+                    margin-bottom: 20px;
+                    font-size: 24px;
+                    display: block;
+                    white-space: nowrap;
+                    @media (min-width: 769px) {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 0;
+                    }
+                    .heading {
+                        box-sizing: border-box;
+                        padding: 0;
+                        margin: 0;
+                        margin-bottom: 25px;
+                        font-family: Roboto, Helvetica, Arial, sans-serif;
+                        line-height: 1;
+                        color: #000;
+                        font-weight: 500;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .account-header {
+        display: flex;
+        .tooltip__ico-question {
+            width: 12px;
+            height: 12px;
+            min-width: 12px;
+            opacity: 0.5;
+            margin: 10px;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+        }
+    }
+    .account-section {
+        .submit-btn {
+            text-align: center;
+        }
+        button {
+            margin: 15px 0px;
+            background: #0d6ffb;
+            color: white;
+        }
+        .account-radio {
+            p,
+            mat-label {
+                font-size: 13px;
+            }
+            img {
+                width: 12px;
+                height: 12px;
+                min-width: 12px;
+                opacity: 0.5;
+            }
+            mat-form-field {
+                width: 100%;
+            }
+        }
+        .account-label {
+            display: flex;
+            padding: 0;
+            .account-item-label {
+                padding: 0px;
+                label {
+                    position: absolute;
+                    top: 17px;
+                    left: 30px;
+                    color: #0d6ffb;
+                }
+            }
+            .enable-btn {
+                background-color: white;
+                opacity: 0.5;
+            }
+        }
+    }
+    .simple-card {
+        display: flex;
+        margin: 40px 0px;
+    }
+}

@@ -1,0 +1,375 @@
+<div class="page-overlay-wrapper" *ngIf=showSpinner>
+	<div class="spinner-div">
+		<mat-spinner></mat-spinner>
+	</div>
+</div>
+<main>
+	<!-- live chat -->
+	<button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+		data-auto-event-label="livechat">
+		<span class="live-chat-button__label">Live chat support</span>
+	</button>
+	<!-- login box -->
+	<section class="login dashboard pb-3">
+		<div class="container">
+			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
+				<!-- <div class="col-xl-6 col-md-6 col-lg-6">
+                            <div class="left-side">
+                            	<img data-src="images/login.webp" class="img-fluid lazyload" />
+                            </div>
+                        </div> -->
+				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
+					<div class="banner" style="display: none;">
+						<a class="banner-link" href="#">
+							<div class="banner-container">
+								<div class="banner-head">
+									<div class="banner-title">3 steps</div>
+									<div class="banner-subtitle">to start trading</div>
+								</div>
+								<div class="banner-body">
+									<div class="banner-list">
+										<div class="banner-list-item">
+											<div class="banner-circle anim anim-circle1">
+												<img src="../../../assets/images/1-step.png" class="banner-icon" alt="">
+											</div>
+											<div class="banner-descr anim anim-descr1">Create a trading account</div>
+										</div>
+										<!-- <div class="banner-list-item">
+											<div class="banner-circle anim anim-circle2">
+												<img src="../../../assets/images/2-step.png" class="banner-icon" alt="">
+											</div>
+											<div class="banner-descr anim anim-descr2">Download trading software</div>
+										</div>
+										<div class="banner-list-item">
+											<div class="banner-circle anim anim-circle3">
+												<img src="../../../assets/images/3-step.png" class="banner-icon" alt="">
+											</div>
+											<div class="banner-descr anim anim-descr3">Verify and make<br>a deposit</div>
+										</div> -->
+									</div>
+								</div>
+								<!-- <div class="idn-banner-btn anim anim-btn">Learn</div>						 -->
+							</div>
+						</a>
+					</div>
+					<div class="account-box">
+						<header class="account-box-header">
+							<div class="account-box-title">
+								<div class="account-box-title-name">
+									<h2 class="heading account-box-v1__heading _clear">Primary account</h2>
+									<div class="tooltip__ico-question"><img
+											src="../../../assets/images/icon/question-mark.png" class="img-fluid"></div>
+								</div>
+								<div class="account-box-selector">
+									<div class="form-element-item plus-button" slot="account-selector"
+										ishasbutton="true">
+
+										<div class="form-element-multiselect">
+											<input name="billingAddress" type="hidden" value="46357357">
+											<div tabindex="0" class="multiselect multiselect--above dropdown">
+												<div class="multiselect__select"></div>
+												<div class="multiselect-tags" id="dropdownMenuButton1"
+													data-toggle="dropdown" aria-expanded="false">
+													<div class="multiselect__tags-wrap" style="display: none;"></div>
+
+													<div class="multiselect__spinner" style="display: none;"></div>
+
+													<span class="multiselect__single">
+														<div class="account-selector-list-item">
+															<div class="real-div">
+																<div>{{accountDetailsList?.account_type == 1 ? "REAL" :
+																	"DEMO"}}
+																</div>
+															</div>
+															<div class="mt5-logo">
+																{{accountDetailsList?.plan?.name.substr(this.accountDetailsList?.plan?.name.indexOf("
+																") + 1).slice(0,
+																2)}}<span>{{accountDetailsList?.plan?.name.substr(this.accountDetailsList?.plan?.name.indexOf("
+																	") + 1).slice(2)}}</span>
+															</div>
+															<span
+																class="account-selector__number">{{accountDetailsList?.account_id}}</span>
+														</div>
+													</span>
+
+												</div>
+												<div class="multiselect-content-wrapper dropdown-menu"
+													aria-labelledby="dropdownMenuButton1">
+													<!-- <div class="multiselect__content dropdown-menu" style="display: inline-block;"> -->
+
+													<a *ngFor="let item of userAccount;"
+														class="multiselect__element dropdown-item">
+														<span class="multiselect__option multiselect__option-highlight"
+															(click)="accountById(item?.id)">
+															<div class="account-selector-list-item">
+																<div class="real-div">
+																	<div>{{item?.account_type == 1 ? "REAL" :
+																		"DEMO"}}</div>
+																</div>
+																<div class="mt5-logo">{{item?.plan?.name}}</div>
+																<span
+																	class="account-selector__number">{{item?.account_id}}</span>
+																<span
+																	class="account-selector__balance">{{item?.balance}}</span>
+															</div>
+														</span>
+
+													</a>
+													<a class="multiselect__element dropdown-item">
+														<span class="multiselect-option">
+															<button class="account-selector-list-btn">Open new
+																account</button>
+														</span>
+
+													</a>
+													<!-- <li style="display: none;">
+															<span class="multiselect__option">No elements found. Consider changing the search
+																query.</span>
+														</li>
+														<li style="display: none;">
+															<span class="multiselect__option">List is empty.</span>
+														</li> -->
+													<!-- </div> -->
+												</div>
+											</div>
+											<!---->
+										</div>
+										<!---->
+									</div>
+								</div>
+							</div>
+						</header>
+					</div>
+					<div class="account-detail">
+						<div class="row mx-0">
+							<div class="col-md-5 pl-0">
+								<div class="account-info">
+									<h3>Overview</h3>
+									<div class="info-content">
+										<div class="info-row bordered">
+											<div class="info-name">Server</div>
+											<div class="info-value">MobiFX-Real2</div>
+										</div>
+										<div class="info-row bordered">
+											<div class="info-name">
+												Leverage
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value"><a
+													href="#">{{accountDetailsList?.leverage?.name}}</a></div>
+										</div>
+										<div class="info-row bordered">
+											<div class="info-name">
+												No swap
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value">Yes</div>
+										</div>
+										<div class="info-row bordered">
+											<div class="info-name">
+												Fixed rate
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value">{{accountDetailsList?.fixed_rate == 1 ? "Yes" :
+												"No"}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7 pr-0">
+								<div class="account-info account-summary ml-4">
+									<h3>Current funds</h3>
+									<div class="info-content d-flex">
+										<div class="info-row">
+											<div class="info-name">
+												Free margin
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" :
+												"€"}}0.00</div>
+										</div>
+										<div class="info-row">
+											<div class="info-name">
+												Equity
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" :
+												"€"}}0.00</div>
+										</div>
+										<div class="info-row">
+											<div class="info-name">
+												Balance
+												<div class="tooltip__ico-question"><img
+														src="../../../assets/images/icon/question-mark.png"
+														class="img-fluid"></div>
+											</div>
+											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" : "€"}}
+												{{accountDetailsList?.balance}}</div>
+										</div>
+									</div>
+									<div class="info-button">
+										<button class="btn btn-border-blue">
+											Deposit
+										</button>
+										<button class="btn btn-blue">
+											Trade
+										</button>
+									</div>
+									<div class="forgot-link">
+										<a href="#">Forgot trading account password?</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main-bonuses">
+						<div class="content-wrapper-inner">
+							<div class="inside-inner right-indent">
+								<article class="account-box">
+									<header class="account-box-head">
+										<div class="account-box-title">
+											<h2 class="heading account-box-heading">
+												<span class="account-box-title-text">50%</span>
+												Bonuses
+											</h2>
+											<div class="tooltip__ico-question"><img
+													src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid"></div>
+										</div>
+										<!---->
+										<!---->
+									</header>
+									<div class="account-box-content">
+										<div class="account-info">
+											<div class="account-info-item">
+												Here you'll find information about all your active and available
+												bonuses. You can claim a bonus with each deposit.
+											</div>
+											<div class="account-info-item btn-group">
+												<a href="#" class="btn btn-border-yellow">Get bonus</a>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="account-table">
+						<div class="account-heading">
+							<div>My accounts</div>
+							<button class="btn btn-blue">
+								Create account
+							</button>
+						</div>
+						<div class="table-responsive table-detail">
+							<table class="table simple-table table-striped">
+								<thead>
+									<tr>
+										<th></th>
+										<th class="text-left">Account</th>
+										<th class="text-left">Type</th>
+										<th class="text-left">Server</th>
+										<th class="text-right">Balance</th>
+										<th class="text-right">Equity</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let item of userAccount;">
+										<td>
+											<div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+												") + 1).slice(0,
+												2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+													") + 1).slice(2)}}</span></div>
+										</td>
+										<td class="action-dropdown">
+											<span>{{item?.account_id}}</span>
+											<div class="dropdown">
+												<div class="triangle" type="button" id="dropdownMenuButton"
+													data-toggle="dropdown" aria-expanded="false">▼</div>
+												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+													<a href="#">Switch to this account</a>
+													<a href="#">Restore password</a>
+													<a href="#">Hide account from the main page</a>
+													<a href="#">Deposit</a>
+													<a href="#"
+														class="js-account-list-withdrawal-item-menu">Withdrawal</a>
+													<a href="#">Trades history</a>
+													<a target="_blank" href="#">Log in to MT5 Web</a>
+												</div>
+											</div>
+										</td>
+										<td class="action-type">
+											<div class="real-div">
+												<div>{{item?.account_type == 1 ? "REAL" :
+													"DEMO"}}</div>
+											</div>
+										</td>
+										<td>
+											MobiFX-Real2
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">{{item?.currency == 1 ? "$" : "€"}}
+												{{item?.balance}}</span>
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">$0.00</span>
+										</td>
+										<td style="width:170px;" class="_wrap _left"></td>
+									</tr>
+									<!-- <tr>
+										<td>
+											<div class="mt5-logo">MT<span>5</span></div>
+										</td>
+										<td class="action-dropdown">
+											<span>46357357</span>
+											<div class="dropdown">
+												<div class="triangle" type="button" id="dropdownMenuButton"
+													data-toggle="dropdown" aria-expanded="false">▼</div>
+												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+													<a href="#">Switch to this account</a>
+													<a href="#">Restore password</a>
+													<a href="#">Hide account from the main page</a>
+													<a href="#">Deposit</a>
+													<a href="#"
+														class="js-account-list-withdrawal-item-menu">Withdrawal</a>
+													<a href="#">Trades history</a>
+													<a target="_blank" href="#">Log in to MT5 Web</a>
+												</div>
+											</div>
+										</td>
+										<td class="action-type">
+											<div class="real-div">
+												<div>REAL</div>
+											</div>
+										</td>
+										<td>
+											MobiFX-Real2
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">$0.00</span>
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">$0.00</span>
+										</td>
+										<td style="width:170px;" class="_wrap _left"></td>
+									</tr> -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

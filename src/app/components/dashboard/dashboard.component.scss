@@ -1,0 +1,685 @@
+.dashboard {
+	.banner {
+		overflow: hidden;
+		max-width: 100%;
+		width: 650px;
+		height: 116px;
+		background-color: #282850;
+
+		.banner-link {
+			color: #ffffff;
+			.banner-container {
+				position: relative;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				padding: 13px 20px;
+				width: 100%;
+				height: 100%;
+			}
+			.banner-head {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-flex: 0;
+				-webkit-flex: 0 0 auto;
+				-ms-flex: 0 0 auto;
+				flex: 0 0 auto;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				width: 158px;
+				height: 100%;
+				.banner-title {
+					color: #2fb0ff;
+					text-align: left;
+					letter-spacing: -0.5px;
+					font-weight: 700;
+					font-size: 32px;
+					font-family: "GothaProBold", sans-serif;
+					line-height: 26px;
+				}
+				.banner-subtitle {
+					padding-top: 3px;
+					color: #ffffff;
+					text-align: left;
+					letter-spacing: -0.5px;
+					font-weight: 500;
+					font-size: 20px;
+					font-family: "GothaProReg", sans-serif;
+					line-height: 22px;
+				}
+			}
+			.banner-body {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1 0 auto;
+				-ms-flex: 1 0 auto;
+				flex: 1 0 auto;
+				margin-left: 48px;
+				height: 100%;
+
+				.banner-list {
+					position: relative;
+					height: 100%;
+
+					.banner-list-item {
+						position: absolute;
+						top: 0;
+						left: 0;
+						display: -webkit-box;
+						display: -webkit-flex;
+						display: -ms-flexbox;
+						display: flex;
+						-webkit-box-align: center;
+						-webkit-align-items: center;
+						-ms-flex-align: center;
+						align-items: center;
+						.banner-circle {
+							width: 90px;
+							height: 90px;
+							.banner-icon {
+								width: auto;
+								height: 100%;
+							}
+						}
+						.banner-descr {
+							margin-left: 20px;
+							width: 200px;
+							color: #ffffff;
+							text-align: left;
+							letter-spacing: -0.5px;
+							font-weight: 500;
+							font-size: 22px;
+							font-family: "GothaProReg", sans-serif;
+							line-height: 24px;
+						}
+					}
+				}
+			}
+			.banner-btn {
+				position: absolute;
+				right: 24px;
+				bottom: 35px;
+				padding: 0 34px;
+				height: 42px;
+				-webkit-border-radius: 4px;
+				border-radius: 4px;
+				background-image: -webkit-gradient(linear, left top, left bottom, from(#00d21a), to(#00a002));
+				background-image: -webkit-linear-gradient(top, #00d21a 0%, #00a002 100%);
+				background-image: linear-gradient(180deg, #00d21a 0%, #00a002 100%);
+				-webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+				box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+				color: #ffffff;
+				letter-spacing: -0.62px;
+				font-weight: 700;
+				font-size: 20px;
+				font-family: "GothaProBold";
+				line-height: 42px;
+			}
+		}
+	}
+	.tooltip__ico-question {
+		width: 12px;
+		height: 12px;
+		min-width: 12px;
+		opacity: 0.5;
+		margin: 0 8px;
+		transition: all 0.2s ease-in-out;
+		display: flex;
+	}
+
+	.account-box {
+		margin: 40px 0 48px;
+
+		.account-box-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 24px;
+
+			@media (min-width: 769px) {
+				display: flex;
+				align-items: center;
+			}
+
+			.account-box-title {
+				display: flex;
+				align-items: center;
+				@media (min-width: 769px) {
+					font-size: 24px;
+				}
+
+				.account-box-title-name {
+					margin-bottom: 20px;
+					display: block;
+					white-space: nowrap;
+					@media (min-width: 769px) {
+						display: flex;
+						align-items: center;
+						margin-bottom: 0;
+					}
+					.heading {
+						box-sizing: border-box;
+						padding: 0;
+						margin: 0;
+						margin-bottom: 9px;
+						font-family: Roboto, Helvetica, Arial, sans-serif;
+						line-height: 1;
+						color: #000;
+						font-weight: 500;
+						font-size: 20px;
+					}
+				}
+				.account-box-selector {
+					width: 100%;
+					min-width: 280px;
+					max-width: 400px;
+					@media (min-width: 769px) {
+						margin-left: 24px;
+					}
+
+					input {
+						height: 30px;
+						padding: 0 9px;
+						background: #fff;
+						border: #c6c6c6 solid 1px;
+						border-radius: 0;
+					}
+
+					.form-element-item {
+						width: 100%;
+						position: relative;
+						max-width: 360px;
+						.form-element-multiselect {
+							position: relative;
+
+							.multiselect {
+								box-sizing: content-box;
+								display: block;
+								position: relative;
+								width: 100%;
+								min-height: 40px;
+								text-align: left;
+								color: #35495e;
+								// @media (min-width: 769px) {
+								// 	width: 220px;
+								// }
+								.multiselect__select {
+									position: absolute;
+									width: 40px;
+									height: 38px;
+									right: 1px;
+									top: 1px;
+									padding: 4px 8px;
+									text-align: center;
+									transition: -webkit-transform 0.2s ease;
+									transition: transform 0.2s ease;
+									transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+									background-image: url("../../../assets/images/icon/down.svg");
+									background-repeat: no-repeat;
+									background-position: center;
+									&::before {
+										position: relative;
+										right: 0;
+										top: 65%;
+										color: #999;
+										margin-top: 4px;
+										border-color: #999 transparent transparent;
+										border-style: solid;
+										border-width: 5px 5px 0;
+										content: "";
+										width: 24px;
+										height: 24px;
+										border: none;
+									}
+								}
+								.multiselect-tags {
+									padding-left: 16px;
+									padding-top: 0;
+									border: 1px solid #ccc;
+									border-radius: 4px !important;
+									display: flex;
+									align-items: center;
+									flex-grow: 1;
+									min-height: 40px;
+									padding: 0 40px 0 8px;
+									border-radius: 5px;
+									background: #fff;
+									font-size: 14px;
+								}
+								.account-selector-list-item {
+									display: flex;
+									font-size: 14px;
+									align-items: center;
+								}
+								.real-div {
+									display: flex;
+									align-items: center;
+									justify-content: flex-start;
+									div {
+										background-color: #c99c3b;
+										color: #fff;
+										font-size: 10px;
+										font-weight: 500;
+										padding: 1px 10px;
+										border-radius: 2px;
+									}
+								}
+								.account-selector__balance {
+									margin-left: 10px;
+								}
+								.mt5-logo {
+									font-size: 13px;
+									font-weight: bold;
+									color: #383d50;
+									margin: 0 10px;
+									span {
+										color: #f38749;
+									}
+								}
+							}
+						}
+						.multiselect-content-wrapper {
+							border-top: 1px solid #e8e8e8;
+
+							.multiselect__element {
+								display: block;
+								padding: 0;
+
+								.multiselect__option {
+									color: #050f2c;
+									font-size: 14px;
+									font-weight: 500;
+									font-family: Roboto, Helvetica, Arial, sans-serif;
+									// padding-left: 16px;
+									padding-top: 0;
+									padding-bottom: 0;
+									white-space: normal;
+									padding-top: 4px;
+									padding-bottom: 4px;
+									display: flex;
+									align-items: center;
+									cursor: pointer;
+								}
+								.account-selector-list-item {
+									display: flex;
+									align-items: center;
+									width: 100%;
+									padding: 4px 32px 4px 16px;
+									margin: 4px 0;
+									min-height: 40px;
+									background: #cfe2fe;
+								}
+								.account-selector-list-btn {
+									display: block;
+									width: 100%;
+									background: #c99c3b;
+									color: #fff !important;
+									text-align: center;
+									font-size: 12px;
+									border-radius: 0 0 4px 4px;
+									text-decoration: none;
+									padding: 12px 0;
+									border: none;
+									box-shadow: none;
+									font-weight: 500;
+								}
+							}
+						}
+					}
+					.select-trade-platform-list__logo-image {
+						width: 42px;
+						height: 14px;
+					}
+					.select-trade-platform-list__icon {
+						width: 22px;
+						height: 14px;
+						fill: #000;
+					}
+				}
+			}
+		}
+	}
+
+	.account-detail {
+		.account-info {
+			h3 {
+				font-size: 14px;
+			}
+			.info-content {
+				.info-row {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					flex-wrap: wrap;
+					margin-bottom: 24px;
+				}
+				.bordered {
+					margin-bottom: 12px;
+					padding-bottom: 12px;
+					border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				}
+				.info-name {
+					color: #979797;
+					font-size: 12px;
+					margin-right: 10px;
+					max-width: 60%;
+					display: flex;
+					align-items: center;
+				}
+				.info-value {
+					color: #000;
+					font-size: 12px;
+					margin-left: 8px;
+					text-align: right;
+					line-height: 1.1;
+				}
+			}
+		}
+		.account-summary {
+			.info-content {
+				.info-row {
+					@media (min-width: 769px) {
+						display: block;
+						margin-right: 16px;
+						margin-left: 0;
+						min-width: 100px;
+						margin-bottom: 0;
+					}
+				}
+				.info-name {
+					margin-right: 0;
+					max-width: 100%;
+				}
+				.info-value {
+					margin-left: 0;
+					font-size: 16px;
+					text-align: left;
+					margin-top: 5px;
+				}
+			}
+			.info-button {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				width: 100%;
+				margin-top: 21px;
+
+				.btn {
+					width: 46%;
+					text-align: center;
+					justify-content: center;
+					max-width: 160px;
+					padding-right: 5px;
+					padding-left: 5px;
+					height: 40px;
+					border: none;
+					border-radius: 4px;
+					text-decoration: none;
+					display: flex;
+					align-items: center;
+					padding: 0 24px;
+					font-family: Roboto, Helvetica, Arial, sans-serif;
+					font-size: 12px;
+					font-weight: 500;
+					cursor: pointer;
+					transition-property: background-color, color;
+					transition-duration: 0.2s;
+					@media (min-width: 769px) {
+						width: 120px;
+						padding: 0 5px;
+					}
+				}
+				.btn-blue {
+					background: #c99c3b;
+					border-color: #c99c3b;
+					color: #fff;
+					@media (min-width: 769px) {
+						margin-left: 16px;
+					}
+
+					&:hover {
+						background: #9d7622;
+					}
+				}
+				.btn-border-blue {
+					border: 1px solid #c99c3b;
+					color: #c99c3b;
+					&:hover {
+						background: #c99c3b;
+						color: #fff;
+					}
+				}
+			}
+			.forgot-link {
+				width: 100%;
+				padding-top: 16px;
+
+				a {
+					text-decoration: underline;
+					color: #c99c3b;
+					font-size: 12px;
+					margin-left: 0 !important;
+					margin-top: 16px;
+					width: 100%;
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	.main-bonuses {
+		background: #fbfeff url(../../../assets/images/ico-bonuses-bg.svg) top right no-repeat;
+		border-top: 1px solid #e8f1f5;
+		border-bottom: 1px solid #e8f1f5;
+		// padding: 40px 0;
+
+		.account-box {
+			.account-box-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 24px;
+				.account-box-title {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					h2 {
+						font-size: 20px;
+						font-weight: 500;
+						margin-bottom: 0;
+					}
+				}
+			}
+			.account-info {
+				display: flex;
+				justify-content: space-between;
+
+				.account-info-item {
+					color: #979797;
+					font-size: 12px;
+					letter-spacing: 0.178px;
+					line-height: 1.5;
+
+					@media (min-width: 769px) {
+						max-width: 440px;
+					}
+
+					&.btn-group {
+						@media (min-width: 769px) {
+							margin-top: 0;
+						}
+						margin-top: 24px;
+						.btn {
+							width: 46%;
+							text-align: center;
+							justify-content: center;
+							max-width: 160px;
+							padding-right: 5px;
+							padding-left: 5px;
+							height: 40px;
+							border: none;
+							border-radius: 4px;
+							text-decoration: none;
+							display: flex;
+							align-items: center;
+							padding: 0 24px;
+							font-family: Roboto, Helvetica, Arial, sans-serif;
+							font-size: 12px;
+							font-weight: 500;
+							cursor: pointer;
+							transition-property: background-color, color;
+							transition-duration: 0.2s;
+							@media (min-width: 769px) {
+								width: 120px;
+								padding: 0 5px;
+							}
+						}
+						.btn-border-yellow {
+							background: 0 0;
+							border: 1px solid #ffca08;
+							color: #644e00;
+							box-shadow: none;
+							&:hover {
+								background: #ffca08;
+								color: #644e00;
+								box-shadow: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.account-table {
+		padding-top: 24px;
+		.account-heading {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 20px;
+			font-weight: 500;
+			margin-bottom: 24px;
+			.btn {
+				width: 46%;
+				text-align: center;
+				justify-content: center;
+				max-width: 160px;
+				padding-right: 5px;
+				padding-left: 5px;
+				height: 40px;
+				border: none;
+				border-radius: 4px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				padding: 0 24px;
+				font-family: Roboto, Helvetica, Arial, sans-serif;
+				font-size: 12px;
+				font-weight: 500;
+				cursor: pointer;
+				transition-property: background-color, color;
+				transition-duration: 0.2s;
+				@media (min-width: 769px) {
+					width: 120px;
+					padding: 0 5px;
+				}
+			}
+			.btn-blue {
+				background: #c99c3b;
+				border-color: #c99c3b;
+				color: #fff;
+				@media (min-width: 769px) {
+					margin-left: 16px;
+				}
+
+				&:hover {
+					background: #9d7622;
+				}
+			}
+		}
+		.table-detail {
+			.simple-table {
+				border: 0;
+				thead {
+					border: 0;
+					th {
+						font-weight: 700;
+						font-size: 13px;
+						border-bottom: #c99c3b solid 2px;
+						padding: 4px;
+						color: #c99c3b;
+						text-align: center;
+						border-top: 0;
+						white-space: nowrap;
+					}
+				}
+				tbody {
+					td {
+						font-size: 13px;
+						padding: 13px 4px 11px;
+						line-height: 16px;
+						color: #464646;
+						font-weight: 400;
+						text-align: left;
+						vertical-align: middle;
+						border-bottom: #e5e5e8 solid 1px;
+						white-space: nowrap;
+
+						.mt5-logo {
+							font-weight: bold;
+							color: #383d50;
+							span {
+								color: #f38749;
+							}
+						}
+						&.action-dropdown {
+							display: flex;
+
+							.triangle {
+								color: #c99c3b;
+								margin-left: 6px;
+							}
+							.dropdown-menu {
+								position: absolute;
+								background-color: #f8f8f8;
+								border: 2px solid #e0e0e0;
+								text-align: left;
+								z-index: 3;
+								a {
+									display: block;
+									padding: 10px;
+									text-decoration: underline;
+									color: #c99c3b;
+									font-size: 13px;
+								}
+							}
+						}
+						&.action-type {
+							.real-div {
+								display: flex;
+								align-items: center;
+								justify-content: flex-start;
+								div {
+									background-color: #c99c3b;
+									color: #fff;
+									font-size: 10px;
+									font-weight: 500;
+									padding: 1px 10px;
+									border-radius: 2px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

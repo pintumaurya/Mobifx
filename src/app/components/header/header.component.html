@@ -1,0 +1,81 @@
+<header id="header" *ngIf="sharedService.isVefiHeader">
+    <div class="header-area">
+        <!-- menu -->
+        <div class="main-header-area">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="logo mr-auto">
+                    <a href="index.html" style="color: #fff"><img src="../../../assets/images/logoBB.png"
+                            class="img-fluid"></a>
+                </div>
+                <div class="right-side">
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li class="header-menu-button" *ngIf="sharedService.isHeader"><a href="#"
+                                    class="menu-url"><img src="../../../assets/images/add-user.png"
+                                        class="img-fluid header-icon">Open An
+                                    Account</a></li>
+                            <li class="header-menu-button" *ngIf="sharedService.isHeader"><a href="#"
+                                    class="menu-url"><img src="../../../assets/images/headset.png"
+                                        class="img-fluid header-icon">Customer
+                                    Support</a></li>
+                            <li class="header-menu-button" *ngIf="sharedService.isHeader"><a href="#"
+                                    class="menu-ur"><img src="../../../assets/images/download.png"
+                                        class="img-fluid header-icon">Download
+                                    mt4</a></li>
+                            <!-- style="display: none;" -->
+                            <!-- <li><a href="how-it-works.html" class="menu-url">How it works?</a></li> -->
+                            <li class="header-menu-button" *ngIf="!sharedService.isHeader"><a href="#"
+                                    class="menu-url"><img src="../../../assets/images/dollar-symbol.png"
+                                        class="img-fluid header-icon">Deposit</a></li>
+                            <li class="header-menu-button" *ngIf="!sharedService.isHeader"><a href="#"
+                                    class="menu-url"><img src="../../../assets/images/trading.png"
+                                        class="img-fluid header-icon">Trading</a></li>
+                            <li class="header-menu-button" *ngIf="!sharedService.isHeader"><a href="#"
+                                    class="menu-ur"><img src="../../../assets/images/percent.png"
+                                        class="img-fluid header-icon">My
+                                    Bonuses</a></li>
+                            <li class="header-menu-button" *ngIf="!sharedService.isHeader"><a href="#"
+                                    class="menu-ur"><img src="../../../assets/images/atm.png"
+                                        class="img-fluid header-icon">Withdraw</a>
+                            </li>
+                            <!-- <li><a href="how-it-works.html" class="menu-url">How it works?</a></li> -->
+                            <!-- <li>
+                            <div class="user-add">
+                                <a href="javascript:;" class="login">Log In</a>
+                                <a href="javascript:;" class="singup">Create Your Own</a>
+                            </div>
+                        </li> -->
+                        </ul>
+                    </nav>
+                </div>
+                <div class="right-side" style="opacity: 0;">
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li><a href="features.html" class="menu-url">Open An Account</a></li>
+                            <li><a href="examples.html" class="menu-url">Customer Support</a></li>
+                            <li><a href="pricing.html" class="menu-url">Download mt4</a></li>
+                            <!-- <li><a href="how-it-works.html" class="menu-url">How it works?</a></li> -->
+                            <!-- <li>
+                            <div class="user-add">
+                                <a href="javascript:;" class="login">Log In</a>
+                                <a href="javascript:;" class="singup">Create Your Own</a>
+                            </div>
+                        </li> -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Active menus Js -->
+<script type="text/javascript">
+    var url = window.location.href;
+    $(".menu-url").each(function () {
+        if (url == this.href) {
+            $(this).closest("li").addClass("active");
+        } else {
+            $(this).closest("li").removeClass("active");
+        }
+    });
+</script>

@@ -1,0 +1,87 @@
+{
+  "navitems": [
+    {
+      "linkText": "Dashboard",
+      "parentLink": "/dashboard",
+      "menu": false,
+      "submenu": [],
+      "icon": "assets/images/icon/dashboard.png"
+    },
+    {
+      "linkText": "Withdraw",
+      "parentLink": "/withdraw",
+      "menu": false,
+      "submenu": [],
+      "icon": "assets/images/icon/withdrawal.png"
+    },
+    {
+      "linkText": "Intarnal transfer",
+      "parentLink": "/internal-transfer",
+      "menu": false,
+      "submenu": [],
+      "icon": "assets/images/icon/transfer.png"
+    },
+    {
+      "linkText": "Operation history",
+      "parentLink": "",
+      "menu": false,
+      "submenu": [
+        {
+          "childtext": "Deposit history",
+          "link": "/deposit-history"
+        },
+        {
+          "childtext": "Withdrawal history",
+          "link": "/withdraw-history"
+        },
+        {
+          "childtext": "Transfer history",
+          "link": "/transfer-history"
+        }
+      ],
+      "icon": "assets/images/icon/dollar-sign.png"
+    },
+    {
+      "linkText": "Trading accounts",
+      "parentLink": "",
+      "menu": false,
+      "submenu": [
+        {
+          "childtext": "Account List",
+          "link": "/account-list"
+        },
+        {
+          "childtext": "Manage Bonuses",
+          "link": "/manage-bonuses"
+        },
+        {
+          "childtext": "Monitoring",
+          "link": "/monitoring"
+        },
+        {
+          "childtext": "Open Real account",
+          "link": "/open-real-account"
+        },
+        {
+          "childtext": "Open Demo account",
+          "link": "/open-demo-account"
+        }
+      ],
+      "icon": "assets/images/icon/increasing-stocks-graphic.png"
+    },
+    {
+      "linkText": "User Statuses",
+      "parentLink": "/user-status",
+      "menu": false,
+      "submenu": [],
+      "icon": "assets/images/icon/king.png"
+    },
+    {
+      "linkText": "Invite a friend",
+      "parentLink": "/",
+      "menu": false,
+      "submenu": [],
+      "icon": "assets/images/icon/add-user.png"
+    }
+  ]
+}

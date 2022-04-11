@@ -1,0 +1,30 @@
+<main>
+    <!-- live chat -->
+    <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+        data-auto-event-label="livechat">
+        <span class="live-chat-button__label">Live chat support</span>
+    </button>
+    <!-- login box -->
+    <section class="login pb-3">
+        <div class="container">
+            <div class="row align-items-center main-box justify-content-center">
+                <div class="col-xl-10 col-md-12 col-lg-10">
+                    <div class="verification-page">
+                        <div class="text-center">
+                            <h1 class="verification-title">Check your email</h1>
+                            <p class="verification-subtitle mb-0">
+                                To complete registration click the link in the email that we
+                                sent to
+                            </p>
+                            <p class="verification-subtitle">{{email}}</p>
+                            <a href="https://mail.google.com/" class="btn btn-blue mx-auto my-4" target="_blank"
+                                (click)="emailVerify()">Open Mail</a>
+                            <a href="#" class="verification-link verification-subtitle">Haven't received email from
+                                us?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

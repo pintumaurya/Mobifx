@@ -1,0 +1,767 @@
+<div class="page-overlay-wrapper" *ngIf=showSpinner>
+  <div class="spinner-div">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<header id="header" class="header-container">
+  <div class="header-area">
+    <!-- menu -->
+    <div class="main-header-area">
+      <div class="container-fluid d-flex align-items-center">
+        <div class="logo mr-auto">
+          <a href="index.html" style="color: #fff"><img src="../../../assets/images/logoBB.png" class="img-fluid" /></a>
+        </div>
+        <div>
+          <ul class="reg-steps">
+            <!-- success -->
+            <li class="item" [ngClass]="{'current': isStep}">
+              <div class="number">
+                <span *ngIf="isStep">1</span>
+                <span *ngIf="!isStep"><img src="../../../assets/images/icon-check-white.svg" alt="Checked" width="20"
+                    height="20" /></span>
+              </div>
+              <div class="name">
+                <span class="title">Account</span>
+              </div>
+            </li>
+            <!-- current -->
+            <li class="item" [ngClass]="{'current': !isStep1}">
+              <div class="number">
+                <span *ngIf="isStep1">2</span>
+                <span *ngIf="!isStep1"><img src="../../../assets/images/icon-check-white.svg" alt="Checked" width="20"
+                    height="20" /></span>
+              </div>
+              <div class="name">
+                <span class="title">Deposit</span>
+              </div>
+            </li>
+            <li class="item">
+              <div class="number">
+                <span>3</span>
+              </div>
+              <div class="name">
+                <span class="title">Trading</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <a class="header-container-user-name" href="" (click)="logout()"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <!-- live chat -->
+  <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+    data-auto-event-label="livechat">
+    <span class="live-chat-button__label">Live chat support</span>
+  </button>
+  <!-- deposit history -->
+
+  <section class="verification pb-3">
+    <div class="container">
+      <!-- Account details -->
+      <div>
+        <div *ngIf="isAccount1" class="row align-items-center main-box justify-content-center w-100 mx-0">
+          <div class="col-xl-12 col-md-12 col-lg-12 px-0">
+            <div class="d-flex align-items-center mb-1">
+              <h1 class="heading">Provide your details</h1>
+              <div class="tooltip__ico-question">
+                <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+              </div>
+            </div>
+            <form [formGroup]="accountInformation">
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>Country</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <!-- <mat-form-field appearance="outline">
+                    <mat-select>
+                      <mat-option value="option">Option</mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+                  <mat-select-country appearance="outline" label="Country" class="className"
+                    (onCountrySelected)="onCountrySelected($event)">
+                  </mat-select-country>
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>City</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <mat-form-field appearance="outline">
+                    <input type="text" matInput placeholder="" formControlName="city" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="(isValidForm || accountInformation.controls['city'].touched) && accountInformation.controls['city'].errors"
+                    class="error-msg">Please enter your city</div>
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>Street Address</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <mat-form-field appearance="outline">
+                    <input type="text" matInput placeholder="" formControlName="street_address" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="(isValidForm || accountInformation.controls['street_address'].touched) && accountInformation.controls['street_address'].errors"
+                    class="error-msg">Please enter your address</div>
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>Phone number</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <!-- <mat-form-field appearance="outline"> -->
+                  <ngx-intl-tel-input [cssClass]="'custom form-control'" [preferredCountries]="preferredCountries"
+                    [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                    [selectFirstCountry]="true" [selectedCountryISO]="CountryISO.India" [maxLength]="10"
+                    [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                    [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone_number"
+                    style="width: 360px;">
+                  </ngx-intl-tel-input>
+                  <!-- </mat-form-field> -->
+                  <div
+                    *ngIf="(isValidForm || accountInformation.controls['phone_number'].touched) && accountInformation.controls['phone_number'].errors"
+                    class="error-msg">Please enter a valid phone number</div>
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>Birthday</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <div class="form-width">
+                    <mat-form-field appearance="outline" style="width: 22%">
+                      <mat-select [(value)]="selectedDay" (selectionChange)="onSelectDay($event)">
+                        <mat-option value="0" selected>Day</mat-option>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                        <mat-option value="6">6</mat-option>
+                        <mat-option value="7">7</mat-option>
+                        <mat-option value="8">8</mat-option>
+                        <mat-option value="9">9</mat-option>
+                        <mat-option value="10">10</mat-option>
+                        <mat-option value="11">11</mat-option>
+                        <mat-option value="12">12</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 42%">
+                      <mat-select [(value)]="selectedMonth" (selectionChange)="onSelectMonth($event)">
+                        <mat-option value="0">Month</mat-option>
+                        <mat-option value="1">January</mat-option>
+                        <mat-option value="2">February</mat-option>
+                        <mat-option value="3">March</mat-option>
+                        <mat-option value="4">April</mat-option>
+                        <mat-option value="5">May</mat-option>
+                        <mat-option value="6">June</mat-option>
+                        <mat-option value="7">July</mat-option>
+                        <mat-option value="8">August</mat-option>
+                        <mat-option value="9">September</mat-option>
+                        <mat-option value="10">Octomber</mat-option>
+                        <mat-option value="11">November</mat-option>
+                        <mat-option value="12">December</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 32%">
+                      <mat-select [(value)]="selectedYear" (selectionChange)="onSelectYear($event)">
+                        <mat-option value="0">Year</mat-option>
+                        <mat-option value="1">1980</mat-option>
+                        <mat-option value="2">1977</mat-option>
+                        <mat-option value="3">1998</mat-option>
+                        <mat-option value="4">1999</mat-option>
+                        <mat-option value="5">1985</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div
+                    *ngIf="(isValidForm || accountInformation.controls['phone_number'].touched) && accountInformation.controls['phone_number'].errors"
+                    class="error-msg">Please enter a valid date</div>
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <div class="col-md-3">
+                  <mat-label>Have you traded forex before?</mat-label>
+                </div>
+                <div class="col-md-9">
+                  <mat-radio-group aria-label="Select an option" (change)="haveYouTrade($event)">
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                    <mat-radio-button value="2">No</mat-radio-button>
+                  </mat-radio-group>
+                  <div *ngIf=" isValidTrade" class="error-msg">Please answer the question
+                    above regarding your forex experience
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-sm-12">
+                  <div class="form-button">
+                    <button class="btn btn-blue" (click)="userInformation()">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- choose account -->
+        <div *ngIf="isAccount" class="row align-items-center main-box justify-content-center w-100 mx-0">
+          <div class="col-xl-12 col-md-12 col-lg-12 px-0">
+            <div class="d-flex align-items-center mb-1">
+              <h1 class="heading">Choose account and parameters</h1>
+              <div class="tooltip__ico-question">
+                <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+              </div>
+            </div>
+            <form>
+              <div class="simple-card row">
+                <div *ngFor="let item of planData" class="col-md-5 px-0">
+                  <mat-card class="account-type selected">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h3 class="card-title">{{item?.name}}</h3>
+                      <div class="mt5-img">
+                        <img src="../../../assets/images/mt5.svg" class="img-fluid" />
+                      </div>
+                    </div>
+                    <hr />
+                    <ul class="advantages">
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Spread from</div>
+                          <span class="value">{{item?.plan_feature[0]?.feature_name}}</span>
+                        </div>
+                        <p class="descr">Floating spread, markup</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Min deposit</div>
+                          <span class="value">$25</span>
+                        </div>
+                        <p class="descr">Favourable: $100</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Maximum leverage</div>
+                          <span class="value">1:500</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Margin call</div>
+                          <span class="value">25%</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Stop out level</div>
+                          <span class="value">15%</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">No swaps</div>
+                        </div>
+                        <p class="descr">No commissions</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Instruments</div>
+                        </div>
+                        <p class="descr">80 instruments</p>
+                      </li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <a class="btn btn-blue" type="button"> Selected </a>
+                    </div>
+                  </mat-card>
+                </div>
+                <div class="col-md-5 px-0">
+                  <mat-card class="account-type">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h3 class="card-title">OctaFX MT4</h3>
+                      <div class="mt5-img">
+                        <img src="../../../assets/images/mt5.svg" class="img-fluid" />
+                      </div>
+                    </div>
+                    <hr />
+                    <ul class="advantages">
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Spread from</div>
+                          <span class="value">0.6 pips</span>
+                        </div>
+                        <p class="descr">Floating spread, markup</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Min deposit</div>
+                          <span class="value">$25</span>
+                        </div>
+                        <p class="descr">Favourable: $100</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Maximum leverage</div>
+                          <span class="value">1:500</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Margin call</div>
+                          <span class="value">25%</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Stop out level</div>
+                          <span class="value">15%</span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">No swaps</div>
+                        </div>
+                        <p class="descr">No commissions</p>
+                      </li>
+                      <li class="item">
+                        <div class="text-wrap">
+                          <div class="text">Instruments</div>
+                        </div>
+                        <p class="descr">74 instruments</p>
+                      </li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <a class="btn btn-blue" type="button"> Selected </a>
+                    </div>
+                  </mat-card>
+                </div>
+              </div>
+              <ul class="acc-type-settings">
+                <li class="item">
+                  <h4 class="title">
+                    Account type
+                    <div class="tooltip__ico-question">
+                      <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+                    </div>
+                  </h4>
+                  <div class="cntrl">
+                    <div class="switcher">
+                      <div class="switcher-item">
+                        <input id="server-0" name="server" type="radio" class="switcher-radio" value="1" checked
+                          (input)="onSelectChange($event.target.value)" />
+                        <label for="server-0" class="switcher-label">Real</label>
+                      </div>
+                      <div *ngIf="isHideAccType" class="switcher-item">
+                        <input id="server-1" name="server" type="radio" class="switcher-radio" value="0"
+                          (input)="onSelectChange($event.target.value)" />
+                        <label for="server-1" class="switcher-label">Demo</label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item">
+                  <h4 class="title">
+                    Currency
+                    <div class="tooltip__ico-question">
+                      <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+                    </div>
+                  </h4>
+                  <div class="cntrl">
+                    <div class="switcher">
+                      <div class="switcher-item">
+                        <input id="currency-0" name="currency" type="radio" class="switcher-radio" value="USD" checked
+                          (input)="onSelectChange1($event.target.value)" />
+                        <label for="currency-0" class="switcher-label">USD</label>
+                      </div>
+                      <div *ngIf="isHideCurrency" class="switcher-item">
+                        <input id="currency-1" name="currency" type="radio" class="switcher-radio" value="EUR"
+                          (input)="onSelectChange1($event.target.value)" />
+                        <label for="currency-1" class="switcher-label">EUR</label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item">
+                  <h4 class="title">
+                    Leverage
+                    <div class="tooltip__ico-question">
+                      <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+                    </div>
+                  </h4>
+                  <div class="leverage-select">
+                    <mat-form-field appearance="outline">
+                      <mat-select *ngFor="let item of leverageData" [(value)]="Leverage"
+                        (selectionChange)="onSelectLeverage($event)">
+                        <mat-option value="{{item?.id}}">{{item?.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </li>
+                <li class="item">
+                  <h4 class="title">
+                    Fixed rate
+                    <div class="tooltip__ico-question">
+                      <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+                    </div>
+                  </h4>
+                  <div class="cntrl">
+                    <div class="switcher">
+                      <div *ngIf="isHideFixedRate" class="switcher-item">
+                        <input id="fixedRate-0" name="fixedRate" type="radio" class="switcher-radio" value="1"
+                          (input)="onSelectChange2($event.target.value)" />
+                        <label for="fixedRate-0" class="switcher-label">On</label>
+                      </div>
+                      <div class="switcher-item">
+                        <input id="fixedRate-1" name="fixedRate" type="radio" class="switcher-radio" value="2" checked
+                          (input)="onSelectChange2($event.target.value)" />
+                        <label for="fixedRate-1" class="switcher-label">Off</label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li *ngIf="isShowBalance" class="item">
+                  <h4 class="title">
+                    Balance
+                    <div class="tooltip__ico-question">
+                      <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+                    </div>
+                  </h4>
+                  <div class="leverage-select">
+                    <div class="switcher-item balance-div">
+                      <label for="fixedRate-1" class="switcher-label label-position">{{currencySign}}</label>
+                      <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="" [(ngModel)]="balanceValue"
+                          [ngModelOptions]="{standalone: true}" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="row align-items-center">
+                <div class="col-sm-12">
+                  <div class="form-button">
+                    <button class="btn btn-blue" type="submit" (click)="accountInformationSubmit()">
+                      Make a deposit into account
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deposit details -->
+      <div *ngIf="isDeposit" class="row align-items-center main-box justify-content-center w-100 mx-0">
+        <div class="col-xl-12 col-md-12 col-lg-12 px-0">
+          <div class="deposit">
+            <form class="form-wrapper-inner">
+              <h2 class="heading">Your account was successfully created</h2>
+              <div class="indent-container">
+                <div class="created-account-data">
+                  <img class="logo" src="../../../assets/images/mt4_xs.svg" alt="mt4" title="mt4" height="30px" />
+                  <div class="info-block">
+                    <div class="descr">
+                      <div class="title">Account number</div>
+                      <div class="val">{{accInfoData?.account_id}}</div>
+                    </div>
+                    <div class="descr">
+                      <div class="title">Server</div>
+                      <div class="val">OctaFX-Real7</div>
+                    </div>
+                    <div class="descr">
+                      <div class="title">Account type</div>
+                      <div class="val">{{accInfoData?.plan?.name}}</div>
+                    </div>
+
+                    <div class="descr">
+                      <div class="title">Currency</div>
+                      <div class="val">{{accInfoData?.currency}}</div>
+                    </div>
+
+                    <div class="descr">
+                      <div class="title">Leverage</div>
+                      <div class="val">1:500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="title-t10">
+                We've sent you an email containing your account login details
+              </p>
+              <div class="radio-box-container">
+                <label class="radio-box-img active">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="incs4" />
+                  <img src="../../../assets/images/payment-option/incs.svg" class="radio-box-img-ico" />
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="ind" />
+                  <img src="../../../assets/images/payment-option/local-bank.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">India Local Banks</div>
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="btc" />
+                  <img src="../../../assets/images/payment-option/btc.svg" class="radio-box-img-ico" />
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="doge" />
+                  <img src="../../../assets/images/payment-option/doge.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">Dogecoin</div>
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="binpay" />
+                  <img src="../../../assets/images/payment-option/binpay.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">Ethereum</div>
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="ltc" />
+                  <img src="../../../assets/images/payment-option/ltc.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">Litecoin</div>
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="nt" />
+                  <img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico" />
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="mb" />
+                  <img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico" />
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="usdte" />
+                  <img src="../../../assets/images/payment-option/usdte.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">Tether (ERC20)</div>
+                </label>
+                <label class="radio-box-img">
+                  <input name="labelSelector" type="radio" class="radio-box-img-input" value="usdtt" />
+                  <img src="../../../assets/images/payment-option/usdtt.svg" class="radio-box-img-ico" />
+                  <div class="radio-box-img-text">Tether (TRC20)</div>
+                </label>
+              </div>
+              <ul class="list-commission d-flex align-items-center justify-content-center">
+                <li class="list-item">No commission</li>
+                <li class="list-item">Best exchange rates</li>
+                <li class="list-item">
+                  <span> 50% deposit bonus </span>
+                </li>
+              </ul>
+              <section class="promo-bonuses-container">
+                <h2 class="heading">Choose bonus</h2>
+
+                <div>
+                  <mat-accordion>
+                    <mat-expansion-panel class="bonuses-advantages" (opened)="panelOpenState = true"
+                      (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          What advantages does the bonus bring?
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="bonuses-advantages-list">
+                        <li class="bonuses-advantages-listitem">
+                          <i class="bonuses-advantages-listicon">
+                            <img src="../../../assets/images/bonus-advantage-01.jpg" width="48" height="48"
+                              class="bonuses-advantages-listpic" />
+                          </i>
+                          <div class="bonuses-advantages-listtext">
+                            <p class="bonuses-advantages-listtitle">
+                              Provides higher trading volume.
+                            </p>
+                          </div>
+                        </li>
+                        <li class="bonuses-advantages-listitem">
+                          <i class="bonuses-advantages-listicon">
+                            <img src="../../../assets/images/bonus-advantage-02.jpg" width="48" height="48"
+                              class="bonuses-advantages-listpic" />
+                          </i>
+                          <div class="bonuses-advantages-listtext">
+                            <p class="bonuses-advantages-listtitle">
+                              Does not block withdrawals.
+                            </p>
+                          </div>
+                        </li>
+                        <li class="bonuses-advantages-listitem">
+                          <i class="bonuses-advantages-listicon">
+                            <img src="../../../assets/images/bonus-advantage-03.jpg" width="48" height="48"
+                              class="bonuses-advantages-listpic" />
+                          </i>
+                          <div class="bonuses-advantages-listtext">
+                            <p class="bonuses-advantages-listtitle">
+                              Can be converted to your money in full by trading.
+                            </p>
+                            <p class="bonuses-advantages-listdescr">
+                              No time limits on completing the bonus.
+                            </p>
+                          </div>
+                        </li>
+                        <li class="bonuses-advantages-listitem">
+                          <i class="bonuses-advantages-listicon">
+                            <img src="../../../assets/images/bonus-advantage-04.jpg" width="48" height="48"
+                              class="bonuses-advantages-listpic" />
+                          </i>
+                          <div class="bonuses-advantages-listtext">
+                            <p class="bonuses-advantages-listtitle">
+                              Can be cancelled at your will at any moment.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+                </div>
+
+                <div>
+                  <mat-accordion>
+                    <mat-expansion-panel hideToggle class="promo-bonuses">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title class="promo-header w-100">
+                          <div class="promo-header-text">
+                            <input type="checkbox" class="promoinput" name="bonuscategory" />
+                            <div class="promoico promoicocheckbox"></div>
+                            <div class="promo-bonuses-title promotext">
+                              Unlimited 10–50% bonus
+                            </div>
+                          </div>
+                          <div class="promo-bonuses-header-switcher">
+                            Select the percentage and apply the bonus
+                          </div>
+
+                          <picture class="promo-bonuses-img-container">
+                            <source type="image/webp" alt="Promo bonuses" class="promo-bonuses-img" />
+                            <img src="../../../assets/images/standard.webp" class="promo-bonuses-img"
+                              alt="Promo bonuses" />
+                          </picture>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul class="promo-bonuses-list">
+                        <li class="promo-bonuses-list-item">
+                          <label class="promo-bonuses-list-item-switcher">
+                            <div class="promoline">
+                              <input type="radio" name="bonusvalue" class="promoinput" value="standard-10" />
+                              <div class="promoico promoicoradio"></div>
+                              <div class="promotext">10%</div>
+                            </div>
+                          </label>
+                          <div class="promo-bonuses-counting">
+                            <div class="promo-bonuses-counting-text" style="display: none;">
+                              To see the bonus amount, specify your deposit amount
+                              above.
+                            </div>
+                            <div class="promo-bonuses-counting-text">
+                              Requires you to trade
+                              <span class="promo-bonuses-counting-data new"><span class="">10.00</span>
+                                lots</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="promo-bonuses-list-item">
+                          <label class="promo-bonuses-list-item-switcher styled-form-switcher">
+                            <div class="promoline">
+                              <input type="radio" name="bonus_value" class="promoinput" value="standard-30" />
+                              <div class="promoico promoicoradio"></div>
+                              <div class="promotext">30%</div>
+                            </div>
+                          </label>
+                          <div class="promo-bonuses-counting">
+                            <div class="promo-bonuses-counting-text" style="display: none;">
+                              To see the bonus amount, specify your deposit amount
+                              above.
+                            </div>
+                            <div class="promo-bonuses-counting-text">
+                              Requires you to trade
+                              <span class="promo-bonuses-counting-data new"><span class="">30.00</span>
+                                lots</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="promo-bonuses-list-item">
+                          <label class="promo-bonuses-list-item-switcher">
+                            <div class="promoline">
+                              <input type="radio" name="bonus_value" class="promoinput" value="standard-50" />
+                              <div class="promoico promoicoradio"></div>
+                              <div class="promotext">50%</div>
+                            </div>
+                          </label>
+                          <div class="promo-bonuses-counting">
+                            <div class="promo-bonuses-counting-text" style="display: none;">
+                              To see the bonus amount, specify your deposit amount
+                              above.
+                            </div>
+                            <div class="promo-bonuses-counting-text">
+                              Requires you to trade
+                              <span class="promo-bonuses-counting-data new"><span class="">50.00</span>
+                                lots</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+              </section>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="d-flex justify-content-end align-items-center base-btn">
+                    <a href="#" class="skip-link" (click)="redirectToDashboard()">Skip</a>
+                    <button class="btn btn-blue">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- <main>
+    <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup" >
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Account</ng-template>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Deposit</ng-template>
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+                     required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Trading</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </main> -->

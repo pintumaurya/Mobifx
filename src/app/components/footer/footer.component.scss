@@ -1,0 +1,46 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+p {font-size: 13px;}
+a {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+    &:hover {
+        color: #c99c3b;
+    }
+}
+
+.countryimage{
+    height: 15px;
+    width: 17px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 149px;
+}
+
+.playstore{
+    width: auto;
+    height: 55px;
+}
+.footer-text-address {
+    color: #666;
+    margin: 10px 0;
+    font-size: 13px;
+}
+.footer__text-block {
+    margin: 10px 0;
+    a:link, a:visited {
+     color: #c99c3b;
+        }
+}
+// a:link, a:visited {
+//     color: #c99c3b;
+// }
