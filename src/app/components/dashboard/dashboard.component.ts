@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
-    public toaster: CommonToasterService) {
+    public toaster: CommonToasterService
+  ) {
     this.sharedService.sidebar = true;
     this.sharedService.isHeader = false;
   }

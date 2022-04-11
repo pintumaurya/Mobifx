@@ -48,14 +48,15 @@
 								<div class="account-box-title-name">
 									<h2 class="heading account-box-v1__heading _clear">My accounts</h2>
 								</div>
-								<p>This is a list of all your accounts at MobiFX. You can view the main account details here and track
+								<p>This is a list of all your accounts at MobiFX. You can view the main account details
+									here and track
 									your activities. You can also deposit your account from here.</p>
 							</div>
 						</header>
 					</div>
 					<div class="account-tab">
 						<mat-tab-group>
-							<mat-tab label="REAL (1)">
+							<mat-tab label="REAL ({{countAccount}})">
 								<button mat-button color="primary">
 									Open new real account
 								</button>
@@ -94,22 +95,26 @@
 										<th></th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody *ngFor="let item of userAccount;">
 									<tr>
 										<td>
-											<div class="mt5-logo">MT<span>5</span></div>
+											<div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+												") + 1).slice(0,
+												2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+													") + 1).slice(2)}}</span></div>
 										</td>
 										<td class="action-dropdown">
-											<span>46357357</span>
+											<span>{{item?.account_id}}</span>
 											<div class="dropdown">
-												<div class="triangle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-													aria-expanded="false">▼</div>
+												<div class="triangle" type="button" id="dropdownMenuButton"
+													data-toggle="dropdown" aria-expanded="false">▼</div>
 												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 													<a href="#">Switch to this account</a>
 													<a href="#">Restore password</a>
 													<a href="#">Hide account from the main page</a>
 													<a href="#">Deposit</a>
-													<a href="#" class="js-account-list-withdrawal-item-menu">Withdrawal</a>
+													<a href="#"
+														class="js-account-list-withdrawal-item-menu">Withdrawal</a>
 													<a href="#">Trades history</a>
 													<a target="_blank" href="#">Log in to MT5 Web</a>
 												</div>
@@ -117,50 +122,16 @@
 										</td>
 										<td class="action-type">
 											<div class="real-div">
-												<div>REAL</div>
+												<div>{{item?.account_type == 1 ? "REAL" :
+													"DEMO"}}</div>
 											</div>
 										</td>
 										<td>
 											MobiFX-Real2
 										</td>
 										<td style="text-align:right">
-											<span class="fix-ltr">$0.00</span>
-										</td>
-										<td style="text-align:right">
-											<span class="fix-ltr">$0.00</span>
-										</td>
-										<td style="width:170px;" class="_wrap _left"></td>
-									</tr>
-									<tr>
-										<td>
-											<div class="mt5-logo">MT<span>5</span></div>
-										</td>
-										<td class="action-dropdown">
-											<span>46357357</span>
-											<div class="dropdown">
-												<div class="triangle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-													aria-expanded="false">▼</div>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-													<a href="#">Switch to this account</a>
-													<a href="#">Restore password</a>
-													<a href="#">Hide account from the main page</a>
-													<a href="#">Deposit</a>
-													<a href="#" class="js-account-list-withdrawal-item-menu">Withdrawal</a>
-													<a href="#">Trades history</a>
-													<a target="_blank" href="#">Log in to MT5 Web</a>
-												</div>
-											</div>
-										</td>
-										<td class="action-type">
-											<div class="real-div">
-												<div>REAL</div>
-											</div>
-										</td>
-										<td>
-											MobiFX-Real2
-										</td>
-										<td style="text-align:right">
-											<span class="fix-ltr">$0.00</span>
+											<span class="fix-ltr">{{item?.currency == 1 ? "$" : "€"}}
+												{{item?.balance}}</span>
 										</td>
 										<td style="text-align:right">
 											<span class="fix-ltr">$0.00</span>
