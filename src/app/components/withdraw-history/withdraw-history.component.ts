@@ -126,9 +126,9 @@ export class WithdrawHistoryComponent implements OnInit {
     this.showSpinner = true;
     this.apiService.depositHistory(payload).subscribe((res) => {
       if (res?.status == true) {
-        this.showSpinner = false;
         this.depositHistoryList = res?.data;
       }
+      this.showSpinner = false;
     });
   }
 
