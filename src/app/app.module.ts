@@ -28,6 +28,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VerificationDetailsComponent } from './components/verification-details/verification-details.component';
 import { EmailVerifyComponent } from './components/email-verify/email-verify.component';
 import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
+import { MyInfoComponent } from './components/settings/my-info/my-info.component';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -70,7 +71,8 @@ import { ToastrModule } from 'ngx-toastr';
     TransferHistoryComponent,
     EmailVerifyComponent,
     VerificationDetailsComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    MyInfoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

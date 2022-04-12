@@ -1,0 +1,101 @@
+.my-info {
+    .content-wrapper {
+        padding-top: 24px;
+    }
+    .heading {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 24px;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1;
+        color: #000;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .infotext {
+        margin-bottom: 20px;
+        color: #999;
+        line-height: 18px;
+    }
+    .btn {
+        width: 46%;
+        text-align: center;
+        justify-content: center;
+        max-width: 160px;
+        padding-right: 5px;
+        padding-left: 5px;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition-property: background-color, color;
+        transition-duration: 0.2s;
+        @media (min-width: 769px) {
+            width: 120px;
+            padding: 0 5px;
+        }
+    }
+    .btn-blue {
+        background: #c99c3b;
+        border-color: #c99c3b;
+        color: #fff;
+        @media (min-width: 769px) {
+            margin-left: 16px;
+        }
+
+        &:hover {
+            background: #9d7622;
+        }
+    }
+    .myinfo-wrap {
+        justify-content: space-between;
+
+        .myinfo-avatar-block {
+            background-color: #e2e2e2;
+            width: 190px;
+            float: right;
+            padding: 10px;
+            text-align: center;
+            width: 260px;
+            .avatar-container {
+                width: 150px;
+                height: 150px;
+                border: solid 1px #fff;
+                padding: 1px;
+                margin: 10px auto;
+                background-image: url('../../../../assets/images/noava150.gif');
+            }
+            .ava-form {
+                .file-upload {
+                    position: relative;
+                    margin: 5px 0;
+                    .file-upload-input {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+                    .file-upload-input+label {
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #fff;
+                        transition: background-color .3s;
+                    }
+                }
+            }
+        }
+    }
+}

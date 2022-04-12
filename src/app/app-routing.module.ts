@@ -22,6 +22,7 @@ import { VerificationDetailsComponent } from './components/verification-details/
 import { AuthGuard } from './services/auth-guard.services';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
+import { MyInfoComponent } from './components/settings/my-info/my-info.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'verification-details/:token', component: VerificationDetailsComponent },
   { path: 'verification-details', component: VerificationDetailsComponent },
   { path: 'settings/reset-password', component: ResetPasswordComponent, canActivate: [AuthGuard] },
+  { path: 'settings/my-info', component: MyInfoComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
