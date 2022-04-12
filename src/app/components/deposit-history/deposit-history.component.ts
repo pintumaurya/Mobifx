@@ -20,6 +20,7 @@ export class DepositHistoryComponent implements OnInit {
   selStatus = "AnyStatus";
   selectedTimeFrame = "AllTime";
   selectedAnyAccount = "AnyAccount";
+  isResetFilter: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -36,9 +37,7 @@ export class DepositHistoryComponent implements OnInit {
   }
 
   userAccountList() {
-    // this.showSpinner = true;
     this.apiService.getUserAllAccountList().subscribe((res) => {
-      // this.showSpinner = false;
       if (res?.status == true) {
         this.userAccount = res?.data;
       }
@@ -120,6 +119,9 @@ export class DepositHistoryComponent implements OnInit {
   }
 
   applyFilter() {
+    if (this.status || this.accountId || this.start_date || this.end_date) {
+      this.isResetFilter = true;
+    }
     let payload = {
       status: this.status,
       start_date: this.start_date,
@@ -136,9 +138,9 @@ export class DepositHistoryComponent implements OnInit {
   }
 
   resetFilter() {
-    this.status = null;
-    this.accountId = null
-    this.start_date = null;
-    this.end_date = null
+    this.selStatus = "AnyStatus";
+    this.selectedTimeFrame = "AllTime";
+    this.selectedAnyAccount = "AnyAccount";
+    this.isResetFilter = false;
   }
 }

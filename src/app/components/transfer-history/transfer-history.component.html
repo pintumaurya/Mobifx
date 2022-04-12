@@ -32,9 +32,9 @@
                         <div class="d-flex align-items-center">
                           <label for="status">Status</label>
                           <div class="form-element-select-block" style="width: 150px">
-                            <mat-select name="status" id="status" class="form-element-unit" placeholder="Any status"
-                              (selectionChange)="selectedStatus($event.value)">
-                              <mat-option value="">Any status</mat-option>
+                            <mat-select [(value)]="selStatus" name="status" id="status" class="form-element-unit"
+                              placeholder="Please select" (selectionChange)="selectedStatus($event.value)">
+                              <mat-option value="AnyStatus">Any status</mat-option>
                               <mat-option value="Pending">Only pending</mat-option>
                               <mat-option value="Complete">Only complete</mat-option>
                               <mat-option value="Rejected">Only rejected</mat-option>
@@ -47,7 +47,8 @@
                         <div class="d-flex align-items-center">
                           <label for="period">Timeframe</label>
                           <div class="form-element-select-block" style="width: 150px">
-                            <mat-select name="period" id="period" class="form-element-unit" placeholder="All time"
+                            <mat-select [(value)]="selectedTimeFrame" name="period" id="period"
+                              class="form-element-unit" placeholder="Please select"
                               (selectionChange)="onChangeInterval($event.value)">
                               <mat-option value="AllTime">All time</mat-option>
                               <mat-option value="current_month">This month</mat-option>
@@ -65,9 +66,10 @@
                         <div class="d-flex align-items-center">
                           <label for="account">Account</label>
                           <div class="form-element-select-block" style="width: 150px">
-                            <mat-select name="account" id="account" class="form-element-unit"
-                              placeholder="Any account" (selectionChange)="selectedAccount($event.value)">
-                              <mat-option value="">Any account</mat-option>
+                            <mat-select [(value)]="selectedAnyAccount" name="account" id="account"
+                              class="form-element-unit" placeholder="Please select"
+                              (selectionChange)="selectedAccount($event.value)">
+                              <mat-option value="AnyAccount">Any account</mat-option>
                               <mat-option *ngFor="let item of userAccount" value="{{item?.id}}">{{item?.account_id}}
                               </mat-option>
                             </mat-select>
@@ -79,7 +81,8 @@
                           <button type="submit" name="filter" id="filter" class="btn btn-blue" (click)="applyFilter()">
                             Apply filter
                           </button>
-                          <button type="submit" id="resetfilter" class="btn btn-secondary ml-2" (click)="resetFilter()">
+                          <button *ngIf="isResetFilter" type="submit" id="resetfilter" class="btn btn-secondary ml-2"
+                            (click)="resetFilter()">
                             Reset filter
                           </button>
                         </div>

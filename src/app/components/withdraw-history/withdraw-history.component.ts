@@ -20,6 +20,7 @@ export class WithdrawHistoryComponent implements OnInit {
   selStatus = "AnyStatus";
   selectedTimeFrame = "AllTime";
   selectedAnyAccount = "AnyAccount";
+  isResetFilter: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -120,6 +121,9 @@ export class WithdrawHistoryComponent implements OnInit {
   }
 
   applyFilter() {
+    if (this.status || this.accountId || this.start_date || this.end_date) {
+      this.isResetFilter = true;
+    }
     let payload = {
       // status: this.status,
       // start_date: this.start_date,
@@ -137,10 +141,10 @@ export class WithdrawHistoryComponent implements OnInit {
   }
 
   resetFilter() {
-    this.status = null;
-    this.accountId = null
-    this.start_date = null;
-    this.end_date = null
+    this.selStatus = "AnyStatus";
+    this.selectedTimeFrame = "AllTime";
+    this.selectedAnyAccount = "AnyAccount";
+    this.isResetFilter = false;
   }
 
 }
