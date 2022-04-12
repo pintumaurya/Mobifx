@@ -17,6 +17,8 @@ export class InternalTransferComponent implements OnInit {
   idByTo = "0";
   ammountOfTran: any;
   code: any;
+  accountDetailFrom: any = [];
+  accountDetailTo: any = [];
 
   constructor(
     public sharedService: SharedService,
@@ -30,6 +32,9 @@ export class InternalTransferComponent implements OnInit {
   ngOnInit() {
     this.userAccountList();
     this.clearForm();
+    if (this.idByFrom == null) {
+      this.accountByFrom(1)
+    }
   }
 
   userAccountList() {
@@ -37,17 +42,33 @@ export class InternalTransferComponent implements OnInit {
     this.apiService.getUserAllAccountList().subscribe(res => {
       this.showSpinner = false;
       this.userAccount = res?.data;
-    },
-      (error: any) => {
-      });
+    });
   }
 
   accountByFrom(id: any) {
     this.idByFrom = id;
+    if (this.idByFrom) {
+      this.showSpinner = true;
+      this.apiService.getAccountList(this.idByFrom).subscribe((res) => {
+        if (res?.status == true) {
+          this.accountDetailFrom = res?.data;
+        }
+        this.showSpinner = false;
+      });
+    }
   }
 
   accountByTo(id: any) {
-    this.idByTo = id
+    this.idByTo = id;
+    if (this.idByTo) {
+      this.showSpinner = true;
+      this.apiService.getAccountList(this.idByTo).subscribe((res) => {
+        if (res?.status == true) {
+          this.accountDetailTo = res?.data;
+        }
+        this.showSpinner = false;
+      });
+    }
   }
 
   internalTransferSumbit() {
@@ -60,9 +81,14 @@ export class InternalTransferComponent implements OnInit {
     }
 
     this.apiService.addInterTransfer(payload).subscribe((res) => {
-      this.clearForm();
-      this.toaster.showSuccess(res.message);
-      this.router.navigate(['/dashboard']);
+      if (res?.status == true) {
+        this.clearForm();
+        this.toaster.showSuccess(res?.message);
+        this.router.navigate(['/dashboard']);
+      }
+      else {
+        this.toaster.showError(res?.message);
+      }
     });
   }
   clearForm() {

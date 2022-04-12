@@ -1,3 +1,8 @@
+<div class="page-overlay-wrapper" *ngIf=showSpinner>
+  <div class="spinner-div">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
 <main>
   <!-- live chat -->
   <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
@@ -40,23 +45,33 @@
                             <input name="billingAddress" type="hidden" value="46357357" />
                             <div tabindex="0" class="multiselect multiselect--above dropdown">
                               <div class="multiselect__select"></div>
-                              <div class="multiselect-tags" id="dropdownMenuButton1" data-toggle="dropdown"
+                              <div class="multiselect-tags" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-text="Please select">
                                 <div class="multiselect__tags-wrap" style="display: none"></div>
                                 <div class="multiselect__spinner" style="display: none"></div>
-                                <!-- <span class="multiselect__single">
+                                <!-- <mat-select name="period" id="period" class="form-element-unit"
+                                  placeholder="Please select">
+                                  <mat-option value="AllTime">All time</mat-option>
+                                  <mat-option value="current_month">This month</mat-option>
+                                  <mat-option value="previous_month">Previous month</mat-option>
+                                  <mat-option value="current_year">This year</mat-option>
+                                  <mat-option value="previous_year">Previous year</mat-option>
+                                </mat-select> -->
+                                <span class="multiselect__single">
                                   <div class="account-selector-list-item">
-                                    <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                    <div class="mt5-logo">
+                                      {{accountDetailFrom?.plan?.name.substr(this.accountDetailFrom?.plan?.name.indexOf("
                                       ") + 1).slice(0,
-                                      2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                      2)}}<span>{{accountDetailFrom?.plan?.name.substr(this.accountDetailFrom?.plan?.name.indexOf("
                                         ") + 1).slice(2)}}</span></div>
-                                    <span class="account-selector__number">{{item?.account_id}}</span>
+                                    <span class="account-selector__number">{{accountDetailFrom?.account_id}}</span>
                                   </div>
-                                </span> -->
+                                </span>
                               </div>
                               <div class="multiselect-content-wrapper dropdown-menu"
                                 aria-labelledby="dropdownMenuButton1" data-text="Please select">
                                 <!-- <div class="multiselect__content dropdown-menu" style="display: inline-block;"> -->
+
                                 <a *ngFor="let item of userAccount" class="multiselect__element dropdown-item">
                                   <span class="multiselect__single" (click)="accountByFrom(item?.id)">
                                     <div class="account-selector-list-item">
@@ -132,19 +147,20 @@
                             <input name="billingAddress" type="hidden" value="46357357" />
                             <div tabindex="0" class="multiselect multiselect--above dropdown">
                               <div class="multiselect__select"></div>
-                              <div class="multiselect-tags" id="dropdownMenuButton2" data-toggle="dropdown"
+                              <div class="multiselect-tags" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <div class="multiselect__tags-wrap" style="display: none"></div>
                                 <div class="multiselect__spinner" style="display: none"></div>
-                                <!-- <span class="multiselect__single">
+                                <span class="multiselect__single">
                                   <div class="account-selector-list-item">
-                                    <div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                    <div class="mt5-logo">
+                                      {{accountDetailTo?.plan?.name.substr(this.accountDetailTo?.plan?.name.indexOf("
                                       ") + 1).slice(0,
-                                      2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+                                      2)}}<span>{{accountDetailTo?.plan?.name.substr(this.accountDetailTo?.plan?.name.indexOf("
                                         ") + 1).slice(2)}}</span></div>
-                                    <span class="account-selector__number">{{item?.account_id}}</span>
+                                    <span class="account-selector__number">{{accountDetailTo?.account_id}}</span>
                                   </div>
-                                </span> -->
+                                </span>
                               </div>
                               <div class="multiselect-content-wrapper dropdown-menu"
                                 aria-labelledby="dropdownMenuButton2">

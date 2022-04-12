@@ -17,6 +17,9 @@ export class TransferHistoryComponent implements OnInit {
   accountId: any;
   start_date: any;
   end_date: any;
+  selStatus = "AnyStatus";
+  selectedTimeFrame = "AllTime";
+  selectedAnyAccount = "AnyAccount";
 
   constructor(
     public sharedService: SharedService,
@@ -29,6 +32,7 @@ export class TransferHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.userAccountList();
+    this.applyFilter();
   }
 
   userAccountList() {

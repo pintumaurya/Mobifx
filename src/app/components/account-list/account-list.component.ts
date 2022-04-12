@@ -11,8 +11,10 @@ import { CommonToasterService } from '../../../app/services/common-toaster.servi
 export class AccountListComponent implements OnInit {
 
   showSpinner: boolean = false;
-  userAccount: any = [];
-  countAccount = 0;
+  demoAccList: any = [];
+  realAccList: any = [];
+  tabindex = 0;
+
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
@@ -26,14 +28,20 @@ export class AccountListComponent implements OnInit {
     this.userAccountList();
   }
 
+  tabChanged(event: any) {
+    this.tabindex = event.index;
+  }
+
   userAccountList() {
     this.showSpinner = true;
     this.apiService.getUserAllAccountList().subscribe((res) => {
       if (res?.status == true) {
-        this.userAccount = res?.data;
-        this.userAccount.forEach((element: { account_type: number; }) => {
+        res?.data.forEach((element: { account_type: number; }) => {
           if (element.account_type == 1) {
-            this.countAccount++;
+            this.realAccList.push(element);
+          }
+          if (element.account_type == 0) {
+            this.demoAccList.push(element);
           }
         });
       }

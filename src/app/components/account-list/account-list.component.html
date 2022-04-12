@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
 				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
-					<div class="banner">
+					<!-- <div class="banner">
 						<a class="banner-link" href="#">
 							<div class="banner-container">
 								<div class="banner-head">
@@ -28,25 +28,12 @@
 												<img src="../../../assets/images/1-step.png" class="banner-icon" alt="">
 											</div>
 											<div class="banner-descr anim anim-descr1">Create a trading account</div>
-										</div>
-										<!-- <div class="banner-list-item">
-											<div class="banner-circle anim anim-circle2">
-												<img src="../../../assets/images/2-step.png" class="banner-icon" alt="">
-											</div>
-											<div class="banner-descr anim anim-descr2">Download trading software</div>
-										</div>
-										<div class="banner-list-item">
-											<div class="banner-circle anim anim-circle3">
-												<img src="../../../assets/images/3-step.png" class="banner-icon" alt="">
-											</div>
-											<div class="banner-descr anim anim-descr3">Verify and make<br>a deposit</div>
-										</div> -->
+										</div>										
 									</div>
-								</div>
-								<!-- <div class="idn-banner-btn anim anim-btn">Learn</div>						 -->
+								</div>								
 							</div>
 						</a>
-					</div>
+					</div> -->
 					<div class="account-box">
 						<header class="account-box-header">
 							<div class="account-box-title">
@@ -60,8 +47,8 @@
 						</header>
 					</div>
 					<div class="account-tab">
-						<mat-tab-group>
-							<mat-tab label="REAL ({{countAccount}})">
+						<mat-tab-group (selectedTabChange)="tabChanged($event)">
+							<mat-tab label="REAL ({{realAccList.length}})">
 								<button mat-button color="primary">
 									Open new real account
 								</button>
@@ -72,11 +59,11 @@
 								</button>
 								<p>You don`t have demo contest accounts yet.</p>
 							</mat-tab>
-							<mat-tab label="DEMO (0)">
-								<button mat-button color="primary">
+							<mat-tab label="DEMO ({{demoAccList.length}})">
+								<button mat-button color="primary" style="background-color: #00c94c;">
 									Open new new demo account
 								</button>
-								<p>You don`t have demo accounts yet.</p>
+								<p *ngIf="demoAccList <= 0">You don`t have demo accounts yet.</p>
 							</mat-tab>
 							<mat-tab label="CLOSED (0)">
 								<p class="closed-account">You don`t have closed accounts yet.</p>
@@ -100,8 +87,8 @@
 										<th></th>
 									</tr>
 								</thead>
-								<tbody *ngFor="let item of userAccount;">
-									<tr>
+								<tbody *ngIf="tabindex == 0">
+									<tr *ngFor="let item of realAccList;">
 										<td>
 											<div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
 												") + 1).slice(0,
@@ -128,6 +115,51 @@
 										<td class="action-type">
 											<div class="real-div">
 												<div>{{item?.account_type == 1 ? "REAL" :
+													"DEMO"}}</div>
+											</div>
+										</td>
+										<td>
+											MobiFX-Real2
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">{{item?.currency == 1 ? "$" : "€"}}
+												{{item?.balance}}</span>
+										</td>
+										<td style="text-align:right">
+											<span class="fix-ltr">$0.00</span>
+										</td>
+										<td style="width:170px;" class="_wrap _left"></td>
+									</tr>
+								</tbody>
+								<tbody *ngIf="tabindex == 2">
+									<tr *ngFor="let item of demoAccList;">
+										<td>
+											<div class="mt5-logo">{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+												") + 1).slice(0,
+												2)}}<span>{{item?.plan?.name.substr(item?.plan?.name.indexOf("
+													") + 1).slice(2)}}</span></div>
+										</td>
+										<td class="action-dropdown">
+											<span>{{item?.account_id}}</span>
+											<div class="dropdown">
+												<div class="triangle" type="button" id="dropdownMenuButton"
+													data-toggle="dropdown" aria-expanded="false">▼</div>
+												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+													<a href="#">Switch to this account</a>
+													<a href="#">Restore password</a>
+													<a href="#">Hide account from the main page</a>
+													<a href="#">Deposit</a>
+													<a href="#"
+														class="js-account-list-withdrawal-item-menu">Withdrawal</a>
+													<a href="#">Trades history</a>
+													<a target="_blank" href="#">Log in to MT5 Web</a>
+												</div>
+											</div>
+										</td>
+										<td class="action-type">
+											<div class="real-div">
+												<div style="background-color: #00c94c;">{{item?.account_type == 1 ?
+													"REAL" :
 													"DEMO"}}</div>
 											</div>
 										</td>

@@ -17,11 +17,14 @@ export class DepositHistoryComponent implements OnInit {
   accountId: any;
   start_date: any;
   end_date: any;
+  selStatus = "AnyStatus";
+  selectedTimeFrame = "AllTime";
+  selectedAnyAccount = "AnyAccount";
 
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
-    public router: Router,    
+    public router: Router,
   ) {
     this.sharedService.sidebar = true;
     this.sharedService.isHeader = false;
@@ -29,6 +32,7 @@ export class DepositHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.userAccountList();
+    this.applyFilter();
   }
 
   userAccountList() {
@@ -50,22 +54,22 @@ export class DepositHistoryComponent implements OnInit {
   }
 
   onChangeInterval(event) {
-    if (event == 'custom') {
-      if (!this.start_date && !this.end_date) {
-        var startDate = new Date();
+    // if (event == 'custom') {
+    //   if (!this.start_date && !this.end_date) {
+    //     var startDate = new Date();
 
-        this.start_date = startDate.getDate() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getFullYear();
-        this.end_date = startDate.getDate() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getFullYear();
-      }
-      let start_date = this.start_date.split('/');
-      start_date = start_date[2] + '-' + start_date[1] + '-' + start_date[0];
-      this.start_date = start_date;
-      let end_date = this.end_date.split('/');
-      end_date = end_date[2] + '-' + end_date[1] + '-' + end_date[0];
-      this.end_date = end_date;
-    } else {
-      this.filterDates(event);
-    }
+    //     this.start_date = startDate.getDate() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getFullYear();
+    //     this.end_date = startDate.getDate() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getFullYear();
+    //   }
+    //   let start_date = this.start_date.split('/');
+    //   start_date = start_date[2] + '-' + start_date[1] + '-' + start_date[0];
+    //   this.start_date = start_date;
+    //   let end_date = this.end_date.split('/');
+    //   end_date = end_date[2] + '-' + end_date[1] + '-' + end_date[0];
+    //   this.end_date = end_date;
+    // } else {
+    this.filterDates(event);
+    // }
   }
 
   filterDates(type: any) {
@@ -124,7 +128,7 @@ export class DepositHistoryComponent implements OnInit {
     }
     this.showSpinner = true;
     this.apiService.depositHistory(payload).subscribe((res) => {
-      if (res?.status == true) {        
+      if (res?.status == true) {
         this.depositHistoryList = res?.data;
       }
       this.showSpinner = false;
