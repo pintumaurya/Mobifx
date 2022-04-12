@@ -40,7 +40,7 @@
     </div>
     <div class="user-notification">
       <div class="dropdown">
-        <div id="user-notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+        <div id="user-notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
             src="../../../assets/images/icon/notification-bell.png" class="notiIcon img-fluid" /></div>
         <div class="dropdown-menu notification-menu" aria-labelledby="user-notification">
           <div class="notification-history">
@@ -127,9 +127,11 @@
     <div class="group drower-item" *ngFor="let item of result; let i = index" (click)="menu(item)">
       <!-- <div class="drower-item"> -->
       <img [src]="item.icon">
-      <a *ngIf="item.submenu.length" (click)="ddToggle(i)" class="light-blue-bg sidebar-list-item link-arrow">{{ item.linkText }}</a>
+      <a *ngIf="item.submenu.length" (click)="ddToggle(i)" class="light-blue-bg sidebar-list-item link-arrow">{{
+        item.linkText }}</a>
       <!-- <div class="drower-item"> -->
-      <a *ngIf="!item.submenu.length" (click)="ddToggle(i)" routerLink="{{ item.parentLink }}" class="light-blue-bg sidebar-list-item">{{
+      <a *ngIf="!item.submenu.length" (click)="ddToggle(i)" routerLink="{{ item.parentLink }}"
+        class="light-blue-bg sidebar-list-item">{{
         item.linkText }}</a>
       <div class="sub-menu" [ngClass]="{ 'show-menu': item.menu }">
         <ul *ngFor="let menu of result[i].submenu">

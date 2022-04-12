@@ -69,7 +69,7 @@
 											<div tabindex="0" class="multiselect multiselect--above dropdown">
 												<div class="multiselect__select"></div>
 												<div class="multiselect-tags" id="dropdownMenuButton1"
-													data-toggle="dropdown" aria-expanded="false">
+													data-bs-toggle="dropdown" aria-expanded="false">
 													<div class="multiselect__tags-wrap" style="display: none;"></div>
 
 													<div class="multiselect__spinner" style="display: none;"></div>
@@ -77,7 +77,13 @@
 													<span class="multiselect__single">
 														<div class="account-selector-list-item">
 															<div class="real-div">
-																<div>{{accountDetailsList?.account_type == 1 ? "REAL" :
+																<div class="demo_class"
+																	*ngIf="accountDetailsList?.account_type == 0">
+																	{{accountDetailsList?.account_type == 0 ? "DEMO" :
+																	"REAL"}}
+																</div>
+																<div *ngIf="accountDetailsList?.account_type == 1">
+																	{{accountDetailsList?.account_type == 1 ? "REAL" :
 																	"DEMO"}}
 																</div>
 															</div>
@@ -103,8 +109,17 @@
 															(click)="accountById(item?.id)">
 															<div class="account-selector-list-item">
 																<div class="real-div">
-																	<div>{{item?.account_type == 1 ? "REAL" :
-																		"DEMO"}}</div>
+																	<div class="demo_class"
+																		*ngIf="item?.account_type == 0">
+																		{{item?.account_type == 0 ? "DEMO"
+																		:
+																		"REAL"}}
+																	</div>
+																	<div *ngIf="item?.account_type == 1">
+																		{{item?.account_type == 1 ? "REAL"
+																		:
+																		"DEMO"}}
+																	</div>
 																</div>
 																<div class="mt5-logo">{{item?.plan?.name}}</div>
 																<span
@@ -296,7 +311,7 @@
 											<span>{{item?.account_id}}</span>
 											<div class="dropdown">
 												<div class="triangle" type="button" id="dropdownMenuButton"
-													data-toggle="dropdown" aria-expanded="false">▼</div>
+													data-bs-toggle="dropdown" aria-expanded="false">▼</div>
 												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 													<a href="#">Switch to this account</a>
 													<a href="#">Restore password</a>
@@ -311,8 +326,14 @@
 										</td>
 										<td class="action-type">
 											<div class="real-div">
-												<div>{{item?.account_type == 1 ? "REAL" :
-													"DEMO"}}</div>
+												<div class="demo_class" *ngIf="item?.account_type == 0">
+													{{item?.account_type == 0 ? "DEMO" :
+													"REAL"}}
+												</div>
+												<div *ngIf="item?.account_type == 1">
+													{{item?.account_type == 1 ? "REAL" :
+													"DEMO"}}
+												</div>
 											</div>
 										</td>
 										<td>
@@ -335,7 +356,7 @@
 											<span>46357357</span>
 											<div class="dropdown">
 												<div class="triangle" type="button" id="dropdownMenuButton"
-													data-toggle="dropdown" aria-expanded="false">▼</div>
+													data-bs-toggle="dropdown" aria-expanded="false">▼</div>
 												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 													<a href="#">Switch to this account</a>
 													<a href="#">Restore password</a>

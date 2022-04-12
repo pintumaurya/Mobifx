@@ -274,6 +274,19 @@
 										border-radius: 2px;
 									}
 								}
+								.demo-div {
+									display: flex;
+									align-items: center;
+									justify-content: flex-start;
+									div {
+										background-color: #00c94c !important;
+										color: #fff;
+										font-size: 10px;
+										font-weight: 500;
+										padding: 1px 10px;
+										border-radius: 2px;
+									}
+								}
 								.account-selector__balance {
 									margin-left: 10px;
 								}
@@ -684,6 +697,6 @@
 		}
 	}
 	.demo_class {
-		background-color: #00c94c;
+		background-color: #00c94c !important;
 	}
 }
