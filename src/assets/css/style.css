@@ -98,11 +98,12 @@ li {
 
 a {
   color: #c99c3b;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #c99c3b !important;
-  text-decoration: none !important;
+  color: #c99c3b;
+  text-decoration: none;
 }
 
 h1,

@@ -81,18 +81,7 @@
                     border-radius: 4px;
                     background: #fff;
 
-                    // &::after {
-                    //     content: "";
-                    //     width: 24px;
-                    //     height: 24px;
-                    //     position: absolute;
-                    //     top: 50%;
-                    //     right: 8px;
-                    //     -webkit-transform: translateY(-50%);
-                    //     transform: translateY(-50%);
-                    //     z-index: 0;
-                    //     background-image: url("../../../assets/images/icon/down.svg");
-                    // }
+                    
                     .form-element-unit {
                         background: 0 0;
                         padding-left: 12px;
@@ -103,7 +92,7 @@
                         position: relative;
                         z-index: 2;
                         border-radius: 4px;
-                        line-height: 1;
+                        // line-height: 1;
                         box-sizing: border-box;
                         margin: 0;
                         padding: 10px 16px;
@@ -122,6 +111,18 @@
                             border-color: #ccc !important;
                             box-shadow: none !important;
                         }
+                        // &::after {
+                        //     content: "";
+                        //     width: 24px;
+                        //     height: 24px;
+                        //     position: absolute;
+                        //     top: 50%;
+                        //     right: 8px;
+                        //     -webkit-transform: translateY(-50%);
+                        //     transform: translateY(-50%);
+                        //     z-index: 0;
+                        //     background-image: url("../../../assets/images/icon/down.svg");
+                        // }
                     }
                 }
             }

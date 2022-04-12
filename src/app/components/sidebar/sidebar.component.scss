@@ -116,6 +116,7 @@
 							margin: 0;
 							border-radius: 4px;
 							overflow: hidden;
+							padding-left: 0;
 							.menu-list-item {
 								border-bottom: 1px solid #f6f7f8;
 								margin: 0;
@@ -257,11 +258,15 @@
   
     .group {
       overflow: hidden;
+	  &:hover {background-color: #fff6e2;}
+	  &.active{border-left: 2px solid #c99c3b;}
       > a {
         color: #000;
         padding: 10px 20px;
         // display: block;
         cursor: pointer;
+		&.active {color: #c99c3b;}
+		
       }
     }
 
