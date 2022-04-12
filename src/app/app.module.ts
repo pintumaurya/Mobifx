@@ -29,6 +29,7 @@ import { VerificationDetailsComponent } from './components/verification-details/
 import { EmailVerifyComponent } from './components/email-verify/email-verify.component';
 import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
 import { MyInfoComponent } from './components/settings/my-info/my-info.component';
+import { EmailChangeComponent } from './components/settings/email-change/email-change.component';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -72,7 +73,8 @@ import { ToastrModule } from 'ngx-toastr';
     EmailVerifyComponent,
     VerificationDetailsComponent,
     ResetPasswordComponent,
-    MyInfoComponent
+    MyInfoComponent,
+    EmailChangeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
