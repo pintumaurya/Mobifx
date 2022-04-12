@@ -296,7 +296,9 @@
 						padding: 4px 32px 4px 16px;
 						margin: 4px 0;
 						min-height: 40px;
-						background: #cfe2fe;
+						&:hover {
+							background: #cfe2fe;
+						}
 					}
 					.account-selector-list-btn {
 						display: block;
