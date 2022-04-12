@@ -1,5 +1,7 @@
 .my-info {
-    a {text-decoration: underline;}
+    a {
+        text-decoration: underline;
+    }
     .content-wrapper {
         padding-top: 24px;
     }
@@ -43,14 +45,14 @@
         justify-content: space-between;
 
         .table-myinfo {
-
             table {
                 border-top: #b57e07 solid 2px;
                 max-width: 400px;
                 width: 100%;
 
                 tbody {
-                    th,td {
+                    th,
+                    td {
                         padding: 6px 5px;
                         font-size: 12px;
                         border-bottom: #e5e5e8 solid 1px;
@@ -81,7 +83,7 @@
                 border: solid 1px #fff;
                 padding: 1px;
                 margin: 10px auto;
-                background-image: url('../../../../assets/images/noava150.gif');
+                background-image: url("../../../../assets/images/noava150.gif");
             }
             .ava-form {
                 .file-upload {
@@ -97,12 +99,12 @@
                         opacity: 0;
                         cursor: pointer;
                     }
-                    .file-upload-input+label {
+                    .file-upload-input + label {
                         cursor: pointer;
                         font-size: 14px;
                         font-weight: 600;
                         color: #fff;
-                        transition: background-color .3s;
+                        transition: background-color 0.3s;
                     }
                 }
             }

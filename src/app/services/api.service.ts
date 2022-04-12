@@ -72,4 +72,10 @@ export class ApiService {
     resetAccountPassword(payload: any): Observable<any> {
         return this.http.post(Endpoints.ApiEndpoint.userProfile.resetAccountPassword, payload);
     }
+    getUserInformation(id: any): Observable<any> {
+        return this.http.get(Endpoints.ApiEndpoint.userProfile.userInfo + id);
+    }
+    updateProfile(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.userProfile.updateUserProfile, payload);
+    }
 }

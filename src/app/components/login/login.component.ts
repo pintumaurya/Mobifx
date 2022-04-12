@@ -69,8 +69,6 @@ export class LoginComponent implements OnInit {
       this._authService.login(JSON.stringify(payload)).subscribe((res) => {
         if (res?.status == false) {
           this.showSpinner = false;
-          console.log('callijng', res);
-
           this.toaster.showError(res?.message)
         }
         else {
@@ -82,6 +80,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('firstname', res.data?.user_info?.firstname);
           localStorage.setItem('lastname', res.data?.user_info?.lastname);
           localStorage.setItem('email', res.data?.user_info?.email);
+          localStorage.setItem('phone', res.data?.user_info?.phone);
+          localStorage.setItem('countryCode', res.data?.user_info?.country_code);
           this.toaster.showSuccess(res?.message)
           this.router.navigate(['/dashboard']);
         }

@@ -77,6 +77,12 @@ export const Endpoints = {
             },
             get resetAccountPassword() {
                 return `${apiurl}/account-password-update`;
+            },
+            get userInfo() {
+                return `${apiurl}/userInfo/`;
+            },
+            get updateUserProfile() {
+                return `${apiurl}/update_profile`;
             }
         }
     }
