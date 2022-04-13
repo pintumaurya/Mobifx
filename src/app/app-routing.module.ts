@@ -24,6 +24,7 @@ import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
 import { MyInfoComponent } from './components/settings/my-info/my-info.component';
 import { PhoneChangeComponent } from './components/settings/phone-change/phone-change.component';
+import { AccountLogComponent } from './components/settings/account-log/account-log.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'settings/reset-password', component: ResetPasswordComponent, canActivate: [AuthGuard] },
   { path: 'settings/my-info', component: MyInfoComponent, canActivate: [AuthGuard] },
   { path: 'settings/phone-change', component: PhoneChangeComponent, canActivate: [AuthGuard] },
+  { path: 'settings/account-log', component: AccountLogComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
