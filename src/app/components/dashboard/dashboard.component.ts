@@ -12,8 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DashboardComponent implements OnInit {
 
-  showSpinner: boolean = false;
-  userAccount: any = [];
+  showSpinner: boolean = false;  
   accountDetailsList: any = [];
   id: any;
   displayedColumns: string[] = ['Account1', 'Account', 'Type', 'Server', 'Balance', 'Equity'];
@@ -40,8 +39,7 @@ export class DashboardComponent implements OnInit {
   userAccountList() {
     this.showSpinner = true;
     this.apiService.getUserAllAccountList().subscribe((res) => {
-      if (res?.status == true) {
-        // this.userAccount
+      if (res?.status == true) {        
         this.dataSource = res?.data;
       }
       this.showSpinner = false;
