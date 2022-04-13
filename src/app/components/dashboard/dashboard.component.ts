@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { CommonToasterService } from '../../../app/services/common-toaster.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,9 @@ export class DashboardComponent implements OnInit {
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
-    public toaster: CommonToasterService
+    public toaster: CommonToasterService,
+    private route: ActivatedRoute,
+    public router: Router
   ) {
     this.sharedService.sidebar = true;
     this.sharedService.isHeader = false;
@@ -54,6 +57,10 @@ export class DashboardComponent implements OnInit {
       }
       this.showSpinner = false;
     });
+  }
+
+  createAccount() {
+    this.router.navigate(['open-account/real']);
   }
 
 }

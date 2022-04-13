@@ -2,7 +2,7 @@
 	<div class="invite-friend-info-wrapper">
 		<div class="info-popup sweet-modal-overlay">
 			<div class="sweet-modal">
-				<div class="sweet-box-actions">
+				<div class="sweet-box-actions" (click)="closeDialog()" style="cursor: pointer;">
 					<div class="sweet-action-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 							viewBox="0 0 24 24">
 							<path
@@ -14,7 +14,8 @@
 					<div class="">
 						<section class="info-content">
 							<div class="info-img-block">
-								<img src="../../../assets/images/imgInfo.png" alt="How to benefit with our Invite-a-Friend program:">
+								<img src="../../../assets/images/imgInfo.png"
+									alt="How to benefit with our Invite-a-Friend program:">
 							</div>
 							<div class="info-inner">
 								<h2 class="heading info-title">How to benefit with our

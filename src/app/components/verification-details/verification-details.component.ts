@@ -154,7 +154,7 @@ export class VerificationDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.token = queryParams['token'];
-      this.router.navigate(['/verification-details']);
+      this.router.navigate(['/verify-details']);
     });
     if (this.token) {
       this.emailVerification();
@@ -177,7 +177,7 @@ export class VerificationDetailsComponent implements OnInit {
         localStorage.setItem('lastname', res.data?.user_info?.lastname);
         localStorage.setItem('email', res.data?.user_info?.email);
         this.userInfo = res?.data?.user_info;
-        this.router.navigate(['/verification-details']);
+        this.router.navigate(['/verify-details']);
       }
     });
   }

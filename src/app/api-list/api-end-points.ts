@@ -83,6 +83,9 @@ export const Endpoints = {
             },
             get updateUserProfile() {
                 return `${apiurl}/update_profile`;
+            },
+            get accountLogs() {
+                return `${apiurl}/account-log`;
             }
         }
     }

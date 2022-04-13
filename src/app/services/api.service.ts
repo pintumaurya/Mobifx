@@ -78,4 +78,7 @@ export class ApiService {
     updateProfile(payload: any): Observable<any> {
         return this.http.post(Endpoints.ApiEndpoint.userProfile.updateUserProfile, payload);
     }
+    accountLog(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.userProfile.accountLogs, payload);
+    }
 }
