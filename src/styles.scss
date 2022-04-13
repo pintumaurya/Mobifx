@@ -231,3 +231,25 @@ input:-internal-autofill-selected {
     width: 360px;
 }
 .mat-tab-body-content {overflow: inherit !important;}
+.alert {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 18px;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    font-size: 14px;
+    margin-left: 0;
+    line-height: 1.2;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.alert-danger, .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}
+.alert-danger, .alert-danger .alert-heading, .alert-error, .alert-error .alert-heading {
+    color: #b94a48;
+}
