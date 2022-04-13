@@ -3,6 +3,7 @@ import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { CommonToasterService } from '../../../app/services/common-toaster.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,8 @@ export class DashboardComponent implements OnInit {
   userAccount: any = [];
   accountDetailsList: any = [];
   id: any;
+  displayedColumns: string[] = ['Account1', 'Account', 'Type', 'Server', 'Balance', 'Equity'];
+  dataSource = new MatTableDataSource();
 
   constructor(
     public sharedService: SharedService,
@@ -38,7 +41,8 @@ export class DashboardComponent implements OnInit {
     this.showSpinner = true;
     this.apiService.getUserAllAccountList().subscribe((res) => {
       if (res?.status == true) {
-        this.userAccount = res?.data;
+        // this.userAccount
+        this.dataSource = res?.data;
       }
       this.showSpinner = false;
     });

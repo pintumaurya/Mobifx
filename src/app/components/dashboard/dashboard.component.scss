@@ -621,81 +621,43 @@
 				}
 			}
 		}
-		.table-detail {
-			.simple-table {
-				border: 0;
-				thead {
-					border: 0;
-					th {
-						font-weight: 700;
-						font-size: 13px;
-						border-bottom: #c99c3b solid 2px;
-						padding: 4px;
-						color: #c99c3b;
-						text-align: center;
-						border-top: 0;
-						white-space: nowrap;
-					}
-				}
-				tbody {
-					td {
-						font-size: 13px;
-						padding: 13px 4px 11px;
-						line-height: 16px;
-						color: #464646;
-						font-weight: 400;
-						text-align: left;
-						vertical-align: middle;
-						border-bottom: #e5e5e8 solid 1px;
-						white-space: nowrap;
-
-						.mt5-logo {
-							font-weight: bold;
-							color: #383d50;
-							span {
-								color: #f38749;
-							}
-						}
-						&.action-dropdown {
-							display: flex;
-
-							.triangle {
-								color: #c99c3b;
-								margin-left: 6px;
-							}
-							.dropdown-menu {
-								position: absolute;
-								background-color: #f8f8f8;
-								border: 2px solid #e0e0e0;
-								text-align: left;
-								z-index: 3;
-								a {
-									display: block;
-									padding: 10px;
-									text-decoration: underline;
-									color: #c99c3b;
-									font-size: 13px;
-								}
-							}
-						}
-						&.action-type {
-							.real-div {
-								display: flex;
-								align-items: center;
-								justify-content: flex-start;
-								div {
-									background-color: #c99c3b;
-									color: #fff;
-									font-size: 10px;
-									font-weight: 500;
-									padding: 1px 10px;
-									border-radius: 2px;
-								}
-							}
-						}
-					}
-				}
-			}
+	}
+	.mt5-logo {
+		font-weight: bold;
+		color: #383d50;
+		span {
+			color: #f38749;
+		}
+	}
+	.triangle {
+		color: #c99c3b;
+		margin-left: 6px;
+	}
+	.dropdown-menu {
+		position: absolute;
+		background-color: #f8f8f8;
+		border: 2px solid #e0e0e0;
+		text-align: left;
+		z-index: 3;
+		a {
+			display: block;
+			padding: 10px;
+			text-decoration: underline;
+			color: #c99c3b;
+			font-size: 13px;
+		}
+	}
+	.real-div {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		div {
+			background-color: #c99c3b;
+			color: #fff;
+			font-size: 10px;
+			font-weight: 500;
+			padding: 1px 10px;
+			border-radius: 2px;
 		}
 	}
 	.demo_class {

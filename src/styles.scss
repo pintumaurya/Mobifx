@@ -36,6 +36,14 @@ a:hover {
     box-sizing: border-box;
     border-radius: 5px;
 }
+.right-side {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+#header .logo {
+    width: 200px;
+}
 .dropdown-item.active,
 .dropdown-item:active,
 .dropdown-item:hover,
@@ -303,4 +311,39 @@ input:-internal-autofill-selected {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+}
+.mat-elevation-z8 {
+    box-shadow: none;
+}
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+    padding-left: 0 !important;
+}
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+    padding-right: 0 !important;
+}
+th.mat-header-cell {
+    font-weight: 700;
+    font-size: 13px;
+    border-bottom: #c99c3b solid 2px !important;
+    padding: 4px !important;
+    color: #c99c3b;
+}
+td.mat-cell {
+    font-size: 13px;
+    padding: 13px 4px 11px !important;
+    line-height: 16px;
+    color: #464646;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+}
+tr:nth-child(2n) td.mat-cell {
+    background: #f9f8f3;
+}
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
 }
