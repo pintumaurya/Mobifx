@@ -16,6 +16,7 @@ export class PhoneChangeComponent implements OnInit {
   showSpinner: boolean = false;
   phoneNo = "";
   isValid: boolean = false;
+  email: any;
 
   constructor(
     public sharedService: SharedService,
@@ -28,6 +29,7 @@ export class PhoneChangeComponent implements OnInit {
 
     this.phone = localStorage.getItem("phone");
     this.countryCode = localStorage.getItem("countryCode");
+    this.email = localStorage.getItem("email");
   }
 
   ngOnInit(): void {
@@ -39,24 +41,26 @@ export class PhoneChangeComponent implements OnInit {
       // "firstname": "charley",
       // "lastname": "martin",
       // "nickname": "charlo",
-      // "email": "charley@gmail.com",
+      email: this.email,
       // "country_id": "1",
       // "country_code": "USA",
       phone: this.phoneNo,
       // "city": "Chicago",
       // "street_address": "9898989898"
     }
-    console.log('payload', payload);
     if (this.phoneNo == "") {
       this.isValid = true;
     }
     this.apiService.updateProfile(JSON.stringify(payload)).subscribe((res) => {
       if (res?.status == true) {
         this.isValid = false;
+        localStorage.setItem('phone', res.data?.user_info?.phone);
         this.toaster.showSuccess(res?.message);
         this.router.navigate(['/dashboard']);
       }
-      this.toaster.showError(res?.message);
+      else {
+        this.toaster.showError(res?.message);
+      }
     });
   }
 
