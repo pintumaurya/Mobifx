@@ -48,6 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SwiperModule } from 'swiper/angular';
 import { ApiService } from './services/api.service';
 import { AuthGuard } from '../app/services/auth-guard.services';
 import { ToastrModule } from 'ngx-toastr';
@@ -104,16 +105,20 @@ import { ToastrModule } from 'ngx-toastr';
     MatSelectCountryModule.forRoot('de'),
     ToastrModule.forRoot(),
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SwiperModule
   ],
-  providers: [ApiService,
+  providers: [
+    ApiService,
     // CommonSpinnerService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
-    },],
+    },
+  ]
+  ,
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

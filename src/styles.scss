@@ -17,6 +17,10 @@ body {
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
+@import "swiper/scss";
+@import "swiper/scss/navigation";
+@import "swiper/scss/pagination";
+
 a {
     color: #c99c3b;
     text-decoration: none;
@@ -32,8 +36,16 @@ a:hover {
     box-sizing: border-box;
     border-radius: 5px;
 }
-.dropdown-item.active, .dropdown-item:active,.dropdown-item:hover, .dropdown-item:focus {background-color: transparent;}
-.mat-select-placeholder,.mat-select-value {color: #050f2c;}
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: transparent;
+}
+.mat-select-placeholder,
+.mat-select-value {
+    color: #050f2c;
+}
 .mat-select-trigger::after {
     content: "";
     width: 24px;
@@ -46,7 +58,9 @@ a:hover {
     z-index: 0;
     background-image: url("assets/images/icon/down.svg");
 }
-.mat-select-arrow-wrapper {display: none !important;}
+.mat-select-arrow-wrapper {
+    display: none !important;
+}
 .mat-tab-label {
     cursor: pointer;
     font-weight: 400;
@@ -54,7 +68,7 @@ a:hover {
     text-align: center;
     background-color: #f9f8f3;
     color: #434343;
-    transition: all .2s;
+    transition: all 0.2s;
     border-width: 3px 0;
     border-top-color: #f9f8f3;
     border-bottom-color: #e3e2dd;
@@ -74,8 +88,14 @@ a:hover {
     border-top-color: #e6c988;
     border-bottom-color: transparent;
 }
-.mat-tab-header {border-bottom: 3px solid #c99c3b;}
-.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {background-color: transparent;opacity: 0;}
+.mat-tab-header {
+    border-bottom: 3px solid #c99c3b;
+}
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: transparent;
+    opacity: 0;
+}
 .heading {
     box-sizing: border-box;
     padding: 0;
@@ -96,25 +116,25 @@ a:hover {
     width: 50px !important;
     height: 50px !important;
 }
-  
+
 .mat-progress-spinner svg {
     width: 50px !important;
     height: 50px !important;
 }
-  
+
 .mat-progress-spinner circle {
     stroke: #c99c3b !important;
 }
-  
+
 .verification .mat-form-field {
     width: 360px;
 }
-  
+
 .verification .leverage-select .mat-form-field {
     width: 100%;
 }
-  
- .mat-form-field-appearance-outline .mat-form-field-infix {
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
     width: 360px;
     height: 40px;
     padding: 0;
@@ -124,52 +144,54 @@ a:hover {
     width: 120px;
     height: 40px;
 }
-  
+
 .verification .leverage-select .mat-form-field-appearance-outline .mat-form-field-infix {
     width: 100%;
     height: 35px;
     padding: 0;
     line-height: normal;
 }
-  
+
 // .verification .mat-select-trigger {
 //     height: 40px;
 // }
-  
+
 // .verification .leverage-select .mat-select-trigger {
 //     height: 35px;
 // }
-  
+
 .mat-form-field-label-wrapper {
     display: none;
 }
-  
- .mat-form-field-appearance-outline .mat-form-field-wrapper {
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
     margin: 0;
     padding: 0;
-  }
-  
-  .mat-form-field-appearance-outline .mat-form-field-outline {
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
     color: #ccc;
-  }
-  
-  .verification .mat-radio-button {
+}
+
+.verification .mat-radio-button {
     display: block;
-  }
-  
-.mat-radio-inner-circle,.mat-radio-outer-circle,.mat-radio-container {
+}
+
+.mat-radio-inner-circle,
+.mat-radio-outer-circle,
+.mat-radio-container {
     width: 16px !important;
     height: 16px !important;
 }
-  
+
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: #c99c3b;
 }
-  
+
 .mat-radio-button.mat-accent .mat-radio-inner-circle {
     background-color: #c99c3b;
 }
-  
+
 .heading {
     box-sizing: border-box;
     padding: 0;
@@ -181,7 +203,7 @@ a:hover {
     font-weight: 500;
     font-size: 20px;
 }
-  
+
 .tooltip__ico-question {
     width: 12px;
     height: 12px;
@@ -191,13 +213,13 @@ a:hover {
     transition: all 0.2s ease-in-out;
     display: flex;
 }
-  
-.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]),
-.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]),
-.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+
+.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled="true"]),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled="true"]),
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
     background: transparent !important;
 }
-  
+
 input:-internal-autofill-selected {
     appearance: menulist-button;
     background-image: none !important;
@@ -207,30 +229,32 @@ input:-internal-autofill-selected {
 .mat-form-field-appearance-outline .mat-form-field-infix input:-internal-autofill-selected {
     appearance: menulist-button;
     background-image: none !important;
-    background-color: -internal-light-dark(rgb(232, 240, 254,0), rgba(70, 90, 126, 0));
+    background-color: -internal-light-dark(rgb(232, 240, 254, 0), rgba(70, 90, 126, 0));
     color: -internal-light-dark(black, white);
 }
-  
+
 .error-msg {
     margin: 4px 0 4px 0;
     font-size: 12px;
     color: red;
 }
-  
-.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]),
-.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]),
-.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+
+.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled="true"]),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled="true"]),
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
     background: transparent !important;
 }
-  
+
 .balance-div .mat-form-field-appearance-outline .mat-form-field-flex {
     padding-left: 22px;
 }
-  
+
 .verification .form-control {
     width: 360px;
 }
-.mat-tab-body-content {overflow: inherit !important;}
+.mat-tab-body-content {
+    overflow: inherit !important;
+}
 .alert {
     padding: 8px 35px 8px 14px;
     margin-bottom: 18px;
@@ -246,11 +270,15 @@ input:-internal-autofill-selected {
     justify-content: space-between;
     flex-direction: row-reverse;
 }
-.alert-danger, .alert-error {
+.alert-danger,
+.alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
 }
-.alert-danger, .alert-danger .alert-heading, .alert-error, .alert-error .alert-heading {
+.alert-danger,
+.alert-danger .alert-heading,
+.alert-error,
+.alert-error .alert-heading {
     color: #b94a48;
 }
 .swiper-container {
@@ -261,7 +289,7 @@ input:-internal-autofill-selected {
     text-align: center;
     font-size: 18px;
     background: #fff;
-    
+
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;

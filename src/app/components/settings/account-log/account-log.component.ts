@@ -16,7 +16,7 @@ export class AccountLogComponent implements OnInit {
   accountLogData: any = [];
   displayedColumns: string[] = ['IP_address', 'Action', 'Created'];
   dataSource = new MatTableDataSource();
-  pageIndex: number;
+  pageIndex = 0;
   pageSize = 10;
   length: number;
   sizeOptions: number[] = [5, 10, 25, 100];;
@@ -49,6 +49,7 @@ export class AccountLogComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.pageSize = res?.data.length;
         this.length = res?.data.length;
+        this.pageIndex = res?.data.length;
       }
       this.showSpinner = false;
     });
