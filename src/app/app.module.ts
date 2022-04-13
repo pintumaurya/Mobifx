@@ -46,6 +46,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 import { ApiService } from './services/api.service';
 import { AuthGuard } from '../app/services/auth-guard.services';
 import { ToastrModule } from 'ngx-toastr';
@@ -101,6 +102,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxIntlTelInputModule,
     MatSelectCountryModule.forRoot('de'),
     ToastrModule.forRoot(),
+    MatTableModule
   ],
   providers: [ApiService,
     // CommonSpinnerService,
