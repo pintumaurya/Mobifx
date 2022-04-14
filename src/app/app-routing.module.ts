@@ -47,15 +47,11 @@ const routes: Routes = [
   { path: 'open-demo-account', component: OpenDemoAccountComponent, canActivate: [AuthGuard] },
   { path: 'email-verification', component: EmailVerifyComponent, canActivate: [AuthGuard] },
   { path: 'verification-details/:token', component: VerificationDetailsComponent },
-  {
-    path: 'verify-details', component: VerificationDetailsComponent, canActivate: [AuthGuard], children: [{
-      path: 'open-account/real', component: VerificationDetailsComponent, canActivate: [AuthGuard]
-    }]
-  },
+  { path: 'verification-details', component: VerificationDetailsComponent, canActivate: [AuthGuard] },
   { path: 'settings/reset-password', component: ResetPasswordComponent, canActivate: [AuthGuard] },
   { path: 'settings/my-info', component: MyInfoComponent, canActivate: [AuthGuard] },
   { path: 'settings/phone-change', component: PhoneChangeComponent, canActivate: [AuthGuard] },
-  // { path: 'open-account/real', component: VerificationDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'open-account/real', component: OpenRealAccountComponent, canActivate: [AuthGuard] },
   { path: 'settings/account-log', component: AccountLogComponent, canActivate: [AuthGuard] },
 ];
 

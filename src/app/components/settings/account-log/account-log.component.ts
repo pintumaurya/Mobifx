@@ -15,14 +15,16 @@ export class AccountLogComponent implements OnInit {
   showSpinner: boolean = false;
   accountLogData: any = [];
   displayedColumns: string[] = ['IP_address', 'Action', 'Created'];
-  dataSource = new MatTableDataSource();
+  dataSource: MatTableDataSource<any>;
   pageIndex = 0;
   pageSize = 10;
-  length: number;
-  sizeOptions: number[] = [5, 10, 25, 100];;
+  length = 0;
+  sizeOptions: number[] = [10, 25, 50, 100, 150];;
   pageEvent: PageEvent;
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   constructor(
     public sharedService: SharedService,
@@ -34,22 +36,22 @@ export class AccountLogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAccountLog(this.pageSize);
+    this.getAccountLog(this.pageIndex);
     this.dataSource.paginator = this.paginator;
   }
 
   public getAccountLog(event: any) {
     let payload = {
-      page_size: event.pageSize
+      page_size: event.pageIndex
     }
     this.showSpinner = true;
     this.apiService.accountLog(payload).subscribe((res) => {
       if (res?.status == true) {
         this.dataSource = res?.data;
         this.dataSource.paginator = this.paginator;
-        this.pageSize = res?.data.length;
-        this.length = res?.data.length;
-        this.pageIndex = res?.data.length;
+        this.pageIndex = res?.pagination?.current_page;
+        this.length = res?.pagination?.total_records;;
+        this.pageSize = res?.pagination?.current_page;
       }
       this.showSpinner = false;
     });
