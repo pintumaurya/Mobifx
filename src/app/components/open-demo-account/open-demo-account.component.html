@@ -1,271 +1,287 @@
 <main>
-    <!-- live chat -->
-    <button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
-        data-auto-event-label="livechat">
-        <span class="live-chat-button__label">Live chat support</span>
-    </button>
+	<!-- live chat -->
+	<button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
+		data-auto-event-label="livechat">
+		<span class="live-chat-button__label">Live chat support</span>
+	</button>
 
-    <section class="login open-account pb-3">
-        <div class="container">
-            <div class="row align-items-center main-box justify-content-center w-100 mx-0">
-                <div class="col-xl-12 col-md-12 col-lg-12 px-0">
-                    <div class="account-box">
-                        <header class="account-box-header">
-                            <div class="account-box-title">
-                                <div class="account-box-title-name">
-                                    <h2 class="heading h1">Open new demo account</h2>
-                                </div>
-                                <p>To open a new demo account please carefully fill in the form below. A new account
-                                    will be created for you and added to your Personal Area in less than 1 minute!
-                                </p>
-                            </div>
-                        </header>
-                    </div>
-                    <div class="row align-items-center justify-content-center w-100 mx-0">
+	<section class="login open-account pb-3">
+		<div class="container">
+			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
+				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
+					<div class="account-box">
+						<header class="account-box-header">
+							<div class="account-box-title">
+								<div class="account-box-title-name">
+									<h2 class="heading h1">Open new demo account</h2>
+								</div>
+								<p>To open a new demo account please carefully fill in the form below. A new account
+									will be created for you and added to your Personal Area in less than 1 minute!
+								</p>
+							</div>
+						</header>
+					</div>
+					<div class="row align-items-center justify-content-center w-100 mx-0">
 						<div class="col-xl-12 col-md-12 col-lg-12 px-0">
-						  <div class="d-flex align-items-center mb-1">
-							<h2 class="heading">Choose account and parameters</h2>
-							<div class="tooltip__ico-question">
-							  <img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+							<div class="d-flex align-items-center mb-1">
+								<h2 class="heading">Choose account and parameters</h2>
+								<div class="tooltip__ico-question">
+									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
+								</div>
 							</div>
-						  </div>
-						  <form>
-							<div class="simple-card row">
-							  <!-- swiper  -->
-							  <div class="col-md-5 px-0">
-								<mat-card class="account-type selected">
-									<div class="d-flex align-items-center justify-content-between">
-									  <h3 class="card-title">OctaFX MT4</h3>
-									  <div class="mt5-img">
-										<img src="../../../assets/images/mt5.svg" class="img-fluid" />
-									  </div>
+							<form>
+								<div class="simple-card row">
+									<!-- swiper  -->
+									<div *ngFor="let item of planData" class="col-md-5 px-0">
+										<mat-card class="account-type selected">
+											<div class="d-flex align-items-center justify-content-between">
+												<h3 class="card-title">{{item?.name}}</h3>
+												<div class="mt5-img">
+													<img src="../../../assets/images/mt5.svg" class="img-fluid" />
+												</div>
+											</div>
+											<hr />
+											<ul class="advantages">
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Spread from</div>
+														<span
+															class="value">{{item?.plan_feature[0]?.feature_name}}</span>
+													</div>
+													<p class="descr">Floating spread, markup</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Min deposit</div>
+														<span class="value">$25</span>
+													</div>
+													<p class="descr">Favourable: $100</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Maximum leverage</div>
+														<span class="value">1:500</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Margin call</div>
+														<span class="value">25%</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Stop out level</div>
+														<span class="value">15%</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">No swaps</div>
+													</div>
+													<p class="descr">No commissions</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Instruments</div>
+													</div>
+													<p class="descr">80 instruments</p>
+												</li>
+											</ul>
+											<div class="d-flex align-items-center justify-content-center">
+												<a class="btn btn-blue" type="button"> Selected </a>
+											</div>
+										</mat-card>
 									</div>
-									<hr />
-									<ul class="advantages">
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Spread from</div>
-										  <span class="value">0.6 pips</span>
-										</div>
-										<p class="descr">Floating spread, markup</p>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Min deposit</div>
-										  <span class="value">$25</span>
-										</div>
-										<p class="descr">Favourable: $100</p>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Maximum leverage</div>
-										  <span class="value">1:500</span>
-										</div>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Margin call</div>
-										  <span class="value">25%</span>
-										</div>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Stop out level</div>
-										  <span class="value">15%</span>
-										</div>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">No swaps</div>
-										</div>
-										<p class="descr">No commissions</p>
-									  </li>
-									  <li class="item">
-										<div class="text-wrap">
-										  <div class="text">Instruments</div>
-										</div>
-										<p class="descr">74 instruments</p>
-									  </li>
-									</ul>
-									<div class="d-flex align-items-center justify-content-center">
-									  <a class="btn btn-blue" type="button"> Selected </a>
+									<div class="col-md-5 px-0">
+										<mat-card class="account-type">
+											<div class="d-flex align-items-center justify-content-between">
+												<h3 class="card-title">OctaFX MT4</h3>
+												<div class="mt5-img">
+													<img src="../../../assets/images/mt5.svg" class="img-fluid" />
+												</div>
+											</div>
+											<hr />
+											<ul class="advantages">
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Spread from</div>
+														<span class="value">0.6 pips</span>
+													</div>
+													<p class="descr">Floating spread, markup</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Min deposit</div>
+														<span class="value">$25</span>
+													</div>
+													<p class="descr">Favourable: $100</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Maximum leverage</div>
+														<span class="value">1:500</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Margin call</div>
+														<span class="value">25%</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Stop out level</div>
+														<span class="value">15%</span>
+													</div>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">No swaps</div>
+													</div>
+													<p class="descr">No commissions</p>
+												</li>
+												<li class="item">
+													<div class="text-wrap">
+														<div class="text">Instruments</div>
+													</div>
+													<p class="descr">74 instruments</p>
+												</li>
+											</ul>
+											<div class="d-flex align-items-center justify-content-center">
+												<a class="btn btn-blue" type="button"> Selected </a>
+											</div>
+										</mat-card>
 									</div>
-								  </mat-card>
-							  </div>
-							  <div class="col-md-5 px-0">
-								<mat-card class="account-type">
-								  <div class="d-flex align-items-center justify-content-between">
-									<h3 class="card-title">OctaFX MT4</h3>
-									<div class="mt5-img">
-									  <img src="../../../assets/images/mt5.svg" class="img-fluid" />
-									</div>
-								  </div>
-								  <hr />
-								  <ul class="advantages">
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Spread from</div>
-										<span class="value">0.6 pips</span>
-									  </div>
-									  <p class="descr">Floating spread, markup</p>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Min deposit</div>
-										<span class="value">$25</span>
-									  </div>
-									  <p class="descr">Favourable: $100</p>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Maximum leverage</div>
-										<span class="value">1:500</span>
-									  </div>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Margin call</div>
-										<span class="value">25%</span>
-									  </div>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Stop out level</div>
-										<span class="value">15%</span>
-									  </div>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">No swaps</div>
-									  </div>
-									  <p class="descr">No commissions</p>
-									</li>
-									<li class="item">
-									  <div class="text-wrap">
-										<div class="text">Instruments</div>
-									  </div>
-									  <p class="descr">74 instruments</p>
-									</li>
-								  </ul>
-								  <div class="d-flex align-items-center justify-content-center">
-									<a class="btn btn-blue" type="button"> Selected </a>
-								  </div>
-								</mat-card>
-							  </div>
-							</div>
-							<ul class="acc-type-settings">
-							  <li class="item">
-								<h4 class="title">
-								  Account type
-								  <div class="tooltip__ico-question">
-									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
-								  </div>
-								</h4>
-								<div class="cntrl">
-								  <div class="switcher">
-									<div class="switcher-item">
-									  <input id="server-0" name="server" type="radio" class="switcher-radio" value="1" 
-										 />
-									  <label for="server-0" class="switcher-label">Real</label>
-									</div>
-									<div class="switcher-item">
-									  <input id="server-1" name="server" type="radio" class="switcher-radio" value="0" checked
-										 />
-									  <label for="server-1" class="switcher-label">Demo</label>
-									</div>
-								  </div>
 								</div>
-							  </li>
-							  <li class="item">
-								<h4 class="title">
-								  Currency
-								  <div class="tooltip__ico-question">
-									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
-								  </div>
-								</h4>
-								<div class="cntrl">
-								  <div class="switcher">
-									<div class="switcher-item">
-									  <input id="currency-0" name="currency" type="radio" class="switcher-radio" value="USD" checked
-										 />
-									  <label for="currency-0" class="switcher-label">USD</label>
+								<ul class="acc-type-settings">
+									<li class="item">
+										<h4 class="title">
+											Account type
+											<div class="tooltip__ico-question">
+												<img src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid" />
+											</div>
+										</h4>
+										<div class="cntrl">
+											<div class="switcher">
+												<div class="switcher-item">
+													<input id="server-0" name="server" type="radio"
+														class="switcher-radio" value="1" checked
+														(input)="onSelectChange($event.target.value)" />
+													<label for="server-0" class="switcher-label">Real</label>
+												</div>
+												<div *ngIf="isHideAccType" class="switcher-item">
+													<input id="server-1" name="server" type="radio"
+														class="switcher-radio" value="0"
+														(input)="onSelectChange($event.target.value)" />
+													<label for="server-1" class="switcher-label">Demo</label>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<h4 class="title">
+											Currency
+											<div class="tooltip__ico-question">
+												<img src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid" />
+											</div>
+										</h4>
+										<div class="cntrl">
+											<div class="switcher">
+												<div class="switcher-item">
+													<input id="currency-0" name="currency" type="radio"
+														class="switcher-radio" value="USD" checked
+														(input)="onSelectChange1($event.target.value)" />
+													<label for="currency-0" class="switcher-label">USD</label>
+												</div>
+												<div *ngIf="isHideCurrency" class="switcher-item">
+													<input id="currency-1" name="currency" type="radio"
+														class="switcher-radio" value="EUR"
+														(input)="onSelectChange1($event.target.value)" />
+													<label for="currency-1" class="switcher-label">EUR</label>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="item verification">
+										<h4 class="title">
+											Leverage
+											<div class="tooltip__ico-question">
+												<img src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid" />
+											</div>
+										</h4>
+										<div class="leverage-select">
+											<mat-form-field appearance="outline">
+												<mat-select *ngFor="let item of leverageData" [(value)]="Leverage"
+													(selectionChange)="onSelectLeverage($event)">
+													<mat-option value="{{item?.id}}">{{item?.name}}</mat-option>
+												</mat-select>
+											</mat-form-field>
+										</div>
+									</li>
+									<li class="item">
+										<h4 class="title">
+											Fixed rate
+											<div class="tooltip__ico-question">
+												<img src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid" />
+											</div>
+										</h4>
+										<div class="cntrl">
+											<div class="switcher">
+												<div *ngIf="isHideFixedRate" class="switcher-item">
+													<input id="fixedRate-0" name="fixedRate" type="radio"
+														class="switcher-radio" value="1"
+														(input)="onSelectChange2($event.target.value)" />
+													<label for="fixedRate-0" class="switcher-label">On</label>
+												</div>
+												<div class="switcher-item">
+													<input id="fixedRate-1" name="fixedRate" type="radio"
+														class="switcher-radio" value="2" checked
+														(input)="onSelectChange2($event.target.value)" />
+													<label for="fixedRate-1" class="switcher-label">Off</label>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="item verification">
+										<h4 class="title">
+											Balance
+											<div class="tooltip__ico-question">
+												<img src="../../../assets/images/icon/question-mark.png"
+													class="img-fluid" />
+											</div>
+										</h4>
+										<div class="leverage-select">
+											<div class="switcher-item balance-div">
+												<label for="fixedRate-1"
+													class="switcher-label label-position">{{currencySign}}</label>
+												<mat-form-field appearance="outline">
+													<input type="text" matInput placeholder=""
+														[(ngModel)]="balanceValue"
+														[ngModelOptions]="{standalone: true}" />
+												</mat-form-field>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="row align-items-center">
+									<div class="col-sm-12">
+										<div class="form-button">
+											<button class="btn btn-blue" type="submit">
+												Open account
+											</button>
+										</div>
 									</div>
-									<div  class="switcher-item">
-									  <input id="currency-1" name="currency" type="radio" class="switcher-radio" value="EUR"
-										 />
-									  <label for="currency-1" class="switcher-label">EUR</label>
-									</div>
-								  </div>
 								</div>
-							  </li>
-							  <li class="item verification">
-								<h4 class="title">
-								  Leverage
-								  <div class="tooltip__ico-question">
-									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
-								  </div>
-								</h4>
-								<div class="leverage-select">
-								  <mat-form-field appearance="outline">
-									<mat-select >
-									  <mat-option value="">name</mat-option>
-									</mat-select>
-								  </mat-form-field>
-								</div>
-							  </li>
-							  <li class="item">
-								<h4 class="title">
-								  Fixed rate
-								  <div class="tooltip__ico-question">
-									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
-								  </div>
-								</h4>
-								<div class="cntrl">
-								  <div class="switcher">
-									<div class="switcher-item">
-									  <input id="fixedRate-0" name="fixedRate" type="radio" class="switcher-radio" value="1"
-										 />
-									  <label for="fixedRate-0" class="switcher-label">On</label>
-									</div>
-									<div class="switcher-item">
-									  <input id="fixedRate-1" name="fixedRate" type="radio" class="switcher-radio" value="2" checked
-										 />
-									  <label for="fixedRate-1" class="switcher-label">Off</label>
-									</div>
-								  </div>
-								</div>
-							  </li>
-							  <li class="item verification">
-								<h4 class="title">
-								  Balance
-								  <div class="tooltip__ico-question">
-									<img src="../../../assets/images/icon/question-mark.png" class="img-fluid" />
-								  </div>
-								</h4>
-								<div class="leverage-select">
-								  <div class="switcher-item balance-div">
-									<label for="fixedRate-1" class="switcher-label label-position">$</label>
-									<mat-form-field appearance="outline">
-									  <input type="text" matInput placeholder="" />
-									</mat-form-field>
-								  </div>
-								</div>
-							  </li>
-							</ul>
-							<div class="row align-items-center">
-							  <div class="col-sm-12">
-								<div class="form-button">
-								  <button class="btn btn-blue" type="submit">
-									Open account
-								  </button>
-								</div>
-							  </div>
-							</div>
-						  </form>
+							</form>
 						</div>
-					  </div>
-                </div>
-            </div>
-        </div>
-    </section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
