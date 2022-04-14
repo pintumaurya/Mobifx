@@ -303,10 +303,13 @@
 						}
 						.multiselect-content-wrapper {
 							border-top: 1px solid #e8e8e8;
+							padding: 0;
+							background-color: #fff;
 
 							.multiselect__element {
 								display: block;
 								padding: 0;
+								text-decoration: none;
 
 								.multiselect__option {
 									color: #050f2c;
