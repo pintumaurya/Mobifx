@@ -208,7 +208,7 @@
 														src="../../../assets/images/icon/question-mark.png"
 														class="img-fluid"></div>
 											</div>
-											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" :
+											<div class="info-value">{{accountDetailsList?.currency == "USD" ? "$" :
 												"€"}}0.00</div>
 										</div>
 										<div class="info-row">
@@ -218,7 +218,7 @@
 														src="../../../assets/images/icon/question-mark.png"
 														class="img-fluid"></div>
 											</div>
-											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" :
+											<div class="info-value">{{accountDetailsList?.currency == "USD" ? "$" :
 												"€"}}0.00</div>
 										</div>
 										<div class="info-row">
@@ -228,7 +228,8 @@
 														src="../../../assets/images/icon/question-mark.png"
 														class="img-fluid"></div>
 											</div>
-											<div class="info-value">{{accountDetailsList?.currency == 1 ? "$" : "€"}}
+											<div class="info-value">{{accountDetailsList?.currency == "USD" ? "$" :
+												"€"}}
 												{{accountDetailsList?.balance}}</div>
 										</div>
 									</div>
@@ -347,7 +348,7 @@
 									<ng-container matColumnDef="Balance">
 										<th mat-header-cell *matHeaderCellDef> Balance </th>
 										<td mat-cell *matCellDef="let element" class="fix-ltr">
-											{{element?.currency == 1 ? "$" : "€"}}
+											{{element?.currency == "USD" ? "$" : "€"}}
 											{{element?.balance}}
 										</td>
 									</ng-container>
