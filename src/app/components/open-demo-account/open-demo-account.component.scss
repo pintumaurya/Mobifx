@@ -1,108 +1,272 @@
-.dashboard {
+.open-account {
     .account-box {
-        margin-top: 40px;
-
-        .account-box-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-
-            @media (min-width: 769px) {
-                display: flex;
-                align-items: center;
-            }
-
-            .account-box-title {
-                align-items: center;
-                @media (min-width: 769px) {
-                    font-size: 24px;
-                }
-                p {
-                    font-size: 13px;
-                }
-
-                .account-box-title-name {
-                    margin-bottom: 20px;
-                    font-size: 24px;
-                    display: block;
-                    white-space: nowrap;
-                    @media (min-width: 769px) {
-                        display: flex;
-                        align-items: center;
-                        margin-bottom: 0;
-                    }
-                    .heading {
-                        box-sizing: border-box;
-                        padding: 0;
-                        margin: 0;
-                        margin-bottom: 25px;
-                        font-family: Roboto, Helvetica, Arial, sans-serif;
-                        line-height: 1;
-                        color: #000;
-                        font-weight: 500;
-                        font-size: 20px;
-                    }
-                }
-            }
+      margin-top: 40px;
+  
+      .heading {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 25px;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1;
+        color: #000;
+        font-weight: 500;
+        font-size: 20px;
+  
+        &.h1 {font-size: 24px;}
+      }
+  
+      .account-box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+  
+        @media (min-width: 769px) {
+          display: flex;
+          align-items: center;
         }
+  
+        .account-box-title {
+          align-items: center;
+          @media (min-width: 769px) {
+            font-size: 24px;
+          }
+          p {
+            font-size: 13px;
+            color: #999;
+          }
+  
+          .account-box-title-name {
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: block;
+            white-space: nowrap;
+            @media (min-width: 769px) {
+              display: flex;
+              align-items: center;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
     }
     .account-header {
+      display: flex;
+      .tooltip__ico-question {
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        opacity: 0.5;
+        margin: 10px;
+        transition: all 0.2s ease-in-out;
         display: flex;
-        .tooltip__ico-question {
-            width: 12px;
-            height: 12px;
-            min-width: 12px;
-            opacity: 0.5;
-            margin: 10px;
-            transition: all 0.2s ease-in-out;
-            display: flex;
-        }
+      }
     }
-    .account-section {
-        .submit-btn {
-            text-align: center;
-        }
-        button {
-            margin: 15px 0px;
-            background: #0d6ffb;
-            color: white;
-        }
-        .account-radio {
-            p,
-            mat-label {
-                font-size: 13px;
-            }
-            img {
-                width: 12px;
-                height: 12px;
-                min-width: 12px;
-                opacity: 0.5;
-            }
-            mat-form-field {
-                width: 100%;
-            }
-        }
-        .account-label {
-            display: flex;
-            padding: 0;
-            .account-item-label {
-                padding: 0px;
-                label {
-                    position: absolute;
-                    top: 17px;
-                    left: 30px;
-                    color: #0d6ffb;
-                }
-            }
-            .enable-btn {
-                background-color: white;
-                opacity: 0.5;
-            }
-        }
-    }
+    
     .simple-card {
-        display: flex;
-        margin: 40px 0px;
+      display: flex;
+      margin: 40px 0px;
+      justify-content: flex-end;
+  
+      .acc-type-slide {
+          height: auto;
+          padding-top: 15px;
+          width: 192px;
+      }
+  
+      .account-type {
+          border: 1px solid #e5e5e5;
+          transform: scale(.8);
+          cursor: pointer;
+          box-shadow: none;
+          &.selected {
+              border-color: #c99c3b;
+              -webkit-transform: scale(1);
+              transform: scale(1);
+          }
+      }
+  
+      .card-title {
+          font-weight: 500;
+          font-size: 18px;
+          margin: 0;
+          padding: 0;
+      }
+      .advantages {
+          list-style: none;
+          margin: 0 0 20px;
+          padding: 0;
+  
+          .item {
+              position: relative;
+              text-align: left;
+              margin-top: 0;
+              margin-bottom: 13px;
+  
+              .text-wrap {
+                  display: flex;
+                  justify-content: space-between;
+  
+                  .text {
+                      font-size: 14px;
+                      display: flex;
+                      line-height: 1.2;
+                      margin-bottom: 3px;
+                      color: #333;
+                  }
+                  .value {
+                      font-size: 14px;
+                      display: flex;
+                      align-items: flex-end;
+                      flex: 1;
+                      margin-bottom: 3px;
+                      &:before {
+                          display: block;
+                          flex: 1;
+                          width: 10px;
+                          height: 1px;
+                          margin-bottom: 2px;
+                          content: "";
+                          border-bottom: 1px dotted #b3b3b3;
+                      }
+                  }
+              }
+              .descr {
+                  font-size: 12px;
+                  margin: 0;
+                  line-height: 1.2;
+                  color: #b3b3b3;
+              } 
+          }
+      }
     }
-}
+    .acc-type-settings {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 15px 10px 15px 25px;
+      margin: 0 0 25px;
+      border: 1px solid #f2f2f2;
+      border-radius: 4px;
+      color: #4d4d4d;
+      .item {
+          flex: 0 1 22.6%;
+          margin: 0 15px 20px 0;
+          min-width: 130px;
+  
+          .title {
+              font-weight: 500;
+              font-size: 12px;
+              display: flex;
+              justify-content: flex-start;
+              min-height: 14px;
+              margin-bottom: 10px;
+              position: relative;
+              align-items: center;
+  
+          }
+          .cntrl {
+              width: 100%;
+  
+              .switcher {
+                  display: flex;
+                  align-items: stretch;
+                  justify-content: stretch;
+                  height: 32px;
+                  border: 2px solid #f2f2f2;
+                  background: #f2f2f2;
+                  border-radius: 4px;
+                  .switcher-item {
+                      position: relative;
+                      flex: 1;
+                      height: 28px;
+                      .switcher-radio {
+                          position: absolute;
+                          bottom: 100%;
+                          right: 100%;
+                          visibility: hidden;
+                          opacity: 0;
+                      }
+                      .switcher-label {
+                          font-size: 12px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          height: 100%;
+                          padding: 0 10px;
+                          cursor: pointer;
+                          color: #999;
+                          border-radius: 4px;
+                          transition: all .1s ease-out;
+                      }
+  
+                      .switcher-radio:checked+.switcher-label {
+                          cursor: default;
+                          background: #fff;
+                          color: #c99c3b;
+                          box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+                      }
+                  }
+                  
+              }
+              
+          }
+      }
+      .balance-div {
+          position: relative;
+  
+          .label-position {
+              position: absolute;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              left: 8px;
+              font-weight: bold;
+          }
+      }
+    }
+    .form-width {width: 360px; display: flex;justify-content: space-between;}
+  .form-button {display: flex;align-items: center;justify-content: center;}
+  .btn {
+    width: 46%;
+    text-align: center;
+    justify-content: center;
+    max-width: 170px;
+    padding-right: 5px;
+    padding-left: 5px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+    @media (min-width: 769px) {
+        width: 120px;
+        padding: 0 5px;
+    }
+  }
+  .btn-blue {
+    background: #c99c3b;
+    border-color: #c99c3b;
+    color: #fff !important;
+    @media (min-width: 769px) {
+        width: 100%;
+    }
+  
+    &:hover {
+        background: #9d7622;
+        color: #fff;
+    }
+  }
+  }
+  
