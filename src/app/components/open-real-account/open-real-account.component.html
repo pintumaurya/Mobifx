@@ -15,9 +15,10 @@
 								<div class="account-box-title-name">
 									<h1 class="heading h1">Open new real account</h1>
 								</div>
-								<p>To open a new account please carefully fill in the form below. A new account will be
-									created for you
-									and added to your Personal Area in less than 1 minute!
+								<p>
+									To open a new account please carefully fill in the form below.
+									A new account will be created for you and added to your
+									Personal Area in less than 1 minute!
 								</p>
 							</div>
 						</header>
@@ -36,7 +37,7 @@
 									<div *ngFor="let item of planData" class="col-md-5 px-0">
 										<mat-card class="account-type selected">
 											<div class="d-flex align-items-center justify-content-between">
-												<h3 class="card-title">{{item?.name}}</h3>
+												<h3 class="card-title">{{ item?.name }}</h3>
 												<div class="mt5-img">
 													<img src="../../../assets/images/mt5.svg" class="img-fluid" />
 												</div>
@@ -46,8 +47,9 @@
 												<li class="item">
 													<div class="text-wrap">
 														<div class="text">Spread from</div>
-														<span
-															class="value">{{item?.plan_feature[0]?.feature_name}}</span>
+														<span class="value">{{
+															item?.plan_feature[0]?.feature_name
+															}}</span>
 													</div>
 													<p class="descr">Floating spread, markup</p>
 												</li>
@@ -218,7 +220,9 @@
 											<div appearance="outline">
 												<mat-select *ngFor="let item of leverageData" [(value)]="Leverage"
 													(selectionChange)="onSelectLeverage($event)">
-													<mat-option value="{{item?.id}}">{{item?.name}}</mat-option>
+													<mat-option value="{{ item?.id }}">{{
+														item?.name
+														}}</mat-option>
 												</mat-select>
 											</div>
 										</div>
@@ -248,7 +252,7 @@
 											</div>
 										</div>
 									</li>
-									<li *ngIf="isShowBalance" class="item verification">
+									<li *nfIf="isShowBalance" class="item verification">
 										<h4 class="title">
 											Balance
 											<div class="tooltip__ico-question">
@@ -258,12 +262,12 @@
 										</h4>
 										<div class="leverage-select">
 											<div class="switcher-item balance-div">
-												<label for="fixedRate-1"
-													class="switcher-label label-position">{{currencySign}}</label>
+												<label for="fixedRate-1" class="switcher-label label-position">{{
+													currencySign }}</label>
 												<mat-form-field appearance="outline">
 													<input type="text" matInput placeholder=""
 														[(ngModel)]="balanceValue"
-														[ngModelOptions]="{standalone: true}" />
+														[ngModelOptions]="{ standalone: true }" />
 												</mat-form-field>
 											</div>
 										</div>
@@ -279,6 +283,73 @@
 									</div>
 								</div>
 							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
+				<div class="col-xl-12 col-md-12 col-sm-12 col-12 px-0">
+					<div class="complete-content">
+						<h2 class="heading">
+							Congrats! Your new Real account is ready to go.
+						</h2>
+						<div class="infotext">
+							Save the below information—you will need it to log into the
+							terminal. And may your trading be successful.
+						</div>
+						<div class="simple-table-wrap table-responsive">
+							<table class="special-table simple-table table">
+								<tbody>
+									<tr>
+										<th>
+											<strong>Account number</strong>
+											<div class="table-hint">
+												(used as your login to MetaTrader 5)
+											</div>
+										</th>
+										<td>89686641</td>
+									</tr>
+									<tr>
+										<th>
+											<strong>Server</strong>
+										</th>
+										<td>OctaFX-Demo</td>
+									</tr>
+									<tr>
+										<th>Platform</th>
+										<td>MetaTrader 5</td>
+									</tr>
+									<tr>
+										<th>Type</th>
+										<td>OctaFX MT5</td>
+									</tr>
+
+									<tr>
+										<th>Account currency</th>
+										<td>USD</td>
+									</tr>
+
+									<tr>
+										<th>Leverage</th>
+										<td>1:500</td>
+									</tr>
+
+									<tr>
+										<th>Swap free</th>
+										<td>Yes</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="d-flex align-items-center justify-content-center w-100 mt-3">
+							<a href="/" class="btn btn-light mx-2">Back to Personal Area</a>
+
+							<a class="btn btn-success mx-2" target="_blank" href="#">
+								Log in to MT5 Web
+							</a>
+							<a class="btn btn-blue mx-2" target="_blank" href="#">
+								Deposit my new account
+							</a>
 						</div>
 					</div>
 				</div>
