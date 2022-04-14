@@ -6,7 +6,6 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
 import { Country } from '@angular-material-extensions/select-country';
-import SwiperCore, { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-verification-details',
@@ -59,16 +58,6 @@ export class VerificationDetailsComponent implements OnInit {
   fixedRateValue = "1";
   balanceValue = "5000";
   acc_type = "1";
-
-  config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 50,
-    navigation: true,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-  };
-
-  slides = Array.from({ length: 1000 }).map((el, index) => `Slide ${index + 1}`);
 
   constructor(
     private _formBuilder: FormBuilder,

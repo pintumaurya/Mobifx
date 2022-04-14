@@ -48,7 +48,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { SwiperModule } from 'swiper/angular';
 import { ApiService } from './services/api.service';
 import { AuthGuard } from '../app/services/auth-guard.services';
 import { ToastrModule } from 'ngx-toastr';
@@ -106,7 +105,6 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     MatTableModule,
     MatPaginatorModule,
-    SwiperModule
   ],
   providers: [
     ApiService,

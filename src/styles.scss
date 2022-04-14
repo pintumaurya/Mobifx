@@ -17,10 +17,6 @@ body {
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
-@import "swiper/scss";
-@import "swiper/scss/navigation";
-@import "swiper/scss/pagination";
-
 a {
     color: #c99c3b;
     text-decoration: none;
