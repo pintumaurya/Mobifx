@@ -167,13 +167,13 @@
 											<div class="switcher">
 												<div class="switcher-item">
 													<input id="server-0" name="server" type="radio"
-														class="switcher-radio" value="1" checked
+														class="switcher-radio" value="1"
 														(input)="onSelectChange($event.target.value)" />
 													<label for="server-0" class="switcher-label">Real</label>
 												</div>
 												<div *ngIf="isHideAccType" class="switcher-item">
 													<input id="server-1" name="server" type="radio"
-														class="switcher-radio" value="0"
+														class="switcher-radio" value="0" checked
 														(input)="onSelectChange($event.target.value)" />
 													<label for="server-1" class="switcher-label">Demo</label>
 												</div>
@@ -214,12 +214,12 @@
 											</div>
 										</h4>
 										<div class="leverage-select">
-											<mat-form-field appearance="outline">
+											<div appearance="outline">
 												<mat-select *ngFor="let item of leverageData" [(value)]="Leverage"
 													(selectionChange)="onSelectLeverage($event)">
 													<mat-option value="{{item?.id}}">{{item?.name}}</mat-option>
 												</mat-select>
-											</mat-form-field>
+											</div>
 										</div>
 									</li>
 									<li class="item">
@@ -247,7 +247,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="item verification">
+									<li *ngIf="isShowBalance" class="item verification">
 										<h4 class="title">
 											Balance
 											<div class="tooltip__ico-question">
@@ -271,7 +271,7 @@
 								<div class="row align-items-center">
 									<div class="col-sm-12">
 										<div class="form-button">
-											<button class="btn btn-blue" type="submit">
+											<button class="btn btn-blue" type="submit" (click)="openAccount()">
 												Open account
 											</button>
 										</div>

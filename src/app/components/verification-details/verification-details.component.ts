@@ -259,7 +259,7 @@ export class VerificationDetailsComponent implements OnInit {
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: ""
+        balance: "0"
       }
       console.log('payload', payload);
       if (this.userInfo?.id) {

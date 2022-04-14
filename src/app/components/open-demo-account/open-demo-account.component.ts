@@ -11,7 +11,7 @@ export class OpenDemoAccountComponent implements OnInit {
 
   planData = [];
   leverageData = [];
-  isShowBalance: boolean = false;
+  isShowBalance: boolean = true;
   isHideFixedRate: boolean = true;
   isHideAccType: boolean = true;
   isHideCurrency: boolean = true;
@@ -21,7 +21,9 @@ export class OpenDemoAccountComponent implements OnInit {
   currencyValue = "USD";
   fixedRateValue = "1";
   balanceValue = "5000";
-  acc_type = "1";
+  acc_type = "0";
+  accInfoData: any;
+  id: any;
 
   constructor(
     public sharedService: SharedService,
@@ -29,9 +31,10 @@ export class OpenDemoAccountComponent implements OnInit {
   ) {
     this.sharedService.sidebar = true;
     this.sharedService.isHeader = false;
+    this.id = localStorage.getItem('id');
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getPlans();
     this.getLeverage();
   }
@@ -51,6 +54,7 @@ export class OpenDemoAccountComponent implements OnInit {
       }
     });
   }
+
   onSelectChange(searchValue: string) {
     this.acc_type = searchValue;
     if (searchValue == "0") {
@@ -89,4 +93,42 @@ export class OpenDemoAccountComponent implements OnInit {
     this.leverageValue = event.value;
   }
 
+  openAccount() {
+    if (this.acc_type == "1") {
+      let payload = {
+        user_id: this.id.toString(),
+        plan_id: "1",
+        leverage_id: this.leverageValue,
+        account_type: this.acc_type,
+        currency: this.currencyValue,
+        fixed_rate: this.fixedRateValue,
+        balance: "0"
+      }
+      console.log('payload', payload);
+      if (this.id) {
+        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+          if (res?.status == true) {
+            this.accInfoData = res?.data;
+          }
+        });
+      }
+    } else {
+      let payload = {
+        user_id: this.id.toString(),
+        plan_id: "1",
+        leverage_id: this.leverageValue,
+        account_type: this.acc_type,
+        currency: this.currencyValue,
+        fixed_rate: this.fixedRateValue,
+        balance: this.balanceValue
+      }
+      if (this.id) {
+        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+          if (res?.status == true) {
+            this.accInfoData = res?.data;
+          }
+        });
+      }
+    }
+  }
 }
