@@ -24,7 +24,9 @@ export class OpenDemoAccountComponent implements OnInit {
   acc_type = "0";
   accInfoData: any;
   id: any;
-  isShowSuccesPage: boolean = false;
+  isShowSuccesPage: boolean = true;
+  isShowDemoPage: boolean = false;
+  isShowRealPage: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -37,8 +39,7 @@ export class OpenDemoAccountComponent implements OnInit {
 
   ngOnInit() {
     this.getPlans();
-    this.getLeverage();
-    this.isShowSuccesPage = false;
+    this.getLeverage();    
   }
 
   getPlans() {
@@ -98,7 +99,7 @@ export class OpenDemoAccountComponent implements OnInit {
   openAccount() {
     if (this.acc_type == "1") {
       let payload = {
-        user_id: this.id.toString(),
+        user_id: this.id,
         plan_id: "1",
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
@@ -107,18 +108,18 @@ export class OpenDemoAccountComponent implements OnInit {
         balance: "0",
         main_balance: "0"
       }
-      console.log('payload', payload);
       if (this.id) {
-        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+        this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
-            this.isShowSuccesPage = true;
+            this.isShowSuccesPage = false;
+            this.isShowRealPage = true;
           }
         });
       }
     } else {
       let payload = {
-        user_id: this.id.toString(),
+        user_id: this.id,
         plan_id: "1",
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
@@ -128,13 +129,15 @@ export class OpenDemoAccountComponent implements OnInit {
         main_balance: "0"
       }
       if (this.id) {
-        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+        this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
-            this.isShowSuccesPage = true;
+            this.isShowSuccesPage = false;
+            this.isShowDemoPage = true
           }
         });
       }
     }
   }
+
 }

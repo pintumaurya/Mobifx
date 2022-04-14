@@ -24,7 +24,9 @@ export class OpenRealAccountComponent implements OnInit {
   leverageData: any = [];
   id: any;
   accInfoData: any;
-  isShowSuccesPage: boolean = false;
+  isShowSuccesPage: boolean = true;
+  isShowDemoPage: boolean = false;
+  isShowRealPage: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -38,7 +40,6 @@ export class OpenRealAccountComponent implements OnInit {
   ngOnInit() {
     this.getPlans();
     this.getLeverage();
-    this.isShowSuccesPage = false;
   }
 
   getPlans() {
@@ -111,7 +112,8 @@ export class OpenRealAccountComponent implements OnInit {
         this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
-            this.isShowSuccesPage = true;
+            this.isShowSuccesPage = false;
+            this.isShowRealPage = true;
           }
         });
       }
@@ -127,10 +129,11 @@ export class OpenRealAccountComponent implements OnInit {
         main_balance: "0"
       }
       if (this.id) {
-        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+        this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
-            this.isShowSuccesPage = true;
+            this.isShowSuccesPage = false;
+            this.isShowDemoPage = true
           }
         });
       }

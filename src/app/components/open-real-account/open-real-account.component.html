@@ -7,7 +7,7 @@
 
 	<section class="login open-account pb-3">
 		<div class="container">
-			<div *ngIf="!isShowSuccesPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
+			<div *ngIf="isShowSuccesPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
 				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
 					<div class="account-box">
 						<header class="account-box-header">
@@ -287,7 +287,8 @@
 					</div>
 				</div>
 			</div>
-			<div *ngIf="isShowSuccesPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
+			<!-- real account -->
+			<div *ngIf="isShowRealPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
 				<div class="col-xl-12 col-md-12 col-sm-12 col-12 px-0">
 					<div class="complete-content">
 						<h2 class="heading">
@@ -352,6 +353,111 @@
 							</a>
 							<a class="btn btn-blue mx-2" target="_blank" href="#">
 								Deposit my new account
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- demo account -->
+			<div *ngIf="isShowDemoPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
+				<div class="col-xl-12 col-md-12 col-sm-12 col-12 px-0">
+					<div class="complete-content">
+						<h2 class="heading">
+							Congrats! Your new Demo account is ready to go.
+						</h2>
+						<div class="infotext">
+							Save the below information—you will need it to log into the
+							terminal. And may your trading be successful.
+						</div>
+						<div class="simple-table-wrap table-responsive">
+							<table class="special-table simple-table table">
+								<tbody>
+									<tr>
+										<th>
+											<strong>Account number</strong>
+											<div class="table-hint">
+												(used as your login to MetaTrader 5)
+											</div>
+										</th>
+										<td>{{accInfoData?.account_id}}</td>
+									</tr>
+									<tr>
+										<th>
+											<strong>Server</strong>
+										</th>
+										<td>OctaFX-Demo</td>
+									</tr>
+
+									<tr>
+										<th>
+											<strong> Trader password </strong>
+											<div class="table-hint">
+												(used as your password to MetaTrader 5)
+											</div>
+										</th>
+										<td>
+											<div class="hidden-pass">
+												<input class="input" type="text" value="mUGAPErE" readonly="" />
+												<button class="cntrl show" data-auto-event-category="UXclick"
+													data-auto-event-action="complete_acc_page"
+													data-auto-event-label="show-pass" style="display: none">
+													show
+												</button>
+												<div class="cntrl-tooltip-wrap">
+													<button class="cntrl copy hidden" style="display: block">
+														copy
+													</button>
+													<span class="cntrl-tooltip">Copied</span>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<th>Investor password</th>
+										<td>myQAHE4Y</td>
+									</tr>
+
+									<tr>
+										<th>Platform</th>
+										<td>MetaTrader 5</td>
+									</tr>
+									<tr>
+										<th>Type</th>
+										<td>{{accInfoData?.plan?.name}}</td>
+									</tr>
+
+									<tr>
+										<th>Account currency</th>
+										<td>{{accInfoData?.currency == "USD" ? "$" : "€"}}
+											{{accInfoData?.main_balance}}</td>
+									</tr>
+
+									<tr>
+										<th>Leverage</th>
+										<td>1:500</td>
+									</tr>
+
+									<tr>
+										<th>Swap free</th>
+										<td>Yes</td>
+									</tr>
+
+									<tr>
+										<th>Demo account balance</th>
+										<td>{{accInfoData?.balance}} {{accInfoData?.currency == "USD" ? "$" : "€"}}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="d-flex align-items-center justify-content-center w-100 mt-3"
+							style="width: 100%!important">
+							<a href="/" routerLink="/dashboard" class="btn btn-light mx-2">Back to Personal Area</a>
+
+							<a class="btn btn-success mx-2" target="_blank" href="#">
+								Log in to MT5 Web
 							</a>
 						</div>
 					</div>
