@@ -24,6 +24,7 @@ export class OpenRealAccountComponent implements OnInit {
   leverageData: any = [];
   id: any;
   accInfoData: any;
+  isShowSuccesPage: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -37,6 +38,7 @@ export class OpenRealAccountComponent implements OnInit {
   ngOnInit() {
     this.getPlans();
     this.getLeverage();
+    this.isShowSuccesPage = false;
   }
 
   getPlans() {
@@ -96,36 +98,39 @@ export class OpenRealAccountComponent implements OnInit {
   openAccount() {
     if (this.acc_type == "1") {
       let payload = {
-        user_id: this.id.toString(),
+        user_id: this.id,
         plan_id: "1",
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: "0"
+        balance: "0",
+        main_balance: "0"
       }
-      console.log('payload', payload);
       if (this.id) {
-        this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
+        this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
+            this.isShowSuccesPage = true;
           }
         });
       }
     } else {
       let payload = {
-        user_id: this.id.toString(),
+        user_id: this.id,
         plan_id: "1",
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: this.balanceValue
+        balance: this.balanceValue,
+        main_balance: "0"
       }
       if (this.id) {
         this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
+            this.isShowSuccesPage = true;
           }
         });
       }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'https://my.mobifx.net/application-backend/public/api',
+  baseApiUrl: 'http://my.mobifx.net/application-backend/public/api',
 };
 
 /*

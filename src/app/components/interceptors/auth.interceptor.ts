@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     constructor(
         // private http: HttpClient,
-        public authGuard: AuthGuard
+        private authGuard: AuthGuard
     ) { }
 
     // private formatErrors(error: any) {
@@ -25,7 +25,6 @@ export class AuthInterceptor implements HttpInterceptor {
     // }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token = localStorage.getItem("token");
         if (this.authGuard.getToken()) {
             const cloned = req.clone({
                 setHeaders: {

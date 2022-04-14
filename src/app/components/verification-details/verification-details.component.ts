@@ -259,7 +259,8 @@ export class VerificationDetailsComponent implements OnInit {
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: "0"
+        balance: "0",
+        main_balance: "0",
       }
       console.log('payload', payload);
       if (this.userInfo?.id) {
@@ -277,7 +278,8 @@ export class VerificationDetailsComponent implements OnInit {
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: this.balanceValue
+        balance: this.balanceValue,
+        main_balance: "0"
       }
       if (this.userInfo?.id) {
         this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {

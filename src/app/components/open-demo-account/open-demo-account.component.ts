@@ -24,6 +24,7 @@ export class OpenDemoAccountComponent implements OnInit {
   acc_type = "0";
   accInfoData: any;
   id: any;
+  isShowSuccesPage: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -37,6 +38,7 @@ export class OpenDemoAccountComponent implements OnInit {
   ngOnInit() {
     this.getPlans();
     this.getLeverage();
+    this.isShowSuccesPage = false;
   }
 
   getPlans() {
@@ -102,13 +104,15 @@ export class OpenDemoAccountComponent implements OnInit {
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: "0"
+        balance: "0",
+        main_balance: "0"
       }
       console.log('payload', payload);
       if (this.id) {
         this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
+            this.isShowSuccesPage = true;
           }
         });
       }
@@ -120,12 +124,14 @@ export class OpenDemoAccountComponent implements OnInit {
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: this.balanceValue
+        balance: this.balanceValue,
+        main_balance: "0"
       }
       if (this.id) {
         this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
+            this.isShowSuccesPage = true;
           }
         });
       }

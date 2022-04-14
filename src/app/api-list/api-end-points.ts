@@ -39,17 +39,11 @@ export const Endpoints = {
             get plans() {
                 return `${apiurl}/plan/list`;
             },
-            // get addPlans() {
-            //     return `${apiurl}/plan/add`;
-            // },
         },
         Leverage: {
             get leverage() {
                 return `${apiurl}/leverage/list`;
             },
-            // get addLeverage() {
-            //     return `${apiurl}/leverage/add`;
-            // },
         },
         dashboard: {
             get userAccountList() {

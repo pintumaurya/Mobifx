@@ -7,7 +7,7 @@
 
 	<section class="login open-account pb-3">
 		<div class="container">
-			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
+			<div *ngIf="!isShowSuccesPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
 				<div class="col-xl-12 col-md-12 col-lg-12 px-0">
 					<div class="account-box">
 						<header class="account-box-header">
@@ -252,7 +252,7 @@
 											</div>
 										</div>
 									</li>
-									<li *nfIf="isShowBalance" class="item verification">
+									<li *ngIf="isShowBalance" class="item verification">
 										<h4 class="title">
 											Balance
 											<div class="tooltip__ico-question">
@@ -287,7 +287,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center main-box justify-content-center w-100 mx-0">
+			<div *ngIf="isShowSuccesPage" class="row align-items-center main-box justify-content-center w-100 mx-0">
 				<div class="col-xl-12 col-md-12 col-sm-12 col-12 px-0">
 					<div class="complete-content">
 						<h2 class="heading">
@@ -307,7 +307,7 @@
 												(used as your login to MetaTrader 5)
 											</div>
 										</th>
-										<td>89686641</td>
+										<td>{{accInfoData?.account_id}}</td>
 									</tr>
 									<tr>
 										<th>
@@ -321,12 +321,15 @@
 									</tr>
 									<tr>
 										<th>Type</th>
-										<td>OctaFX MT5</td>
+										<td>
+											{{accInfoData?.plan?.name.substr(accInfoData?.plan?.name)}}
+										</td>
 									</tr>
 
 									<tr>
 										<th>Account currency</th>
-										<td>USD</td>
+										<td>{{accInfoData?.currency == "USD" ? "$" : "€"}}
+											{{accInfoData?.balance}}</td>
 									</tr>
 
 									<tr>
@@ -342,7 +345,7 @@
 							</table>
 						</div>
 						<div class="d-flex align-items-center justify-content-center w-100 mt-3">
-							<a href="/" class="btn btn-light mx-2">Back to Personal Area</a>
+							<a href="/" routerLink="/dashboard" class="btn btn-light mx-2">Back to Personal Area</a>
 
 							<a class="btn btn-success mx-2" target="_blank" href="#">
 								Log in to MT5 Web
