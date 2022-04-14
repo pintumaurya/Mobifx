@@ -268,5 +268,93 @@
         color: #fff;
     }
   }
+  .simple-table-wrap {
+    .simple-table {
+      border: 0;
+      border-top: #c99c3b solid 2px;
+      .table-hint {
+        font-size: 12px;
+        font-style: italic;
+        color: #888;
+        white-space: normal;
+    }
+    strong {
+      font-weight: 500;
   }
+      tbody {
+        th {
+          font-weight: 500;
+          font-size: 12px;
+          padding: 6px 5px;
+          border-bottom: #e5e5e8 solid 1px;
+          vertical-align: top;
+          white-space: nowrap;
+          color: #464646;
+          line-height: 16px;
+        }
+        td {
+          font-size: 13px;
+          padding: 6px 5px;
+          line-height: 16px;
+          color: #464646;
+          font-weight: 400;
+          text-align: right;
+          border-bottom: #e5e5e8 solid 1px;
+          vertical-align: top;
+          white-space: nowrap;
+        }
+      }
+      .hidden-pass {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .input {
+          text-align: right;
+          margin: 0 15px 0 0;
+          padding: 0;
+          border: none;
+          outline: 0;
+        }
+        .cntrl{
+          width: 23px;
+          height: 23px;
+          overflow: hidden;
+          text-indent: -200px;
+          &.show {
+            background-color: transparent;
+            background-image: url('../../../assets/images/icon/eye.svg');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            border: none;
+            opacity: .5;
+          }
+          &.copy {
+            background-color: transparent;
+            background-image: url('../../../assets/images/icon/copy.svg');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            border: none;
+          }
+        }
+        .cntrl-tooltip-wrap {
+          position: relative;
+        }
+        .cntrl-tooltip {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          display: none;
+          margin-top: 10px;
+          padding: 10px 10px;
+          opacity: 0;
+          background: #000;
+          color: #fff;
+          border-radius: 4px;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+  }
+}
   
