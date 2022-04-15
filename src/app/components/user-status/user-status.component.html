@@ -1,772 +1,662 @@
 <main>
   <!-- live chat -->
-  <button
-    class="live-chat-button"
-    data-auto-event-category="UXclick"
-    data-auto-event-action="Support click"
-    data-auto-event-label="livechat"
-  >
-    <span class="live-chat-button__label">Live chat support</span>
-  </button>
+  <app-chat-box></app-chat-box>
   <section class="login user-status-content pb-3">
     <div class="container">
-      <div
-        class="row align-items-center main-box justify-content-center w-100 mx-0"
-      >
+      <div class="row align-items-center main-box justify-content-center w-100 mx-0">
         <div class="col-xl-12 col-md-12 col-lg-12 px-0">
           <div class="statuses">
             <div class="table-responsive">
-            <table class="statuses-table table">
-              <thead class="status-thead statuses-table-head">
-                <tr class="status-thead__row">
-                  <td class="status-thead__cell head-status">
-                    <h1 class="heading head-status__title _clear">User statuses</h1>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <img
-                      src="../../../assets/images/Bronze.svg"
-                      alt="Bronze"
-                      class="status-thead-ico"
-                    />
-                    <div class="candle-name">Bronze</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <img
-                      src="../../../assets/images/Silver.svg"
-                      alt="Silver"
-                      class="status-thead-ico"
-                    />
-                    <div class="candle-name">Silver</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <img
-                      src="../../../assets/images/Gold.svg"
-                      alt="Gold"
-                      class="status-thead-ico"
-                    />
-                    <div class="candle-name">Gold</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <img
-                      src="../../../assets/images/Platinum.svg"
-                      alt="Platinum"
-                      class="status-thead-ico"
-                    />
-                    <div class="candle-name">Platinum</div>
-                  </td>
-                </tr>
-                <tr class="status-thead__row _balance-to-activate">
-                  <td class="status-thead__cell">
-                    <div class="description-statuses">
-                      <div class="description-statuses__text">
-                        <h3 class="heading status-thead__balance-title _clear">
-                          Balance to activate
-                        </h3>
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_p7qthjn2s2"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="Balance_to_activate_tooltip"
-                              data-auto-event-label="Balance_to_activate_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+              <table class="statuses-table table">
+                <thead class="status-thead statuses-table-head">
+                  <tr class="status-thead__row">
+                    <td class="status-thead__cell head-status">
+                      <h1 class="heading head-status__title _clear">User statuses</h1>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <img src="../../../assets/images/Bronze.svg" alt="Bronze" class="status-thead-ico" />
+                      <div class="candle-name">Bronze</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <img src="../../../assets/images/Silver.svg" alt="Silver" class="status-thead-ico" />
+                      <div class="candle-name">Silver</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <img src="../../../assets/images/Gold.svg" alt="Gold" class="status-thead-ico" />
+                      <div class="candle-name">Gold</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <img src="../../../assets/images/Platinum.svg" alt="Platinum" class="status-thead-ico" />
+                      <div class="candle-name">Platinum</div>
+                    </td>
+                  </tr>
+                  <tr class="status-thead__row _balance-to-activate">
+                    <td class="status-thead__cell">
+                      <div class="description-statuses">
+                        <div class="description-statuses__text">
+                          <h3 class="heading status-thead__balance-title _clear">
+                            Balance to activate
+                          </h3>
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_p7qthjn2s2" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick"
+                                data-auto-event-action="Balance_to_activate_tooltip"
+                                data-auto-event-label="Balance_to_activate_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="status-thead__balance-downgrade description-statuses">
-                      <div class="description-statuses__text">
-                        <div class="status-thead__balance-subtext">
-                          Balance to downgrading
+                      <div class="status-thead__balance-downgrade description-statuses">
+                        <div class="description-statuses__text">
+                          <div class="status-thead__balance-subtext">
+                            Balance to downgrading
+                          </div>
                         </div>
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_9zdd6h0ym6"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="Balance_to_downgrade_tooltip"
-                              data-auto-event-label="Balance_to_downgrade_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_9zdd6h0ym6" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick"
+                                data-auto-event-action="Balance_to_downgrade_tooltip"
+                                data-auto-event-label="Balance_to_downgrade_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <div class="status-thead__balance-count">$5</div>
-                    <div class="status-thead__balance-downgrading">$0</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <div class="status-thead__balance-count">$1,000</div>
-                    <div class="status-thead__balance-downgrading">$800</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <div class="status-thead__balance-count">$2,500</div>
-                    <div class="status-thead__balance-downgrading">$2,000</div>
-                  </td>
-                  <td class="status-thead__cell _center">
-                    <div class="status-thead__balance-count">$10,000</div>
-                    <div class="status-thead__balance-downgrading">$8,000</div>
-                  </td>
-                </tr>
-              </thead>
-              <tbody class="statuses-table__body">
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_comission"></use>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <div class="status-thead__balance-count">$5</div>
+                      <div class="status-thead__balance-downgrading">$0</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <div class="status-thead__balance-count">$1,000</div>
+                      <div class="status-thead__balance-downgrading">$800</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <div class="status-thead__balance-count">$2,500</div>
+                      <div class="status-thead__balance-downgrading">$2,000</div>
+                    </td>
+                    <td class="status-thead__cell _center">
+                      <div class="status-thead__balance-count">$10,000</div>
+                      <div class="status-thead__balance-downgrading">$8,000</div>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody class="statuses-table__body">
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_comission"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          No commission on deposits and withdrawals
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_gp3xylsyz3" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_comission"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_support"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          24/7 Customer Support
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_0xgwysw4wa" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_support"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_autochartist"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Trading signals by Autochartist
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_spa34e61ks" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick"
+                                data-auto-event-action="click_benefit_autochartist"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_tw_gifts"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Premium gifts in Trade and Win
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_hh0azd28a8" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_tw_gifts"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_tw_rate"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Faster accumulation of prize lots in Trade and Win
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_46j05zutv7" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_tw_rate"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">x1.25</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">x1.5</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">x2</div>
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_faster_bonuses"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Faster bonus withdrawal
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_ak9ivkboao" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick"
+                                data-auto-event-action="click_benefit_faster_bonuses"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">x1.25</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">x1.5</div>
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_spreads"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Lower spreads
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_khcbqzqpod" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_low_spreads"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">Forex Extended</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">
+                        Forex Majors, Forex Extended, Metals
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_deps_and_with"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Accelerated deposits and withdrawals
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_vswwspze9d" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick"
+                                data-auto-event-action="click_benefit_deps_and_with"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <svg class="status-tbody__check-status">
+                        <use xlink:href="#statuses--doubleIcon"></use>
                       </svg>
-                      <div class="description-statuses__text _tbody">
-                        No commission on deposits and withdrawals
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_gp3xylsyz3"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_comission"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_no_swap"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          No trading commission
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_npblwa8m6o" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_no_swap"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_support"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        24/7 Customer Support
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_0xgwysw4wa"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_support"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_statement"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Experts' trading prompts based on your three-month trading
+                          history
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_1mp6gbsnq6" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_statement"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_autochartist"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Trading signals by Autochartist
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_spa34e61ks"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_autochartist"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_manager"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Personal manager
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_eutkbkza4j" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_manager"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_tw_gifts"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Premium gifts in Trade and Win
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_hh0azd28a8"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_tw_gifts"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_bf_events"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">VIP events</div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_474g01rtnl" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_benefit_events"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_tw_rate"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Faster accumulation of prize lots in Trade and Win
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_46j05zutv7"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_tw_rate"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <!---->
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
+                    </td>
+                  </tr>
+                  <tr class="status-tbody">
+                    <td class="status-tbody__cell">
+                      <div class="description-statuses">
+                        <svg class="description-statuses__ico">
+                          <use xlink:href="#statuses--icon_order_limit"></use>
+                        </svg>
+                        <div class="description-statuses__text _tbody">
+                          Maximum number of orders in MobiFX MT4
+                        </div>
+                        <div class="description-statuses__tooltip">
+                          <div class="v-popover">
+                            <div aria-describedby="popover_qey66wgusl" class="trigger" style="display: inline-block">
+                              <div data-auto-event-category="UXclick" data-auto-event-action="click_order_limit"
+                                data-auto-event-label="desktop_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg class="tooltip__ico-question">
+                                  <use xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">x1.25</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">x1.5</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">x2</div>
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_faster_bonuses"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Faster bonus withdrawal
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_ak9ivkboao"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_faster_bonuses"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">200</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">200</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">500</div>
+                    </td>
+                    <td class="status-tbody__cell _center">
+                      <div class="status-tbody__text">2,000</div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot data-v-5eef7427="" class="status-tfoot statuses-table__foot">
+                  <tr data-v-5eef7427="" class="status-tfoot__row">
+                    <td data-v-5eef7427="" class="status-tfoot__cell">
+                      <div data-v-5eef7427="" class="description-statuses">
+                        <svg data-v-5eef7427="" class="description-statuses__ico _foot">
+                          <use data-v-5eef7427="" xlink:href="#statuses--doubleIcon"></use>
+                        </svg>
+                        <div data-v-5eef7427="" class="description-statuses__text">
+                          Users of this status are always the first in line to get the
+                          service.
+                        </div>
+                        <div data-v-5eef7427="" class="description-statuses__tooltip">
+                          <div data-v-5eef7427="" class="v-popover">
+                            <div aria-describedby="popover_n5ulgplevm" class="trigger" style="display: inline-block">
+                              <div data-v-5eef7427="" data-auto-event-category="UXclick"
+                                data-auto-event-action="Get_statuses_first_in_line_tooltip"
+                                data-auto-event-label="Get_statuses_first_in_line_tooltip"
+                                class="tooltip-inline-activator tooltip__cntrl _clean">
+                                <svg data-v-5eef7427="" class="tooltip__ico-question">
+                                  <use data-v-5eef7427="" xlink:href="#ico-question-mark"></use>
+                                </svg>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">x1.25</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">x1.5</div>
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_spreads"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Lower spreads
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_khcbqzqpod"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_low_spreads"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
+                    </td>
+                    <td data-v-5eef7427="" class="status-tfoot__cell _center">
+                      <div data-v-5eef7427="" class="status-tfoot__actions">
+                        <div data-v-5eef7427="" class="status-tfoot__btn-block">
+                          <a data-v-5eef7427="" href="/deposit/new/"
+                            class="styled-btn-v2 status-tfoot__btn _get _primary-fill">
+                            Get Bronze
+                          </a>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">Forex Extended</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">
-                      Forex Majors, Forex Extended, Metals
-                    </div>
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_deps_and_with"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Accelerated deposits and withdrawals
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_vswwspze9d"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_deps_and_with"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
+                    </td>
+                    <td data-v-5eef7427="" class="status-tfoot__cell _center">
+                      <div data-v-5eef7427="" class="status-tfoot__actions">
+                        <div data-v-5eef7427="" class="status-tfoot__btn-block">
+                          <a data-v-5eef7427="" href="/deposit/new/"
+                            class="styled-btn-v2 status-tfoot__btn _get _primary-fill">
+                            Get Silver
+                          </a>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <svg class="status-tbody__check-status">
-                      <use xlink:href="#statuses--doubleIcon"></use>
-                    </svg>
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_no_swap"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        No trading commission
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_npblwa8m6o"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_no_swap"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
+                    </td>
+                    <td data-v-5eef7427="" class="status-tfoot__cell _center">
+                      <div data-v-5eef7427="" class="status-tfoot__actions">
+                        <div data-v-5eef7427="" class="status-tfoot__btn-block">
+                          <a data-v-5eef7427="" href="/deposit/new/"
+                            class="styled-btn-v2 status-tfoot__btn _get _primary-fill">
+                            Get Gold
+                          </a>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_statement"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Experts' trading prompts based on your three-month trading
-                        history
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_1mp6gbsnq6"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_statement"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
+                    </td>
+                    <td data-v-5eef7427="" class="status-tfoot__cell _center">
+                      <div data-v-5eef7427="" class="status-tfoot__actions">
+                        <div data-v-5eef7427="" class="status-tfoot__btn-block">
+                          <a data-v-5eef7427="" href="/deposit/new/"
+                            class="styled-btn-v2 status-tfoot__btn _get _primary">
+                            Get Platinum
+                          </a>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_manager"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Personal manager
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_eutkbkza4j"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_manager"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_bf_events"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">VIP events</div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_474g01rtnl"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_benefit_events"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center"><!----></td>
-                  <td class="status-tbody__cell _center">
-                    <img class="status-tbody__check-status" src="../../../assets/images/icon/right.svg">
-                  </td>
-                </tr>
-                <tr class="status-tbody">
-                  <td class="status-tbody__cell">
-                    <div class="description-statuses">
-                      <svg class="description-statuses__ico">
-                        <use xlink:href="#statuses--icon_order_limit"></use>
-                      </svg>
-                      <div class="description-statuses__text _tbody">
-                        Maximum number of orders in MobiFX MT4
-                      </div>
-                      <div class="description-statuses__tooltip">
-                        <div class="v-popover">
-                          <div
-                            aria-describedby="popover_qey66wgusl"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="click_order_limit"
-                              data-auto-event-label="desktop_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg class="tooltip__ico-question">
-                                <use xlink:href="#ico-question-mark"></use>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">200</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">200</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">500</div>
-                  </td>
-                  <td class="status-tbody__cell _center">
-                    <div class="status-tbody__text">2,000</div>
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot data-v-5eef7427="" class="status-tfoot statuses-table__foot">
-                <tr data-v-5eef7427="" class="status-tfoot__row">
-                  <td data-v-5eef7427="" class="status-tfoot__cell">
-                    <div data-v-5eef7427="" class="description-statuses">
-                      <svg data-v-5eef7427="" class="description-statuses__ico _foot">
-                        <use
-                          data-v-5eef7427=""
-                          xlink:href="#statuses--doubleIcon"
-                        ></use>
-                      </svg>
-                      <div data-v-5eef7427="" class="description-statuses__text">
-                        Users of this status are always the first in line to get the
-                        service.
-                      </div>
-                      <div data-v-5eef7427="" class="description-statuses__tooltip">
-                        <div data-v-5eef7427="" class="v-popover">
-                          <div
-                            aria-describedby="popover_n5ulgplevm"
-                            class="trigger"
-                            style="display: inline-block"
-                          >
-                            <div
-                              data-v-5eef7427=""
-                              data-auto-event-category="UXclick"
-                              data-auto-event-action="Get_statuses_first_in_line_tooltip"
-                              data-auto-event-label="Get_statuses_first_in_line_tooltip"
-                              class="tooltip-inline-activator tooltip__cntrl _clean"
-                            >
-                              <svg data-v-5eef7427="" class="tooltip__ico-question">
-                                <use
-                                  data-v-5eef7427=""
-                                  xlink:href="#ico-question-mark"
-                                ></use>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td data-v-5eef7427="" class="status-tfoot__cell _center">
-                    <div data-v-5eef7427="" class="status-tfoot__actions">
-                      <div data-v-5eef7427="" class="status-tfoot__btn-block">
-                        <a
-                          data-v-5eef7427=""
-                          href="/deposit/new/"
-                          class="styled-btn-v2 status-tfoot__btn _get _primary-fill"
-                        >
-                          Get Bronze
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td data-v-5eef7427="" class="status-tfoot__cell _center">
-                    <div data-v-5eef7427="" class="status-tfoot__actions">
-                      <div data-v-5eef7427="" class="status-tfoot__btn-block">
-                        <a
-                          data-v-5eef7427=""
-                          href="/deposit/new/"
-                          class="styled-btn-v2 status-tfoot__btn _get _primary-fill"
-                        >
-                          Get Silver
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td data-v-5eef7427="" class="status-tfoot__cell _center">
-                    <div data-v-5eef7427="" class="status-tfoot__actions">
-                      <div data-v-5eef7427="" class="status-tfoot__btn-block">
-                        <a
-                          data-v-5eef7427=""
-                          href="/deposit/new/"
-                          class="styled-btn-v2 status-tfoot__btn _get _primary-fill"
-                        >
-                          Get Gold
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td data-v-5eef7427="" class="status-tfoot__cell _center">
-                    <div data-v-5eef7427="" class="status-tfoot__actions">
-                      <div data-v-5eef7427="" class="status-tfoot__btn-block">
-                        <a
-                          data-v-5eef7427=""
-                          href="/deposit/new/"
-                          class="styled-btn-v2 status-tfoot__btn _get _primary"
-                        >
-                          Get Platinum
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-            <div
-              data-v-5625745a=""
-              class="status-shadow statuses-container__shadow"
-              style="display: none"
-            >
-              <div data-v-5625745a="" class="status-shadow__wrapper"><!----></div>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div data-v-5625745a="" class="status-shadow statuses-container__shadow" style="display: none">
+              <div data-v-5625745a="" class="status-shadow__wrapper">
+                <!---->
+              </div>
             </div>
           </div>
         </div>

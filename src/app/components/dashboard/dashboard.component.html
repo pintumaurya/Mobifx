@@ -5,10 +5,7 @@
 </div>
 <main>
 	<!-- live chat -->
-	<button class="live-chat-button" data-auto-event-category="UXclick" data-auto-event-action="Support click"
-		data-auto-event-label="livechat">
-		<span class="live-chat-button__label">Live chat support</span>
-	</button>
+	<app-chat-box></app-chat-box>
 	<!-- login box -->
 	<section class="login dashboard pb-3">
 		<div class="container">
@@ -304,25 +301,24 @@
 
 									<ng-container matColumnDef="Account">
 										<th mat-header-cell *matHeaderCellDef> Account </th>
-										<td mat-cell *matCellDef="let element"
-											class="action-dropdown">
+										<td mat-cell *matCellDef="let element" class="action-dropdown">
 											<div class="d-flex align-items-center">
-											<span>{{element?.account_id}}</span>
-											<div class="dropdown">
-												<div class="triangle" type="button" id="dropdownMenuButton"
-													data-bs-toggle="dropdown" aria-expanded="false">▼</div>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-													<a href="#">Switch to this account</a>
-													<a href="#">Restore password</a>
-													<a href="#">Hide account from the main page</a>
-													<a href="#">Deposit</a>
-													<a href="#"
-														class="js-account-list-withdrawal-item-menu">Withdrawal</a>
-													<a href="#">Trades history</a>
-													<a target="_blank" href="#">Log in to MT5 Web</a>
+												<span>{{element?.account_id}}</span>
+												<div class="dropdown">
+													<div class="triangle" type="button" id="dropdownMenuButton"
+														data-bs-toggle="dropdown" aria-expanded="false">▼</div>
+													<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+														<a href="#">Switch to this account</a>
+														<a href="#">Restore password</a>
+														<a href="#">Hide account from the main page</a>
+														<a href="#">Deposit</a>
+														<a href="#"
+															class="js-account-list-withdrawal-item-menu">Withdrawal</a>
+														<a href="#">Trades history</a>
+														<a target="_blank" href="#">Log in to MT5 Web</a>
+													</div>
 												</div>
 											</div>
-										</div>
 										</td>
 									</ng-container>
 
