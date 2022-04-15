@@ -154,7 +154,6 @@ export class VerificationDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.token = queryParams['token'];
-      this.router.navigate(['/verify-details']);
     });
     if (this.token) {
       this.emailVerification();
@@ -169,15 +168,14 @@ export class VerificationDetailsComponent implements OnInit {
 
   emailVerification() {
     this.apiService.verifyEmail(this.token).subscribe((res) => {
-      console.log('res', res);
       if (res.status == true) {
-        localStorage.setItem("token", res.data?.accessToken);
+        localStorage.setItem('token', res.data?.accessToken);
         localStorage.setItem('id', res.data?.user_info?.id)
         localStorage.setItem('firstname', res.data?.user_info?.firstname);
         localStorage.setItem('lastname', res.data?.user_info?.lastname);
         localStorage.setItem('email', res.data?.user_info?.email);
         this.userInfo = res?.data?.user_info;
-        this.router.navigate(['/verify-details']);
+        this.router.navigate(['/verification-details']);
       }
     });
   }
@@ -200,16 +198,14 @@ export class VerificationDetailsComponent implements OnInit {
 
   onSelectDay(event: any) {
     this.day = event.value;
-    console.log('day', this.day);
-
   }
+
   onSelectMonth(event: any) {
     this.month = event.value;
-    console.log('month', this.month);
   }
+
   onSelectYear(event: any) {
     this.year = event.value;
-    console.log('year', this.year);
   }
 
   userInformation() {
@@ -226,7 +222,6 @@ export class VerificationDetailsComponent implements OnInit {
     } else {
       const payload = {
         user_id: this.userInfo?.id.toString(),
-        // user_id: "13",
         country_id: "1",
         country_code: this.callingCode,
         phone: this.accountInformation.get('phone_number').value['number'].replace(/\s/g, ""),
@@ -262,7 +257,6 @@ export class VerificationDetailsComponent implements OnInit {
         balance: "0",
         main_balance: "0",
       }
-      console.log('payload', payload);
       if (this.userInfo?.id) {
         this.apiService.accountInfo(JSON.stringify(payload)).subscribe((res) => {
           if (res?.status == true) {
