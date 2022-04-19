@@ -6,6 +6,10 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
 import { Country } from '@angular-material-extensions/select-country';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions } from 'swiper';
+
+// install Swiper modules
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
 
 @Component({
   selector: 'app-verification-details',
@@ -58,6 +62,31 @@ export class VerificationDetailsComponent implements OnInit {
   fixedRateValue = "1";
   balanceValue = "5000";
   acc_type = "1";
+
+  config: SwiperOptions = {
+    // A11y: true,
+    direction: 'horizontal',
+    slidesPerView: 3,
+    slideToClickedSlide: true,
+    mousewheel: true,
+    scrollbar: false,
+    // watchSlidesProgress: true,
+    // navigation: true,
+    keyboard: true,
+    pagination: false,
+    centeredSlides: true,
+    loop: false,
+    roundLengths: true,
+    // slidesOffsetBefore: 100,
+    // slidesOffsetAfter: 100,
+    spaceBetween: 10,
+    // breakpoints: {
+    //   // when window width is >= 320px
+    //   1080: {
+    //     slidesPerView: 3
+    //   }
+    // }
+  };
 
   constructor(
     private _formBuilder: FormBuilder,

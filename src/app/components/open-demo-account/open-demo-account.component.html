@@ -27,18 +27,17 @@
 								</div>
 							</div>
 							<form>
-								<div class="simple-card">
-									<div class="container">   
-										<!--swiper Slider main container -->
+								<!-- <div class="simple-card">
+									<div class="container">
 										<div class="swiper-container">
-											<!-- Additional required wrapper -->
 											<div class="swiper-wrapper">
 												<div class="swiper-slide">
 													<mat-card class="account-type selected">
 														<div class="d-flex align-items-center justify-content-between">
 															<h3 class="card-title">OctaFX MT4</h3>
 															<div class="mt5-img">
-																<img src="../../../assets/images/mt5.svg" class="img-fluid" />
+																<img src="../../../assets/images/mt5.svg"
+																	class="img-fluid" />
 															</div>
 														</div>
 														<hr />
@@ -98,7 +97,8 @@
 														<div class="d-flex align-items-center justify-content-between">
 															<h3 class="card-title">OctaFX MT4</h3>
 															<div class="mt5-img">
-																<img src="../../../assets/images/mt5.svg" class="img-fluid" />
+																<img src="../../../assets/images/mt5.svg"
+																	class="img-fluid" />
 															</div>
 														</div>
 														<hr />
@@ -154,14 +154,12 @@
 													</mat-card>
 												</div>
 											</div>
-									
-											<!-- If we need navigation buttons -->
+
 											<div class="swiper-pagination"></div>
 										</div>
-									</div>   
+									</div>
 								</div>
 								<div class="simple-card row d-none">
-									<!-- swiper  -->
 									<div *ngFor="let item of planData" class="col-md-5 px-0">
 										<mat-card class="account-type selected">
 											<div class="d-flex align-items-center justify-content-between">
@@ -223,8 +221,81 @@
 											</div>
 										</mat-card>
 									</div>
-									
-								</div>
+
+								</div> -->
+
+								<swiper [config]="config" (slideChange)="onSlideChange($event)">
+									<ng-template class="swiper-slide" swiperSlide let-data>
+										<div class="simple-card">
+											<div class="swiper-wrapper">
+												<div *ngFor="let item of planData" class="col-md-5 px-0">
+													<mat-card class="account-type selected">
+														<div class="d-flex align-items-center justify-content-between">
+															<h3 class="card-title">{{ item?.name }}</h3>
+															<div class="mt5-img">
+																<img src="../../../assets/images/mt5.svg"
+																	class="img-fluid" />
+															</div>
+														</div>
+														<hr />
+														<ul class="advantages">
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Spread from</div>
+																	<span class="value">{{
+																		item?.plan_feature[0]?.feature_name
+																		}}</span>
+																</div>
+																<p class="descr">Floating spread, markup</p>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Min deposit</div>
+																	<span class="value">$25</span>
+																</div>
+																<p class="descr">Favourable: $100</p>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Maximum leverage</div>
+																	<span class="value">1:500</span>
+																</div>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Margin call</div>
+																	<span class="value">25%</span>
+																</div>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Stop out level</div>
+																	<span class="value">15%</span>
+																</div>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">No swaps</div>
+																</div>
+																<p class="descr">No commissions</p>
+															</li>
+															<li class="item">
+																<div class="text-wrap">
+																	<div class="text">Instruments</div>
+																</div>
+																<p class="descr">80 instruments</p>
+															</li>
+														</ul>
+														<div class="d-flex align-items-center justify-content-center">
+															<a class="btn btn-blue" type="button"> Selected </a>
+														</div>
+													</mat-card>
+												</div>
+											</div>
+										</div>
+									</ng-template>
+								</swiper>
+
 								<ul class="acc-type-settings">
 									<li class="item">
 										<h4 class="title">

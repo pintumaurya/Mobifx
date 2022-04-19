@@ -17,6 +17,10 @@ body {
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
+@import "swiper/scss";
+@import "swiper/scss/navigation";
+@import "swiper/scss/pagination";
+
 a {
     color: #c99c3b;
     text-decoration: none;
@@ -111,8 +115,10 @@ a:hover {
     font-weight: 500;
     font-size: 20px;
 
-    &.h1 {font-size: 24px;}
-  }
+    &.h1 {
+        font-size: 24px;
+    }
+}
 .infotext {
     margin-bottom: 20px;
     color: #999;
@@ -356,21 +362,21 @@ tr:nth-child(2n) td.mat-cell {
     transition-duration: 0.2s;
     @media (min-width: 769px) {
         padding: 0 5px;
-      }
-  }
-  .btn-blue {
+    }
+}
+.btn-blue {
     background: #c99c3b;
     border-color: #c99c3b;
     color: #fff !important;
     @media (min-width: 769px) {
         width: 100%;
     }
-  
+
     &:hover {
         background: #9d7622;
         color: #fff;
     }
-  }
+}
 
 // swiper slider
 .simple-card {
@@ -386,17 +392,17 @@ tr:nth-child(2n) td.mat-cell {
 
     .account-type {
         border: 1px solid #e5e5e5;
-        transform: scale(.8);
+        transform: scale(0.8);
         cursor: pointer;
         box-shadow: none;
         min-width: 240px;
         width: 100%;
-        transition: -webkit-transform .1s ease-out;
-    transition: transform .1s ease-out;
-    transition: transform .1s ease-out,-webkit-transform .1s ease-out;
+        transition: -webkit-transform 0.1s ease-out;
+        transition: transform 0.1s ease-out;
+        transition: transform 0.1s ease-out, -webkit-transform 0.1s ease-out;
         &:hover {
-          box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
-      }
+            box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+        }
         &.selected {
             border-color: #c99c3b;
             -webkit-transform: scale(1);
@@ -454,21 +460,21 @@ tr:nth-child(2n) td.mat-cell {
                 margin: 0;
                 line-height: 1.2;
                 color: #b3b3b3;
-            } 
+            }
         }
     }
-  }
+}
 .swiper-container {
     width: 100%;
     height: 100%;
     position: relative;
-  }
-  .swiper-slide {
+}
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
     width: 192px;
-    
+
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -482,22 +488,24 @@ tr:nth-child(2n) td.mat-cell {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
-  .swiper-pagination .swiper-pagination-bullet {
+}
+.swiper-pagination .swiper-pagination-bullet {
     width: 4px;
     height: 4px;
-    margin: 0 2px!important;
-    background: #999!important;
+    margin: 0 2px !important;
+    background: #999 !important;
     opacity: 1;
     border-radius: 2px;
 }
 .swiper-pagination {
-    position: relative;
-    top: 0;
+    // position: relative;
+    // top: 0;
     margin-top: 5px;
-  }
+}
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
     width: 24px;
     background: #999;
 }
-.swiper-slide.swiper-slide-active {width: 240px;}
+.swiper-slide.swiper-slide-active {
+    width: 240px;
+}

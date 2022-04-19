@@ -52,6 +52,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ApiService } from './services/api.service';
 import { AuthGuard } from '../app/services/auth-guard.services';
 import { ToastrModule } from 'ngx-toastr';
+import { SwiperModule } from "swiper/angular";
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     MatTableModule,
     MatPaginatorModule,
+    SwiperModule
   ],
   providers: [
     ApiService,

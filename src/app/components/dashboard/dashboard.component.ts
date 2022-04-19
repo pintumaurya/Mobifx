@@ -34,6 +34,22 @@ export class DashboardComponent implements OnInit {
     if (this.id == null) {
       this.accountDetails(1);
     }
+
+    // let date = new Date("yyyy-MM-dd HH.mm");
+    // let date = new Date();
+
+    // date.getHours();
+    // date.getMinutes();
+    // console.log('date', date.getHours(), date.getMinutes());
+
+    // let newdate = (date.getHours() - 5);
+
+    // let newdate2 = (date.getMinutes() - 30);
+
+    // console.log('gethour', newdate);
+
+    // console.log('getMinute', newdate2);
+
   }
 
   userAccountList() {
