@@ -1,0 +1,311 @@
+<!-- <div class="container">
+    <h2 class="mt-5 mb-4">Angular 13 Stripe Payment Gateway Example</h2>
+    <div class="col-md-5 mb-2">
+        <button (click)="makePayment(15)" class="btn btn-danger btn-block">Pay $15</button>
+    </div>
+    <div class="col-md-5 mb-2">
+        <button (click)="makePayment(25)" class="btn btn-primary btn-block">Pay $25</button>
+    </div>
+    <div class="col-md-5">
+        <button (click)="makePayment(35)" class="btn btn-success btn-block">Pay $35</button>
+    </div>
+</div> -->
+
+<main>
+    <div class="container">
+        <div class="row align-items-center main-box justify-content-center w-100 mx-0">
+            <div class="col-xl-12 col-md-12 col-lg-12 px-0">
+                <div class="deposit">
+                    <h2>Select where to transfer the money</h2>
+                    <form class="form-wrapper-inner">
+                        <div class="account-box-selector">
+                            <div class="form-element-item plus-button" slot="account-selector" ishasbutton="true">
+                                <div class="form-element-multiselect">
+                                    <input name="billingAddress" type="hidden" value="46357357">
+                                    <div tabindex="0" class="multiselect multiselect--above dropdown">
+                                        <div class="multiselect__select"></div>
+                                        <div class="multiselect-tags" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <span class="multiselect__single">
+                                                <div class="account-selector-list-item">
+                                                    <div class="real-div">
+                                                        <div>
+                                                            {{accountDetailsList?.account_type == 1 ? "REAL" : "REAL"}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt5-logo">
+                                                        {{accountDetailsList?.plan?.name.substr(this.accountDetailsList?.plan?.name.indexOf("
+                                                        ") + 1).slice(0,
+                                                        2)}}<span>{{accountDetailsList?.plan?.name.substr(this.accountDetailsList?.plan?.name.indexOf("
+                                                            ") + 1).slice(2)}}</span>
+                                                    </div>
+                                                    <span
+                                                        class="account-selector__number">{{accountDetailsList?.account_id}}</span>
+                                                    <span class="account-selector__balance">
+                                                        {{accountDetailsList?.currency ==
+                                                        "USD" ? "$" : "€"}}{{accountDetailsList?.balance}}
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div class="multiselect-content-wrapper dropdown-menu"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <a *ngFor="let item of dataSource;"
+                                                class="multiselect__element dropdown-item">
+                                                <span class="multiselect__option multiselect__option-highlight"
+                                                    (click)="accountById(item?.id)">
+                                                    <div class="account-selector-list-item">
+                                                        <div class="real-div">
+                                                            <div>
+                                                                {{item?.account_type == 1 ? "REAL" : "REAL"}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt5-logo">
+                                                            {{item?.plan?.name.substr(this.item?.plan?.name.indexOf("
+                                                            ") + 1).slice(0,
+                                                            2)}}<span>{{item?.plan?.name.substr(this.item?.plan?.name.indexOf("
+                                                                ") + 1).slice(2)}}</span></div>
+                                                        <span
+                                                            class="account-selector__number">{{item?.account_id}}</span>
+                                                        <span class="account-selector__balance">{{item?.currency ==
+                                                            "USD" ? "$" : "€"}}{{item?.balance}}</span>
+                                                    </div>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="heading">New deposit for account {{accountDetailsList?.account_id}}</h2>
+                        <div class="radio-box-container">
+                            <label class="radio-box-img active">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="incs4" />
+                                <img src="../../../assets/images/payment-option/incs.svg" class="radio-box-img-ico" />
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="ind" />
+                                <img src="../../../assets/images/payment-option/local-bank.svg"
+                                    class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">India Local Banks</div>
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="btc" />
+                                <img src="../../../assets/images/payment-option/btc.svg" class="radio-box-img-ico" />
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="doge" />
+                                <img src="../../../assets/images/payment-option/doge.svg" class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">Dogecoin</div>
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="binpay" />
+                                <img src="../../../assets/images/payment-option/binpay.svg" class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">Ethereum</div>
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="ltc" />
+                                <img src="../../../assets/images/payment-option/ltc.svg" class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">Litecoin</div>
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="nt" />
+                                <img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico" />
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="mb" />
+                                <img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico" />
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="usdte" />
+                                <img src="../../../assets/images/payment-option/usdte.svg" class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">Tether (ERC20)</div>
+                            </label>
+                            <label class="radio-box-img">
+                                <input name="labelSelector" type="radio" class="radio-box-img-input" value="usdtt" />
+                                <img src="../../../assets/images/payment-option/usdtt.svg" class="radio-box-img-ico" />
+                                <div class="radio-box-img-text">Tether (TRC20)</div>
+                            </label>
+                        </div>
+                        <ul class="list-commission d-flex align-items-center justify-content-center">
+                            <li class="list-item">No commission</li>
+                            <li class="list-item">Best exchange rates</li>
+                            <li class="list-item">
+                                <span> 50% deposit bonus </span>
+                            </li>
+                        </ul>
+                        <section class="promo-bonuses-container">
+                            <h2 class="heading">Choose bonus</h2>
+
+                            <div>
+                                <mat-accordion>
+                                    <mat-expansion-panel class="bonuses-advantages" (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                What advantages does the bonus bring?
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul class="bonuses-advantages-list">
+                                            <li class="bonuses-advantages-listitem">
+                                                <i class="bonuses-advantages-listicon">
+                                                    <img src="../../../assets/images/bonus-advantage-01.jpg" width="48"
+                                                        height="48" class="bonuses-advantages-listpic" />
+                                                </i>
+                                                <div class="bonuses-advantages-listtext">
+                                                    <p class="bonuses-advantages-listtitle">
+                                                        Provides higher trading volume.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="bonuses-advantages-listitem">
+                                                <i class="bonuses-advantages-listicon">
+                                                    <img src="../../../assets/images/bonus-advantage-02.jpg" width="48"
+                                                        height="48" class="bonuses-advantages-listpic" />
+                                                </i>
+                                                <div class="bonuses-advantages-listtext">
+                                                    <p class="bonuses-advantages-listtitle">
+                                                        Does not block withdrawals.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="bonuses-advantages-listitem">
+                                                <i class="bonuses-advantages-listicon">
+                                                    <img src="../../../assets/images/bonus-advantage-03.jpg" width="48"
+                                                        height="48" class="bonuses-advantages-listpic" />
+                                                </i>
+                                                <div class="bonuses-advantages-listtext">
+                                                    <p class="bonuses-advantages-listtitle">
+                                                        Can be converted to your money in full by trading.
+                                                    </p>
+                                                    <p class="bonuses-advantages-listdescr">
+                                                        No time limits on completing the bonus.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="bonuses-advantages-listitem">
+                                                <i class="bonuses-advantages-listicon">
+                                                    <img src="../../../assets/images/bonus-advantage-04.jpg" width="48"
+                                                        height="48" class="bonuses-advantages-listpic" />
+                                                </i>
+                                                <div class="bonuses-advantages-listtext">
+                                                    <p class="bonuses-advantages-listtitle">
+                                                        Can be cancelled at your will at any moment.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+
+                            </div>
+
+                            <div>
+                                <mat-accordion>
+                                    <mat-expansion-panel hideToggle class="promo-bonuses">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="promo-header w-100">
+                                                <div class="promo-header-text">
+                                                    <input type="checkbox" class="promoinput" name="bonuscategory" />
+                                                    <div class="promoico promoicocheckbox"></div>
+                                                    <div class="promo-bonuses-title promotext">
+                                                        Unlimited 10–50% bonus
+                                                    </div>
+                                                </div>
+                                                <div class="promo-bonuses-header-switcher">
+                                                    Select the percentage and apply the bonus
+                                                </div>
+
+                                                <picture class="promo-bonuses-img-container">
+                                                    <source type="image/webp" alt="Promo bonuses"
+                                                        class="promo-bonuses-img" />
+                                                    <img src="../../../assets/images/standard.webp"
+                                                        class="promo-bonuses-img" alt="Promo bonuses" />
+                                                </picture>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul class="promo-bonuses-list">
+                                            <li class="promo-bonuses-list-item">
+                                                <label class="promo-bonuses-list-item-switcher">
+                                                    <div class="promoline">
+                                                        <input type="radio" name="bonusvalue" class="promoinput"
+                                                            value="standard-10" />
+                                                        <div class="promoico promoicoradio"></div>
+                                                        <div class="promotext">10%</div>
+                                                    </div>
+                                                </label>
+                                                <div class="promo-bonuses-counting">
+                                                    <div class="promo-bonuses-counting-text" style="display: none;">
+                                                        To see the bonus amount, specify your deposit amount
+                                                        above.
+                                                    </div>
+                                                    <div class="promo-bonuses-counting-text">
+                                                        Requires you to trade
+                                                        <span class="promo-bonuses-counting-data new"><span
+                                                                class="">10.00</span>
+                                                            lots</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="promo-bonuses-list-item">
+                                                <label class="promo-bonuses-list-item-switcher styled-form-switcher">
+                                                    <div class="promoline">
+                                                        <input type="radio" name="bonus_value" class="promoinput"
+                                                            value="standard-30" />
+                                                        <div class="promoico promoicoradio"></div>
+                                                        <div class="promotext">30%</div>
+                                                    </div>
+                                                </label>
+                                                <div class="promo-bonuses-counting">
+                                                    <div class="promo-bonuses-counting-text" style="display: none;">
+                                                        To see the bonus amount, specify your deposit amount
+                                                        above.
+                                                    </div>
+                                                    <div class="promo-bonuses-counting-text">
+                                                        Requires you to trade
+                                                        <span class="promo-bonuses-counting-data new"><span
+                                                                class="">30.00</span>
+                                                            lots</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="promo-bonuses-list-item">
+                                                <label class="promo-bonuses-list-item-switcher">
+                                                    <div class="promoline">
+                                                        <input type="radio" name="bonus_value" class="promoinput"
+                                                            value="standard-50" />
+                                                        <div class="promoico promoicoradio"></div>
+                                                        <div class="promotext">50%</div>
+                                                    </div>
+                                                </label>
+                                                <div class="promo-bonuses-counting">
+                                                    <div class="promo-bonuses-counting-text" style="display: none;">
+                                                        To see the bonus amount, specify your deposit amount
+                                                        above.
+                                                    </div>
+                                                    <div class="promo-bonuses-counting-text">
+                                                        Requires you to trade
+                                                        <span class="promo-bonuses-counting-data new"><span
+                                                                class="">50.00</span>
+                                                            lots</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </section>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="d-flex justify-content-end align-items-center base-btn">
+                                    <button class="btn btn-blue">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,358 +1,6 @@
 .main-box {
     padding: 24px;
 }
-.header-container {
-    position: relative;
-    height: 74px;
-
-    .main-header-area {
-        position: relative;
-        height: 74px;
-    }
-    .logo {
-        margin: auto auto auto 0;
-        display: flex;
-        align-items: center;
-
-        img {
-            width: 111px;
-            height: 23px;
-        }
-    }
-    .reg-steps {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-        width: auto;
-        height: 100%;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-
-        .item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding-right: 60px;
-            letter-spacing: 0.18px;
-            font-weight: 500;
-            font-size: 14px;
-            margin-right: 50px;
-            color: #fff;
-            text-decoration: none;
-
-            @media screen and (max-width: 1024px) {
-                padding-right: 20px;
-                margin-right: 20px;
-            }
-            &::before {
-                z-index: 2;
-                position: absolute;
-                top: 0;
-                right: 1px;
-                width: 0;
-                height: 0;
-                border-top: 37px solid transparent;
-                border-bottom: 37px solid transparent;
-                border-left: 16px solid #c99c3b;
-                content: "";
-            }
-            &::after {
-                z-index: 1;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 0;
-                height: 0;
-                border-top: 37px solid transparent;
-                border-bottom: 37px solid transparent;
-                border-left: 16px solid #a37b24;
-                content: "";
-            }
-            .number {
-                position: relative;
-                display: flex;
-                align-items: center;
-                margin-right: 15px;
-                width: 30px;
-                height: 30px;
-                min-width: 30px;
-                border-radius: 50%;
-                background: #a87e22;
-                color: #fff;
-                letter-spacing: 0.17px;
-                font-weight: 700;
-                font-size: 14px;
-                opacity: 0.3;
-                text-decoration: none;
-                span {
-                    margin: auto;
-                    line-height: 1;
-                }
-                img {
-                    margin: auto;
-                    line-height: 1;
-                }
-            }
-            .name {
-                opacity: 0.3;
-                text-decoration: none;
-            }
-
-            &.current {
-                .number {
-                    opacity: 1;
-                }
-                .name {
-                    opacity: 1;
-                }
-            }
-            &.success {
-                .number {
-                    opacity: 1;
-                }
-                .name {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    .header-container-user-name {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        width: 74px;
-        height: 100%;
-        background-color: #fff;
-        text-align: center;
-        text-decoration: none;
-        line-height: 74px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        background-image: url(../../../assets/images/icon/exit.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 20px;
-    }
-}
-.btn {
-    width: 46%;
-    text-align: center;
-    justify-content: center;
-    max-width: 170px;
-    padding-right: 5px;
-    padding-left: 5px;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition-property: background-color, color;
-    transition-duration: 0.2s;
-    @media (min-width: 769px) {
-        width: 120px;
-        padding: 0 5px;
-    }
-}
-.btn-blue {
-    background: #c99c3b;
-    border-color: #c99c3b;
-    color: #fff !important;
-    @media (min-width: 769px) {
-        width: 100%;
-    }
-
-    &:hover {
-        background: #9d7622;
-        color: #fff;
-    }
-}
-.form-width {
-    width: 360px;
-    display: flex;
-    justify-content: space-between;
-}
-.form-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.simple-card {
-    display: flex;
-    margin: 40px 0px;
-    justify-content: flex-end;
-
-    .acc-type-slide {
-        height: auto;
-        padding-top: 15px;
-        width: 192px;
-    }
-
-    .account-type {
-        border: 1px solid #e5e5e5;
-        transform: scale(0.8);
-        cursor: pointer;
-        box-shadow: none;
-        &.selected {
-            border-color: #c99c3b;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
-
-    .card-title {
-        font-weight: 500;
-        font-size: 18px;
-        margin: 0;
-        padding: 0;
-    }
-    .advantages {
-        list-style: none;
-        margin: 0 0 20px;
-        padding: 0;
-
-        .item {
-            position: relative;
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 13px;
-
-            .text-wrap {
-                display: flex;
-                justify-content: space-between;
-
-                .text {
-                    font-size: 14px;
-                    display: flex;
-                    line-height: 1.2;
-                    margin-bottom: 3px;
-                    color: #333;
-                }
-                .value {
-                    font-size: 14px;
-                    display: flex;
-                    align-items: flex-end;
-                    flex: 1;
-                    margin-bottom: 3px;
-                    &:before {
-                        display: block;
-                        flex: 1;
-                        width: 10px;
-                        height: 1px;
-                        margin-bottom: 2px;
-                        content: "";
-                        border-bottom: 1px dotted #b3b3b3;
-                    }
-                }
-            }
-            .descr {
-                font-size: 12px;
-                margin: 0;
-                line-height: 1.2;
-                color: #b3b3b3;
-            }
-        }
-    }
-}
-.acc-type-settings {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding: 15px 10px 15px 25px;
-    margin: 0 0 25px;
-    border: 1px solid #f2f2f2;
-    border-radius: 4px;
-    color: #4d4d4d;
-    .item {
-        flex: 0 1 22.6%;
-        margin: 0 15px 20px 0;
-        min-width: 130px;
-
-        .title {
-            font-weight: 500;
-            font-size: 12px;
-            display: flex;
-            justify-content: flex-start;
-            min-height: 14px;
-            margin-bottom: 10px;
-            position: relative;
-            align-items: center;
-        }
-        .cntrl {
-            width: 100%;
-
-            .switcher {
-                display: flex;
-                align-items: stretch;
-                justify-content: stretch;
-                height: 32px;
-                border: 2px solid #f2f2f2;
-                background: #f2f2f2;
-                border-radius: 4px;
-                .switcher-item {
-                    position: relative;
-                    flex: 1;
-                    height: 28px;
-                    .switcher-radio {
-                        position: absolute;
-                        bottom: 100%;
-                        right: 100%;
-                        visibility: hidden;
-                        opacity: 0;
-                    }
-                    .switcher-label {
-                        font-size: 12px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        height: 100%;
-                        padding: 0 10px;
-                        cursor: pointer;
-                        color: #999;
-                        border-radius: 4px;
-                        transition: all 0.1s ease-out;
-                    }
-
-                    .switcher-radio:checked + .switcher-label {
-                        cursor: default;
-                        background: #fff;
-                        color: #c99c3b;
-                        box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
-                    }
-                }
-            }
-        }
-    }
-    .balance-div {
-        position: relative;
-
-        .label-position {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            left: 8px;
-            font-weight: bold;
-        }
-    }
-}
-.form-control {
-    width: 360px;
-}
 .deposit {
     .form-wrapper-inner {
         padding-bottom: 20px;
@@ -423,50 +71,6 @@
         .radio-box-img[disabled="disabled"] .radio-box-img-text {
             opacity: 0.5;
         }
-
-        .indent-container {
-            margin-top: 24px;
-            margin-bottom: 24px;
-
-            .created-account-data {
-                background: #ffeacc;
-                padding: 20px 25px;
-                display: flex;
-                align-items: center;
-                .logo {
-                    margin-right: 30px;
-                }
-                .info-block {
-                    flex-grow: 1;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    .descr {
-                        margin-right: 8px;
-                        .title {
-                            color: #4d4d4d;
-                            text-transform: uppercase;
-                            line-height: 1;
-                            margin-bottom: 8px;
-                            font-size: 10px;
-                            font-weight: 400;
-                        }
-                        .val {
-                            color: #000;
-                            font-size: 14px;
-                            line-height: 1;
-                            font-weight: 500;
-                        }
-                    }
-                }
-            }
-        }
-        .title-t10 {
-            font-size: 15px;
-            line-height: 1.4;
-            color: #4a4a4a;
-            margin-bottom: 20px;
-        }
         .list-commission {
             flex-wrap: wrap;
             font-size: 12px;
@@ -477,7 +81,7 @@
             .list-item {
                 padding-left: 32px;
                 background-repeat: no-repeat;
-                background-image: url("../../../assets/images/blue-icon.svg");
+                background-image: url("../../../assets//images/blue-icon.svg");
                 background-position: left top;
                 min-height: 20px;
                 line-height: 20px;
@@ -608,7 +212,7 @@
                 }
                 .promoinput:checked ~ .promoicocheckbox::before {
                     background: #c99c3b;
-                    background-image: url("../../../assets/images/checkbox.svg");
+                    background-image: url("/../../../assets/images/checkbox.svg");
                     background-repeat: no-repeat;
                     background-position: center;
                 }
@@ -740,4 +344,193 @@
             }
         }
     }
+    .account-box-selector {
+        width: 100%;
+        min-width: 280px;
+        max-width: 400px;
+        @media (min-width: 769px) {
+            margin-left: 24px;
+        }
+
+        input {
+            height: 30px;
+            padding: 0 9px;
+            background: #fff;
+            border: #c6c6c6 solid 1px;
+            border-radius: 0;
+        }
+
+        .form-element-item {
+            width: 100%;
+            position: relative;
+            max-width: 360px;
+            .form-element-multiselect {
+                position: relative;
+
+                .multiselect {
+                    box-sizing: content-box;
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    min-height: 40px;
+                    text-align: left;
+                    color: #35495e;
+                    cursor: pointer;
+                    // @media (min-width: 769px) {
+                    // 	width: 220px;
+                    // }
+                    .multiselect__select {
+                        position: absolute;
+                        width: 40px;
+                        height: 38px;
+                        right: 1px;
+                        top: 1px;
+                        padding: 4px 8px;
+                        text-align: center;
+                        transition: -webkit-transform 0.2s ease;
+                        transition: transform 0.2s ease;
+                        transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+                        background-image: url("../../../assets/images/icon/down.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        &::before {
+                            position: relative;
+                            right: 0;
+                            top: 65%;
+                            color: #999;
+                            margin-top: 4px;
+                            border-color: #999 transparent transparent;
+                            border-style: solid;
+                            border-width: 5px 5px 0;
+                            content: "";
+                            width: 24px;
+                            height: 24px;
+                            border: none;
+                        }
+                    }
+                    .multiselect-tags {
+                        padding-left: 16px;
+                        padding-top: 0;
+                        border: 1px solid #ccc;
+                        border-radius: 4px !important;
+                        display: flex;
+                        align-items: center;
+                        flex-grow: 1;
+                        min-height: 40px;
+                        padding: 0 40px 0 8px;
+                        border-radius: 5px;
+                        background: #fff;
+                        font-size: 14px;
+                    }
+                    .account-selector-list-item {
+                        display: flex;
+                        font-size: 14px;
+                        align-items: center;
+                    }
+                    .real-div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        div {
+                            background-color: #c99c3b;
+                            color: #fff;
+                            font-size: 10px;
+                            font-weight: 500;
+                            padding: 1px 10px;
+                            border-radius: 2px;
+                        }
+                    }
+                    .demo-div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        div {
+                            background-color: #00c94c !important;
+                            color: #fff;
+                            font-size: 10px;
+                            font-weight: 500;
+                            padding: 1px 10px;
+                            border-radius: 2px;
+                        }
+                    }
+                    .account-selector__balance {
+                        margin-left: 110px;
+                    }
+                    .mt5-logo {
+                        font-size: 13px;
+                        font-weight: bold;
+                        color: #383d50;
+                        margin: 0 10px;
+                        span {
+                            color: #f38749;
+                        }
+                    }
+                }
+            }
+            .multiselect-content-wrapper {
+                border-top: 1px solid #e8e8e8;
+                padding: 0;
+                background-color: #fff;
+
+                .multiselect__element {
+                    display: block;
+                    padding: 0;
+                    text-decoration: none;
+
+                    .multiselect__option {
+                        color: #050f2c;
+                        font-size: 14px;
+                        font-weight: 500;
+                        font-family: Roboto, Helvetica, Arial, sans-serif;
+                        // padding-left: 16px;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        white-space: normal;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                    }
+                    .account-selector-list-item {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        padding: 4px 13px 4px 13px;
+                        margin: 4px 0;
+                        min-height: 40px;
+                        &:hover {
+                            background: #cfe2fe;
+                        }
+                    }
+                    .account-selector-list-btn {
+                        display: block;
+                        width: 100%;
+                        background: #c99c3b;
+                        color: #fff !important;
+                        text-align: center;
+                        font-size: 12px;
+                        border-radius: 0 0 4px 4px;
+                        text-decoration: none;
+                        padding: 12px 0;
+                        border: none;
+                        box-shadow: none;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        .select-trade-platform-list__logo-image {
+            width: 42px;
+            height: 14px;
+        }
+        .select-trade-platform-list__icon {
+            width: 22px;
+            height: 14px;
+            fill: #000;
+        }
+    }
+    // .demo_class {
+    //     background-color: #00c94c !important;
+    // }
 }

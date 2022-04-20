@@ -32,6 +32,7 @@ import { MyInfoComponent } from './components/settings/my-info/my-info.component
 import { PhoneChangeComponent } from './components/settings/phone-change/phone-change.component';
 import { AccountLogComponent } from './components/settings/account-log/account-log.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+import { DepositComponent } from './components/deposit/deposit.component';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -81,7 +82,8 @@ import { SwiperModule } from "swiper/angular";
     MyInfoComponent,
     PhoneChangeComponent,
     AccountLogComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    DepositComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

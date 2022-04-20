@@ -118,7 +118,11 @@
 																		"DEMO"}}
 																	</div>
 																</div>
-																<div class="mt5-logo">{{item?.plan?.name}}</div>
+																<div class="mt5-logo">
+																	{{item?.plan?.name.substr(this.item?.plan?.name.indexOf("
+																	") + 1).slice(0,
+																	2)}}<span>{{item?.plan?.name.substr(this.item?.plan?.name.indexOf("
+																		") + 1).slice(2)}}</span></div>
 																<span
 																	class="account-selector__number">{{item?.account_id}}</span>
 																<span
@@ -232,7 +236,7 @@
 										</div>
 									</div>
 									<div class="info-button">
-										<button class="btn btn-border-blue">
+										<button routerLink="/deposit/new" class="btn btn-border-blue">
 											Deposit
 										</button>
 										<button class="btn btn-blue">

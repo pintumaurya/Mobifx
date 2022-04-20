@@ -25,6 +25,7 @@ import { ResetPasswordComponent } from './components/settings/reset-password/res
 import { MyInfoComponent } from './components/settings/my-info/my-info.component';
 import { PhoneChangeComponent } from './components/settings/phone-change/phone-change.component';
 import { AccountLogComponent } from './components/settings/account-log/account-log.component';
+import { DepositComponent } from './components/deposit/deposit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'settings/phone-change', component: PhoneChangeComponent, canActivate: [AuthGuard] },
   { path: 'open-account/real', component: OpenRealAccountComponent, canActivate: [AuthGuard] },
   { path: 'settings/account-log', component: AccountLogComponent, canActivate: [AuthGuard] },
+  { path: 'deposit/new', component: DepositComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

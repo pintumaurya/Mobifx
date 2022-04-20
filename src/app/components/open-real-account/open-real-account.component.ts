@@ -74,8 +74,8 @@ export class OpenRealAccountComponent implements OnInit {
   onSwiper([swiper]) {
     console.log(swiper);
   }
-  onSlideChange() {
-    console.log('slide change');
+  onSlideChange(event: any) {
+    console.log('slide change', event);
   }
 
   getPlans() {
