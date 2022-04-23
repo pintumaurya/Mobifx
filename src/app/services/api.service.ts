@@ -81,4 +81,7 @@ export class ApiService {
     accountLog(payload: any): Observable<any> {
         return this.http.post(Endpoints.ApiEndpoint.userProfile.accountLogs, payload);
     }
+    addDeposit(payload: any): Observable<any> {
+        return this.http.post(Endpoints.ApiEndpoint.dashboard.addDeposit, payload);
+    }
 }

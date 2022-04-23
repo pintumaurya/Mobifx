@@ -35,16 +35,20 @@ export class DashboardComponent implements OnInit {
       this.accountDetails(1);
     }
 
-    // let date = new Date("yyyy-MM-dd HH.mm");
+    // // let date = new Date("yyyy-MM-dd HH.mm");
     // let date = new Date();
 
-    // date.getHours();
-    // date.getMinutes();
+    // date.getUTCHours();
+    // date.getUTCMinutes();
     // console.log('date', date.getHours(), date.getMinutes());
 
-    // let newdate = (date.getHours() - 5);
+    // let newdate = (date.getUTCHours() - 5);
 
-    // let newdate2 = (date.getMinutes() - 30);
+    // let newdate2 = (date.getUTCMinutes() - 30);
+
+    // // let cal = (date.getMinutes() * 30 / 10);
+
+    // // console.log('cal', cal);
 
     // console.log('gethour', newdate);
 

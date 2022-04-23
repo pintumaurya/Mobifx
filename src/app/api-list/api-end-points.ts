@@ -63,6 +63,9 @@ export const Endpoints = {
             },
             get transferHistory() {
                 return `${apiurl}/deposite/history`;
+            },
+            get addDeposit() {
+                return `${apiurl}/deposite`;
             }
         },
         userProfile: {
