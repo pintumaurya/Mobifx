@@ -202,7 +202,11 @@ export class VerificationDetailsComponent implements OnInit {
         localStorage.setItem('id', res.data?.user_info?.id)
         localStorage.setItem('firstname', res.data?.user_info?.firstname);
         localStorage.setItem('lastname', res.data?.user_info?.lastname);
-        localStorage.setItem('email', res.data?.user_info?.email);
+        localStorage.setItem('email', res.data?.user_info?.email);                                
+        localStorage.setItem('phone', res.data?.user_info?.phone);
+        localStorage.setItem('countryCode', res.data?.user_info?.country_code);
+        localStorage.setItem('city', res.data?.user_info?.city);
+        localStorage.setItem('address', res.data?.user_info?.street_address);
         this.userInfo = res?.data?.user_info;
         this.router.navigate(['/verification-details']);
       }
