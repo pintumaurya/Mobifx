@@ -31,7 +31,7 @@
     "express": "^4.15.2",
     "google-libphonenumber": "^3.2.27",
     "intl-tel-input": "^17.0.3",
-    "ngx-bootstrap": "^8.0.0",
+    "ngx-bootstrap": "^6.2.0",
     "ngx-intl-tel-input": "^3.2.0",
     "ngx-toastr": "^14.2.3",
     "rxjs": "~7.5.0",
