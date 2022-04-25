@@ -82,7 +82,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('email', res.data?.user_info?.email);
           localStorage.setItem('phone', res.data?.user_info?.phone);
           localStorage.setItem('countryCode', res.data?.user_info?.country_code);
-          this.toaster.showSuccess(res?.message)
+          localStorage.setItem('city', res.data?.user_info?.city);
+          localStorage.setItem('address', res.data?.user_info?.street_address);
+          this.toaster.showSuccess(res?.message);
           this.router.navigate(['/dashboard']);
         }
       },
