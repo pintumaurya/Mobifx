@@ -34,27 +34,17 @@ export class OpenRealAccountComponent implements OnInit {
 
   config: SwiperOptions = {
     // A11y: true,
-    direction: 'horizontal',
-    slidesPerView: 3,
+    effect: "slide",
+    grabCursor: false,
     slideToClickedSlide: true,
-    mousewheel: true,
-    scrollbar: false,
-    // watchSlidesProgress: true,
-    // navigation: true,
-    keyboard: true,
-    // pagination: false,
     centeredSlides: true,
-    loop: false,
-    roundLengths: true,
-    // slidesOffsetBefore: 100,
-    // slidesOffsetAfter: 100,
-    spaceBetween: 10,
-    // breakpoints: {
-    //   // when window width is >= 320px
-    //   1080: {
-    //     slidesPerView: 3
-    //   }
-    // }
+    slidesPerView: "auto",
+    spaceBetween: 16,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
   };
 
   constructor(
