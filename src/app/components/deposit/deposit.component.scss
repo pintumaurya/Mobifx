@@ -11,24 +11,28 @@
             margin-left: -7px;
             margin-right: -7px;
             margin-bottom: -14px;
+            .col-md-4 {padding: 6px;}
         }
         .radio-box-img {
             box-sizing: border-box;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 25%;
-            width: calc(25% - 7px * 2);
+            width: 100%;
+            // width: calc(33.33% - 7px * 2);
             border-radius: 3px;
             border: 1px solid #eaeaea;
-            padding: 16px;
-            padding-right: 8px;
-            margin: 0 7px 14px;
+            padding: 8px 16px;
+            // padding-right: 8px;
+            margin: 0;
             cursor: pointer;
             position: relative;
             background-color: #f6f6f6;
             transition-property: background-color, border-color, box-shadow;
             transition-duration: 0.2s;
+            min-height: 60px;
+            height: 100%;
+
             &[disabled] {
                 cursor: default;
             }
@@ -348,9 +352,7 @@
         width: 100%;
         min-width: 280px;
         max-width: 400px;
-        @media (min-width: 769px) {
-            margin-left: 24px;
-        }
+        margin-bottom: 40px;
 
         input {
             height: 30px;
@@ -454,7 +456,8 @@
                         }
                     }
                     .account-selector__balance {
-                        margin-left: 110px;
+                        margin-left: auto;
+                        text-align: right;
                     }
                     .mt5-logo {
                         font-size: 13px;
@@ -540,6 +543,7 @@
     }
     .panel {
         margin-bottom: 24px;
+        border: 1px solid #cacaca;
     }
     // .inline-box-deposit {
     //     display: flex;
@@ -595,7 +599,7 @@
     //     background-color: #00c94c !important;
     // }
     .example-margin {
-        margin: 20px;
+        margin: 10px 20px;
     }
     .error-msg {
         font-size: 13px;
@@ -706,4 +710,58 @@
         width: 100%;
         min-height: 30px;
     }
+    .form-deposit-text {
+        margin: 10px 0;
+        margin-right: 24px;
+        font-size: 14px;
+    }
+    .cntrl {
+        // width: 100%;
+
+        .switcher {
+            border: 1px solid #cacaca;
+            border-radius: 2px;
+            padding: 3px;
+            display: flex;
+            .switcher-item {
+                cursor: pointer;
+                position: relative;
+                margin: 0;
+
+                .switcher-radio {
+                position: absolute;
+                bottom: 100%;
+                right: 100%;
+                visibility: hidden;
+                opacity: 0;
+                }
+                .switcher-label {
+                font-size: 14px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5px 16px;
+                cursor: pointer;
+                color: #c99c3b;
+                border-radius: 2px;
+                transition: all 0.1s ease-out;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                -ms-border-radius: 2px;
+                -o-border-radius: 2px;
+                -webkit-transition: all 0.1s ease-out;
+                -moz-transition: all 0.1s ease-out;
+                -ms-transition: all 0.1s ease-out;
+                -o-transition: all 0.1s ease-out;
+}
+
+                .switcher-radio:checked + .switcher-label {
+                cursor: default;
+                background: #c99c3b;
+                color: #fff;
+                }
+            }
+        }
+      }
 }

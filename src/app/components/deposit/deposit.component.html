@@ -22,7 +22,7 @@
         <div class="row align-items-center main-box justify-content-center w-100 mx-0">
             <div class="col-xl-12 col-md-12 col-lg-12 px-0">
                 <div class="deposit">
-                    <h2>Select where to transfer the money</h2>
+                    <h2 class="heading">Select where to transfer the money</h2>
                     <form class="form-wrapper-inner">
                         <div class="account-box-selector">
                             <div class="form-element-item plus-button" slot="account-selector" ishasbutton="true">
@@ -32,7 +32,7 @@
                                         <div class="multiselect__select"></div>
                                         <div class="multiselect-tags" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                             aria-expanded="false">
-                                            <span class="multiselect__single">
+                                            <span class="multiselect__single w-100">
                                                 <div class="account-selector-list-item">
                                                     <div class="real-div">
                                                         <div>
@@ -54,7 +54,7 @@
                                                 </div>
                                             </span>
                                         </div>
-                                        <div class="multiselect-content-wrapper dropdown-menu"
+                                        <div class="multiselect-content-wrapper dropdown-menu w-100"
                                             aria-labelledby="dropdownMenuButton1">
                                             <a *ngFor="let item of dataSource;"
                                                 class="multiselect__element dropdown-item">
@@ -84,97 +84,129 @@
                             </div>
                         </div>
                         <h2 class="heading">New deposit for account {{accountDetailsList?.account_id}}</h2>
-                        <mat-radio-group aria-label="Select an option" class="radio-box-container"
+                        <mat-radio-group aria-label="Select an option" class="radio-box-container row"
                             (change)="radioChange($event)">
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-1" type="radio" class="radio-box-img-input" value="incs4">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/incs.svg" class="radio-box-img-ico" />
-                            </label>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-1" type="radio" class="radio-box-img-input"
+                                        value="incs4">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/incs.svg"
+                                        class="radio-box-img-ico" />
+                                </label>
+                            </div>
                             <!-- <label class="radio-box-img"> -->
-                            <label class="radio-box-img / js-payment-mb _active" data-auto-event-category="UXclick"
-                                data-auto-event-action="Block payment option click" data-auto-event-label="mb"
-                                data-payment-type="instant" data-payment-paysystem-code="mb" data-payment-name="Skrill"
-                                data-payment-currencies="[{&quot;name&quot;:&quot;USD&quot;,&quot;sign&quot;:&quot;$&quot;,&quot;rate&quot;:1,&quot;minAmount&quot;:&quot;50&quot;,&quot;roundFactor&quot;:100},{&quot;name&quot;:&quot;EUR&quot;,&quot;sign&quot;:&quot;\u20ac&quot;,&quot;rate&quot;:1.0816996963668952,&quot;minAmount&quot;:&quot;50&quot;,&quot;roundFactor&quot;:100}]"
-                                data-payment-settings="null" data-payment-account-fields="null"
-                                data-payment-banks="null"
-                                data-payment-predefined-amounts="{&quot;USD&quot;:[100,200,400],&quot;INR&quot;:[1500,3000,6000]}"
-                                data-payment-hide-different-bank-notice="" data-payment-transfer-types="null"
-                                data-user-data="{&quot;needShowNotification&quot;:false}"
-                                data-paysystem-notifications="[]">
-                                <mat-radio-button type="radio" name="payment" id="payment-mb" value="mb"
-                                    class="radio-box-img-input">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/skrill.png" class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-3" type="radio" class="radio-box-img-input" value="btc">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/btc.svg" class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-4" type="radio" class="radio-box-img-input" value="doge">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/doge.svg" class="radio-box-img-ico" />
-                                <div class="radio-box-img-text">Dogecoin</div>
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-5" type="radio" class="radio-box-img-input" value="binpay">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/binpay.svg" class="radio-box-img-ico" />
-                                <div class="radio-box-img-text">Ethereum</div>
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-6" type="radio" class="radio-box-img-input" value="ltc">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/ltc.svg" class="radio-box-img-ico" />
-                                <div class="radio-box-img-text">Litecoin</div>
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-7" type="radio" class="radio-box-img-input" value="nt">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-8" type="radio" class="radio-box-img-input" value="mb">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-9" type="radio" class="radio-box-img-input" value="usdte">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/usdte.svg" class="radio-box-img-ico" />
-                                <div class="radio-box-img-text">Tether (ERC20)</div>
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-10" type="radio" class="radio-box-img-input" value="usdtt">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/usdtt.svg" class="radio-box-img-ico" />
-                                <div class="radio-box-img-text">Tether (TRC20)</div>
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-11" type="radio" class="radio-box-img-input"
-                                    value="exactly">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/mastercard.png"
-                                    class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
-                                    value="echp_upi">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/csh_l_upi.svg"
-                                    class="radio-box-img-ico" />
-                            </label>
-                            <label class="radio-box-img">
-                                <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
-                                    value="csh_l_upi">
-                                </mat-radio-button>
-                                <img src="../../../assets/images/payment-option/echp_upi.svg"
-                                    class="radio-box-img-ico" />
-                            </label>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-3" type="radio" class="radio-box-img-input" value="btc">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/btc.svg"
+                                        class="radio-box-img-ico" />
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-4" type="radio" class="radio-box-img-input"
+                                        value="doge">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/doge.svg"
+                                        class="radio-box-img-ico" />
+                                    <div class="radio-box-img-text">Dogecoin</div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-5" type="radio" class="radio-box-img-input"
+                                        value="binpay">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/binpay.svg"
+                                        class="radio-box-img-ico" />
+                                    <div class="radio-box-img-text">Ethereum</div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-6" type="radio" class="radio-box-img-input" value="ltc">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/ltc.svg"
+                                        class="radio-box-img-ico" />
+                                    <div class="radio-box-img-text">Litecoin</div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-7" type="radio" class="radio-box-img-input" value="nt">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico" />
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img active" data-auto-event-category="UXclick"
+                                    data-auto-event-action="Block payment option click" data-auto-event-label="mb"
+                                    data-payment-type="instant" data-payment-paysystem-code="mb"
+                                    data-payment-name="Skrill"
+                                    data-payment-currencies="[{&quot;name&quot;:&quot;USD&quot;,&quot;sign&quot;:&quot;$&quot;,&quot;rate&quot;:1,&quot;minAmount&quot;:&quot;50&quot;,&quot;roundFactor&quot;:100},{&quot;name&quot;:&quot;EUR&quot;,&quot;sign&quot;:&quot;\u20ac&quot;,&quot;rate&quot;:1.0816996963668952,&quot;minAmount&quot;:&quot;50&quot;,&quot;roundFactor&quot;:100}]"
+                                    data-payment-settings="null" data-payment-account-fields="null"
+                                    data-payment-banks="null"
+                                    data-payment-predefined-amounts="{&quot;USD&quot;:[100,200,400],&quot;INR&quot;:[1500,3000,6000]}"
+                                    data-payment-hide-different-bank-notice="" data-payment-transfer-types="null"
+                                    data-user-data="{&quot;needShowNotification&quot;:false}"
+                                    data-paysystem-notifications="[]">
+                                    <mat-radio-button type="radio" name="payment" id="payment-mb" value="mb"
+                                        class="radio-box-img-input">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico" />
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-9" type="radio" class="radio-box-img-input"
+                                        value="usdte">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/usdte.svg"
+                                        class="radio-box-img-ico" />
+                                    <div class="radio-box-img-text">Tether (ERC20)</div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-10" type="radio" class="radio-box-img-input"
+                                        value="usdtt">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/usdtt.svg"
+                                        class="radio-box-img-ico" />
+                                    <div class="radio-box-img-text">Tether (TRC20)</div>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-11" type="radio" class="radio-box-img-input"
+                                        value="exactly">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/mastercard.png"
+                                        class="radio-box-img-ico" />
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
+                                        value="echp_upi">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/csh_l_upi.svg"
+                                        class="radio-box-img-ico" />
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <label class="radio-box-img">
+                                    <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
+                                        value="csh_l_upi">
+                                    </mat-radio-button>
+                                    <img src="../../../assets/images/payment-option/echp_upi.svg"
+                                        class="radio-box-img-ico" />
+                                </label>
+                            </div>
                         </mat-radio-group>
-                        <ul class="list-commission d-flex align-items-center justify-content-center">
+                        <ul class="list-commission d-flex align-items-center justify-content-center mt-4">
                             <li class="list-item">No commission</li>
                             <li class="list-item">Best exchange rates</li>
                             <li class="list-item">
@@ -183,59 +215,51 @@
                         </ul>
 
                         <div *ngIf="isShowSkrill">
-                            <h2>Specify the deposit amount</h2>
-
-                            <!-- <div class="amount-selector__change_area inline-box-deposit / js-currency-change-area">
-                                <div class="inline-box-deposit__text">
+                            <h2 class="heading">Specify the deposit amount</h2>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="form-deposit-text">
                                     I want to deposit in:
                                 </div>
-                                <ul class="inline-box-deposit__list styled-switcher _v2 / js-currency-change-select"
-                                    data-disabled-text="Unavailable for fixed rate">
-                                    <li data-value="USD" class="styled-switcher__item js-currency-change-item selected">
-                                        $
-                                        <div class="tooltip-hover__content _dark -center _arrow-down">
-                                            Unavailable for fixed rate
+                                <div class="cntrl">
+                                    <div class="switcher">
+                                        <div class="switcher-item">
+                                            <input id="deposit-0" name="deposit" type="radio" class="switcher-radio"
+                                                value="$" checked (input)="selectedToggle($event.target.value)" />
+                                            <label for="deposit-0" class="switcher-label">$</label>
                                         </div>
-                                    </li>
-                                    <li data-value="EUR" class="styled-switcher__item js-currency-change-item">
-                                        €
-                                        <div class="tooltip-hover__content _dark -center _arrow-down">
-                                            Unavailable for fixed rate
+                                        <div class="switcher-item">
+                                            <input id="deposit-1" name="deposit" type="radio" class="switcher-radio"
+                                                value="€" (input)="selectedToggle($event.target.value)" />
+                                            <label for="deposit-1" class="switcher-label">€</label>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div> -->
-                            <div class="row">
-                                <div class=" form-groupinline-box-deposit__text">
-                                    I want to deposit in:
+                                    </div>
                                 </div>
-                                <section>
-                                    <mat-slide-toggle class="example-margin" [color]="color"
-                                        (change)="selectedSlider($event)">
-                                    </mat-slide-toggle>
-                                </section>
                             </div>
 
-                            <mat-card class="panel">
-                                <mat-radio-group *ngIf="isTrueDollar">
-                                    <mat-radio-button type="radio" class="example-margin" id="radio-14" value="400">
-                                        $400.00
-                                    </mat-radio-button>
-                                    <mat-radio-button type="radio" class="example-margin" id="radio-15" checked
-                                        value="200">
-                                        $200.00
-                                    </mat-radio-button>
-                                    <mat-radio-button type="radio" class="example-margin" id=" radio-16" value="100">
-                                        $100.00
-                                    </mat-radio-button>
-                                    <mat-radio-button type="radio" class="example-margin" id="radio-17">
-                                        <mat-form-field class="example-full-width" appearance="fill">
-                                            <input matInput placeholder="Other $" maxlength="9" minlength="1"
-                                                (input)="onSearchChange($event.target.value)" value="">
-                                        </mat-form-field>
-                                        <br>
-                                    </mat-radio-button>
-                                </mat-radio-group>
+                            <mat-card class="panel shadow-none p-0">
+                                <div *ngIf="isTrueDollar">
+                                    <mat-radio-group (change)="paymentAmount($event)">
+                                        <mat-radio-button type="radio" class="example-margin" id="radio-14" value="400">
+                                            $400.00
+                                        </mat-radio-button>
+                                        <mat-radio-button type="radio" class="example-margin" id="radio-15" checked
+                                            value="200">
+                                            $200.00
+                                        </mat-radio-button>
+                                        <mat-radio-button type="radio" class="example-margin" id=" radio-16"
+                                            value="100">
+                                            $100.00
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+                                    <mat-radio-group>
+                                        <mat-radio-button class="example-margin" value="primary">
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <input matInput placeholder="Other $" maxlength="9" minlength="1"
+                                                    (input)="onSearchChange($event.target.value)">
+                                            </mat-form-field>
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
                                 <mat-radio-group *ngIf="isTrueEurope">
                                     <mat-radio-button class="example-margin" value="primary">
                                         <mat-form-field class="example-full-width" appearance="fill">
@@ -433,27 +457,27 @@
     </div>
 
     <div *ngIf="isShowconfirmation" class="container">
-        <div class="row align-items-center main-box justify-content-center w-100 mx-0">
+        <div class="row align-items-center main-box justify-content-center w-100 mx-0 mt-4">
             <div class="col-xl-12 col-md-12 col-lg-12 px-0">
                 <div class="deposit">
                     <h2>Deposit confirmation</h2>
-                    <form class="form-wrapper-inner" action="https://pay.skrill.com" method="post"
+                    <form class="form-wrapper-inner" action="https://www.skrill.com/app/pay.pl?action=prepare"
                         class="form-t01 js-confirmation-form" method="POST">
                         <div class="form-t01 js-confirmation-form">
                             <div class="blur-mode _invoice-blur">
-
                                 <div class="invoice-info _v2">
                                     <dl class="invoice-info__details blur-mode__subject">
                                         <div class="invoice-info__item">
                                             <dt class="invoice-info__dt">Amount</dt>
-                                            <dd class="invoice-info__dd _ltr js-amount">$200.00</dd>
+                                            <dd class="invoice-info__dd _ltr js-amount">{{currencySign}}
+                                                {{!depositAmount ? "200" : depositAmount }}
+                                                <span *ngIf="paymentValue">{{paymentValue}}</span>
+                                            </dd>
                                         </div>
-
-                                        <div class="invoice-info__item">
+                                        <div class=" invoice-info__item">
                                             <dt class="invoice-info__dt">Payment method</dt>
-                                            <dd class="invoice-info__dd _ltr">Skrill</dd>
+                                            <dd *ngIf="paymentMethod == 'mb' " class="invoice-info__dd _ltr">Skrill</dd>
                                         </div>
-
                                         <div class="invoice-info__item">
                                             <dt class="invoice-info__dt">Trading account</dt>
                                             <dd class="invoice-info__dd _ltr">{{accountDetailsList?.account_id}}</dd>
@@ -465,51 +489,65 @@
                                         </div>
                                     </dl>
                                 </div>
-
-
-                                <input type="hidden" class="js-confirmation-field" name="pay_to_email"
-                                    value="info@octafx.com">
-                                <input type="hidden" class="js-confirmation-field" name="pay_from_email" value="null">
-                                <input type="hidden" class="js-confirmation-field" name="amount" value="200">
-                                <input type="hidden" class="js-confirmation-field" name="currency" value="USD">
-                                <input type="hidden" class="js-confirmation-field" name="recipient_description"
-                                    value="Octa Markets Inc">
-                                <input type="hidden" class="js-confirmation-field" name="language" value="EN">
-                                <input type="hidden" class="js-confirmation-field" name="detail1_description"
-                                    value="Description">
-                                <input type="hidden" class="js-confirmation-field" name="transaction_id"
-                                    value="20725845">
-                                <input type="hidden" class="js-confirmation-field" name="payment_methods" value="">
-                                <input type="hidden" class="js-confirmation-field" name="detail1_text"
-                                    value="Deposit to OctaFX, account no.46429058">
-                                <input type="hidden" class="js-confirmation-field" name="country" value="IND">
-                                <input type="hidden" class="js-confirmation-field" name="address" value="Hmt">
-                                <input type="hidden" class="js-confirmation-field" name="address2" value="">
-                                <input type="hidden" class="js-confirmation-field" name="city" value="Himatnagar">
-                                <input type="hidden" class="js-confirmation-field" name="phone_number"
-                                    value="+91 7600487755">
-                                <input type="hidden" class="js-confirmation-field" name="cancel_url"
+                                <input type="hidden" name="pay_to_email" value="app.engear@gmail.com">
+                                <input type="hidden" name="pay_from_email" value="null">
+                                <span *ngIf="paymentValue">
+                                    <input type="hidden" name="amount" value="{{paymentValue}}">
+                                </span>
+                                <span *ngIf="depositAmount">
+                                    <input type="hidden" name="amount" value="{{depositAmount}}">
+                                </span>
+                                <input type="hidden" name="currency" value="{{accountDetailsList?.currency}}">
+                                <input type="hidden" name="recipient_description" value="Octa Markets Inc">
+                                <input type="hidden" name="language" value="EN">
+                                <input type="hidden" name="detail1_description" value="Description">
+                                <input type="hidden" name="transaction_id" value="20725845">
+                                <input type="hidden" name="payment_methods" value="">
+                                <input type="hidden" name="detail1_text" value="Deposit to OctaFX, account no.46429058">
+                                <input type="hidden" name="country" value="IND">
+                                <input type="hidden" name="address" value="{{address}}">
+                                <input type="hidden" name="address2" value="">
+                                <input type="hidden" name="city" value="{{city}}">
+                                <input type="hidden" name="phone_number" value="{{pCode}} {{phone}}">
+                                <input type="hidden" name="cancel_url"
                                     value="https://my.octafx.com/billing/public/return/common/mb/fail-result/">
-                                <input type="hidden" class="js-confirmation-field" name="return_url"
+                                <input type="hidden" name="return_url"
                                     value="https://my.octafx.com/billing/public/return/common/mb/success-result/">
-                                <input type="hidden" class="js-confirmation-field" name="status_url"
+                                <input type="hidden" name="status_url"
                                     value="https://smartapproute.com/paysystem-endpoint/callback/mb/">
-                                <input type="hidden" class="js-confirmation-field" name="__legacyRedirectPaymentUrl"
-                                    value="https://pay.skrill.com/">
-                                <input type="hidden" class="js-confirmation-field" name="__legacyRedirectTransactionId"
-                                    value="20725845">
-
+                                <input type="hidden" name="__legacyRedirectPaymentUrl" value="https://pay.skrill.com/">
+                                <input type="hidden" name="__legacyRedirectTransactionId" value="20725845">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="d-flex justify-content-end align-items-center base-btn">
                                     <button type="submit" class="btn btn-blue"
-                                        (click)="addNewDeposit()">Continue</button>
+                                        (click)="addNewDeposit()">Confirm</button>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+                    <!-- <form action="https://pay.skrill.com" method="post" target="_blank">
+                        <input type="hidden" name="pay_to_email" value="app.engear@gmail.com">
+                        <input type="hidden" name="status_url" value="https://example.com/
+                       process_payment.cgi">
+                        <input type="hidden" name="language" value="EN">
+                        <input type="hidden" name="amount" value="39.60">
+                        <input type="hidden" name="currency" value="GBP">
+                        <input type="hidden" name="detail1_description" value="Description:">
+                        <input type="hidden" name="detail1_text" value="Romeo and Juliet (W. 
+                       Shakespeare)">
+                        <input type="submit" value="Pay!">
+                    </form> -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="d-flex justify-content-end align-items-center base-btn">
+                                <button type="submit" class="btn btn-blue" (click)="addNewDeposit()">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

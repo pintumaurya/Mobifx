@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { CommonToasterService } from "../../services/common-toaster.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposit',
@@ -27,11 +28,20 @@ export class DepositComponent implements OnInit {
   isTrueDollar: boolean = true;
   isTrueEurope: boolean = false;
   isShowconfirmation: boolean = false;
+  paymentValue: any;
+  address = localStorage.getItem('address');
+  city = localStorage.getItem('city');
+  email = localStorage.getItem('email');
+  pCode = localStorage.getItem('countryCode');
+  phone = localStorage.getItem('phone');
+  currencySign: any = "$";
+  paymentMethod: any;
 
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
-    public toaster: CommonToasterService
+    public toaster: CommonToasterService,
+    public router: Router
   ) {
     this.sharedService.sidebar = true;
     this.sharedService.isHeader = false;
@@ -84,18 +94,30 @@ export class DepositComponent implements OnInit {
       this.isActive = true;
     }
     if (event.value == "mb") {
+      this.paymentMethod = event.value;
       this.isShowSkrill = true;
     }
   }
 
+  paymentAmount(event: any) {
+    console.log(event);
+    this.depositAmount = null;
+    this.paymentValue = event.value;
+  }
+
   onSearchChange(searchValue: any) {
     console.log('searchValue', searchValue);
+    this.paymentValue = null;
     this.depositAmount = searchValue;
   }
 
-  selectedSlider(event: any) {
-    console.log('event', event.checked);
-    if (event.checked == true) {
+  // onEuropeChange(){
+
+  // }
+  selectedToggle(event: any) {
+    console.log('event', event);
+    this.currencySign = event;
+    if (event == "€") {
       this.isTrueDollar = false;
       this.isTrueEurope = true;
     } else {
@@ -114,12 +136,19 @@ export class DepositComponent implements OnInit {
 
   addNewDeposit() {
     let payload = {
-      "user_id": localStorage.getItem('id'),
-      "account_information_id": this.id,
-      "amount": this.depositAmount,
-      "currency": this.accountDetailsList?.currency,
+      // "user_id": localStorage.getItem('id'),
+      // "account_information_id": this.id,
+      // "amount": this.paymentValue ? this.paymentValue : this.depositAmount,
+      // "currency": this.accountDetailsList?.currency,
+      pay_to_email: "app.engear@gmail.com",
+      language: "EN",
+      amount: "10",
+      currency: "GBP",
+
     }
     console.log('payload', payload);
+    // this.router.navigate[('https://www.skrill.com/app/pay.pl?action=prepare')];
+
     this.showSpinner = true;
     this.apiService.addDeposit(payload).subscribe((res) => {
       if (res?.status == true) {
