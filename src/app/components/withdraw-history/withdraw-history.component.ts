@@ -168,22 +168,4 @@ export class WithdrawHistoryComponent implements OnInit {
     this.isResetFilter = false;
   }
 
-  // public getAccountLog(event: any) {
-  //   let payload = {
-  //     page_size: event.pageIndex
-  //   }
-  //   this.showSpinner = true;
-  //   this.apiService.accountLog(payload).subscribe((res) => {
-  //     if (res?.status == true) {
-  //       this.dataSource = res?.data;
-  //       this.dataSource.paginator = this.paginator;
-  //       this.pageIndex = res?.pagination?.current_page;
-  //       this.length = res?.pagination?.total_records;;
-  //       this.pageSize = res?.pagination?.current_page;
-  //     }
-  //     this.showSpinner = false;
-  //   });
-  //   return event;
-  // }
-
 }

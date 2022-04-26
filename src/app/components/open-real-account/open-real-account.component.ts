@@ -31,6 +31,7 @@ export class OpenRealAccountComponent implements OnInit {
   isShowSuccesPage: boolean = true;
   isShowDemoPage: boolean = false;
   isShowRealPage: boolean = false;
+  setSelectedSlide: boolean = false;
 
   config: SwiperOptions = {
     // A11y: true,
@@ -40,11 +41,12 @@ export class OpenRealAccountComponent implements OnInit {
     centeredSlides: true,
     slidesPerView: "auto",
     spaceBetween: 16,
-
+    loopedSlides: 1,
     pagination: {
-      el: '.swiper-pagination',
       clickable: true,
     },
+    preventClicks: true,
+    watchSlidesProgress: true
   };
 
   constructor(
@@ -61,11 +63,13 @@ export class OpenRealAccountComponent implements OnInit {
     this.getLeverage();
   }
 
-  onSwiper([swiper]) {
-    console.log(swiper);
-  }
+
   onSlideChange(event: any) {
+    // activeIndex
     console.log('slide change', event);
+    if (event == "selected") {
+      this.setSelectedSlide = true;
+    }
   }
 
   getPlans() {
