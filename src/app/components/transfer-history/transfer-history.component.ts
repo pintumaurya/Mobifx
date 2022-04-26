@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-transferhistory',
@@ -22,6 +24,19 @@ export class TransferHistoryComponent implements OnInit {
   selectedAnyAccount = "AnyAccount";
   isResetFilter: boolean = false;
 
+  accountLogData: any = [];
+  displayedColumns: string[] = ['Request_ID', 'Status', 'Sender account','Recipient account', 'Amount', 'Created','view'];
+  dataSource: MatTableDataSource<any>;
+  pageIndex = 0;
+  pageSize = 1;
+  length = 0;
+  sizeOptions: number[] = [10, 25, 50, 100, 150];;
+  pageEvent: PageEvent;
+
+  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
@@ -34,6 +49,8 @@ export class TransferHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.userAccountList();
     this.applyFilter();
+    // this.getAccountLog(this.pageIndex);
+    // this.dataSource.paginator = this.paginator;
   }
 
   userAccountList() {
@@ -132,8 +149,12 @@ export class TransferHistoryComponent implements OnInit {
     this.showSpinner = true;
     this.apiService.transferHistory(payload).subscribe((res) => {
       if (res?.status == true) {
+        this.dataSource = res?.data;
+        this.dataSource.paginator = this.paginator;
+        this.pageIndex = res?.pagination?.current_page;
+        this.length = res?.pagination?.total_records;;
+        this.pageSize = res?.pagination?.current_page;
         this.showSpinner = false;
-        this.depositHistoryList = res?.data;
       }
     });
   }
@@ -144,4 +165,24 @@ export class TransferHistoryComponent implements OnInit {
     this.selectedAnyAccount = "AnyAccount";
     this.isResetFilter = false;
   }
+
+  //   public getAccountLog(event: any) {
+  //   let payload = {
+  //     page_size: event.pageIndex
+  //   }
+  //   this.showSpinner = true;
+  //   this.apiService.accountLog(payload).subscribe((res) => {
+  //     if (res?.status == true) {
+  //       this.dataSource = res?.data;
+  //       console.log(this.dataSource);
+        
+  //       this.dataSource.paginator = this.paginator;
+  //       this.pageIndex = res?.pagination?.current_page;
+  //       this.length = res?.pagination?.total_records;;
+  //       this.pageSize = res?.pagination?.current_page;
+  //     }
+  //     this.showSpinner = false;
+  //   });
+  //   return event;
+  // }
 }

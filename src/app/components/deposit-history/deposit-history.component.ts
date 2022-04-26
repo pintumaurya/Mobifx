@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-deposithistory',
@@ -12,7 +14,6 @@ export class DepositHistoryComponent implements OnInit {
 
   showSpinner: boolean = false;
   userAccount: any = [];
-  depositHistoryList: any = [];
   status: any;
   accountId: any;
   start_date: any;
@@ -21,6 +22,19 @@ export class DepositHistoryComponent implements OnInit {
   selectedTimeFrame = "AllTime";
   selectedAnyAccount = "AnyAccount";
   isResetFilter: boolean = false;
+
+  accountLogData: any = [];
+  displayedColumns: string[] = ['Request_ID', 'Status', 'Account', 'Amount', 'Details', 'Created','view'];
+  // dataSource: any = [];
+  dataSource: MatTableDataSource<any>;
+  pageIndex = 0;
+  pageSize = 0;
+  length = 0;
+  sizeOptions: number[] = [10, 25, 50, 100, 150];
+  // pageEvent: PageEvent;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   constructor(
     public sharedService: SharedService,
@@ -34,6 +48,12 @@ export class DepositHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.userAccountList();
     this.applyFilter();
+    // this.dataSource.paginator = this.paginator;
+
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   userAccountList() {
@@ -131,7 +151,12 @@ export class DepositHistoryComponent implements OnInit {
     this.showSpinner = true;
     this.apiService.depositHistory(payload).subscribe((res) => {
       if (res?.status == true) {
-        this.depositHistoryList = res?.data;
+        this.dataSource = res?.data;
+        this.pageIndex = res?.pagination?.current_page;
+        this.length = res?.pagination?.total_records;;
+        this.pageSize = res?.pagination?.current_page;
+        console.log(this.pageSize, this.length, this.pageIndex);
+        
       }
       this.showSpinner = false;
     });
