@@ -25,7 +25,7 @@ export class TransferHistoryComponent implements OnInit {
   isResetFilter: boolean = false;
 
   accountLogData: any = [];
-  displayedColumns: string[] = ['Request_ID', 'Status', 'Sender account','Recipient account', 'Amount', 'Created','view'];
+  displayedColumns: string[] = ['Request_ID', 'Status', 'Sender account', 'Recipient account', 'Amount', 'Created', 'view'];
   dataSource: MatTableDataSource<any>;
   pageIndex = 0;
   pageSize = 1;
@@ -142,9 +142,9 @@ export class TransferHistoryComponent implements OnInit {
     let payload = {
       status: this.status,
       start_date: this.start_date,
-      // end_date: this.end_date,
+      end_date: this.end_date,
       // account: this.accountId.
-      page_size: 10
+      page_size: 10,
     }
     this.showSpinner = true;
     this.apiService.transferHistory(payload).subscribe((res) => {
@@ -165,24 +165,4 @@ export class TransferHistoryComponent implements OnInit {
     this.selectedAnyAccount = "AnyAccount";
     this.isResetFilter = false;
   }
-
-  //   public getAccountLog(event: any) {
-  //   let payload = {
-  //     page_size: event.pageIndex
-  //   }
-  //   this.showSpinner = true;
-  //   this.apiService.accountLog(payload).subscribe((res) => {
-  //     if (res?.status == true) {
-  //       this.dataSource = res?.data;
-  //       console.log(this.dataSource);
-        
-  //       this.dataSource.paginator = this.paginator;
-  //       this.pageIndex = res?.pagination?.current_page;
-  //       this.length = res?.pagination?.total_records;;
-  //       this.pageSize = res?.pagination?.current_page;
-  //     }
-  //     this.showSpinner = false;
-  //   });
-  //   return event;
-  // }
 }

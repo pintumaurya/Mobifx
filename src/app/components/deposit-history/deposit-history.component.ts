@@ -24,7 +24,7 @@ export class DepositHistoryComponent implements OnInit {
   isResetFilter: boolean = false;
 
   accountLogData: any = [];
-  displayedColumns: string[] = ['Request_ID', 'Status', 'Account', 'Amount', 'Details', 'Created','view'];
+  displayedColumns: string[] = ['Request_ID', 'Status', 'Account', 'Amount', 'Details', 'Created', 'view'];
   // dataSource: any = [];
   dataSource: MatTableDataSource<any>;
   pageIndex = 0;
@@ -156,7 +156,7 @@ export class DepositHistoryComponent implements OnInit {
         this.length = res?.pagination?.total_records;;
         this.pageSize = res?.pagination?.current_page;
         console.log(this.pageSize, this.length, this.pageIndex);
-        
+
       }
       this.showSpinner = false;
     });

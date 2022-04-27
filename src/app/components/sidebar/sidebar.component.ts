@@ -29,11 +29,21 @@ export class SidebarComponent implements OnInit {
     this.firstName = localStorage.getItem('firstname');
     this.lastName = localStorage.getItem('lastname');
 
+    this.transform(this.firstName);
+
     for (let key in data.navitems) {
       if (data.navitems.hasOwnProperty(key)) {
         this.result.push(data.navitems[key]);
       }
     }
+  }
+
+  transform(value: string) {
+    let first = value.substring(0, 1).toUpperCase();
+    (first + value.substring(1));
+    let name = this.firstName.substring(1);
+    let fName = first + name;
+    this.firstName = fName;
   }
 
   ddToggle(i: any) {

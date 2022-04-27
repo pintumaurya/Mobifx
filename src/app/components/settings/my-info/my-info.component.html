@@ -96,10 +96,13 @@
                                 <div class="myinfo-avatar-block">
                                     <div class="avatar-container"></div>
                                     <div>
-                                        My avatar (<a href="#">upload new</a>)
+                                        My avatar (<a
+                                            style="text-decoration: underline; color:#c99c3b; cursor: pointer;"
+                                            (click)="selectUploadFile()">upload new</a>)
                                     </div>
-                                    <div class="ava-form d-flex justify-content-center mt-1">
-                                        <form class="w-100 d-flex justify-content-center flex-column">
+                                    <div *ngIf="showUploadSection" class="ava-form d-flex justify-content-center mt-1">
+                                        <form *ngIf="showUploadSection"
+                                            class="w-100 d-flex justify-content-center flex-column">
                                             <div class="file-upload">
                                                 <input type="file" id="avatar" class="file-upload-input">
                                                 <label class="btn btn-blue mx-0 w-100" for="avatar">Choose a

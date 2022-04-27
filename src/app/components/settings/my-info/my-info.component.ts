@@ -13,6 +13,7 @@ export class MyInfoComponent implements OnInit {
   userData: any;
   id: any;
   showSpinner: boolean = false;
+  showUploadSection: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -39,6 +40,10 @@ export class MyInfoComponent implements OnInit {
       (error: any) => {
         this.toaster.showError("Oops!!!, something went wrong, please try again.");
       });
+  }
+
+  selectUploadFile() {
+    this.showUploadSection = !this.showUploadSection;
   }
 
 }

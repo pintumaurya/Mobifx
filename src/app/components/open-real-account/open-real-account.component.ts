@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { SharedService } from '../../services/shared.service';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions } from 'swiper';
-
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions, Swiper } from 'swiper';
+import * as $ from 'jquery';
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
 
@@ -31,21 +31,47 @@ export class OpenRealAccountComponent implements OnInit {
   isShowSuccesPage: boolean = true;
   isShowDemoPage: boolean = false;
   isShowRealPage: boolean = false;
+  setSelectedSlide: boolean = false;
 
-  config: SwiperOptions = {
-    // A11y: true,
-    effect: "slide",
-    grabCursor: false,
-    slideToClickedSlide: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 16,
+  // mySwiper = new Swiper('.swiper-container', {
+  //   // A11y: true,
+  //   effect: "slide",
+  //   grabCursor: true,
+  //   slideToClickedSlide: true,
+  //   centeredSlides: true,
+  //   slidesPerView: 3,
+  //   spaceBetween: 16,
+  //   // loopedSlides: 1,
+  //   loop: true,
+  //   pagination: {
+  //     clickable: true,
+  //   },
+  //   preventClicks: true,
+  //   updateOnWindowResize: true,
+  //   centeredSlidesBounds: true,
+  //   on: {
+  //     click(event) {
+  //       console.log('event.target', this.clickedIndex);
+  //       this.mySwiper.slideTo(this.clickedIndex);
+  //     },
+  //   },
+  // });
 
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  };
+  // mySwiper = new Swiper('.swiper-container', {
+  //   slidesPerView: 3,
+  //   spaceBetween: 20,
+  //   updateOnWindowResize: true,
+  //   loop: true,
+  //   grabCursor: true,
+  //   centeredSlides: true,
+  //   initialSlide: 0,
+  //   on: {
+  //     click(event) {
+  //       console.log('event.target', this.clickedIndex);
+  //       this.mySwiper.slideTo(this.clickedIndex);
+  //     },
+  //   },
+  // });
 
   constructor(
     public sharedService: SharedService,
@@ -59,13 +85,32 @@ export class OpenRealAccountComponent implements OnInit {
   ngOnInit() {
     this.getPlans();
     this.getLeverage();
+    $(document).ready(function () {
+      let mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        updateOnWindowResize: true,
+        // loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        initialSlide: 0,
+        on: {
+          click(event) {
+            console.log('event.target', this.clickedIndex);
+            mySwiper.slideTo(this.clickedIndex);
+          },
+        },
+      });
+    });
   }
 
-  onSwiper([swiper]) {
-    console.log(swiper);
-  }
+
   onSlideChange(event: any) {
+    // activeIndex
     console.log('slide change', event);
+    if (event == "selected") {
+      this.setSelectedSlide = true;
+    }
   }
 
   getPlans() {
