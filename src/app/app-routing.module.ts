@@ -53,6 +53,7 @@ const routes: Routes = [
   { path: 'settings/my-info', component: MyInfoComponent, canActivate: [AuthGuard] },
   { path: 'settings/phone-change', component: PhoneChangeComponent, canActivate: [AuthGuard] },
   { path: 'open-account/real', component: OpenRealAccountComponent, canActivate: [AuthGuard] },
+  { path: 'open-account/demo', component: OpenDemoAccountComponent, canActivate: [AuthGuard] },
   { path: 'settings/account-log', component: AccountLogComponent, canActivate: [AuthGuard] },
   { path: 'deposit/new', component: DepositComponent, canActivate: [AuthGuard] },
 ];
