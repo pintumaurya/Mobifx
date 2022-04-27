@@ -39,7 +39,7 @@ a:hover {
 .right-side {
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 73%;
 }
 #header .logo {
     width: 200px;
@@ -510,4 +510,6 @@ tr:nth-child(2n) td.mat-cell {
     width: 240px;
 }
 
-.panel .mat-form-field-appearance-fill .mat-form-field-flex {background-color: transparent;}
+.panel .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+}
