@@ -6,11 +6,9 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
 import { Country } from '@angular-material-extensions/select-country';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions } from 'swiper';
-
-// install Swiper modules
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions, Swiper } from 'swiper';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
-
+import $ from 'jquery';
 @Component({
   selector: 'app-verification-details',
   templateUrl: './verification-details.component.html',
@@ -62,31 +60,6 @@ export class VerificationDetailsComponent implements OnInit {
   fixedRateValue = "1";
   balanceValue = "5000";
   acc_type = "1";
-
-  config: SwiperOptions = {
-    // A11y: true,
-    direction: 'horizontal',
-    slidesPerView: 3,
-    slideToClickedSlide: true,
-    mousewheel: true,
-    scrollbar: false,
-    // watchSlidesProgress: true,
-    // navigation: true,
-    keyboard: true,
-    pagination: false,
-    centeredSlides: true,
-    loop: false,
-    roundLengths: true,
-    // slidesOffsetBefore: 100,
-    // slidesOffsetAfter: 100,
-    spaceBetween: 10,
-    // breakpoints: {
-    //   // when window width is >= 320px
-    //   1080: {
-    //     slidesPerView: 3
-    //   }
-    // }
-  };
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -189,6 +162,23 @@ export class VerificationDetailsComponent implements OnInit {
     }
     this.getPlans();
     this.getLeverage();
+    $(document).ready(function () {
+      let mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        updateOnWindowResize: true,
+        // loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        initialSlide: 0,
+        on: {
+          click(event) {
+            console.log('event.target', this.clickedIndex);
+            mySwiper.slideTo(this.clickedIndex);
+          },
+        },
+      });
+    });
   }
 
   logout() {
@@ -202,7 +192,7 @@ export class VerificationDetailsComponent implements OnInit {
         localStorage.setItem('id', res.data?.user_info?.id)
         localStorage.setItem('firstname', res.data?.user_info?.firstname);
         localStorage.setItem('lastname', res.data?.user_info?.lastname);
-        localStorage.setItem('email', res.data?.user_info?.email);                                
+        localStorage.setItem('email', res.data?.user_info?.email);
         localStorage.setItem('phone', res.data?.user_info?.phone);
         localStorage.setItem('countryCode', res.data?.user_info?.country_code);
         localStorage.setItem('city', res.data?.user_info?.city);

@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { SharedService } from '../../services/shared.service';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions, Swiper } from 'swiper';
-import * as $ from 'jquery';
-// install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
-
+import $ from 'jquery';
 @Component({
   selector: 'app-open-real-account',
   templateUrl: './open-real-account.component.html',

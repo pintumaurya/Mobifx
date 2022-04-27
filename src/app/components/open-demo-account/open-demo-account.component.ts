@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { SharedService } from '../../services/shared.service';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions } from 'swiper';
-
-// install Swiper modules
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions, Swiper } from 'swiper';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
-
+import $ from 'jquery';
 @Component({
   selector: 'app-open-demo-account',
   templateUrl: './open-demo-account.component.html',
@@ -32,31 +30,6 @@ export class OpenDemoAccountComponent implements OnInit {
   isShowDemoPage: boolean = false;
   isShowRealPage: boolean = false;
 
-  config: SwiperOptions = {
-    // A11y: true,
-    direction: 'horizontal',
-    slidesPerView: 3,
-    slideToClickedSlide: true,
-    mousewheel: true,
-    scrollbar: false,
-    // watchSlidesProgress: true,
-    // navigation: true,
-    keyboard: true,
-    pagination: false,
-    centeredSlides: true,
-    loop: false,
-    roundLengths: true,
-    // slidesOffsetBefore: 100,
-    // slidesOffsetAfter: 100,
-    spaceBetween: 10,
-    // breakpoints: {
-    //   // when window width is >= 320px
-    //   1080: {
-    //     slidesPerView: 3
-    //   }
-    // }
-  };
-
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService
@@ -69,6 +42,23 @@ export class OpenDemoAccountComponent implements OnInit {
   ngOnInit() {
     this.getPlans();
     this.getLeverage();
+    $(document).ready(function () {
+      let mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        updateOnWindowResize: true,
+        // loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        initialSlide: 0,
+        on: {
+          click(event) {
+            console.log('event.target', this.clickedIndex);
+            mySwiper.slideTo(this.clickedIndex);
+          },
+        },
+      });
+    });
   }
 
   getPlans() {

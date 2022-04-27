@@ -14,7 +14,8 @@ export class AccountListComponent implements OnInit {
   demoAccList: any = [];
   realAccList: any = [];
   tabindex = 0;
-  displayedColumns: string[] = ['NewColumn','Account', 'Type', 'Server', 'Balance', 'Equity'];
+  displayedColumns: string[] = ['NewColumn', 'Account', 'Type', 'Server', 'Balance', 'Equity'];
+
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
