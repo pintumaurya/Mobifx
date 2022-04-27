@@ -142,9 +142,9 @@ export class TransferHistoryComponent implements OnInit {
     let payload = {
       status: this.status,
       start_date: this.start_date,
-      // end_date: this.end_date,
+      end_date: this.end_date,
       // account: this.accountId.
-      page_size: 10
+      page_size: 10,
     }
     this.showSpinner = true;
     this.apiService.transferHistory(payload).subscribe((res) => {

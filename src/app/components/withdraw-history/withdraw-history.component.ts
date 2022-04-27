@@ -149,7 +149,7 @@ export class WithdrawHistoryComponent implements OnInit {
       page_size: 10
     }
     this.showSpinner = true;
-    this.apiService.depositHistory(payload).subscribe((res) => {
+    this.apiService.withdrawHistory(payload).subscribe((res) => {
       if (res?.status == true) {
         this.dataSource = res?.data;
         this.dataSource.paginator = this.paginator;

@@ -62,7 +62,7 @@ export const Endpoints = {
                 return `${apiurl}/withdraw/history`;
             },
             get transferHistory() {
-                return `${apiurl}/deposite/history`;
+                return `${apiurl}/internal-transfer/history`;
             },
             get addDeposit() {
                 return `${apiurl}/deposite`;
