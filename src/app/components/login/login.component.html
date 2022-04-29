@@ -27,7 +27,8 @@
 								<div class="form-group mt-3">
 									<!-- <label for="Emailid" class="orange-txt">Email</label> -->
 									<input type="email" formControlName="email" class="form-control input-field"
-										id="Emailid" />
+										id="Emailid" (keyup)="onKeyUpEmail($event)"
+										[ngClass]="{'input-has-value': textOverloapEmail}" />
 									<label for="Emailid" class="orange-txt">Email</label>
 									<div *ngIf="(isValidForm || loginForm.controls['email'].touched) && loginForm.controls['email'].errors"
 										class="error-msg mb-2 mt-1">Email is mandatory field</div>
@@ -35,7 +36,8 @@
 								<div class="form-group mt-3">
 									<!-- <label for="Password">Password</label> -->
 									<input [type]="showPassword ? 'text' : 'password'" formControlName="password"
-										class="form-control input-field" id="Password" />
+										class="form-control input-field" id="Password" (keyup)="onKeyUpPassword($event)"
+										[ngClass]="{'input-has-value': textOverloapPassword}" />
 									<label for="Password">Password</label>
 									<div class="input-icon" mat-icon-button matSuffix
 										(click)="showPassword = !showPassword" [attr.aria-label]="'Hide password'"

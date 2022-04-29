@@ -24,9 +24,9 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <!-- <label for="Emailid" class="orange-txt">Email</label> -->
                                             <input type="text" class="form-control input-field" id="fname"
-                                                formControlName="fname" />
+                                                formControlName="fname" (keyup)="onKeyUpFName($event)"
+                                                [ngClass]="{'input-has-value': textOverloapFName}" />
                                             <label for="fname" class="orange-txt">First Name</label>
                                             <div *ngIf="(isValidForm || regForm.controls['fname'].touched) && regForm.controls['fname'].errors"
                                                 class="error-msg mb-2 mt-1">First Name is mandatory field</div>
@@ -35,7 +35,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control input-field" id="lname"
-                                                formControlName="lname" />
+                                                formControlName="lname" (keyup)="onKeyUpLName($event)"
+                                                [ngClass]="{'input-has-value': textOverloapLName}" />
                                             <label for="lname" class="orange-txt">Last Name</label>
                                             <div *ngIf="(isValidForm || regForm.controls['lname'].touched) && regForm.controls['lname'].errors"
                                                 class="error-msg mb-2 mt-1">Last Name is mandatory field</div>
@@ -44,14 +45,17 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="email" id="emailid" class="form-control input-field"
-                                        formControlName="email">
+                                        formControlName="email" (keyup)="onKeyUpEmail($event)"
+                                        [ngClass]="{'input-has-value': textOverloapEmail}">
                                     <label for="emailid" class="orange-txt">Email</label>
                                     <div *ngIf="(isValidForm || regForm.controls['email'].touched) && regForm.controls['email'].errors"
                                         class="error-msg mb-2 mt-1">Email is mandatory field</div>
                                 </div>
                                 <div class="form-group">
                                     <input [type]="showPassword ? 'text' : 'password'" id="psw"
-                                        class="form-control input-field" formControlName="password">
+                                        class="form-control input-field" formControlName="password"
+                                        (keyup)="onKeyUpPassword($event)"
+                                        [ngClass]="{'input-has-value': textOverloapPassword}">
                                     <label for="psw" class="orange-txt">Password</label>
                                     <div class="input-icon" mat-icon-button matSuffix
                                         (click)="showPassword = !showPassword" [attr.aria-label]="'Hide password'"

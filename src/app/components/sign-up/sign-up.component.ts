@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { CommonToasterService } from '../../services/common-toaster.service';
 import { ApiService } from '../../services/api.service';
-import $ from 'jquery';
-// import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,11 +11,15 @@ import $ from 'jquery';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+
   regForm: FormGroup;
   showSpinner: boolean = false;
   isValidForm: boolean = false;
   showPassword = false;
-
+  textOverloapFName: boolean = false;
+  textOverloapLName: boolean = false;
+  textOverloapEmail: boolean = false;
+  textOverloapPassword: boolean = false;
 
   constructor(
     public _formBuilder: FormBuilder,
@@ -25,7 +27,6 @@ export class SignUpComponent implements OnInit {
     public _authService: ApiService,
     private router: Router,
     private toastr: CommonToasterService
-    // private _snackBar: MatSnackBar
   ) {
     this.regForm = this._formBuilder.group({
       fname: ['', Validators.required],
@@ -38,18 +39,38 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+  }
 
-    $(document).ready(function(){
+  onKeyUpFName(event) {
+    if (event.target.value) {
+      this.textOverloapFName = true;
+    } else {
+      this.textOverloapFName = false;
+    }
+  }
 
-      $('.input-field').keyup(function () {
-        if ($.trim($('.input-field').val()).length) {
-            $(this).addClass('input-has-value');
-        } else {
-            $(this).removeClass('input-has-value');
-        }
-      });
+  onKeyUpLName(event) {
+    if (event.target.value) {
+      this.textOverloapLName = true;
+    } else {
+      this.textOverloapLName = false;
+    }
+  }
 
-    });
+  onKeyUpEmail(event) {
+    if (event.target.value) {
+      this.textOverloapEmail = true;
+    } else {
+      this.textOverloapEmail = false;
+    }
+  }
+
+  onKeyUpPassword(event) {
+    if (event.target.value) {
+      this.textOverloapPassword = true;
+    } else {
+      this.textOverloapPassword = false;
+    }
   }
 
   openAccount() {
@@ -64,34 +85,24 @@ export class SignUpComponent implements OnInit {
         password: this.regForm.get('password').value,
         login_type: "system"
       };
-      // this.router.navigate(['/email-verification']);
       this.showSpinner = true;
       this._authService.signup(user).subscribe((res) => {
-        if (res.status == true) {
+        if (res?.status == true) {
           localStorage.setItem('email', this.regForm.get('email').value);
           this.regForm.reset();
           this.isValidForm = false;
           this.showSpinner = false;
-          // this._snackBar.open(res.message, 'Undo', {
-          //   duration: 3000
-          // });
-          this.toastr.showSuccess(res.message);
+          this.toastr.showSuccess(res?.message);
           this.router.navigate(['/email-verification']);
         }
         else {
           this.showSpinner = false;
-          this.toastr.showError(res.errors.error);
-          // this._snackBar.open(res.message, 'Undo', {
-          //   duration: 3000
-          // });
+          this.toastr.showError(res?.errors?.error);
         }
       },
         (_error: any) => {
           this.showSpinner = false;
           this.toastr.showError(_error?.message);
-          // this._snackBar.open(_error?.errors?.error, 'Undo', {
-          //   duration: 3000
-          // });
         });
     }
   }

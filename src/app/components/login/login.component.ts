@@ -3,11 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { SharedService } from '../../services/shared.service';
-// import { CommonSpinnerService } from '../../services/common-spinner.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonToasterService } from '../../services/common-toaster.service';
-import $ from 'jquery';
-
 
 @Component({
   selector: 'app-login',
@@ -15,21 +12,21 @@ import $ from 'jquery';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
   isValidForm: boolean = false;
   showSpinner: boolean = false;
   showPassword = false;
   fieldTextType: boolean;
+  textOverloapEmail: boolean = false;
+  textOverloapPassword: boolean = false;
 
   constructor(
     public _formBuilder: FormBuilder,
     public _authService: ApiService,
     private router: Router,
     public sharedservice: SharedService,
-    // public spinnerService: CommonSpinnerService,
-    public toaster: CommonToasterService,
-    private cdRef: ChangeDetectorRef,
-    private _snackBar: MatSnackBar
+    public toaster: CommonToasterService
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', Validators.required, Validators.email],
@@ -47,27 +44,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.init();
-
-    $(document).ready(function(){
-
-      $('.input-field').keyup(function () {
-        if ($.trim($('.input-field').val()).length) {
-            $(this).addClass('input-has-value');
-        } else {
-            $(this).removeClass('input-has-value');
-        }
-      });
-
-    });
   }
 
-  // init() {
-  // this.spinnerService.getSpinnerObserver().subscribe((status) => {
-  // this.showSpinner = (status === 'start');
-  // this.cdRef.detectChanges();
-  // });
-  // }
+  onKeyUpEmail(event) {
+    if (event.target.value) {
+      this.textOverloapEmail = true;
+    } else {
+      this.textOverloapEmail = false;
+    }
+  }
+
+  onKeyUpPassword(event) {
+    if (event.target.value) {
+      this.textOverloapPassword = true;
+    } else {
+      this.textOverloapPassword = false;
+    }
+  }
 
   login() {
     if (this.loginForm?.invalid) {
