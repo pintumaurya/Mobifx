@@ -29,6 +29,7 @@ a:hover {
     color: #c99c3b;
     text-decoration: none;
 }
+.btn-check:focus + .btn, .btn:focus {box-shadow: none !important;}
 .main-box {
     margin-top: 44px;
     padding: 35px 35px;
