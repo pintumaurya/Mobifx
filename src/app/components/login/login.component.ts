@@ -6,6 +6,8 @@ import { SharedService } from '../../services/shared.service';
 // import { CommonSpinnerService } from '../../services/common-spinner.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonToasterService } from '../../services/common-toaster.service';
+import $ from 'jquery';
+
 
 @Component({
   selector: 'app-login',
@@ -46,6 +48,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     // this.init();
+
+    $(document).ready(function(){
+
+      $('.input-field').keyup(function () {
+        if ($.trim($('.input-field').val()).length) {
+            $(this).addClass('input-has-value');
+        } else {
+            $(this).removeClass('input-has-value');
+        }
+      });
+
+    });
   }
 
   // init() {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { CommonToasterService } from '../../services/common-toaster.service';
 import { ApiService } from '../../services/api.service';
+import $ from 'jquery';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -37,6 +38,18 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+
+    $(document).ready(function(){
+
+      $('.input-field').keyup(function () {
+        if ($.trim($('.input-field').val()).length) {
+            $(this).addClass('input-has-value');
+        } else {
+            $(this).removeClass('input-has-value');
+        }
+      });
+
+    });
   }
 
   openAccount() {

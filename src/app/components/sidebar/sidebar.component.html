@@ -1,146 +1,151 @@
-<div class="sidebar" id="sidebar">
-  <div class="userInfo">
-    <div class="sidebar-user">
-      <div class="avatar dropdown">
-        <div class="user-info-avtar" id="user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <div class="avtar-icon"><img src="../../../assets/images/icon/user-icon.png" class="img-fluid" /></div>
-          <div class="settings-img">
-            <img src="../../../assets/images/icon/settings.png" class="img-fluid" />
+<nav class="navbar navbar-expand-lg">
+  
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="sidebar" id="sidebar">
+    <div class="userInfo">
+      <div class="sidebar-user">
+        <div class="avatar dropdown">
+          <div class="user-info-avtar" id="user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <div class="avtar-icon"><img src="../../../assets/images/icon/user-icon.png" class="img-fluid" /></div>
+            <div class="settings-img">
+              <img src="../../../assets/images/icon/settings.png" class="img-fluid" />
+            </div>
+          </div>
+          <div class="dropdown-menu avatar-menu" aria-labelledby="user-dropdown">
+            <ul class="menu-list">
+              <li class="menu-list-item"><a href="" routerLink="/settings/my-info" class="menu-link">My info</a></li>
+              <li class="menu-list-item"><a href="#" class="menu-link">Account verification</a></li>
+              <li class="menu-list-item"><a href="" routerLink="/settings/reset-password" class="menu-link">Change
+                  passwords</a></li>
+              <li class="menu-list-item"><a href="#" class="menu-link">Restore passwords</a></li>
+              <li class="menu-list-item"><a href="#" class="menu-link">Newsletters</a></li>
+              <li class="menu-list-item"><a href="#" class="menu-link">Bonus settings</a></li>
+              <li class="menu-list-item"><a href="#" routerLink="/settings/account-log" class="menu-link">Account log</a>
+              </li>
+              <li class="menu-list-item">
+                <div class="menu-link">
+                  <div class="menu-text">Language</div>
+                  <div class="menu-ico-container">
+                    <div class="menu-flag-ico"><img src="../../../assets/images/countrylogo.png" class="img-fluid"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-list-item"><a href="" class="menu-link gray" (click)="logout()">Logout<div
+                    class="menu-logout-ico">
+                    <img src="../../../assets/images/icon/exit.png" class="img-fluid">
+                  </div></a></li>
+            </ul>
           </div>
         </div>
-        <div class="dropdown-menu avatar-menu" aria-labelledby="user-dropdown">
-          <ul class="menu-list">
-            <li class="menu-list-item"><a href="" routerLink="/settings/my-info" class="menu-link">My info</a></li>
-            <li class="menu-list-item"><a href="#" class="menu-link">Account verification</a></li>
-            <li class="menu-list-item"><a href="" routerLink="/settings/reset-password" class="menu-link">Change
-                passwords</a></li>
-            <li class="menu-list-item"><a href="#" class="menu-link">Restore passwords</a></li>
-            <li class="menu-list-item"><a href="#" class="menu-link">Newsletters</a></li>
-            <li class="menu-list-item"><a href="#" class="menu-link">Bonus settings</a></li>
-            <li class="menu-list-item"><a href="#" routerLink="/settings/account-log" class="menu-link">Account log</a>
-            </li>
-            <li class="menu-list-item">
-              <div class="menu-link">
-                <div class="menu-text">Language</div>
-                <div class="menu-ico-container">
-                  <div class="menu-flag-ico"><img src="../../../assets/images/countrylogo.png" class="img-fluid"></div>
+        <div class="user-data">
+          <div class="user-name">{{firstName}} {{lastName}}</div>
+        </div>
+      </div>
+      <div class="user-notification">
+        <div class="dropdown">
+          <div id="user-notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+              src="../../../assets/images/icon/notification-bell.png" class="notiIcon img-fluid" /></div>
+          <div class="dropdown-menu notification-menu" aria-labelledby="user-notification">
+            <div class="notification-history">
+              <div class="history-head">
+                <div class="history-head-text">Notifications</div>
+              </div>
+              <div class="history-close"></div>
+              <div class="history-content">
+                <div class="content">
+                  <div class="content-item empty"></div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <div class="widget">
+      <div class="row mx-0">
+        <div class="col-md-12 status-silver px-0">
+          <div class="silver-div">
+            <div class="title-text">
+              <p class="status-text">Status</p>
+              <div class="d-flex align-items-center status-content">
+                <div class="silver-img">
+                  <img src="../../../assets/images/Silver.svg" class="img-fluid">
+                </div>
+                <p class="silver-text">Silver</p>
+              </div>
+            </div>
+            <div class="tooltip-ico-question">
+              <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 status-silver my-0">
+          <div class="status-progress">
+            <mat-slider></mat-slider>
+          </div>
+        </div>
+        <div class="col-md-12 status-silver px-0">
+          <div class="row mx-0">
+            <div class="col-md-6 overall-balance">
+              <div class="d-flex align-items-center">
+                <p class="status-text mx-0">Overall balance</p>
+                <div class="tooltip-ico-question">
+                  <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
+                </div>
+              </div>
+              <p class="silver-text">$6.54</p>
+            </div>
+            <div class="col-md-6 overall-balance">
+              <div class="d-flex align-items-center">
+                <p class="status-text mx-0">Status will lower</p>
+                <div class="tooltip-ico-question">
+                  <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="day-img"><img src="../../../assets/images/icon/future.png" class="img-fluid"></div>
+                <p class="silver-text red">in 20 days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="status-widget">
+                    <h2 class="program-status">Status Program</h2>
+                    <img src="../../../assets/images/icon/widget.jpg" class="widget-icon">
+                </div>
+                <div class="message">Personal Manager</div> -->
+      <div class="row mx-0 mt-2">
+        <div class="col-sm-12">
+          <div class="deposite-btn">
+            <button routerLink="/deposit/new" class="btn btn-blue mx-auto"><img
+                src="../../../assets/images/icon/coins.png" class="img-fluid me-2" width="20px"> Deposit</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="drower">
+      <div class="group drower-item" *ngFor="let item of result; let i = index" (click)="menu(item)">
+        <!-- <div class="drower-item"> -->
+        <img [src]="item.icon">
+        <a *ngIf="item.submenu.length" (click)="ddToggle(i)" class="light-blue-bg sidebar-list-item link-arrow">{{
+          item.linkText }}</a>
+        <!-- <div class="drower-item"> -->
+        <a *ngIf="!item.submenu.length" (click)="ddToggle(i)" routerLink="{{ item.parentLink }}"
+          class="light-blue-bg sidebar-list-item">{{
+          item.linkText }}</a>
+        <div class="sub-menu" [ngClass]="{ 'show-menu': item.menu }">
+          <ul *ngFor="let menu of result[i].submenu">
+            <li>
+              <a href="{{ menu.link }}">{{ menu.childtext }}</a>
             </li>
-            <li class="menu-list-item"><a href="" class="menu-link gray" (click)="logout()">Logout<div
-                  class="menu-logout-ico">
-                  <img src="../../../assets/images/icon/exit.png" class="img-fluid">
-                </div></a></li>
           </ul>
         </div>
-      </div>
-      <div class="user-data">
-        <div class="user-name">{{firstName}} {{lastName}}</div>
-      </div>
-    </div>
-    <div class="user-notification">
-      <div class="dropdown">
-        <div id="user-notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-            src="../../../assets/images/icon/notification-bell.png" class="notiIcon img-fluid" /></div>
-        <div class="dropdown-menu notification-menu" aria-labelledby="user-notification">
-          <div class="notification-history">
-            <div class="history-head">
-              <div class="history-head-text">Notifications</div>
-            </div>
-            <div class="history-close"></div>
-            <div class="history-content">
-              <div class="content">
-                <div class="content-item empty"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="widget">
-    <div class="row mx-0">
-      <div class="col-md-12 status-silver px-0">
-        <div class="silver-div">
-          <div class="title-text">
-            <p class="status-text">Status</p>
-            <div class="d-flex align-items-center status-content">
-              <div class="silver-img">
-                <img src="../../../assets/images/Silver.svg" class="img-fluid">
-              </div>
-              <p class="silver-text">Silver</p>
-            </div>
-          </div>
-          <div class="tooltip-ico-question">
-            <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12 status-silver my-0">
-        <div class="status-progress">
-          <mat-slider></mat-slider>
-        </div>
-      </div>
-      <div class="col-md-12 status-silver px-0">
-        <div class="row mx-0">
-          <div class="col-md-6 overall-balance">
-            <div class="d-flex align-items-center">
-              <p class="status-text mx-0">Overall balance</p>
-              <div class="tooltip-ico-question">
-                <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
-              </div>
-            </div>
-            <p class="silver-text">$6.54</p>
-          </div>
-          <div class="col-md-6 overall-balance">
-            <div class="d-flex align-items-center">
-              <p class="status-text mx-0">Status will lower</p>
-              <div class="tooltip-ico-question">
-                <img src="../../../assets/images/icon/question-mark.png" class="img-fluid">
-              </div>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="day-img"><img src="../../../assets/images/icon/future.png" class="img-fluid"></div>
-              <p class="silver-text red">in 20 days</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="status-widget">
-                  <h2 class="program-status">Status Program</h2>
-                  <img src="../../../assets/images/icon/widget.jpg" class="widget-icon">
-              </div>
-              <div class="message">Personal Manager</div> -->
-    <div class="row mx-0 mt-2">
-      <div class="col-sm-12">
-        <div class="deposite-btn">
-          <button routerLink="/deposit/new" class="btn btn-blue mx-auto"><img
-              src="../../../assets/images/icon/coins.png" class="img-fluid me-2" width="20px"> Deposit</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <div class="drower">
-    <div class="group drower-item" *ngFor="let item of result; let i = index" (click)="menu(item)">
-      <!-- <div class="drower-item"> -->
-      <img [src]="item.icon">
-      <a *ngIf="item.submenu.length" (click)="ddToggle(i)" class="light-blue-bg sidebar-list-item link-arrow">{{
-        item.linkText }}</a>
-      <!-- <div class="drower-item"> -->
-      <a *ngIf="!item.submenu.length" (click)="ddToggle(i)" routerLink="{{ item.parentLink }}"
-        class="light-blue-bg sidebar-list-item">{{
-        item.linkText }}</a>
-      <div class="sub-menu" [ngClass]="{ 'show-menu': item.menu }">
-        <ul *ngFor="let menu of result[i].submenu">
-          <li>
-            <a href="{{ menu.link }}">{{ menu.childtext }}</a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
 </div>
+</nav>

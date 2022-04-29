@@ -39,7 +39,8 @@ a:hover {
 }
 .right-side {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    // justify-content: center;
     width: 73%;
 }
 #header .logo {

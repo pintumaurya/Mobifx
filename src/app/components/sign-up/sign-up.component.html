@@ -29,7 +29,7 @@
                                                 formControlName="fname" />
                                             <label for="fname" class="orange-txt">First Name</label>
                                             <div *ngIf="(isValidForm || regForm.controls['fname'].touched) && regForm.controls['fname'].errors"
-                                                class="error-msg">First Name is mandatory field</div>
+                                                class="error-msg mb-2 mt-1">First Name is mandatory field</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -38,7 +38,7 @@
                                                 formControlName="lname" />
                                             <label for="lname" class="orange-txt">Last Name</label>
                                             <div *ngIf="(isValidForm || regForm.controls['lname'].touched) && regForm.controls['lname'].errors"
-                                                class="error-msg">Last Name is mandatory field</div>
+                                                class="error-msg mb-2 mt-1">Last Name is mandatory field</div>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                         formControlName="email">
                                     <label for="emailid" class="orange-txt">Email</label>
                                     <div *ngIf="(isValidForm || regForm.controls['email'].touched) && regForm.controls['email'].errors"
-                                        class="error-msg">Email is mandatory field</div>
+                                        class="error-msg mb-2 mt-1">Email is mandatory field</div>
                                 </div>
                                 <div class="form-group">
                                     <input [type]="showPassword ? 'text' : 'password'" id="psw"
@@ -59,7 +59,7 @@
                                         <div class="eye-icon"></div>
                                     </div>
                                     <div *ngIf="(isValidForm || regForm.controls['password'].touched) && regForm.controls['password'].errors"
-                                        class="error-msg">Password is mandatory field</div>
+                                        class="error-msg mb-2 mt-1">Password is mandatory field</div>
                                 </div>
                                 <div class="form-group input-login">
                                     <button type="submit" (click)="openAccount()" class="btn btn-cust btn-login">OPEN

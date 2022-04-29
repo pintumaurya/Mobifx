@@ -36,34 +36,20 @@
   <!-- <script src="https://js.stripe.com/v3/"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script> -->
   <!-- Active menus Js -->
-
+<!-- 
   <script>
     $(document).ready(function(){
 
-      function checkForInput(element) {
-  // element is passed to the function ^
-  
-    const $label = $(element).siblings('label');
-
-      if ($(element).val().length > 0) {
-        $label.addClass('input-has-value');
-      } else {
-        $label.removeClass('input-has-value');
-      }
-    }
-
-    // The lines below are executed on page load
-    // $('input.input-field').each(function() {
-    //   checkForInput(this);
-    // });
-
-    // The lines below (inside) are executed on change & keyup
-    $('input.input-field').on('change keyup', function() {
-      checkForInput(this);  
-    });
+      $('.input-field').keyup(function () {
+        if ($.trim($('.input-field').val()).length) {
+            $(this).addClass('input-has-value');
+        } else {
+            $(this).removeClass('input-has-value');
+        }
+      });
 
     });
-  </script>
+  </script> -->
 
   <!-- <script>
     $(document).ready(function () {

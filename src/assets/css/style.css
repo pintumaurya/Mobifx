@@ -465,7 +465,7 @@ h6 {
   transition-duration: .3s;
 }
 
-.form-group .form-control:focus+label,.form-group .form-control+label.input-has-value {
+.form-group .form-control:focus+label,.form-group .form-control.input-has-value+label {
   top: -20px;
   font-size: 9px;
   z-index: 200;
