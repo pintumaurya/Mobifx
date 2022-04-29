@@ -33,9 +33,9 @@ export class VerificationDetailsComponent implements OnInit {
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-  day = 0;
-  month = 0;
-  year = 0;
+  // day = 0;
+  // month = 0;
+  // year = 0;
   days = [];
   months = [];
   years = [];
@@ -45,6 +45,7 @@ export class VerificationDetailsComponent implements OnInit {
   callingCode = "+91";
   planData = [];
   leverageData = [];
+  validDate: boolean = false;
   isShowBalance: boolean = false;
   // fixedRates: boolean = true;
   isHideFixedRate: boolean = true;
@@ -72,6 +73,9 @@ export class VerificationDetailsComponent implements OnInit {
       city: ['', Validators.required],
       street_address: ['', Validators.required],
       phone_number: ['', Validators.required],
+      day: ['0', Validators.required],
+      month: ['0', Validators.required],
+      year: ['0', Validators.required]
     });
     this.sharedService.isVefiHeader = false;
     this.isValidTrade = false;
@@ -220,15 +224,15 @@ export class VerificationDetailsComponent implements OnInit {
   }
 
   onSelectDay(event: any) {
-    this.day = event.value;
+    // this.day = event.value;
   }
 
   onSelectMonth(event: any) {
-    this.month = event.value;
+    //this.month = event.value;
   }
 
   onSelectYear(event: any) {
-    this.year = event.value;
+    // this.year = event.value;
   }
 
   userInformation() {
@@ -239,6 +243,12 @@ export class VerificationDetailsComponent implements OnInit {
       this.isAccount = false;
     }
 
+    // if (this.day == 0 || this.month == 0 || this.year == 0) {
+    //   this.validDate = true;
+    // } else {
+    //   this.validDate = false;
+    // }   
+
     if (this.accountInformation?.invalid) {
       this.isValidForm = true;
       return;
@@ -248,7 +258,8 @@ export class VerificationDetailsComponent implements OnInit {
         country_id: "1",
         country_code: this.callingCode,
         phone: this.accountInformation.get('phone_number').value['number'].replace(/\s/g, ""),
-        bod: this.year + "-" + this.month + "-" + this.day,
+        // bod: this.year + "-" + this.month + "-" + this.day,
+        bod: this.accountInformation.get('day').value + '-' + this.accountInformation.get('month').value + '-' + this.accountInformation.get('year').value,
         city: this.accountInformation.get('city').value,
         street_address: this.accountInformation.get('street_address').value
       };

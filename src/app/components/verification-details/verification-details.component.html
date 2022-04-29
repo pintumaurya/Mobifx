@@ -141,7 +141,7 @@
                 <div class="col-md-9">
                   <div class="form-width">
                     <mat-form-field appearance="outline" style="width: 22%">
-                      <mat-select [(value)]="selectedDay" (selectionChange)="onSelectDay($event)">
+                      <mat-select [(value)]="selectedDay" formControlName="day">
                         <mat-option value="0">Day</mat-option>
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
@@ -187,8 +187,9 @@
                     </mat-form-field>
                   </div>
                   <div
-                    *ngIf="(isValidForm || accountInformation.controls['phone_number'].touched) && accountInformation.controls['phone_number'].errors"
-                    class="error-msg">Please enter a valid date</div>
+                    *ngIf="(isValidForm || accountInformation.controls['day'].touched) && accountInformation.controls['day'].errors"
+                    class="error-msg">Please enter a valid phone number</div>
+                  <!-- <div *ngIf="validDate" class="error-msg">Please enter a valid date</div> -->
                 </div>
               </div>
               <div class="form-group row align-items-center">
