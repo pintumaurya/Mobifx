@@ -255,6 +255,13 @@
 									border-radius: 5px;
 									background: #fff;
 									font-size: 14px;
+									&.show .multiselect__select {
+										transform: rotate(180deg);
+										-webkit-transform: rotate(180deg);
+										-moz-transform: rotate(180deg);
+										-ms-transform: rotate(180deg);
+										-o-transform: rotate(180deg);
+									}
 								}
 								.account-selector-list-item {
 									display: flex;
