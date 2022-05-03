@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
-import { CommonToasterService } from "../../services/common-toaster.service";
+import { CommonToasterService } from '../../services/common-toaster.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
-  styleUrls: ['./deposit.component.scss']
+  styleUrls: ['./deposit.component.scss'],
 })
 export class DepositComponent implements OnInit {
-
   panelOpenState = false;
   paymentHandler: any = null;
   selectedPaymentMethod: boolean;
@@ -20,7 +19,7 @@ export class DepositComponent implements OnInit {
   accountDetailsList: any = [];
   showSpinner: boolean = false;
   dataSource: any;
-  id: any
+  id: any;
   isActive: boolean = false;
   isShowSkrill: boolean = false;
   depositAmount: any;
@@ -34,7 +33,7 @@ export class DepositComponent implements OnInit {
   email = localStorage.getItem('email');
   pCode = localStorage.getItem('countryCode');
   phone = localStorage.getItem('phone');
-  currencySign: any = "$";
+  currencySign: any = '$';
   paymentMethod: any;
   isShowUPI: boolean;
   showConvertedDeposite: any;
@@ -58,7 +57,7 @@ export class DepositComponent implements OnInit {
       this.accountDetails(1);
     }
     this.isTrueDollar = true;
-    // this.invokeStripe();
+    // this.invokeStripe();    
   }
 
   userAccountList() {
@@ -66,7 +65,7 @@ export class DepositComponent implements OnInit {
     this.apiService.getUserAllAccountList().subscribe((res) => {
       if (res?.status == true) {
         this.dataSource = [];
-        res?.data.forEach(element => {
+        res?.data.forEach((element) => {
           if (element?.account_type == 1) {
             this.dataSource.push(element);
           }
@@ -98,7 +97,7 @@ export class DepositComponent implements OnInit {
       this.paymentMethodValidation = false;
       this.isActive = true;
     }
-    if (event.value == "mb") {
+    if (event.value == 'mb') {
       this.paymentMethod = event.value;
       this.isShowSkrill = true;
     } else {
@@ -135,15 +134,15 @@ export class DepositComponent implements OnInit {
     if (this.depositAmount == 1) {
       this.depositeMinValidation = true;
       return;
-    }else{
+    } else {
       this.depositeMinValidation = false;
 
     }
 
-    if (this.depositAmount >200000) {
+    if (this.depositAmount > 200000) {
       this.depositeMaxValidation = true;
       return;
-    }else{
+    } else {
       this.depositeMaxValidation = false;
 
     }
@@ -155,7 +154,7 @@ export class DepositComponent implements OnInit {
   selectedToggle(event: any) {
     console.log('event', event);
     this.currencySign = event;
-    if (event == "€") {
+    if (event == '€') {
       this.isTrueDollar = false;
       this.isTrueEurope = true;
     } else {
@@ -178,12 +177,11 @@ export class DepositComponent implements OnInit {
       // "account_information_id": this.id,
       // "amount": this.paymentValue ? this.paymentValue : this.depositAmount,
       // "currency": this.accountDetailsList?.currency,
-      pay_to_email: "app.engear@gmail.com",
-      language: "EN",
-      amount: "10",
-      currency: "GBP",
-
-    }
+      pay_to_email: 'app.engear@gmail.com',
+      language: 'EN',
+      amount: '10',
+      currency: 'GBP',
+    };
     console.log('payload', payload);
     // this.router.navigate[('https://www.skrill.com/app/pay.pl?action=prepare')];
 
@@ -233,5 +231,4 @@ export class DepositComponent implements OnInit {
   //     window.document.body.appendChild(script);
   //   }
   // }
-
 }

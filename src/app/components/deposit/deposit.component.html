@@ -340,16 +340,17 @@
                                         <!-- Increase your deposit. The minimum amount we accept in a single deposit is ₹1,000.00 -->
 
                                     </mat-radio-group>
-                                  
+
                                     <div *ngIf="depositeMinValidation" class="error-msg">
                                         Increase your deposit. The minimum amount we accept in a single deposit is
                                         ₹1,000.00
                                     </div>
                                     <div *ngIf="depositeMaxValidation" class="error-msg">
-                                        Lower your deposit. The maximum amount we accept in a single deposit is ₹200,000.00
+                                        Lower your deposit. The maximum amount we accept in a single deposit is
+                                        ₹200,000.00
                                     </div>
                                 </div>
-                               
+
                             </mat-card>
 
                             <div class="warning-msg">We might need to verify your card. If needed, we'll request its
@@ -521,7 +522,7 @@
                             </div>
                         </section>
                         <div class="row">
-                            <div  class="col-sm-12">
+                            <div class="col-sm-12">
                                 <div class="d-flex justify-content-end align-items-center base-btn">
                                     <button type="submit" class="btn btn-blue" (click)="Continue()">Continue</button>
                                 </div>
