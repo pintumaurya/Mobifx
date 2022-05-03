@@ -360,6 +360,40 @@
 
                         </div>
 
+                        <div *ngIf="isShowMasterCard">
+                            <h2 class="heading">Specify the deposit amount</h2>
+                            <mat-card class="panel shadow-none p-0">
+                                <div *ngIf="isTrueDollar">
+                                    <mat-radio-group (change)="paymentAmount($event)">
+                                        <mat-radio-button class="example-margin example-full-width-button" value=""
+                                            id=" radio-17">
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <input matInput placeholder="Other €" maxlength="9" minlength="1"
+                                                    (input)="onSearchChange($event.target.value)" type="tel">
+                                            </mat-form-field>
+                                            <br>
+                                            <label *ngIf="depositAmountMaster">${{showConvertedDepositeMaster}}</label>
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+
+                                    <div *ngIf="depositeMasterMinValidation" class="error-msg">
+                                        Increase your deposit. The minimum amount we accept in a single deposit is
+                                        €50.00
+                                    </div>
+                                    <div *ngIf="depositeMasterMaxValidation" class="error-msg">
+                                        Lower your deposit. The maximum amount we accept in a single deposit is €5,000.00
+                                    </div>
+                                </div>
+
+                            </mat-card>
+
+                            <div class="warning-msg">We might need to verify your card. If needed, we'll request its
+                                front
+                                side photo in the
+                                course of the payment or later.</div>
+
+                        </div>
+
                         <section class="promo-bonuses-container">
                             <h2 class="heading">Choose bonus</h2>
 
@@ -560,6 +594,7 @@
                                             <dt class="invoice-info__dt">Payment method</dt>
                                             <dd *ngIf="paymentMethod == 'mb' " class="invoice-info__dd _ltr">Skrill</dd>
                                             <dd *ngIf="paymentMethod == 'echp_upi' " class="invoice-info__dd _ltr">UPI
+                                                <dd *ngIf="paymentMethod == 'exactly' " class="invoice-info__dd _ltr">MasterCard
                                             </dd>
                                         </div>
                                         <div class="invoice-info__item">

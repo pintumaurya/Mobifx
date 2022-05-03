@@ -40,6 +40,12 @@ export class DepositComponent implements OnInit {
   depositeMinValidation: boolean = false;
   depositeMaxValidation: boolean = false;
   continueFlag: boolean = true;
+  isShowMasterCard: boolean;
+  showConvertedDepositeMaster: number;
+  depositAmountMaster: any;
+  depositeMasterMinValidation: boolean;
+  depositeMasterMaxValidation: boolean;
+
 
   constructor(
     public sharedService: SharedService,
@@ -111,6 +117,12 @@ export class DepositComponent implements OnInit {
     } else {
       this.isShowUPI = false;
     }
+    if (event.value == 'exactly') {
+      this.paymentMethod = event.value;
+      this.isShowMasterCard = true;
+    } else {
+      this.isShowMasterCard = false;
+    }
   }
 
   paymentAmount(event: any) {
@@ -126,9 +138,12 @@ export class DepositComponent implements OnInit {
     console.log('searchValue', searchValue);
     this.paymentValue = null;
     this.depositAmount = searchValue;
+    this.depositAmountMaster = searchValue;
+
     console.log("this.depositAmount", this.depositAmount);
     let amt = parseInt(this.depositAmount);
-    this.showConvertedDeposite = amt * (0.013)
+    this.showConvertedDeposite = amt * (0.013);
+    this.showConvertedDepositeMaster = amt * (1.05);
     console.log(this.showConvertedDeposite);
 
     if (this.depositAmount == 1) {
@@ -145,6 +160,20 @@ export class DepositComponent implements OnInit {
     } else {
       this.depositeMaxValidation = false;
 
+    }
+
+    if (this.depositAmountMaster < 50) {
+      this.depositeMasterMinValidation = true;
+      return;
+    } else {
+      this.depositeMasterMinValidation = false;
+    }
+
+    if (this.depositAmountMaster > 5000) {
+      this.depositeMasterMaxValidation = true;
+      return;
+    } else {
+      this.depositeMasterMaxValidation = false;
     }
   }
 
