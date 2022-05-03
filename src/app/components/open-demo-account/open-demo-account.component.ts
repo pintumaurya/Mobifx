@@ -1,34 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { SharedService } from '../../services/shared.service';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, FreeMode, SwiperOptions, Swiper } from 'swiper';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  FreeMode,
+  SwiperOptions,
+  Swiper,
+} from 'swiper';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, FreeMode]);
 import $ from 'jquery';
 @Component({
   selector: 'app-open-demo-account',
   templateUrl: './open-demo-account.component.html',
-  styleUrls: ['./open-demo-account.component.scss']
+  styleUrls: ['./open-demo-account.component.scss'],
 })
 export class OpenDemoAccountComponent implements OnInit {
-
   planData = [];
   leverageData = [];
   isShowBalance: boolean = true;
   isHideFixedRate: boolean = true;
   isHideAccType: boolean = true;
   isHideCurrency: boolean = true;
-  currencySign = "$";
-  Leverage = "1";
-  leverageValue = "1";
-  currencyValue = "USD";
-  fixedRateValue = "1";
-  balanceValue = "5000";
-  acc_type = "0";
+  currencySign = '$';
+  Leverage = '1';
+  leverageValue = '1';
+  currencyValue = 'USD';
+  fixedRateValue = '1';
+  balanceValue = '5000';
+  acc_type = '0';
   accInfoData: any;
   id: any;
   isShowSuccesPage: boolean = true;
   isShowDemoPage: boolean = false;
   isShowRealPage: boolean = false;
+  setSelectedSlide: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -79,11 +87,10 @@ export class OpenDemoAccountComponent implements OnInit {
 
   onSelectChange(searchValue: string) {
     this.acc_type = searchValue;
-    if (searchValue == "0") {
+    if (searchValue == '0') {
       this.isShowBalance = true;
       this.isHideFixedRate = false;
-    }
-    else {
+    } else {
       this.isShowBalance = false;
       this.isHideFixedRate = true;
     }
@@ -91,17 +98,17 @@ export class OpenDemoAccountComponent implements OnInit {
 
   onSelectChange1(searchValue: string) {
     this.currencyValue = searchValue;
-    if (searchValue == "EUR") {
+    if (searchValue == 'EUR') {
       this.isHideFixedRate = false;
-      this.currencySign = "€";
+      this.currencySign = '€';
     } else {
-      this.currencySign = "$";
+      this.currencySign = '$';
       this.isHideFixedRate = true;
     }
   }
 
   onSelectChange2(searchValue: string) {
-    if (searchValue == "1") {
+    if (searchValue == '1') {
       this.fixedRateValue = searchValue;
       this.isHideAccType = false;
       this.isHideCurrency = false;
@@ -115,18 +122,26 @@ export class OpenDemoAccountComponent implements OnInit {
     this.leverageValue = event.value;
   }
 
+  onSlideChange(event: any) {
+    // activeIndex
+    console.log('slide change', event);
+    if (event == 'selected') {
+      this.setSelectedSlide = true;
+    }
+  }
+
   openAccount() {
-    if (this.acc_type == "1") {
+    if (this.acc_type == '1') {
       let payload = {
         user_id: this.id,
-        plan_id: "1",
+        plan_id: '1',
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
-        balance: "0",
-        main_balance: "0"
-      }
+        balance: '0',
+        main_balance: '0',
+      };
       if (this.id) {
         this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
@@ -139,24 +154,23 @@ export class OpenDemoAccountComponent implements OnInit {
     } else {
       let payload = {
         user_id: this.id,
-        plan_id: "1",
+        plan_id: '1',
         leverage_id: this.leverageValue,
         account_type: this.acc_type,
         currency: this.currencyValue,
         fixed_rate: this.fixedRateValue,
         balance: this.balanceValue,
-        main_balance: "0"
-      }
+        main_balance: '0',
+      };
       if (this.id) {
         this.apiService.accountInfo(payload).subscribe((res) => {
           if (res?.status == true) {
             this.accInfoData = res?.data;
             this.isShowSuccesPage = false;
-            this.isShowDemoPage = true
+            this.isShowDemoPage = true;
           }
         });
       }
     }
   }
-
 }
