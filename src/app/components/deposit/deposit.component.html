@@ -29,7 +29,7 @@
                                 <div class="form-element-multiselect">
                                     <input name="billingAddress" type="hidden" value="46357357">
                                     <div tabindex="0" class="multiselect multiselect--above dropdown">
-                                        
+
                                         <div class="multiselect-tags" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                             aria-expanded="false">
                                             <div class="multiselect__select"></div>
@@ -280,6 +280,85 @@
 
                         </div>
 
+                        <div *ngIf="isShowUPI">
+                            <h2 class="heading">Specify the deposit amount</h2>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="form-deposit-text">
+                                    I want to deposit in:
+                                </div>
+                                <!-- <div class="cntrl">
+                                    <div class="switcher">
+                                        <div class="switcher-item">
+                                            <input id="deposit-0" name="deposit" type="radio" class="switcher-radio"
+                                                value="$" checked (input)="selectedToggle($event.target.value)" />
+                                            <label for="deposit-0" class="switcher-label">$</label>
+                                        </div>
+                                        <div class="switcher-item">
+                                            <input id="deposit-1" name="deposit" type="radio" class="switcher-radio"
+                                                value="€" (input)="selectedToggle($event.target.value)" />
+                                            <label for="deposit-1" class="switcher-label">€</label>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+
+
+                            <mat-card class="panel shadow-none p-0">
+                                <div *ngIf="isTrueDollar">
+                                    <mat-radio-group (change)="paymentAmount($event)">
+                                        <mat-radio-button type="radio" class="example-margin" id="radio-14"
+                                            value="6,000">
+                                            ₹6,000.00 <br>
+                                            <label>$78.49</label>
+                                        </mat-radio-button>
+
+                                        <mat-radio-button type="radio" class="example-margin" id="radio-15" checked
+                                            value="3000.00">
+                                            ₹3000.00 <br>
+                                            $39.24
+                                        </mat-radio-button>
+                                        <mat-radio-button type="radio" class="example-margin" id=" radio-16"
+                                            value="1500.00">
+                                            ₹1500.00 <br>
+                                            $19.62
+                                        </mat-radio-button>
+                                        <mat-radio-button class="example-margin example-full-width-button" value=""
+                                            id=" radio-17">
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <input matInput placeholder="Other ₹" maxlength="9" minlength="1"
+                                                    (input)="onSearchChange($event.target.value)" type="tel">
+                                            </mat-form-field>
+                                            <br>
+                                            <label *ngIf="depositAmount">${{showConvertedDeposite}}</label>
+                                        </mat-radio-button>
+                                        <!-- <mat-radio-button class="example-margin example-full-width-button" value="" id=" radio-17">
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <input matInput placeholder="Other ₹" maxlength="9" minlength="1"
+                                                    (input)="onSearchChange($event.target.value)">
+                                            </mat-form-field>
+                                        </mat-radio-button> -->
+                                        <!-- Increase your deposit. The minimum amount we accept in a single deposit is ₹1,000.00 -->
+
+                                    </mat-radio-group>
+                                  
+                                    <div *ngIf="depositeMinValidation" class="error-msg">
+                                        Increase your deposit. The minimum amount we accept in a single deposit is
+                                        ₹1,000.00
+                                    </div>
+                                    <div *ngIf="depositeMaxValidation" class="error-msg">
+                                        Lower your deposit. The maximum amount we accept in a single deposit is ₹200,000.00
+                                    </div>
+                                </div>
+                               
+                            </mat-card>
+
+                            <div class="warning-msg">We might need to verify your card. If needed, we'll request its
+                                front
+                                side photo in the
+                                course of the payment or later.</div>
+
+                        </div>
+
                         <section class="promo-bonuses-container">
                             <h2 class="heading">Choose bonus</h2>
 
@@ -442,7 +521,7 @@
                             </div>
                         </section>
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div  class="col-sm-12">
                                 <div class="d-flex justify-content-end align-items-center base-btn">
                                     <button type="submit" class="btn btn-blue" (click)="Continue()">Continue</button>
                                 </div>
@@ -471,13 +550,16 @@
                                         <div class="invoice-info__item">
                                             <dt class="invoice-info__dt">Amount</dt>
                                             <dd class="invoice-info__dd _ltr js-amount">{{currencySign}}
-                                                {{!depositAmount ? "200" : depositAmount }}
+                                                <!-- {{!depositAmount ? "200" : depositAmount }} -->
+                                                {{depositAmount }}
                                                 <span *ngIf="paymentValue">{{paymentValue}}</span>
                                             </dd>
                                         </div>
                                         <div class=" invoice-info__item">
                                             <dt class="invoice-info__dt">Payment method</dt>
                                             <dd *ngIf="paymentMethod == 'mb' " class="invoice-info__dd _ltr">Skrill</dd>
+                                            <dd *ngIf="paymentMethod == 'echp_upi' " class="invoice-info__dd _ltr">UPI
+                                            </dd>
                                         </div>
                                         <div class="invoice-info__item">
                                             <dt class="invoice-info__dt">Trading account</dt>

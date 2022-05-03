@@ -36,6 +36,11 @@ export class DepositComponent implements OnInit {
   phone = localStorage.getItem('phone');
   currencySign: any = "$";
   paymentMethod: any;
+  isShowUPI: boolean;
+  showConvertedDeposite: any;
+  depositeMinValidation: boolean = false;
+  depositeMaxValidation: boolean = false;
+  continueFlag: boolean = true;
 
   constructor(
     public sharedService: SharedService,
@@ -96,19 +101,52 @@ export class DepositComponent implements OnInit {
     if (event.value == "mb") {
       this.paymentMethod = event.value;
       this.isShowSkrill = true;
+    } else {
+      this.isShowSkrill = false;
+    }
+    if (event.value == "echp_upi") {
+      this.paymentMethod = event.value;
+      this.isShowUPI = true;
+      this.currencySign = "₹";
+      this.depositAmount = 3000.00;
+    } else {
+      this.isShowUPI = false;
     }
   }
 
   paymentAmount(event: any) {
     console.log(event);
-    this.depositAmount = null;
+    // this.depositAmount = null;
     this.paymentValue = event.value;
+    console.log(this.paymentValue);
+
+
   }
 
   onSearchChange(searchValue: any) {
     console.log('searchValue', searchValue);
     this.paymentValue = null;
     this.depositAmount = searchValue;
+    console.log("this.depositAmount", this.depositAmount);
+    let amt = parseInt(this.depositAmount);
+    this.showConvertedDeposite = amt * (0.013)
+    console.log(this.showConvertedDeposite);
+
+    if (this.depositAmount == 1) {
+      this.depositeMinValidation = true;
+      return;
+    }else{
+      this.depositeMinValidation = false;
+
+    }
+
+    if (this.depositAmount >200000) {
+      this.depositeMaxValidation = true;
+      return;
+    }else{
+      this.depositeMaxValidation = false;
+
+    }
   }
 
   // onEuropeChange(){
