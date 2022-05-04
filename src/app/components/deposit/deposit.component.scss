@@ -575,11 +575,11 @@
     //     display: flex;
     //     list-style: none;
     // }
-    // .styled-switcher._v2 .styled-switcher__item.selected {
+    // .styled-switcher .styled-switcher__item.selected {
     //     background: #0d6ffb;
     //     color: #fff;
     // }
-    // .styled-switcher._v2 .styled-switcher__item {
+    // .styled-switcher .styled-switcher__item {
     //     color: #0d6ffb;
     // }
     // .styled-switcher__item.selected {
@@ -634,7 +634,7 @@
         // margin-bottom: 0;
         padding-top: 0;
     }
-    .invoice-info._v2 {
+    .invoice-info {
         border: none;
         background-color: #fafafa;
         border-radius: 0;
@@ -644,13 +644,14 @@
         padding-right: 24px;
     }
     .invoice-info {
-        padding: 5px 15px;
+        padding: 5px 0;
+        // padding: 5px 15px;
         margin-bottom: 40px;
-        border: 1px solid #cacaca;
+        // border: 1px solid #cacaca;
         border-radius: 4px;
     }
-    .invoice-info._v2 .invoice-info__details,
-    .invoice-info._v2 .invoice-info__title {
+    .invoice-info .invoice-info__details,
+    .invoice-info .invoice-info__title {
         padding: 15px 24px;
         background-color: #fafafa;
     }
@@ -660,7 +661,7 @@
         transition: filter 0.5s, background 0.5s;
         transition: filter 0.5s, background 0.5s, -webkit-filter 0.5s;
     }
-    .invoice-info._v2 .invoice-info__item {
+    .invoice-info .invoice-info__item {
         align-items: baseline;
         border-top-color: #ddd;
         flex-wrap: wrap;
@@ -670,12 +671,13 @@
         width: 100%;
         min-height: 30px;
     }
-    .invoice-info._v2 .invoice-info__dt {
+    .invoice-info .invoice-info__dt {
         text-transform: none;
         padding-left: 0;
         padding-top: 12px;
         padding-bottom: 12px;
         color: #858585;
+        font-weight: 500;
     }
     .invoice-info__dt {
         font-size: 14px;
@@ -687,7 +689,7 @@
         line-height: 1.2;
         color: #9b9b9b;
     }
-    .invoice-info._v2 .invoice-info__dd {
+    .invoice-info .invoice-info__dd {
         text-align: right;
         font-size: 14px;
         font-weight: 400;
@@ -705,7 +707,7 @@
         line-height: 1.2;
         color: #000;
         word-break: break-word;
-    }.invoice-info._v2 .invoice-info__item {
+    }.invoice-info .invoice-info__item {
         align-items: baseline;
         border-top-color: #ddd;
         flex-wrap: wrap;
@@ -780,11 +782,6 @@
     .blur-mode-subject {
         -webkit-filter: blur(8px);
         filter: blur(8px);
-        will-change: filter,background;
-    transition: background .5s,-webkit-filter .5s;
-    transition: filter .5s,background .5s;
-    transition: filter .5s,background .5s,-webkit-filter .5s;
-    padding: 15px 24px;
     }
 
 .notice-container {
@@ -820,90 +817,90 @@
         max-width: 600px;
         position: relative;
         padding: 24px;
-        .head {
+    }
+    .head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .pulse-warning {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            width: 100%;
-            .pulse-warning {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 56px;
-                height: 56px;
-                position: relative;
-                flex-shrink: 0;
-                margin-bottom: 16px;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            position: relative;
+            flex-shrink: 0;
+            margin-bottom: 16px;
 
-                &::before,&::after {
-                    content: '';
-                    border-radius: 50%;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    z-index: 1;
-                    -webkit-animation-duration: 2s;
-                    animation-duration: 2s;
-                    -webkit-animation-iteration-count: infinite;
-                    animation-iteration-count: infinite;
-                    -webkit-animation-timing-function: ease-in-out;
-                    animation-timing-function: ease-in-out;
-                }
-                &::before {
-                    background-color: rgba(246,68,57,.15);
-                    -webkit-animation-name: shadowCircle;
-                    animation-name: shadowCircle;
-                }
-                &::after {
-                    background-color: rgba(246,68,57,.25);
-                    width: 44px;
-                    height: 44px;
-                    -webkit-animation-name: shadowCircle;
-                    animation-name: shadowCircle;
-                }
-                .icon {
-                    background: url('../../../assets/images/icon/ico-warning-shadow_red.svg') center center/contain no-repeat;
-                    width: 32px;
-                    height: 32px;
-                    -webkit-animation-name: pulseActionIco;
-                    animation-name: pulseActionIco;
-                    -webkit-animation-duration: 2s;
-                    animation-duration: 2s;
-                    -webkit-animation-iteration-count: infinite;
-                    animation-iteration-count: infinite;
-                    position: relative;
-                    z-index: 2;
-                }
-                .water-circle {
-                    content: '';
-                    border-radius: 50%;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    opacity: 1;
-                    box-shadow: 0 0 0 1px rgb(246 68 57 / 70%);
-                    -webkit-animation-name: waterCircle;
-                    animation-name: waterCircle;
-                    -webkit-animation-iteration-count: infinite;
-                    animation-iteration-count: infinite;
-                    -webkit-animation-duration: 2s;
-                    animation-duration: 2s;
-                    &:nth-child(2) {
-                        width: 110px;
-                        height: 110px;
-                    }
-                    &:nth-child(3) {
-                        width: 90px;
-                        height: 90px;
-                    }
-                    &:nth-child(4) {
-                        width: 70px;
-                        height: 70px;
-                    }
-                }
-                
+            &::before,&::after {
+                content: '';
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 1;
+                -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-timing-function: ease-in-out;
             }
+            &::before {
+                background-color: rgba(246,68,57,.15);
+                -webkit-animation-name: shadowCircle;
+                animation-name: shadowCircle;
+            }
+            &::after {
+                background-color: rgba(246,68,57,.25);
+                width: 44px;
+                height: 44px;
+                -webkit-animation-name: shadowCircle;
+                animation-name: shadowCircle;
+            }
+            .icon {
+                background: url('../../../assets/images/icon/ico-warning-shadow_red.svg') center center/contain no-repeat;
+                width: 32px;
+                height: 32px;
+                -webkit-animation-name: pulseActionIco;
+                animation-name: pulseActionIco;
+                -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                position: relative;
+                z-index: 2;
+            }
+            .water-circle {
+                content: '';
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                opacity: 1;
+                box-shadow: 0 0 0 1px rgb(246 68 57 / 70%);
+                -webkit-animation-name: waterCircle;
+                animation-name: waterCircle;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+                &:nth-child(2) {
+                    width: 110px;
+                    height: 110px;
+                }
+                &:nth-child(3) {
+                    width: 90px;
+                    height: 90px;
+                }
+                &:nth-child(4) {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+            
         }
     }
     .title {
@@ -916,6 +913,18 @@
     .show-more {
         display: none;
     }
+    &.passive {
+        margin-top: 32px;
+        .head {
+            .pulse-warning {
+                margin-bottom: 0;
+                &::before,&::after,.water-circle,.icon { animation:none ; -webkit-animation:none ; }
+                .water-circle {display: none;}
+                .icon {z-index: 1;}
+            }
+        }
+    }
+    
     .close {
         background-image: url('../../../assets/images/icon/close.svg');
         background-color: transparent;
@@ -980,6 +989,50 @@
         margin: 20px auto 0;
         width: 166px;
         justify-content: center;
+    }
+    &.hidden {
+        .show-more {
+            align-items: center;
+            margin-left: auto;
+            display: flex;
+            color: #999;
+            text-decoration: none;
+            font-size: 13px;
+            &::after {
+                content: '';
+                background-image: url('../../../assets/images/icon/down.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 8px;
+                height: 8px;
+                margin: 0 4px 0 14px;
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                transition: -webkit-transform .3s;
+                transition: transform .3s;
+                transition: transform .3s,-webkit-transform .3s;
+            }
+        }
+        .close {
+            display: none;
+        }
+        .head {
+            flex-direction: row;
+            justify-content: flex-start;
+            cursor: pointer;
+        }
+        .title {
+            margin-top: 0;
+            margin-left: 32px;
+        }
+        .mat-expanded {
+            .show-more {
+                display: none;
+            }
+            .close {display: block;top: -12px;right: -12px;}
+            .head {flex-direction: column;margin-top: 15px;.pulse-warning {margin-bottom: 16px;}}
+            .title {margin-left: 0;}
+        }
     }
 
 }

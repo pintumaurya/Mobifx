@@ -584,9 +584,9 @@
                         <div class="blur-mode invoice-blur">
                             <div class="invoice-info-details blur-mode-subject">
                                 <div class="form-t01 js-confirmation-form">
-                                    <div class="blur-mode _invoice-blur">
-                                        <div class="invoice-info _v2">
-                                            <dl class="invoice-info__details blur-mode__subject">
+                                    <div class="blur-mode invoice-blur">
+                                        <div class="invoice-info">
+                                            <dl class="invoice-info__details">
                                                 <div class="invoice-info__item">
                                                     <dt class="invoice-info__dt">Amount</dt>
                                                     <dd class="invoice-info__dd _ltr js-amount">{{currencySign}}
@@ -647,66 +647,124 @@
                                         <input type="hidden" name="__legacyRedirectTransactionId" value="20725845">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="d-flex justify-content-end align-items-center base-btn">
-                                            <button type="submit" class="btn btn-blue"
-                                                (click)="addNewDeposit()">Confirm</button>
+                            </div>
+                            <div class="notify-holder">
+                                <div class="notice-container active show" style="display: flex;">
+                                    <section class="wrapper">
+                                        <header class="head">
+                                            <div class="icon pulse-warning">
+                                                <i class="icon"></i>
+                                                <u class="water-circle"></u>
+                                                <u class="water-circle"></u>
+                                                <u class="water-circle"></u>
+                                            </div>
+                                            <h3 class="title">Important</h3>
+                                            <div class="show-more">
+                                                <span class="details-title">view details</span>
+                                            </div>
+                                            <button class="close"></button>
+                                        </header>
+                                        <div class="body">
+                                            <ul class="list">
+                                                <li class="notification-point list-item accent">
+                                                    <i class="notification-point-icon">
+                                                        <img class="notification-point-image"
+                                                            src="../../../assets/images/icon/secondary.svg">
+                                                    </i>
+                                                    <div>
+                                                        <span class="notification-point-title">You can deposit using your
+                                                            own card <strong>ONLY</strong>. Deposits made using the cards of
+                                                            your relatives, friends or any other third parties are
+                                                            prohibited.</span>
+
+                                                    </div>
+                                                </li>
+
+                                                <li class="notification-point list-item accent">
+                                                    <i class="notification-point-icon">
+                                                        <img class="notification-point-image"
+                                                            src="../../../assets/images/icon/informational.svg">
+                                                    </i>
+                                                    <div>
+                                                        <span class="notification-point-title">Mastercard is only available
+                                                            for deposits. For withdrawals, choose other available options
+                                                            that suit you best.</span>
+
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </div>
+                                        <footer class="notice-container-footer">
+                                            <button class="button btn btn-black normal">
+                                                I understand
+                                            </button>
+                                        </footer>
+                                    </section>
+                                </div>
+                                <div class="notice-container passive hidden">
+                                    <mat-accordion>
+                                        <mat-expansion-panel class="wrapper w-auto">
+                                            <mat-expansion-panel-header>
+                                                <header class="head">
+                                                    <div class="icon pulse-warning">
+                                                        <i class="icon"></i>
+                                                        <u class="water-circle"></u>
+                                                        <u class="water-circle"></u>
+                                                        <u class="water-circle"></u>
+                                                    </div>
+                                                    <h3 class="title">Important</h3>
+                                                    <div class="show-more">
+                                                        <span class="details-title">view details</span>
+                                                    </div>
+                                                    <button class="close"></button>
+                                                </header>
+                                            </mat-expansion-panel-header>
+                                            <div class="body mt-3">
+                                                <ul class="list">
+                                                    <li class="notification-point list-item accent">
+                                                        <i class="notification-point-icon">
+                                                            <img class="notification-point-image"
+                                                                src="../../../assets/images/icon/secondary.svg">
+                                                        </i>
+                                                        <div>
+                                                            <span class="notification-point-title">You can deposit using your
+                                                                own card <strong>ONLY</strong>. Deposits made using the cards of
+                                                                your relatives, friends or any other third parties are
+                                                                prohibited.</span>
+    
+                                                        </div>
+                                                    </li>
+    
+                                                    <li class="notification-point list-item accent">
+                                                        <i class="notification-point-icon">
+                                                            <img class="notification-point-image"
+                                                                src="../../../assets/images/icon/informational.svg">
+                                                        </i>
+                                                        <div>
+                                                            <span class="notification-point-title">Mastercard is only available
+                                                                for deposits. For withdrawals, choose other available options
+                                                                that suit you best.</span>
+    
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <footer class="notice-container-footer">
+                                                <button class="button btn btn-black normal">
+                                                    I understand
+                                                </button>
+                                            </footer>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
                                 </div>
                             </div>
-                            <div class="notice-container active show" style="display: flex;">
-                                <section class="wrapper">
-                                    <header class="head">
-                                        <div class="icon pulse-warning">
-                                            <i class="icon"></i>
-                                            <u class="water-circle"></u>
-                                            <u class="water-circle"></u>
-                                            <u class="water-circle"></u>
-                                        </div>
-                                        <h3 class="title">Important</h3>
-                                        <div class="show-more">
-                                            <span class="details-title">view details</span>
-                                        </div>
-                                        <button class="close"></button>
-                                    </header>
-                                    <div class="body">
-                                        <ul class="list">
-                                            <li class="notification-point list-item accent">
-                                                <i class="notification-point-icon">
-                                                    <img class="notification-point-image"
-                                                        src="../../../assets/images/icon/secondary.svg">
-                                                </i>
-                                                <div>
-                                                    <span class="notification-point-title">You can deposit using your
-                                                        own card <strong>ONLY</strong>. Deposits made using the cards of
-                                                        your relatives, friends or any other third parties are
-                                                        prohibited.</span>
-
-                                                </div>
-                                            </li>
-
-                                            <li class="notification-point list-item accent">
-                                                <i class="notification-point-icon">
-                                                    <img class="notification-point-image"
-                                                        src="../../../assets/images/icon/informational.svg">
-                                                </i>
-                                                <div>
-                                                    <span class="notification-point-title">Mastercard is only available
-                                                        for deposits. For withdrawals, choose other available options
-                                                        that suit you best.</span>
-
-                                                </div>
-                                            </li>
-                                        </ul>
+                            <div class="row mt-4">
+                                <div class="col-sm-12">
+                                    <div class="d-flex justify-content-end align-items-center base-btn blur-mode-subject">
+                                        <button type="submit" class="btn btn-blue"
+                                            (click)="addNewDeposit()">Confirm</button>
                                     </div>
-                                    <footer class="notice-container-footer">
-                                        <button class="button btn btn-black normal">
-                                            I understand
-                                        </button>
-                                    </footer>
-                                </section>
+                                </div>
                             </div>
                         </div>
                     </form>
