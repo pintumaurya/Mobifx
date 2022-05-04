@@ -111,7 +111,7 @@ export class DepositComponent implements OnInit {
   }
 
   radioChange(event: any) {
-    console.log(event);
+    // console.log(event);
     this.selectedPaymentMethod = event.source._checked;
     if (event.source._checked == true) {
       this.paymentMethodValidation = false;
@@ -140,32 +140,29 @@ export class DepositComponent implements OnInit {
   }
 
   paymentAmount(event: any) {
-    console.log(event);
+    // console.log(event);
     // this.depositAmount = null;
     this.paymentValue = event.value;
-    console.log(this.paymentValue);
-
-
+    // console.log(this.paymentValue);
   }
 
   onSearchChange(searchValue: any) {
-    console.log('searchValue', searchValue);
+    // console.log('searchValue', searchValue);
     this.paymentValue = null;
     this.depositAmount = searchValue;
     this.depositAmountMaster = searchValue;
 
-    console.log("this.depositAmount", this.depositAmount);
+    // console.log("this.depositAmount", this.depositAmount);
     let amt = parseInt(this.depositAmount);
     this.showConvertedDeposite = amt * (0.013);
     this.showConvertedDepositeMaster = amt * (1.05);
-    console.log(this.showConvertedDeposite);
+    // console.log(this.showConvertedDeposite);
 
     if (this.depositAmount == 1) {
       this.depositeMinValidation = true;
       return;
     } else {
       this.depositeMinValidation = false;
-
     }
 
     if (this.depositAmount > 200000) {
@@ -212,6 +209,15 @@ export class DepositComponent implements OnInit {
     } else {
       this.paymentMethodValidation = true;
     }
+  }
+
+  closeDialog() {
+    $(document).ready(function () {
+      $('#ncontainer').removeClass('show');
+      $('#ncontainer').removeAttr('style');
+      $('#invoiceDetails').removeClass('blur-mode-subject');
+      $('#depositBtn').removeClass('blur-mode-subject');
+    });
   }
 
   addNewDeposit() {
@@ -279,6 +285,7 @@ export class DepositComponent implements OnInit {
     let redirect_url = 'http%3A%2F%2Flocalhost%3A3008%2Fhandleresponse';
     let useremail = 'testemail@gmail.com';
     let request = `merchant_id=2193&order_id=${this.order_no}&currency=INR&amount=${this.testAmount}&redirect_url=${redirect_url}&cancel_url=${redirect_url}&language=EN&billing_name=${this.selectedAddress.name}&billing_address=${this.selectedAddress.address}&billing_city=${this.selectedAddress.city}&billing_state=MH&billing_zip=${this.selectedAddress.pincode}&billing_country=India&billing_tel=${this.selectedAddress.phone}&delivery_name=${this.selectedAddress.name}&delivery_address=${this.selectedAddress.address}&delivery_city=${this.selectedAddress.city}&delivery_state=${this.selectedAddress.state}&delivery_zip=${this.selectedAddress.pincode}&delivery_country=India&delivery_tel=${this.selectedAddress.phone}&billing_email=${useremail}`;
+    return
     this.apiService.addDeposit(request).subscribe(
       (data) => {
         console.log('---------------------', data['response']);

@@ -582,7 +582,7 @@
 
                         <!-- popup -->
                         <div class="blur-mode invoice-blur">
-                            <div class="invoice-info-details blur-mode-subject">
+                            <div id="invoiceDetails" class="invoice-info-details blur-mode-subject">
                                 <div class="form-t01 js-confirmation-form">
                                     <div class="blur-mode invoice-blur">
                                         <div class="invoice-info">
@@ -649,7 +649,7 @@
                                 </div>
                             </div>
                             <div class="notify-holder">
-                                <div class="notice-container active show" style="display: flex;">
+                                <div id="ncontainer" class="notice-container active show" style="display: flex;">
                                     <section class="wrapper">
                                         <header class="head">
                                             <div class="icon pulse-warning">
@@ -662,7 +662,7 @@
                                             <div class="show-more">
                                                 <span class="details-title">view details</span>
                                             </div>
-                                            <button class="close"></button>
+                                            <button (click)="closeDialog()" class="close"></button>
                                         </header>
                                         <div class="body">
                                             <ul class="list">
@@ -699,7 +699,7 @@
                                             </ul>
                                         </div>
                                         <footer class="notice-container-footer">
-                                            <button class="button btn btn-black normal">
+                                            <button (click)="closeDialog()" class="button btn btn-black normal">
                                                 I understand
                                             </button>
                                         </footer>
@@ -758,7 +758,8 @@
                                                 </ul>
                                             </div>
                                             <footer class="notice-container-footer">
-                                                <button class="button btn btn-black normal">
+                                                <button (click)="closeDialog()" type="submit"
+                                                    class="button btn btn-black normal">
                                                     I understand
                                                 </button>
                                             </footer>
@@ -768,7 +769,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-sm-12">
-                                    <div
+                                    <div id="depositBtn"
                                         class="d-flex justify-content-end align-items-center base-btn blur-mode-subject">
                                         <button type="submit" class="btn btn-blue"
                                             (click)="addNewDeposit()">Confirm</button>
@@ -776,6 +777,17 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
+
+                    <h3>Click Here! to go CCAvenue</h3>
+                    <button mat-button (click)="checkout()">
+                        Checkout Payment Gateway
+                    </button>
+
+                    <form #form ngNoForm id="nonseamless" method="post" name="redirect"
+                        action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
+                        <input type="hidden" id="encRequest" name="encRequest" value="{{ encRequestRes }}" />
+                        <input type="hidden" name="access_code" id="access_code" value="{{ accessCode }}" />
                     </form>
 
                     <!-- <form action="https://pay.skrill.com" method="post" target="_blank">
