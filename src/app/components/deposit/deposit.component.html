@@ -381,7 +381,8 @@
                                         €50.00
                                     </div>
                                     <div *ngIf="depositeMasterMaxValidation" class="error-msg">
-                                        Lower your deposit. The maximum amount we accept in a single deposit is €5,000.00
+                                        Lower your deposit. The maximum amount we accept in a single deposit is
+                                        €5,000.00
                                     </div>
                                 </div>
 
@@ -575,81 +576,143 @@
         <div class="row align-items-center main-box justify-content-center w-100 mx-0 mt-4">
             <div class="col-xl-12 col-md-12 col-lg-12 px-0">
                 <div class="deposit">
-                    <h2>Deposit confirmation</h2>
+                    <h2 style="margin-bottom: 24px;">Deposit confirmation</h2>
                     <form class="form-wrapper-inner" action="https://www.skrill.com/app/pay.pl?action=prepare"
                         class="form-t01 js-confirmation-form" method="POST">
-                        <div class="form-t01 js-confirmation-form">
-                            <div class="blur-mode _invoice-blur">
-                                <div class="invoice-info _v2">
-                                    <dl class="invoice-info__details blur-mode__subject">
-                                        <div class="invoice-info__item">
-                                            <dt class="invoice-info__dt">Amount</dt>
-                                            <dd class="invoice-info__dd _ltr js-amount">{{currencySign}}
-                                                <!-- {{!depositAmount ? "200" : depositAmount }} -->
-                                                {{depositAmount }}
-                                                <span *ngIf="paymentValue">{{paymentValue}}</span>
-                                            </dd>
-                                        </div>
-                                        <div class=" invoice-info__item">
-                                            <dt class="invoice-info__dt">Payment method</dt>
-                                            <dd *ngIf="paymentMethod == 'mb' " class="invoice-info__dd _ltr">Skrill</dd>
-                                            <dd *ngIf="paymentMethod == 'echp_upi' " class="invoice-info__dd _ltr">UPI
-                                                <dd *ngIf="paymentMethod == 'exactly' " class="invoice-info__dd _ltr">MasterCard
-                                            </dd>
-                                        </div>
-                                        <div class="invoice-info__item">
-                                            <dt class="invoice-info__dt">Trading account</dt>
-                                            <dd class="invoice-info__dd _ltr">{{accountDetailsList?.account_id}}</dd>
-                                        </div>
 
-                                        <div class="invoice-info__item js-wallet-row" style="display: none;">
-                                            <dt class="invoice-info__dt">Adding money to</dt>
-                                            <dd class="invoice-info__dd">Wallet</dd>
+                        <!-- popup -->
+                        <div class="blur-mode invoice-blur">
+                            <div class="invoice-info-details blur-mode-subject">
+                                <div class="form-t01 js-confirmation-form">
+                                    <div class="blur-mode _invoice-blur">
+                                        <div class="invoice-info _v2">
+                                            <dl class="invoice-info__details blur-mode__subject">
+                                                <div class="invoice-info__item">
+                                                    <dt class="invoice-info__dt">Amount</dt>
+                                                    <dd class="invoice-info__dd _ltr js-amount">{{currencySign}}
+                                                        <!-- {{!depositAmount ? "200" : depositAmount }} -->
+                                                        {{depositAmount }}
+                                                        <span *ngIf="paymentValue">{{paymentValue}}</span>
+                                                    </dd>
+                                                </div>
+                                                <div class=" invoice-info__item">
+                                                    <dt class="invoice-info__dt">Payment method</dt>
+                                                    <dd *ngIf="paymentMethod == 'mb' " class="invoice-info__dd _ltr">
+                                                        Skrill</dd>
+                                                    <dd *ngIf="paymentMethod == 'echp_upi' "
+                                                        class="invoice-info__dd _ltr">UPI
+                                                    </dd>
+                                                </div>
+                                                <div class="invoice-info__item">
+                                                    <dt class="invoice-info__dt">Trading account</dt>
+                                                    <dd class="invoice-info__dd _ltr">{{accountDetailsList?.account_id}}
+                                                    </dd>
+                                                </div>
+
+                                                <div class="invoice-info__item js-wallet-row" style="display: none;">
+                                                    <dt class="invoice-info__dt">Adding money to</dt>
+                                                    <dd class="invoice-info__dd">Wallet</dd>
+                                                </div>
+                                            </dl>
                                         </div>
-                                    </dl>
+                                        <input type="hidden" name="pay_to_email" mailto:value="app.engear@gmail.com">
+                                        <input type="hidden" name="pay_from_email" value="null">
+                                        <span *ngIf="paymentValue">
+                                            <input type="hidden" name="amount" value="{{paymentValue}}">
+                                        </span>
+                                        <span *ngIf="depositAmount">
+                                            <input type="hidden" name="amount" value="{{depositAmount}}">
+                                        </span>
+                                        <input type="hidden" name="currency" value="{{accountDetailsList?.currency}}">
+                                        <input type="hidden" name="recipient_description" value="Octa Markets Inc">
+                                        <input type="hidden" name="language" value="EN">
+                                        <input type="hidden" name="detail1_description" value="Description">
+                                        <input type="hidden" name="transaction_id" value="20725845">
+                                        <input type="hidden" name="payment_methods" value="">
+                                        <input type="hidden" name="detail1_text"
+                                            value="Deposit to OctaFX, account no.46429058">
+                                        <input type="hidden" name="country" value="IND">
+                                        <input type="hidden" name="address" value="{{address}}">
+                                        <input type="hidden" name="address2" value="">
+                                        <input type="hidden" name="city" value="{{city}}">
+                                        <input type="hidden" name="phone_number" value="{{pCode}} {{phone}}">
+                                        <input type="hidden" name="cancel_url"
+                                            value="https://my.octafx.com/billing/public/return/common/mb/fail-result/">
+                                        <input type="hidden" name="return_url"
+                                            value="https://my.octafx.com/billing/public/return/common/mb/success-result/">
+                                        <input type="hidden" name="status_url"
+                                            value="https://smartapproute.com/paysystem-endpoint/callback/mb/">
+                                        <input type="hidden" name="__legacyRedirectPaymentUrl"
+                                            value="https://pay.skrill.com/">
+                                        <input type="hidden" name="__legacyRedirectTransactionId" value="20725845">
+                                    </div>
                                 </div>
-                                <input type="hidden" name="pay_to_email" value="app.engear@gmail.com">
-                                <input type="hidden" name="pay_from_email" value="null">
-                                <span *ngIf="paymentValue">
-                                    <input type="hidden" name="amount" value="{{paymentValue}}">
-                                </span>
-                                <span *ngIf="depositAmount">
-                                    <input type="hidden" name="amount" value="{{depositAmount}}">
-                                </span>
-                                <input type="hidden" name="currency" value="{{accountDetailsList?.currency}}">
-                                <input type="hidden" name="recipient_description" value="Octa Markets Inc">
-                                <input type="hidden" name="language" value="EN">
-                                <input type="hidden" name="detail1_description" value="Description">
-                                <input type="hidden" name="transaction_id" value="20725845">
-                                <input type="hidden" name="payment_methods" value="">
-                                <input type="hidden" name="detail1_text" value="Deposit to OctaFX, account no.46429058">
-                                <input type="hidden" name="country" value="IND">
-                                <input type="hidden" name="address" value="{{address}}">
-                                <input type="hidden" name="address2" value="">
-                                <input type="hidden" name="city" value="{{city}}">
-                                <input type="hidden" name="phone_number" value="{{pCode}} {{phone}}">
-                                <input type="hidden" name="cancel_url"
-                                    value="https://my.octafx.com/billing/public/return/common/mb/fail-result/">
-                                <input type="hidden" name="return_url"
-                                    value="https://my.octafx.com/billing/public/return/common/mb/success-result/">
-                                <input type="hidden" name="status_url"
-                                    value="https://smartapproute.com/paysystem-endpoint/callback/mb/">
-                                <input type="hidden" name="__legacyRedirectPaymentUrl" value="https://pay.skrill.com/">
-                                <input type="hidden" name="__legacyRedirectTransactionId" value="20725845">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="d-flex justify-content-end align-items-center base-btn">
+                                            <button type="submit" class="btn btn-blue"
+                                                (click)="addNewDeposit()">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="d-flex justify-content-end align-items-center base-btn">
-                                    <button type="submit" class="btn btn-blue"
-                                        (click)="addNewDeposit()">Confirm</button>
-                                </div>
+                            <div class="notice-container active show" style="display: flex;">
+                                <section class="wrapper">
+                                    <header class="head">
+                                        <div class="icon pulse-warning">
+                                            <i class="icon"></i>
+                                            <u class="water-circle"></u>
+                                            <u class="water-circle"></u>
+                                            <u class="water-circle"></u>
+                                        </div>
+                                        <h3 class="title">Important</h3>
+                                        <div class="show-more">
+                                            <span class="details-title">view details</span>
+                                        </div>
+                                        <button class="close"></button>
+                                    </header>
+                                    <div class="body">
+                                        <ul class="list">
+                                            <li class="notification-point list-item accent">
+                                                <i class="notification-point-icon">
+                                                    <img class="notification-point-image"
+                                                        src="../../../assets/images/icon/secondary.svg">
+                                                </i>
+                                                <div>
+                                                    <span class="notification-point-title">You can deposit using your
+                                                        own card <strong>ONLY</strong>. Deposits made using the cards of
+                                                        your relatives, friends or any other third parties are
+                                                        prohibited.</span>
+
+                                                </div>
+                                            </li>
+
+                                            <li class="notification-point list-item accent">
+                                                <i class="notification-point-icon">
+                                                    <img class="notification-point-image"
+                                                        src="../../../assets/images/icon/informational.svg">
+                                                </i>
+                                                <div>
+                                                    <span class="notification-point-title">Mastercard is only available
+                                                        for deposits. For withdrawals, choose other available options
+                                                        that suit you best.</span>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <footer class="notice-container-footer">
+                                        <button class="button btn btn-black normal">
+                                            I understand
+                                        </button>
+                                    </footer>
+                                </section>
                             </div>
                         </div>
                     </form>
 
                     <!-- <form action="https://pay.skrill.com" method="post" target="_blank">
-                        <input type="hidden" name="pay_to_email" value="app.engear@gmail.com">
+                        <input type="hidden" name="pay_to_email" mailto:value="app.engear@gmail.com">
                         <input type="hidden" name="status_url" value="https://example.com/
                        process_payment.cgi">
                         <input type="hidden" name="language" value="EN">
@@ -667,6 +730,7 @@
                             </div>
                         </div>
                     </div> -->
+
                 </div>
             </div>
         </div>
