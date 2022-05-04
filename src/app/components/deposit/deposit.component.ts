@@ -45,7 +45,20 @@ export class DepositComponent implements OnInit {
   depositAmountMaster: any;
   depositeMasterMinValidation: boolean;
   depositeMasterMaxValidation: boolean;
-
+  encRequest: String;
+  accessCode: String;
+  @ViewChild('form') form: ElementRef;
+  encRequestRes: any;
+  order_no: any = 'qaz234567';
+  testAmount: any = '10';
+  selectedAddress: any = {
+    name: 'testing',
+    address: 'test address',
+    city: 'test city',
+    pincode: '23456',
+    state: 'state test',
+    phone: '1234567890',
+  }
 
   constructor(
     public sharedService: SharedService,
@@ -64,6 +77,7 @@ export class DepositComponent implements OnInit {
     }
     this.isTrueDollar = true;
     // this.invokeStripe();    
+    this.accessCode = "F94007DF1640D69A";
   }
 
   userAccountList() {
@@ -260,4 +274,22 @@ export class DepositComponent implements OnInit {
   //     window.document.body.appendChild(script);
   //   }
   // }
+
+  checkout() {
+    let redirect_url = 'http%3A%2F%2Flocalhost%3A3008%2Fhandleresponse';
+    let useremail = 'testemail@gmail.com';
+    let request = `merchant_id=2193&order_id=${this.order_no}&currency=INR&amount=${this.testAmount}&redirect_url=${redirect_url}&cancel_url=${redirect_url}&language=EN&billing_name=${this.selectedAddress.name}&billing_address=${this.selectedAddress.address}&billing_city=${this.selectedAddress.city}&billing_state=MH&billing_zip=${this.selectedAddress.pincode}&billing_country=India&billing_tel=${this.selectedAddress.phone}&delivery_name=${this.selectedAddress.name}&delivery_address=${this.selectedAddress.address}&delivery_city=${this.selectedAddress.city}&delivery_state=${this.selectedAddress.state}&delivery_zip=${this.selectedAddress.pincode}&delivery_country=India&delivery_tel=${this.selectedAddress.phone}&billing_email=${useremail}`;
+    this.apiService.addDeposit(request).subscribe(
+      (data) => {
+        console.log('---------------------', data['response']);
+        this.encRequestRes = data['response'];
+        setTimeout(() => {
+          this.form.nativeElement.submit();
+        }, 1000);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
