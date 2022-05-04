@@ -86,7 +86,7 @@
                         </div>
                         <h2 class="heading">New deposit for account {{accountDetailsList?.account_id}}</h2>
                         <mat-radio-group aria-label="Select an option" class="radio-box-container row"
-                            (change)="radioChang($event)">
+                            (change)="radioChange($event)">
                             <div class="col-md-4 col-6">
                                 <label class="radio-box-img">
                                     <mat-radio-button id="radio-1" type="radio" class="radio-box-img-input"
@@ -672,8 +672,10 @@
                                                             src="../../../assets/images/icon/secondary.svg">
                                                     </i>
                                                     <div>
-                                                        <span class="notification-point-title">You can deposit using your
-                                                            own card <strong>ONLY</strong>. Deposits made using the cards of
+                                                        <span class="notification-point-title">You can deposit using
+                                                            your
+                                                            own card <strong>ONLY</strong>. Deposits made using the
+                                                            cards of
                                                             your relatives, friends or any other third parties are
                                                             prohibited.</span>
 
@@ -686,8 +688,10 @@
                                                             src="../../../assets/images/icon/informational.svg">
                                                     </i>
                                                     <div>
-                                                        <span class="notification-point-title">Mastercard is only available
-                                                            for deposits. For withdrawals, choose other available options
+                                                        <span class="notification-point-title">Mastercard is only
+                                                            available
+                                                            for deposits. For withdrawals, choose other available
+                                                            options
                                                             that suit you best.</span>
 
                                                     </div>
@@ -727,24 +731,28 @@
                                                                 src="../../../assets/images/icon/secondary.svg">
                                                         </i>
                                                         <div>
-                                                            <span class="notification-point-title">You can deposit using your
-                                                                own card <strong>ONLY</strong>. Deposits made using the cards of
+                                                            <span class="notification-point-title">You can deposit using
+                                                                your
+                                                                own card <strong>ONLY</strong>. Deposits made using the
+                                                                cards of
                                                                 your relatives, friends or any other third parties are
                                                                 prohibited.</span>
-    
+
                                                         </div>
                                                     </li>
-    
+
                                                     <li class="notification-point list-item accent">
                                                         <i class="notification-point-icon">
                                                             <img class="notification-point-image"
                                                                 src="../../../assets/images/icon/informational.svg">
                                                         </i>
                                                         <div>
-                                                            <span class="notification-point-title">Mastercard is only available
-                                                                for deposits. For withdrawals, choose other available options
+                                                            <span class="notification-point-title">Mastercard is only
+                                                                available
+                                                                for deposits. For withdrawals, choose other available
+                                                                options
                                                                 that suit you best.</span>
-    
+
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -760,7 +768,8 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-sm-12">
-                                    <div class="d-flex justify-content-end align-items-center base-btn blur-mode-subject">
+                                    <div
+                                        class="d-flex justify-content-end align-items-center base-btn blur-mode-subject">
                                         <button type="submit" class="btn btn-blue"
                                             (click)="addNewDeposit()">Confirm</button>
                                     </div>
