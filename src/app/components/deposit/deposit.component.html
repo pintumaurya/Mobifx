@@ -705,25 +705,25 @@
                                         </footer>
                                     </section>
                                 </div>
-                                <div class="notice-container passive hidden">
-                                    <mat-accordion>
-                                        <mat-expansion-panel class="wrapper w-auto">
-                                            <mat-expansion-panel-header>
+                                <div class="notice-container passive hidden" id="mat-expansion-panel">
+                                    <!-- <mat-accordion> -->
+                                        <div class="wrapper">
+                                            <!-- <mat-expansion-panel-header> -->
                                                 <header class="head">
-                                                    <div class="icon pulse-warning">
+                                                    <div class="icon pulse-warning" (click)="closeExpandPopup()">
                                                         <i class="icon"></i>
                                                         <u class="water-circle"></u>
                                                         <u class="water-circle"></u>
                                                         <u class="water-circle"></u>
                                                     </div>
-                                                    <h3 class="title">Important</h3>
-                                                    <div class="show-more">
+                                                    <h3 class="title" (click)="closeExpandPopup()">Important</h3>
+                                                    <div class="show-more" (click)="closeExpandPopup()">
                                                         <span class="details-title">view details</span>
                                                     </div>
-                                                    <button class="close"></button>
+                                                    <button (click)="openExpandPopup()" class="close"></button>
                                                 </header>
-                                            </mat-expansion-panel-header>
-                                            <div class="body mt-3">
+                                            <!-- </mat-expansion-panel-header> -->
+                                            <div class="body" style="max-height: 124px;">
                                                 <ul class="list">
                                                     <li class="notification-point list-item accent">
                                                         <i class="notification-point-icon">
@@ -758,13 +758,13 @@
                                                 </ul>
                                             </div>
                                             <footer class="notice-container-footer">
-                                                <button (click)="closeDialog()" type="submit"
+                                                <button (click)="openExpandPopup()" type="submit"
                                                     class="button btn btn-black normal">
                                                     I understand
                                                 </button>
                                             </footer>
-                                        </mat-expansion-panel>
-                                    </mat-accordion>
+                                        </div>
+                                    <!-- </mat-accordion> -->
                                 </div>
                             </div>
                             <div class="row mt-4">

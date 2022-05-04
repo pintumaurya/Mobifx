@@ -913,17 +913,6 @@
     .show-more {
         display: none;
     }
-    &.passive {
-        margin-top: 32px;
-        .head {
-            .pulse-warning {
-                margin-bottom: 0;
-                &::before,&::after,.water-circle,.icon { animation:none ; -webkit-animation:none ; }
-                .water-circle {display: none;}
-                .icon {z-index: 1;}
-            }
-        }
-    }
     
     .close {
         background-image: url('../../../assets/images/icon/close.svg');
@@ -990,7 +979,25 @@
         width: 166px;
         justify-content: center;
     }
+    &.passive {
+        margin-top: 32px;
+        .head {
+            .pulse-warning {
+                &::before,&::after,.water-circle,.icon { animation:none ; -webkit-animation:none ; }
+                .water-circle {display: none;}
+                .icon {z-index: 1;}
+            }
+            
+        }
+        .show-more {
+            display: none;
+        }
+        .close {display: block;}
+        .head {flex-direction: column;.pulse-warning {margin-bottom: 16px;}}
+        .title {margin-left: 0;}
+    }
     &.hidden {
+        
         .show-more {
             align-items: center;
             margin-left: auto;
@@ -1013,28 +1020,34 @@
                 transition: transform .3s,-webkit-transform .3s;
             }
         }
+        .head:hover .show-more {text-decoration: underline;}
+        .head:hover .show-more::after {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+        }
+        
+        .title {
+            margin-top: 0;
+            margin-left: 32px;
+        }
+        .button {
+            display: none;
+        }
         .close {
             display: none;
+        }
+        .body {
+            opacity: 0;
+            max-height: 0!important;
         }
         .head {
             flex-direction: row;
             justify-content: flex-start;
             cursor: pointer;
+            .pulse-warning {margin-bottom: 0px;}
         }
-        .title {
-            margin-top: 0;
-            margin-left: 32px;
-        }
-        .mat-expanded {
-            .show-more {
-                display: none;
-            }
-            .close {display: block;top: -12px;right: -12px;}
-            .head {flex-direction: column;margin-top: 15px;.pulse-warning {margin-bottom: 16px;}}
-            .title {margin-left: 0;}
-        }
-    }
 
+    }
 }
 }
 

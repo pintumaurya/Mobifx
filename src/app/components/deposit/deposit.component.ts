@@ -4,6 +4,8 @@ import { ApiService } from '../../services/api.service';
 import { CommonToasterService } from '../../services/common-toaster.service';
 import { Router } from '@angular/router';
 
+import $ from 'jquery';
+
 @Component({
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
@@ -217,6 +219,17 @@ export class DepositComponent implements OnInit {
       $('#ncontainer').removeAttr('style');
       $('#invoiceDetails').removeClass('blur-mode-subject');
       $('#depositBtn').removeClass('blur-mode-subject');
+    });
+  }
+
+  openExpandPopup() {
+    $(document).ready(function () {
+      $('#mat-expansion-panel').addClass('hidden');
+    });
+  }
+  closeExpandPopup() {
+    $(document).ready(function () {
+      $('#mat-expansion-panel').removeClass('hidden');
     });
   }
 
