@@ -61,6 +61,7 @@ export class DepositComponent implements OnInit {
     state: 'state test',
     phone: '1234567890',
   }
+  isShowNotifyBox: boolean = false;
 
   constructor(
     public sharedService: SharedService,
@@ -134,10 +135,14 @@ export class DepositComponent implements OnInit {
       this.isShowUPI = false;
     }
     if (event.value == 'exactly') {
+      $('#invoiceDetails').removeClass('blur-mode-subject');
+      $('#depositBtn').removeClass('blur-mode-subject');
       this.paymentMethod = event.value;
       this.isShowMasterCard = true;
+      this.isShowNotifyBox = true;
     } else {
       this.isShowMasterCard = false;
+      this.isShowNotifyBox = false;
     }
   }
 

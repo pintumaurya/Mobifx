@@ -648,124 +648,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="notify-holder">
-                                <div id="ncontainer" class="notice-container active show" style="display: flex;">
-                                    <section class="wrapper">
-                                        <header class="head">
-                                            <div class="icon pulse-warning">
-                                                <i class="icon"></i>
-                                                <u class="water-circle"></u>
-                                                <u class="water-circle"></u>
-                                                <u class="water-circle"></u>
-                                            </div>
-                                            <h3 class="title">Important</h3>
-                                            <div class="show-more">
-                                                <span class="details-title">view details</span>
-                                            </div>
-                                            <button (click)="closeDialog()" class="close"></button>
-                                        </header>
-                                        <div class="body">
-                                            <ul class="list">
-                                                <li class="notification-point list-item accent">
-                                                    <i class="notification-point-icon">
-                                                        <img class="notification-point-image"
-                                                            src="../../../assets/images/icon/secondary.svg">
-                                                    </i>
-                                                    <div>
-                                                        <span class="notification-point-title">You can deposit using
-                                                            your
-                                                            own card <strong>ONLY</strong>. Deposits made using the
-                                                            cards of
-                                                            your relatives, friends or any other third parties are
-                                                            prohibited.</span>
-
-                                                    </div>
-                                                </li>
-
-                                                <li class="notification-point list-item accent">
-                                                    <i class="notification-point-icon">
-                                                        <img class="notification-point-image"
-                                                            src="../../../assets/images/icon/informational.svg">
-                                                    </i>
-                                                    <div>
-                                                        <span class="notification-point-title">Mastercard is only
-                                                            available
-                                                            for deposits. For withdrawals, choose other available
-                                                            options
-                                                            that suit you best.</span>
-
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <footer class="notice-container-footer">
-                                            <button (click)="closeDialog()" class="button btn btn-black normal">
-                                                I understand
-                                            </button>
-                                        </footer>
-                                    </section>
-                                </div>
-                                <div class="notice-container passive hidden" id="mat-expansion-panel">
-                                    <!-- <mat-accordion> -->
-                                        <div class="wrapper">
-                                            <!-- <mat-expansion-panel-header> -->
-                                                <header class="head">
-                                                    <div class="icon pulse-warning" (click)="closeExpandPopup()">
-                                                        <i class="icon"></i>
-                                                        <u class="water-circle"></u>
-                                                        <u class="water-circle"></u>
-                                                        <u class="water-circle"></u>
-                                                    </div>
-                                                    <h3 class="title" (click)="closeExpandPopup()">Important</h3>
-                                                    <div class="show-more" (click)="closeExpandPopup()">
-                                                        <span class="details-title">view details</span>
-                                                    </div>
-                                                    <button (click)="openExpandPopup()" class="close"></button>
-                                                </header>
-                                            <!-- </mat-expansion-panel-header> -->
-                                            <div class="body" style="max-height: 124px;">
-                                                <ul class="list">
-                                                    <li class="notification-point list-item accent">
-                                                        <i class="notification-point-icon">
-                                                            <img class="notification-point-image"
-                                                                src="../../../assets/images/icon/secondary.svg">
-                                                        </i>
-                                                        <div>
-                                                            <span class="notification-point-title">You can deposit using
-                                                                your
-                                                                own card <strong>ONLY</strong>. Deposits made using the
-                                                                cards of
-                                                                your relatives, friends or any other third parties are
-                                                                prohibited.</span>
-
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="notification-point list-item accent">
-                                                        <i class="notification-point-icon">
-                                                            <img class="notification-point-image"
-                                                                src="../../../assets/images/icon/informational.svg">
-                                                        </i>
-                                                        <div>
-                                                            <span class="notification-point-title">Mastercard is only
-                                                                available
-                                                                for deposits. For withdrawals, choose other available
-                                                                options
-                                                                that suit you best.</span>
-
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <footer class="notice-container-footer">
-                                                <button (click)="openExpandPopup()" type="submit"
-                                                    class="button btn btn-black normal">
-                                                    I understand
-                                                </button>
-                                            </footer>
-                                        </div>
-                                    <!-- </mat-accordion> -->
-                                </div>
+                            <div *ngIf="isShowNotifyBox">
+                                <app-mastercard-dialog></app-mastercard-dialog>
                             </div>
                             <div class="row mt-4">
                                 <div class="col-sm-12">
@@ -779,7 +663,7 @@
                         </div>
                     </form>
 
-                    <h3>Click Here! to go CCAvenue</h3>
+                    <!-- <h3>Click Here! to go CCAvenue</h3>
                     <button mat-button (click)="checkout()">
                         Checkout Payment Gateway
                     </button>
@@ -788,7 +672,7 @@
                         action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
                         <input type="hidden" id="encRequest" name="encRequest" value="{{ encRequestRes }}" />
                         <input type="hidden" name="access_code" id="access_code" value="{{ accessCode }}" />
-                    </form>
+                    </form> -->
 
                     <!-- <form action="https://pay.skrill.com" method="post" target="_blank">
                         <input type="hidden" name="pay_to_email" mailto:value="app.engear@gmail.com">

@@ -33,6 +33,7 @@ import { PhoneChangeComponent } from './components/settings/phone-change/phone-c
 import { AccountLogComponent } from './components/settings/account-log/account-log.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { DepositComponent } from './components/deposit/deposit.component';
+import { MastercardDialogComponent } from './components/payment-method-dialog/mastercard-dialog/mastercard-dialog.component';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkTreeModule } from '@angular/cdk/tree';
@@ -104,7 +105,8 @@ import { SwiperModule } from "swiper/angular";
     PhoneChangeComponent,
     AccountLogComponent,
     ChatBoxComponent,
-    DepositComponent
+    DepositComponent,
+    MastercardDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
