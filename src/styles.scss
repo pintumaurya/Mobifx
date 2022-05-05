@@ -29,7 +29,10 @@ a:hover {
     color: #c99c3b;
     text-decoration: none;
 }
-.btn-check:focus + .btn, .btn:focus {box-shadow: none !important;}
+.btn-check:focus + .btn,
+.btn:focus {
+    box-shadow: none !important;
+}
 .main-box {
     margin-top: 44px;
     padding: 35px 35px;
@@ -520,4 +523,13 @@ tr:nth-child(2n) td.mat-cell {
 .panel .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: transparent;
 }
-.notice-container .mat-expansion-indicator {display: none;}
+.notice-container .mat-expansion-indicator {
+    display: none;
+}
+.radio-box-img .mat-radio-label {
+    height: 100%;
+}
+.radio-box-img .mat-radio-container {
+    width: 100% !important;
+    height: 100% !important;
+}

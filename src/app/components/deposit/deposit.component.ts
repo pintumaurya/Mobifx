@@ -3,7 +3,6 @@ import { SharedService } from '../../services/shared.service';
 import { ApiService } from '../../services/api.service';
 import { CommonToasterService } from '../../services/common-toaster.service';
 import { Router } from '@angular/router';
-
 import $ from 'jquery';
 
 @Component({
@@ -22,7 +21,6 @@ export class DepositComponent implements OnInit {
   showSpinner: boolean = false;
   dataSource: any;
   id: any;
-  isActive: boolean = false;
   isShowSkrill: boolean = false;
   depositAmount: any;
   newDeposit: any;
@@ -62,7 +60,6 @@ export class DepositComponent implements OnInit {
     phone: '1234567890',
   }
   isShowNotifyBox: boolean = false;
-
   constructor(
     public sharedService: SharedService,
     public apiService: ApiService,
@@ -114,11 +111,10 @@ export class DepositComponent implements OnInit {
   }
 
   radioChange(event: any) {
-    // console.log(event);
+    console.log(event.value);
     this.selectedPaymentMethod = event.source._checked;
     if (event.source._checked == true) {
       this.paymentMethodValidation = false;
-      this.isActive = true;
     }
     if (event.value == 'mb') {
       this.paymentMethod = event.value;
@@ -135,8 +131,8 @@ export class DepositComponent implements OnInit {
       this.isShowUPI = false;
     }
     if (event.value == 'exactly') {
-      $('#invoiceDetails').removeClass('blur-mode-subject');
-      $('#depositBtn').removeClass('blur-mode-subject');
+      $('#invoiceDetails').addClass('blur-mode-subject');
+      $('#depositBtn').addClass('blur-mode-subject');
       this.paymentMethod = event.value;
       this.isShowMasterCard = true;
       this.isShowNotifyBox = true;
@@ -216,15 +212,6 @@ export class DepositComponent implements OnInit {
     } else {
       this.paymentMethodValidation = true;
     }
-  }
-
-  closeDialog() {
-    $(document).ready(function () {
-      $('#ncontainer').removeClass('show');
-      $('#ncontainer').removeAttr('style');
-      $('#invoiceDetails').removeClass('blur-mode-subject');
-      $('#depositBtn').removeClass('blur-mode-subject');
-    });
   }
 
   openExpandPopup() {

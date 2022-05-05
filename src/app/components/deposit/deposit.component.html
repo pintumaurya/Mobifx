@@ -88,27 +88,24 @@
                         <mat-radio-group aria-label="Select an option" class="radio-box-container row"
                             (change)="radioChange($event)">
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-1" type="radio" class="radio-box-img-input"
-                                        value="incs4">
+                                <label class="radio-box-img" for="radio_1" [ngClass]="{'active': radio_1.checked}">
+                                    <mat-radio-button #radio_1 type="radio" class="radio-box-img-input" value="incs4">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/incs.svg"
                                         class="radio-box-img-ico" />
                                 </label>
                             </div>
-                            <!-- <label class="radio-box-img"> -->
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-3" type="radio" class="radio-box-img-input" value="btc">
+                                <label class="radio-box-img" for="radio_2" [ngClass]="{'active': radio_2.checked}">
+                                    <mat-radio-button #radio_2 type="radio" class="radio-box-img-input" value="btc">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/btc.svg"
                                         class="radio-box-img-ico" />
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-4" type="radio" class="radio-box-img-input"
-                                        value="doge">
+                                <label class="radio-box-img" for="radio_3" [ngClass]="{'active': radio_3.checked}">
+                                    <mat-radio-button #radio_3 type="radio" class="radio-box-img-input" value="doge">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/doge.svg"
                                         class="radio-box-img-ico" />
@@ -116,9 +113,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-5" type="radio" class="radio-box-img-input"
-                                        value="binpay">
+                                <label class="radio-box-img" for="radio_4" [ngClass]="{'active': radio_4.checked}">
+                                    <mat-radio-button #radio_4 type="radio" class="radio-box-img-input" value="binpay">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/binpay.svg"
                                         class="radio-box-img-ico" />
@@ -126,8 +122,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-6" type="radio" class="radio-box-img-input" value="ltc">
+                                <label class="radio-box-img" for="radio_5" [ngClass]="{'active': radio_5.checked}">
+                                    <mat-radio-button #radio_5 type="radio" class="radio-box-img-input" value="ltc">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/ltc.svg"
                                         class="radio-box-img-ico" />
@@ -135,14 +131,15 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-7" type="radio" class="radio-box-img-input" value="nt">
+                                <label class="radio-box-img" for="radio_6" [ngClass]="{'active': radio_6.checked}">
+                                    <mat-radio-button #radio_6 type="radio" class="radio-box-img-input" value="nt">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/nt.svg" class="radio-box-img-ico" />
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img active" data-auto-event-category="UXclick"
+                                <label class="radio-box-img" for="radio_7" [ngClass]="{'active': radio_7.checked}"
+                                    data-auto-event-category="UXclick"
                                     data-auto-event-action="Block payment option click" data-auto-event-label="mb"
                                     data-payment-type="instant" data-payment-paysystem-code="mb"
                                     data-payment-name="Skrill"
@@ -153,16 +150,15 @@
                                     data-payment-hide-different-bank-notice="" data-payment-transfer-types="null"
                                     data-user-data="{&quot;needShowNotification&quot;:false}"
                                     data-paysystem-notifications="[]">
-                                    <mat-radio-button type="radio" name="payment" id="payment-mb" value="mb"
+                                    <mat-radio-button #radio_7 type="radio" name="payment" value="mb"
                                         class="radio-box-img-input">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/mb.svg" class="radio-box-img-ico" />
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-9" type="radio" class="radio-box-img-input"
-                                        value="usdte">
+                                <label class="radio-box-img" for="radio_8" [ngClass]="{'active': radio_8.checked}">
+                                    <mat-radio-button #radio_8 type="radio" class="radio-box-img-input" value="usdte">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/usdte.svg"
                                         class="radio-box-img-ico" />
@@ -170,9 +166,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-10" type="radio" class="radio-box-img-input"
-                                        value="usdtt">
+                                <label class="radio-box-img" for="radio_9" [ngClass]="{'active': radio_9.checked}">
+                                    <mat-radio-button #radio_9 type="radio" class="radio-box-img-input" value="usdtt">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/usdtt.svg"
                                         class="radio-box-img-ico" />
@@ -180,8 +175,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-11" type="radio" class="radio-box-img-input"
+                                <label class="radio-box-img" for="radio_10" [ngClass]="{'active': radio_10.checked}">
+                                    <mat-radio-button #radio_10 type="radio" class="radio-box-img-input"
                                         value="exactly">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/mastercard.png"
@@ -189,8 +184,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
+                                <label class="radio-box-img" for="radio_11" [ngClass]="{'active': radio_11.checked}">
+                                    <mat-radio-button #radio_11 type="radio" class="radio-box-img-input"
                                         value="echp_upi">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/csh_l_upi.svg"
@@ -198,8 +193,8 @@
                                 </label>
                             </div>
                             <div class="col-md-4 col-6">
-                                <label class="radio-box-img">
-                                    <mat-radio-button id="radio-12" type="radio" class="radio-box-img-input"
+                                <label class="radio-box-img" for="radio_12" [ngClass]="{'active': radio_12.checked}">
+                                    <mat-radio-button #radio_12 type="radio" class="radio-box-img-input"
                                         value="csh_l_upi">
                                     </mat-radio-button>
                                     <img src="../../../assets/images/payment-option/echp_upi.svg"
@@ -582,7 +577,7 @@
 
                         <!-- popup -->
                         <div class="blur-mode invoice-blur">
-                            <div id="invoiceDetails" class="invoice-info-details blur-mode-subject">
+                            <div id="invoiceDetails" class="invoice-info-details">
                                 <div class="form-t01 js-confirmation-form">
                                     <div class="blur-mode invoice-blur">
                                         <div class="invoice-info">
@@ -653,8 +648,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-sm-12">
-                                    <div id="depositBtn"
-                                        class="d-flex justify-content-end align-items-center base-btn blur-mode-subject">
+                                    <div id="depositBtn" class="d-flex justify-content-end align-items-center base-btn">
                                         <button type="submit" class="btn btn-blue"
                                             (click)="addNewDeposit()">Confirm</button>
                                     </div>
