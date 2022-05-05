@@ -656,17 +656,19 @@
                             </div>
                         </div>
                     </form>
+                    
+                    <h3>Click Here! to go CCAvenue</h3>
+                    <ng-container>
+                        <button mat-button (click)="onPost()">
+                            Checkout Payment Gateway
+                        </button>
+                    </ng-container>
 
-                    <!-- <h3>Click Here! to go CCAvenue</h3>
-                    <button mat-button (click)="checkout()">
-                        Checkout Payment Gateway
-                    </button>
-
-                    <form #form ngNoForm id="nonseamless" method="post" name="redirect"
-                        action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
+                    <form #form ngNoForm method="post" name="form"
+                        action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction" target="_blank">
                         <input type="hidden" id="encRequest" name="encRequest" value="{{ encRequestRes }}" />
                         <input type="hidden" name="access_code" id="access_code" value="{{ accessCode }}" />
-                    </form> -->
+                    </form>
 
                     <!-- <form action="https://pay.skrill.com" method="post" target="_blank">
                         <input type="hidden" name="pay_to_email" mailto:value="app.engear@gmail.com">

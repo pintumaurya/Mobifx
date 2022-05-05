@@ -47,7 +47,19 @@ export class DepositComponent implements OnInit {
   depositeMasterMaxValidation: boolean;
   encRequest: String;
   accessCode: String;
+  posting = false;
+
   @ViewChild('form') form: ElementRef;
+
+  onPost(event): void {
+    this.posting = true;
+  }
+  
+  ngAfterViewChecked() {
+    if (this.posting && this.form) {
+      this.form.nativeElement.submit();
+    }
+  }
   encRequestRes: any;
   order_no: any = 'qaz234567';
   testAmount: any = '10';
@@ -70,6 +82,7 @@ export class DepositComponent implements OnInit {
     this.sharedService.isHeader = false;
   }
 
+ 
   ngOnInit(): void {
     this.userAccountList();
     if (this.id == null) {
