@@ -567,10 +567,10 @@
         </div>
     </div>
 
-    <div class="container">
+    <div *ngIf="isShowconfirmation" class="container">
         <div class="row align-items-center main-box justify-content-center w-100 mx-0 mt-4">
             <div class="col-xl-12 col-md-12 col-lg-12 px-0">
-                <div *ngIf="isShowconfirmation" class="deposit">
+                <div class="deposit">
                     <h2 style="margin-bottom: 24px;">Deposit confirmation</h2>
                     <form class="form-wrapper-inner" action="https://www.skrill.com/app/pay.pl?action=prepare"
                         class="form-t01 js-confirmation-form" method="POST">
@@ -692,10 +692,10 @@
                     </div> -->
 
                 </div>
-                <div *ngIf="isShowBTC" class="deposit-new-flow">
-                    <app-bitcoin-dialog></app-bitcoin-dialog>
-                </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="isShowBTC" class="container">
+        <app-bitcoin-dialog></app-bitcoin-dialog>
     </div>
 </main>
