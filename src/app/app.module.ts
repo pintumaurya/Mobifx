@@ -34,6 +34,7 @@ import { AccountLogComponent } from './components/settings/account-log/account-l
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { MastercardDialogComponent } from './components/payment-method-dialog/mastercard-dialog/mastercard-dialog.component';
+import { BitcoinDialogComponent } from './components/payment-method-dialog/bitcoin-dialog/bitcoin-dialog.component';
 import { AuthInterceptor } from './components/interceptors/auth.interceptor';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkTreeModule } from '@angular/cdk/tree';
@@ -106,7 +107,8 @@ import { SwiperModule } from "swiper/angular";
     AccountLogComponent,
     ChatBoxComponent,
     DepositComponent,
-    MastercardDialogComponent
+    MastercardDialogComponent,
+    BitcoinDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

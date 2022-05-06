@@ -382,6 +382,14 @@ tr:nth-child(2n) td.mat-cell {
         color: #fff;
     }
 }
+.btn-border-blue {
+    border: 1px solid #c99c3b;
+    color: #c99c3b;
+    &:hover {
+        background: #c99c3b;
+        color: #fff;
+    }
+}
 .btn-black {
     background: #f2f2f2;
     border-color: #f2f2f2;

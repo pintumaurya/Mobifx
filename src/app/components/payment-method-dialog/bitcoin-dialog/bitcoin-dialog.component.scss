@@ -1,0 +1,191 @@
+// bitcoin css
+.base-sheet {
+    padding: 0;
+    color: #1e222c;
+    background-color: #fff;
+    line-height: 1.4;
+    font-weight: 400;
+    letter-spacing: .5px;
+    font-size: 14px;
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
+    .notification {
+        width: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #1e222c;
+        ul {
+            padding: 0;
+            margin: 0;
+
+            .item {
+                display: flex;
+                align-items: flex-start;
+                margin-top: 8px;
+                margin-bottom: 10px;
+                &:first-child {
+                    margin-top: 0;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .ico {
+                    margin-right: 16px;
+                }
+                .caption {
+                    margin-top: 3px;
+                    display: block;
+                }
+            }
+        }
+        .additional {
+
+            .additional-text {
+                color: #848b9d;
+                margin-top: 8px;
+                display: none;
+            }
+            &.show .additional-text {display: block;}
+            .show-more {
+                display: inline-block;
+                margin-top: 8px;
+                cursor: pointer;
+                font-weight: 500;
+                font-size: 12px;
+                text-transform: uppercase;
+
+                &::after {
+                    content: '';
+                    background-image: url('../../../../assets/images/icon/down.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 12px;
+                    height: 8px;
+                    position: relative;
+                    top: -1px;
+                    margin-left: 8px;
+                    display: inline-block;
+                    -webkit-transform: rotate(0);
+                    transform: rotate(0);
+                    transition: -webkit-transform 150ms;
+                    transition: transform 150ms;
+                    transition: transform 150ms,-webkit-transform 150ms;
+                    -moz-transform: rotate(0);
+                    -ms-transform: rotate(0);
+                    -o-transform: rotate(0);
+                    -webkit-transition: transform 150ms,-webkit-transform 150ms;
+                    -moz-transition: transform 150ms,-webkit-transform 150ms;
+                    -ms-transition: transform 150ms,-webkit-transform 150ms;
+                    -o-transition: transform 150ms,-webkit-transform 150ms;
+                }
+            }
+            &.show .show-more::after {
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+            }
+        }
+    }
+    .base-sheet-row:not(:first-child) {
+        border-top: 1px solid #e9ebf1;
+    }  
+    .base-sheet-row {
+        padding: 24px;
+
+        p {font-size: 16px;margin-bottom: 8px;}
+        b,strong {font-weight: 500;}
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            margin: -4px;
+
+            .btn {
+                margin: 4px;
+                max-width: 220px;
+                text-transform: uppercase;
+                @media (min-width: 1025px) {
+                    font-size: 16px;
+                    padding-top: 16px;
+                    padding-bottom: 16px;
+                }
+            }
+        }
+        .data-list {
+            display: flex;
+            flex-flow: row wrap;
+            font-size: 14px;
+            line-height: 1.2;
+            font-weight: 400;
+            @media (min-width: 768px) {
+                font-size: 16px;
+            }
+            .item {
+                margin-top: 16px;
+                &:first-child, &:nth-child(2) {
+                    margin-top: 0;
+                }
+                &.head {
+                    flex-basis: 43%;
+                    padding-right: 16px;
+                    color: #848b9d;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-weight: 400;
+                    @media (min-width: 768px) {
+                        flex-basis: 22%;
+                    }
+                }
+                &.description {
+                    flex-basis: 57%;
+                    flex-grow: 1;
+                    font-weight: 500;
+                    letter-spacing: .5px;
+                    color: #1e222c;
+                    word-break: break-word;
+                    @media (min-width: 768px) {
+                        flex-basis: 78%;
+                    }
+                }
+            }
+        }
+        .copy-link-btn {
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-top: -4px;
+            height: auto;
+            display: inline-flex;
+            background: 0 0;
+            border-color: transparent;
+            color: #666;
+            box-shadow: none;
+            position: relative;
+            overflow: visible!important;
+            letter-spacing: .17px;
+            font-weight: 400;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .payment-info-block {
+            margin: 8px 0;
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .deposit-bitcoin-address-title {
+            margin-bottom: 8px;
+        }
+        .deposit-bitcoin-address.classic,.grey {
+            color: #848b9d;
+        }
+        .payment-info-block-text-arrow {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+    }  
+}
