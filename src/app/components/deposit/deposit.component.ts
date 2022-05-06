@@ -47,19 +47,12 @@ export class DepositComponent implements OnInit {
   depositeMasterMaxValidation: boolean;
   encRequest: String;
   accessCode: String;
-  posting = false;
+  // posting = false;
+  isShowBTC: boolean = false;
+  isShowContinueBtn: boolean = false;
 
   @ViewChild('form') form: ElementRef;
 
-  onPost(event): void {
-    this.posting = true;
-  }
-  
-  ngAfterViewChecked() {
-    if (this.posting && this.form) {
-      this.form.nativeElement.submit();
-    }
-  }
   encRequestRes: any;
   order_no: any = 'qaz234567';
   testAmount: any = '10';
@@ -82,7 +75,7 @@ export class DepositComponent implements OnInit {
     this.sharedService.isHeader = false;
   }
 
- 
+
   ngOnInit(): void {
     this.userAccountList();
     if (this.id == null) {
@@ -130,16 +123,24 @@ export class DepositComponent implements OnInit {
       this.paymentMethodValidation = false;
     }
     if (event.value == 'mb') {
+      $('#invoiceDetails').removeClass('blur-mode-subject');
+      $('#depositBtn').removeClass('blur-mode-subject');
       this.paymentMethod = event.value;
       this.isShowSkrill = true;
+      this.isShowContinueBtn = true;
+      this.isShowconfirmation = false;
     } else {
       this.isShowSkrill = false;
     }
     if (event.value == "echp_upi") {
+      $('#invoiceDetails').removeClass('blur-mode-subject');
+      $('#depositBtn').removeClass('blur-mode-subject');
       this.paymentMethod = event.value;
       this.isShowUPI = true;
       this.currencySign = "₹";
       this.depositAmount = 3000.00;
+      this.isShowContinueBtn = true;
+      this.isShowconfirmation = false;
     } else {
       this.isShowUPI = false;
     }
@@ -149,9 +150,18 @@ export class DepositComponent implements OnInit {
       this.paymentMethod = event.value;
       this.isShowMasterCard = true;
       this.isShowNotifyBox = true;
+      this.isShowContinueBtn = true;
+      this.isShowconfirmation = false;
     } else {
       this.isShowMasterCard = false;
       this.isShowNotifyBox = false;
+    }
+    if (event.value == "btc") {
+      this.isShowContinueBtn = false;
+      this.isShowconfirmation = false;
+      this.isShowBTC = true;
+    } else {
+      this.isShowBTC = false;
     }
   }
 
@@ -223,6 +233,7 @@ export class DepositComponent implements OnInit {
     if (this.selectedPaymentMethod == true) {
       this.isShowconfirmation = true;
     } else {
+      this.isShowconfirmation = false;
       this.paymentMethodValidation = true;
     }
   }
@@ -296,6 +307,17 @@ export class DepositComponent implements OnInit {
   //       });
   //     };
   //     window.document.body.appendChild(script);
+  //   }
+  // }
+
+  onPost(): void {
+    // this.posting = true;
+    this.form.nativeElement.submit();
+  }
+
+  // ngAfterViewChecked() {
+  //   if (this.posting && this.form) {
+  //     this.form.nativeElement.submit();
   //   }
   // }
 

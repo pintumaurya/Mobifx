@@ -1,98 +1,114 @@
 <form class="base-sheet deposit-result-page-block styled-text-v2">
     <div class="base-sheet-row px-0">
-        <h2 class="title">Proceed to depositing via Bitcoin (BTC)?</h2> 
-        <h3 class="title">Important to know</h3> 
+        <h2 class="title">Proceed to depositing via Bitcoin (BTC)?</h2>
+        <h3 class="title">Important to know</h3>
         <div class="notification">
             <ul>
                 <li class="item">
-                    <img src="../../../../assets/images/icon/orange-info.svg" class="ico"> 
-                    <span class="caption"><strong>We only accept Bitcoin (BTC).</strong> Bitcoin (BTC) is a stand-alone payment instrument and is not associated with Bitcoin Cash or any other fork of this cryptocurrency.</span>
+                    <img src="../../../../assets/images/icon/orange-info.svg" class="ico">
+                    <span class="caption"><strong>We only accept Bitcoin (BTC).</strong> Bitcoin (BTC) is a stand-alone
+                        payment instrument and is not associated with Bitcoin Cash or any other fork of this
+                        cryptocurrency.</span>
                 </li>
                 <li class="item">
-                    <img src="../../../../assets/images/icon/orange-info.svg" class="ico"> 
+                    <img src="../../../../assets/images/icon/orange-info.svg" class="ico">
                     <div>
-                        <span class="caption">The total of all your Bitcoin deposits cannot exceed <strong>$20,000.00</strong> a day.</span> 
+                        <span class="caption">The total of all your Bitcoin deposits cannot exceed
+                            <strong>$20,000.00</strong> a day.</span>
                         <div class="additional" id="additional">
                             <span class="additional-text">
-                                If you do exceed the limit, all your Bitcoin deposit for the last 24 hours will be returned back, excluding the transfer fee. Transferring and trading in your account will be suspended until then. This may take up to three days.
-                            </span> 
+                                If you do exceed the limit, all your Bitcoin deposit for the last 24 hours will be
+                                returned back, excluding the transfer fee. Transferring and trading in your account will
+                                be suspended until then. This may take up to three days.
+                            </span>
                             <a class="show-more show-more-detail" (click)="openShowdetail()">More details</a>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-    </div> 
+    </div>
     <div class="base-sheet-row pb-0 px-0">
         <div class="buttons-container">
-            <button type="reset" class="btn btn-border-blue border-0">Choose another method</button> 
+            <button type="reset" class="btn btn-border-blue border-0">Choose another method</button>
             <button type="submit" class="btn btn-blue" (click)="btc()">Proceed with BTC</button>
         </div>
     </div>
-</form> 
-<section ngIf="isShowQrcode" class="base-sheet styled-text-v2">
+</form>
+
+<div *ngIf="isShowQrcode" class="base-sheet styled-text-v2">
     <div class="base-sheet-row px-0">
-        <h2 class="title">Bitcoin addresses for your deposit</h2> 
-        <h3 class="title">SegWit address format. Low commission</h3> 
-        <p>To make a deposit, scan the <b>QR code</b> with your mobile phone or copy the <b>Bitcoin address</b> below into your Bitcoin Wallet app. Next, specify the deposit amount right in your Bitcoin Wallet app.</p>
+        <h2 class="title">Bitcoin addresses for your deposit</h2>
+        <h3 class="title">SegWit address format. Low commission</h3>
+        <p>To make a deposit, scan the <b>QR code</b> with your mobile phone or copy the <b>Bitcoin address</b> below
+            into your Bitcoin Wallet app. Next, specify the deposit amount right in your Bitcoin Wallet app.</p>
     </div>
     <div class="base-sheet-row border-0 px-0">
         <dl class="data-list">
-            <dt class="item head">Minimum amount</dt> 
-            <dd class="item description">Ƀ0.00037</dd> 
-            <dt class="item head">Exchange rate</dt> 
-            <dd class="item description">Ƀ1.00 = $36,088.07</dd> 
-            <dt class="item head">Address, SegWit</dt> 
+            <dt class="item head">Minimum amount</dt>
+            <dd class="item description">Ƀ0.00037</dd>
+            <dt class="item head">Exchange rate</dt>
+            <dd class="item description">Ƀ1.00 = $36,088.07</dd>
+            <dt class="item head">Address, SegWit</dt>
             <dd class="item description">
                 <div class="fl-grid no-gap">
                     <div class="d-flex">
                         <div class="fl-grid-element">
                             <div class="fl-grid-content w-100">
-                                <a target="_blank" href="#" class="deposit-bitcoin-address">bc1q3jpfhunats550ccep4q575dayzh0n5yv8ec4dv</a>
+                                <a target="_blank" href="#"
+                                    class="deposit-bitcoin-address">bc1q3jpfhunats550ccep4q575dayzh0n5yv8ec4dv</a>
                             </div>
-                        </div> 
+                        </div>
                         <div class="fl-grid-element">
                             <div class="fl-grid-content w-100">
                                 <div class="v-popover">
                                     <div class="trigger" style="display: inline-block;">
                                         <button class="copy-link-btn btn">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="#858585">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2a2 2 0 012 2v12a2 2 0 01-2 2h-8a2 2 0 01-2-2V4a2 2 0 012-2h8zm0 2h-8v12h8V4z"></path> 
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 20h10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2v14z"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M18 2a2 2 0 012 2v12a2 2 0 01-2 2h-8a2 2 0 01-2-2V4a2 2 0 012-2h8zm0 2h-8v12h8V4z">
+                                                </path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M6 20h10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2v14z"></path>
                                             </svg>
                                         </button>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </dd>
-        </dl> 
+        </dl>
         <div class="payment-info-block block-qr">
             <a target="_blank" href="#">
-                <img src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=bitcoin:bc1q3jpfhunats550ccep4q575dayzh0n5yv8ec4dv" class="payment-info-block-qr-img">
+                <img src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=bitcoin:bc1q3jpfhunats550ccep4q575dayzh0n5yv8ec4dv"
+                    class="payment-info-block-qr-img">
             </a>
-        </div> 
-        <h2 class="title deposit-bitcoin-address-title">P2PKH address format. If SegWit doesn't work</h2> 
+        </div>
+        <h2 class="title deposit-bitcoin-address-title">P2PKH address format. If SegWit doesn't work</h2>
         <div class="fl-grid _no-gap">
             <div class="d-flex">
                 <div class="fl-grid-element">
                     <div class="fl-grid-content">
-                        <a target="_blank" href="#" class="deposit-bitcoin-address classic">1Dox4jwifSyTHTRDHSdfnZ2Sikcr24pdW8</a>
+                        <a target="_blank" href="#"
+                            class="deposit-bitcoin-address classic">1Dox4jwifSyTHTRDHSdfnZ2Sikcr24pdW8</a>
                     </div>
-                </div> 
+                </div>
                 <div class="fl-grid-element">
                     <div class="fl-grid-content">
                         <div class="v-popover">
                             <div class="trigger" style="display: inline-block;">
                                 <button class="btn copy-link-btn">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="#858585">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 2a2 2 0 012 2v12a2 2 0 01-2 2h-8a2 2 0 01-2-2V4a2 2 0 012-2h8zm0 2h-8v12h8V4z"></path> 
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 20h10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2v14z"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18 2a2 2 0 012 2v12a2 2 0 01-2 2h-8a2 2 0 01-2-2V4a2 2 0 012-2h8zm0 2h-8v12h8V4z">
+                                        </path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6 20h10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2v14z"></path>
                                     </svg>
                                 </button>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,11 +116,11 @@
         </div>
     </div>
     <div class="base-sheet-row border-0 px-0">
-        <p class="payment-info-block-text grey">Not in the mood to deposit with Bitcoin? 
+        <p class="payment-info-block-text grey">Not in the mood to deposit with Bitcoin?
             <span place="other_payment_methods_link_1">
-                <span class="payment-info-block-text-arrow">→</span> 
+                <span class="payment-info-block-text-arrow">→</span>
                 <a href="#">See other payment methods</a>
             </span>
         </p>
     </div>
-</section>
+</div>

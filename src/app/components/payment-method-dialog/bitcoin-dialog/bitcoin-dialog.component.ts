@@ -18,15 +18,14 @@ export class BitcoinDialogComponent implements OnInit {
   openShowdetail() {
     $(document).ready(function () {
       $('#additional').toggleClass('show');
-      $(".show-more-detail").click(function(){
+      $(".show-more-detail").click(function () {
         $(this).text($(this).text() == 'More details' ? 'Hide details' : 'More details');
-    });
+      });
     });
   }
 
   btc() {
-    this.isShowQrcode = true; 
+    this.isShowQrcode = true;
   }
-
 
 }
