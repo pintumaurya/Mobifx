@@ -9,6 +9,7 @@ import $ from 'jquery';
 })
 export class BitcoinDialogComponent implements OnInit {
 
+  isShowQrcode: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -22,5 +23,10 @@ export class BitcoinDialogComponent implements OnInit {
     });
     });
   }
+
+  btc() {
+    this.isShowQrcode = true; 
+  }
+
 
 }
